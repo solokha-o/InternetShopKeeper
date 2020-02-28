@@ -22,8 +22,10 @@ class AddItemViewController: UIViewController {
     }
     
     @IBAction func AddButtonAction(_ sender: UIButton) {
+        print("Press ADD.")
     }
     @IBAction func CancelButtonAction(_ sender: UIButton) {
+        print("Press CANCEL.")
         dismiss(animated: true, completion: nil)
     }
     
