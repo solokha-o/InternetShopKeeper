@@ -10,6 +10,9 @@ import UIKit
 
 class AddItemViewController: UIViewController {
 
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +23,11 @@ class AddItemViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func imageButtonAction(_ sender: UIButton) {
+        
+    }
+    
+    
     
     @IBAction func AddButtonAction(_ sender: UIButton) {
         print("Press ADD.")
