@@ -12,6 +12,12 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
    
     
     @IBOutlet weak var addImage: UIImageView!
+    
+    @IBOutlet weak var titleItemTextField: UITextField!
+    @IBOutlet weak var priceItemTextField: UITextField!
+    @IBOutlet weak var amountItemTextField: UITextField!
+    @IBOutlet weak var detailsItemTextfield: UITextField!
+    
     var imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -47,7 +53,9 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
 //        }
         
         self.present(alert, animated: true, completion: nil)
-        sender.isHidden = true
+        if !sender.isSelected {
+            sender.isHidden = true
+        }
     }
     func openCamera(){
         if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)){
@@ -73,6 +81,20 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBAction func AddButtonAction(_ sender: UIButton) {
         print("Press ADD.")
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let newItem = Item(context: context)
+        newItem.titleItem = titleItemTextField.text
+        newItem.priceItem = priceItemTextField.text
+        newItem.amountItem = amountItemTextField.text
+        newItem.detailsItem = detailsItemTextfield.text
+        //newItem.imageItem = addImage.image? as UIData
+        do {
+            try context.save()
+        } catch let error {
+            print("Не удалось сохранить из-за ошибки \(error).")
+        }
+        dismiss(animated: true, completion: nil)
     }
     @IBAction func CancelButtonAction(_ sender: UIButton) {
         print("Press CANCEL.")
