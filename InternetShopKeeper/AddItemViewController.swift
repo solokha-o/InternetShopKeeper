@@ -30,36 +30,37 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func addImageButtonAction(_ sender: UIButton) {
+    //TODO - add animate imageView and
+    // press on screen to add image of item
+    
+    @IBAction func addImageAction(_ sender: UITapGestureRecognizer) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Зробити фото", style: .default, handler: { _ in
-            self.openCamera()
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Вибрати з галереї", style: .default, handler: { _ in
-            self.openGallary()
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Скасувати", style: .cancel, handler: nil))
-        
-        //If you want work actionsheet on ipad then you have to use popoverPresentationController to present the actionsheet, otherwise app will crash in iPad
-//        switch UIDevice.current.userInterfaceIdiom {
-//        case .pad:
-//            alert.popoverPresentationController?.sourceView = sender
-//            alert.popoverPresentationController?.sourceRect = sender.bounds
-//            alert.popoverPresentationController?.permittedArrowDirections = .up
-//        default:
-//            break
-//        }
-        
-        self.present(alert, animated: true, completion: nil)
-        if !sender.isSelected {
-            sender.isHidden = true
-        }
+                alert.addAction(UIAlertAction(title: "Зробити фото", style: .default, handler: { _ in
+                    self.openCamera()
+                }))
+                
+                alert.addAction(UIAlertAction(title: "Вибрати з галереї", style: .default, handler: { _ in
+                    self.openGallary()
+                }))
+                
+                alert.addAction(UIAlertAction(title: "Скасувати", style: .cancel, handler: nil))
+                
+                //If you want work actionsheet on ipad then you have to use popoverPresentationController to present the actionsheet, otherwise app will crash in iPad
+        //        switch UIDevice.current.userInterfaceIdiom {
+        //        case .pad:
+        //            alert.popoverPresentationController?.sourceView = sender
+        //            alert.popoverPresentationController?.sourceRect = sender.bounds
+        //            alert.popoverPresentationController?.permittedArrowDirections = .up
+        //        default:
+        //            break
+        //        }
+                self.present(alert, animated: true, completion: nil)
+
     }
+    
     func openCamera(){
-        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)){
-            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera)){
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
             imagePicker.allowsEditing = true
             imagePicker.delegate = self
             self.present(imagePicker, animated: true, completion: nil)
@@ -72,15 +73,17 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     func openGallary(){
-        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
         self.present(imagePicker, animated: true, completion: nil)
     }
    
-    
+    // press button ADD
     @IBAction func AddButtonAction(_ sender: UIButton) {
         print("Press ADD.")
+        
+        //save all information of item to coreData
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let newItem = Item(context: context)
@@ -88,7 +91,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         newItem.priceItem = priceItemTextField.text
         newItem.amountItem = amountItemTextField.text
         newItem.detailsItem = detailsItemTextfield.text
-        //newItem.imageItem = addImage.image? as UIData
+        newItem.imageItem = addImage.image?.pngData()
         do {
             try context.save()
         } catch let error {
@@ -96,25 +99,20 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         dismiss(animated: true, completion: nil)
     }
+    // press button CANCEL
     @IBAction func CancelButtonAction(_ sender: UIButton) {
         print("Press CANCEL.")
         dismiss(animated: true, completion: nil)
     }
     
 
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        /*
-         Get the image from the info dictionary.
-         If no need to edit the photo, use `UIImagePickerControllerOriginalImage`
-         instead of `UIImagePickerControllerEditedImage`
-         */
-        if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage{
-            self.addImage.image = editedImage
-        }
+    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        //Dismiss the UIImagePicker after selection
-        picker.dismiss(animated: true, completion: nil)
-    }
+        imagePicker.dismiss(animated: true, completion: nil)
+
+        guard let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
+        addImage.image = editedImage
+            }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.isNavigationBarHidden = false
