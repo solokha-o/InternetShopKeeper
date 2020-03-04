@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
    

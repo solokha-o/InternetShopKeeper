@@ -43,7 +43,7 @@
             </objects>
             <point key="canvasLocation" x="-2494" y="-770"/>
         </scene>
-        <!--CategoryTableViewController-->
+        <!--Категорії товару-->
         <scene sceneID="TBW-Mg-kRE">
             <objects>
                 <tableViewController id="GmD-03-zXi" sceneMemberID="viewController">
@@ -67,7 +67,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Категорії" image="Category" selectedImage="Category" id="GIx-8r-Z0S"/>
-                    <navigationItem key="navigationItem" title="CategoryTableViewController" id="Jcw-v5-0Yh"/>
+                    <navigationItem key="navigationItem" title="Категорії товару" id="Jcw-v5-0Yh"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XuQ-gs-Fwq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -100,7 +100,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="cvY-09-MjI">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" id="cvY-09-MjI">
                                 <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cvY-09-MjI" id="fOe-Hi-AbI">

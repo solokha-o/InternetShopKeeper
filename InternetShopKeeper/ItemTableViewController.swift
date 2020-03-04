@@ -7,17 +7,32 @@
 //
 
 import UIKit
-
+import CoreData
 class ItemTableViewController: UITableViewController {
 
+    // add array of items
+    
+    var items = [Item]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        let nib = UINib(nibName: "ItemTableViewCell", bundle: nil)
+            tableView.register(nib, forCellReuseIdentifier: "ItemTableViewCell")
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = Item.fetchRequest() as NSFetchRequest<Item>
+        do {
+            items = try context.fetch(fetchRequest)
+        } catch let error {
+            print("Не удалось загрузить данные из-за ошибки: \(error).")
+            
+        }
+        tableView.reloadData()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.tableFooterView = UIView()
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,26 +44,34 @@ class ItemTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return items.count
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Мій товар"
     }
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemTableViewCell", for: indexPath) as? ItemTableViewCell else { return UITableViewCell() }
 
-        // Configure the cell...
-
+        let item = items[indexPath.row]
+        
+        let imageLoad = UIImage(data: item.imageItem!)
+        cell.imageItemView.image = imageLoad
+        cell.titleItemLable.text = item.titleItem
+       // cell.categoryItemLable.text = item.
+        cell.priceItemLable.text = item.priceItem
+        cell.amountItemLable.text = item.amountItem
+        cell.detailsItemLable.text = item.detailsItem
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
