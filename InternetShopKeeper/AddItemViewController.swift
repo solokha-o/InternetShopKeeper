@@ -106,7 +106,6 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         dismiss(animated: true, completion: nil)
     }
     
-
     internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         imagePicker.dismiss(animated: true, completion: nil)
@@ -114,7 +113,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         guard let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
         addImage.image = editedImage
             }
-    
+    //dismis imagePicker
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.isNavigationBarHidden = false
         self.dismiss(animated: true, completion: nil)

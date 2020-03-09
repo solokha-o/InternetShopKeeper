@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="16G2136" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="amountItem" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="detailsItem" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="imageItem" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
-        <attribute name="priceItem" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="titleItem" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="amountItem" optional="YES" attributeType="String"/>
+        <attribute name="categoryItem" optional="YES" attributeType="String"/>
+        <attribute name="detailsItem" optional="YES" attributeType="String"/>
+        <attribute name="imageItem" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="priceItem" optional="YES" attributeType="String"/>
+        <attribute name="titleItem" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Item" positionX="-63" positionY="-18" width="128" height="133"/>
     </elements>
 </model>

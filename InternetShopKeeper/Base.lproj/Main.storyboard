@@ -81,10 +81,10 @@
             </objects>
             <point key="canvasLocation" x="-1939" y="104"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Category View Controller-->
         <scene sceneID="hrK-7l-da8">
             <objects>
-                <viewController id="pS4-G2-67d" sceneMemberID="viewController">
+                <viewController id="pS4-G2-67d" customClass="AddCategoryViewController" customModule="InternetShopKeeper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9w8-03-Qgv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -93,11 +93,19 @@
                                 <rect key="frame" x="16" y="20" width="100" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Скасувати"/>
+                                <connections>
+                                    <action selector="cancelButtonAction:" destination="cYp-hc-ZMb" eventType="touchUpInside" id="Gxm-SC-UgH"/>
+                                    <action selector="cancelButtonAction:" destination="pS4-G2-67d" eventType="touchUpInside" id="sf9-Nj-rOa"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rp-TD-Ogf">
                                 <rect key="frame" x="257" y="20" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Готово"/>
+                                <connections>
+                                    <action selector="saveCategoryButtonAction:" destination="cYp-hc-ZMb" eventType="touchUpInside" id="Ahp-G3-ijz"/>
+                                    <action selector="saveCategoryButtonAction:" destination="pS4-G2-67d" eventType="touchUpInside" id="vZH-29-jZN"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Нова категорія" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAq-xu-e1K">
                                 <rect key="frame" x="107" y="24" width="128" height="21"/>
@@ -124,8 +132,12 @@
                         <viewLayoutGuide key="safeArea" id="lQF-i0-Z7Q"/>
                     </view>
                     <navigationItem key="navigationItem" id="WCD-DO-vVh"/>
+                    <connections>
+                        <outlet property="addCategoryTextField" destination="Ofr-uR-cMG" id="RM0-n4-YcC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGA-1f-xZd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="cYp-hc-ZMb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1121.25" y="103.52112676056338"/>
         </scene>
