@@ -14,31 +14,35 @@ class ItemTableViewController: UITableViewController {
     
     var items = [Item]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let nib = UINib(nibName: "ItemTableViewCell", bundle: nil)
-            tableView.register(nib, forCellReuseIdentifier: "ItemTableViewCell")
+        self.viewWillAppear(true)
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest = Item.fetchRequest() as NSFetchRequest<Item>
-        do {
+                do {
             items = try context.fetch(fetchRequest)
+
         } catch let error {
             print("Не удалось загрузить данные из-за ошибки: \(error).")
-            
         }
-        tableView.reloadData()
+        let nib = UINib(nibName: "ItemTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "ItemTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
-        
-        
-    }
+        tableView.reloadData()
+        self.tableView.rowHeight = 200.0
 
+    }
+    
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+   
 
     // MARK: - Table view data source
 
@@ -61,18 +65,17 @@ class ItemTableViewController: UITableViewController {
 
         let item = items[indexPath.row]
         
-        let imageLoad = UIImage(data: item.imageItem!)
-        cell.imageItemView.image = imageLoad
+       // let imageLoad = UIImage(data: item.imageItem!)
+        //cell.imageItemView.image = imageLoad
         cell.titleItemLable.text = item.titleItem
        // cell.categoryItemLable.text = item.
         cell.priceItemLable.text = item.priceItem
         cell.amountItemLable.text = item.amountItem
         cell.detailsItemLable.text = item.detailsItem
-        
         return cell
     }
     
-
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -119,3 +122,4 @@ class ItemTableViewController: UITableViewController {
     */
 
 }
+
