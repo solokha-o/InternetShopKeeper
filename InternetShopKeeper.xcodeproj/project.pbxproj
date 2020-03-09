@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DB07E26E24100CE600A86645 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB07E26C24100CE600A86645 /* ItemTableViewCell.swift */; };
 		DB07E26F24100CE600A86645 /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB07E26D24100CE600A86645 /* ItemTableViewCell.xib */; };
+		DB1BFD5C2416BA3E00197229 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1BFD5B2416BA3E00197229 /* CategoryTableViewController.swift */; };
 		DB3B46ED2416B33800A79BB0 /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3B46EC2416B33800A79BB0 /* AddCategoryViewController.swift */; };
 		DB599B9524098D3B0065CA3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB599B9424098D3B0065CA3D /* AppDelegate.swift */; };
 		DB599B9724098D3B0065CA3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB599B9624098D3B0065CA3D /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		DB07E26C24100CE600A86645 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		DB07E26D24100CE600A86645 /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
+		DB1BFD5B2416BA3E00197229 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		DB3B46EC2416B33800A79BB0 /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
 		DB599B9124098D3B0065CA3D /* InternetShopKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InternetShopKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB599B9424098D3B0065CA3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				DBDC7E982409B345005E35CA /* ItemTableViewController.swift */,
 				DB07E26C24100CE600A86645 /* ItemTableViewCell.swift */,
 				DB3B46EC2416B33800A79BB0 /* AddCategoryViewController.swift */,
+				DB1BFD5B2416BA3E00197229 /* CategoryTableViewController.swift */,
 				DB07E26D24100CE600A86645 /* ItemTableViewCell.xib */,
 				DB599B9824098D3B0065CA3D /* Main.storyboard */,
 				DB599B9E24098D3B0065CA3D /* Assets.xcassets */,
@@ -158,6 +161,7 @@
 				DB07E26E24100CE600A86645 /* ItemTableViewCell.swift in Sources */,
 				DBDC7E992409B345005E35CA /* ItemTableViewController.swift in Sources */,
 				DB599B9724098D3B0065CA3D /* ViewController.swift in Sources */,
+				DB1BFD5C2416BA3E00197229 /* CategoryTableViewController.swift in Sources */,
 				DB599BAA24099F230065CA3D /* AddItemViewController.swift in Sources */,
 				DB599B9524098D3B0065CA3D /* AppDelegate.swift in Sources */,
 				DB3B46ED2416B33800A79BB0 /* AddCategoryViewController.swift in Sources */,
