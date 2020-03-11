@@ -9,21 +9,26 @@
 import UIKit
 import CoreData
 
-class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    
    
     
     @IBOutlet weak var addImage: UIImageView!
     
     @IBOutlet weak var titleItemTextField: UITextField!
+    @IBOutlet weak var categoryItemTextField: UITextField!
     @IBOutlet weak var priceItemTextField: UITextField!
     @IBOutlet weak var amountItemTextField: UITextField!
     @IBOutlet weak var detailsItemTextfield: UITextField!
     
     var imagePicker = UIImagePickerController()
-    
+    var picker = UIPickerView()
+    var categories = CategoryTableViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        picker.delegate = self
+        categoryItemTextField.inputView = picker
         // Do any additional setup after loading the view.
     }
 
@@ -117,6 +122,22 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.isNavigationBarHidden = false
         self.dismiss(animated: true, completion: nil)
+    }
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categories.categories.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categories.categories[row].nameCategory
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        categoryItemTextField.text = categories.categories[row].nameCategory
+        self.view.endEditing(false)
     }
 
 }

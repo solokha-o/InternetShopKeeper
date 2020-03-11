@@ -18,6 +18,7 @@
 		DB599B9F24098D3B0065CA3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB599B9E24098D3B0065CA3D /* Assets.xcassets */; };
 		DB599BA224098D3B0065CA3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB599BA024098D3B0065CA3D /* LaunchScreen.storyboard */; };
 		DB599BAA24099F230065CA3D /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB599BA924099F230065CA3D /* AddItemViewController.swift */; };
+		DB9647AF241968C200B76D0B /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9647AE241968C200B76D0B /* CategoryItem.swift */; };
 		DBDC7E992409B345005E35CA /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC7E982409B345005E35CA /* ItemTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		DB599BA124098D3B0065CA3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB599BA324098D3B0065CA3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB599BA924099F230065CA3D /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		DB9647AE241968C200B76D0B /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		DBDC7E982409B345005E35CA /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +76,7 @@
 				DBDC7E982409B345005E35CA /* ItemTableViewController.swift */,
 				DB07E26C24100CE600A86645 /* ItemTableViewCell.swift */,
 				DB3B46EC2416B33800A79BB0 /* AddCategoryViewController.swift */,
+				DB9647AE241968C200B76D0B /* CategoryItem.swift */,
 				DB1BFD5B2416BA3E00197229 /* CategoryTableViewController.swift */,
 				DB07E26D24100CE600A86645 /* ItemTableViewCell.xib */,
 				DB599B9824098D3B0065CA3D /* Main.storyboard */,
@@ -163,6 +166,7 @@
 				DB599B9724098D3B0065CA3D /* ViewController.swift in Sources */,
 				DB1BFD5C2416BA3E00197229 /* CategoryTableViewController.swift in Sources */,
 				DB599BAA24099F230065CA3D /* AddItemViewController.swift in Sources */,
+				DB9647AF241968C200B76D0B /* CategoryItem.swift in Sources */,
 				DB599B9524098D3B0065CA3D /* AppDelegate.swift in Sources */,
 				DB3B46ED2416B33800A79BB0 /* AddCategoryViewController.swift in Sources */,
 				DB599B9D24098D3B0065CA3D /* InternetShopKeeper.xcdatamodeld in Sources */,

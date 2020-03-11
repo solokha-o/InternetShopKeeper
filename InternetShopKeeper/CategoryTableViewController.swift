@@ -9,9 +9,11 @@
 import UIKit
 import CoreData
 
-class CategoryTableViewController: UITableViewController {
+class CategoryTableViewController: UITableViewController, AddCategoryViewControllerDelegate {
     
-    var items = [Item]()
+    
+    
+    var categories = [CategoryItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,29 +30,27 @@ class CategoryTableViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
-//      tableView.reloadData()
-        reload()
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        reload()
-        tableView.reloadData()
-    }
-    
-    func reload() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let fetchRequest = Item.fetchRequest() as NSFetchRequest<Item>
-                do {
-            items = try context.fetch(fetchRequest)
 
-        } catch let error {
-            print("Не удалось загрузить данные из-за ошибки: \(error).")
-        }
         tableView.reloadData()
     }
+//
+//    func reload() {
+////        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+////        let context = appDelegate.persistentContainer.viewContext
+////        let fetchRequest = Item.fetchRequest() as NSFetchRequest<Item>
+////        do {
+////            items = try context.fetch(fetchRequest)
+////
+////        } catch let error {
+////            print("Не удалось загрузить данные из-за ошибки: \(error).")
+////        }
+//        tableView.reloadData()
+//    }
 
     // MARK: - Table view data source
 
@@ -58,23 +58,27 @@ class CategoryTableViewController: UITableViewController {
         return 1    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return categories.count
     }
 
     // configurate cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let category = items[indexPath.row]
-        cell.textLabel?.text = category.categoryItem
+        let category = categories[indexPath.row]
+        cell.textLabel?.text = category.nameCategory
+        
+
+        
+    //    cell.textLabel?.text = category.categoryItem
    //     cell.detailTextLabel?.text = "Категорія товару"
         return cell
     }
     // Selected Row you see details
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let category = items[indexPath.row]
+      //  let category = categoryVC.categoryArray[indexPath.row]
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "AddCategoryViewController") as? AddCategoryViewController else { return }
         _ = vc.view
-        vc.addCategoryTextField.text = category.categoryItem
+        vc.addCategoryTextField.text = categories[indexPath.row].nameCategory
         vc.saveCategoryButtonOutlet.isHidden = true
         vc.cancelButtonOutlet.setTitle("Назад", for: .normal)
         vc.newCategoryLable.text = "Категорія товару"
@@ -85,19 +89,21 @@ class CategoryTableViewController: UITableViewController {
     // Trailing swipe configutate
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let contextItem = UIContextualAction(style: .destructive, title: "Видалити") {  [weak self] (_, _, _) in
-           // let birthday = self?.birthdays[indexPath.row]
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.viewContext
-            context.delete((self?.items[indexPath.row])!)
-            self?.items.remove(at: indexPath.row)
-            print("Remove item \(String(describing: self?.items[indexPath.row]))")
+            
+            
+            self?.categories.remove(at: indexPath.row)
+//            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//            let context = appDelegate.persistentContainer.viewContext
+//            context.delete((self?.items[indexPath.row])!)
+//            self?.items.remove(at: indexPath.row)
+//            print("Remove item \(String(describing: self?.items[indexPath.row]))")
             self?.tableView.deleteRows(at:[indexPath],with: .fade)
-            do{
-                try context.save()
-            } catch let error {
-                print("Не удалось сохранить из-за ошибки \(error).")
-            }
-      //      self?.tableView.reloadSections([indexPath.section], with: .automatic)
+//            do{
+//                try context.save()
+//            } catch let error {
+//                print("Не удалось сохранить из-за ошибки \(error).")
+//            }
+            self?.tableView.reloadSections([indexPath.section], with: .automatic)
             print("DELETE HAPPENS")
         }
         
@@ -107,4 +113,14 @@ class CategoryTableViewController: UITableViewController {
         return swipeActions
 
     }
+    func addCategoryViewController(_ addCategoryViewController: AddCategoryViewController, didAddCategory category: CategoryItem) {
+        categories.append(category)
+        tableView.reloadData()
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        guard let desctinationVC = segue.destination as? AddCategoryViewController else { return }
+        desctinationVC.delegate = self
+    }
+
 }

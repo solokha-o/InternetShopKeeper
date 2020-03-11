@@ -8,13 +8,19 @@
 
 import UIKit
 import CoreData
+protocol AddCategoryViewControllerDelegate {
+    func addCategoryViewController (_ addCategoryViewController: AddCategoryViewController, didAddCategory category: CategoryItem)
+}
 
 class AddCategoryViewController: UIViewController {
-
+    
+    
     @IBOutlet weak var saveCategoryButtonOutlet: UIButton!
     @IBOutlet weak var cancelButtonOutlet: UIButton!
     @IBOutlet weak var newCategoryLable: UILabel!
     @IBOutlet weak var enterCategoryLable: UILabel!
+    
+    var delegate : AddCategoryViewControllerDelegate?
     
     @IBOutlet weak var addCategoryTextField: UITextField!
     override func viewDidLoad() {
@@ -25,15 +31,21 @@ class AddCategoryViewController: UIViewController {
     // press button ADD
     @IBAction func saveCategoryButtonAction(_ sender: UIButton) {
         print("Press ADD")
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let itemCategory = Item(context: context)
-        itemCategory.categoryItem = addCategoryTextField.text
-        do {
-            try context.save()
-        } catch let error {
-            print("Не удалось сохранить из-за ошибки \(error).")
-        }
+        let category = CategoryItem(nameCategory: addCategoryTextField.text ?? "")
+        delegate?.addCategoryViewController(self, didAddCategory: category)
+        print(category.nameCategory)
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let context = appDelegate.persistentContainer.viewContext
+//        guard let entity = NSEntityDescription.entity(forEntityName: "Item", in: context) else { return }
+//        let itemCategory = NSManagedObject(entity: entity, insertInto: context)
+//        itemCategory.setValue(addCategoryTextField.text, forKey: "categoryItem")
+//        if context.hasChanges {
+//            do {
+//                try context.save()
+//            } catch let error {
+//                print("Не удалось сохранить из-за ошибки \(error).")
+//            }
+//        }
         dismiss(animated: true, completion: nil)
     }
     

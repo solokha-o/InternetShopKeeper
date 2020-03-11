@@ -412,6 +412,7 @@
                     <connections>
                         <outlet property="addImage" destination="mns-sU-Rac" id="WA0-hi-Y17"/>
                         <outlet property="amountItemTextField" destination="OcN-G4-J6M" id="Uwd-4U-Jda"/>
+                        <outlet property="categoryItemTextField" destination="BXc-Hx-ekG" id="Bip-3E-FqV"/>
                         <outlet property="detailsItemTextfield" destination="0vU-fR-qVa" id="lVh-7k-J34"/>
                         <outlet property="priceItemTextField" destination="Cwh-Md-XVw" id="mPU-Ox-KGC"/>
                         <outlet property="titleItemTextField" destination="aGt-Zl-UGi" id="Pyk-pe-Ibm"/>
