@@ -11,10 +11,15 @@ import CoreData
 
 class AddCategoryViewController: UIViewController {
 
+    @IBOutlet weak var saveCategoryButtonOutlet: UIButton!
+    @IBOutlet weak var cancelButtonOutlet: UIButton!
+    @IBOutlet weak var newCategoryLable: UILabel!
+    @IBOutlet weak var enterCategoryLable: UILabel!
+    
     @IBOutlet weak var addCategoryTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        addCategoryTextField.delegate = self as? UITextFieldDelegate
         // Do any additional setup after loading the view.
     }
     // press button ADD

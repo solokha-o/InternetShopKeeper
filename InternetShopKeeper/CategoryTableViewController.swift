@@ -11,23 +11,44 @@ import CoreData
 
 class CategoryTableViewController: UITableViewController {
     
-    var categories = [Item]()
+    var items = [Item]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let context = appDelegate.persistentContainer.viewContext
+//        let fetchRequest = Item.fetchRequest() as NSFetchRequest<Item>
+//                do {
+//            categories = try context.fetch(fetchRequest)
+//
+//        } catch let error {
+//            print("Не удалось загрузить данные из-за ошибки: \(error).")
+//        }
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.tableFooterView = UIView()
+//      tableView.reloadData()
+        reload()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        reload()
+        tableView.reloadData()
+    }
+    
+    func reload() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest = Item.fetchRequest() as NSFetchRequest<Item>
                 do {
-            categories = try context.fetch(fetchRequest)
+            items = try context.fetch(fetchRequest)
 
         } catch let error {
             print("Не удалось загрузить данные из-за ошибки: \(error).")
         }
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.tableFooterView = UIView()
         tableView.reloadData()
     }
 
@@ -39,26 +60,29 @@ class CategoryTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return categories.count
+        return items.count
     }
 
     // configurate cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let category = categories[indexPath.row]
+        let category = items[indexPath.row]
         cell.textLabel?.text = category.categoryItem
-        cell.detailTextLabel?.text = "Категорія товару"
+   //     cell.detailTextLabel?.text = "Категорія товару"
         return cell
     }
-    
+    // Selected Row you see details 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let category = categories[indexPath.row]
-            performSegue(withIdentifier: "ShowDetails", sender: category)
-            guard let vc = storyboard?.instantiateViewController(withIdentifier: "AddCategoryViewController") as? AddCategoryViewController else { return }
-            _ = vc.view
-            vc.modalPresentationStyle = .fullScreen
-            vc.addCategoryTextField.text = category.categoryItem
-            present(vc, animated: true, completion: nil)
+        let category = items[indexPath.row]
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "AddCategoryViewController") as? AddCategoryViewController else { return }
+        _ = vc.view
+        vc.addCategoryTextField.text = category.categoryItem
+        vc.saveCategoryButtonOutlet.isHidden = true
+        vc.saveCategoryButtonOutlet.isHidden = true
+        vc.newCategoryLable.text = "Категорія товару"
+        vc.enterCategoryLable.text = "Створена категорія товару"
+        vc.addCategoryTextField.isUserInteractionEnabled = false
+        present(vc, animated: true, completion: nil)
         }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 

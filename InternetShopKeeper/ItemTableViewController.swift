@@ -17,7 +17,36 @@ class ItemTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.viewWillAppear(true)
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let context = appDelegate.persistentContainer.viewContext
+//        let fetchRequest = Item.fetchRequest() as NSFetchRequest<Item>
+//                do {
+//            items = try context.fetch(fetchRequest)
+//
+//        } catch let error {
+//            print("Не удалось загрузить данные из-за ошибки: \(error).")
+//        }
+        let nib = UINib(nibName: "ItemTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "ItemTableViewCell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.tableFooterView = UIView()
+        self.tableView.rowHeight = 200.0
+        
+        reload()
+    }
+    
+   
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        reload()
+    }
+
+    func reload() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest = Item.fetchRequest() as NSFetchRequest<Item>
@@ -27,21 +56,10 @@ class ItemTableViewController: UITableViewController {
         } catch let error {
             print("Не удалось загрузить данные из-за ошибки: \(error).")
         }
-        let nib = UINib(nibName: "ItemTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "ItemTableViewCell")
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.tableFooterView = UIView()
         tableView.reloadData()
-        self.tableView.rowHeight = 200.0
+    }
 
-    }
     
-   
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
    
 
     // MARK: - Table view data source
