@@ -55,11 +55,9 @@ class CategoryTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return items.count
     }
 
@@ -71,65 +69,42 @@ class CategoryTableViewController: UITableViewController {
    //     cell.detailTextLabel?.text = "Категорія товару"
         return cell
     }
-    // Selected Row you see details 
+    // Selected Row you see details
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let category = items[indexPath.row]
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "AddCategoryViewController") as? AddCategoryViewController else { return }
         _ = vc.view
         vc.addCategoryTextField.text = category.categoryItem
         vc.saveCategoryButtonOutlet.isHidden = true
-        vc.saveCategoryButtonOutlet.isHidden = true
+        vc.cancelButtonOutlet.setTitle("Назад", for: .normal)
         vc.newCategoryLable.text = "Категорія товару"
         vc.enterCategoryLable.text = "Створена категорія товару"
         vc.addCategoryTextField.isUserInteractionEnabled = false
         present(vc, animated: true, completion: nil)
         }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    // Trailing swipe configutate
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let contextItem = UIContextualAction(style: .destructive, title: "Видалити") {  [weak self] (_, _, _) in
+           // let birthday = self?.birthdays[indexPath.row]
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            context.delete((self?.items[indexPath.row])!)
+            self?.items.remove(at: indexPath.row)
+            print("Remove item \(String(describing: self?.items[indexPath.row]))")
+            self?.tableView.deleteRows(at:[indexPath],with: .fade)
+            do{
+                try context.save()
+            } catch let error {
+                print("Не удалось сохранить из-за ошибки \(error).")
+            }
+      //      self?.tableView.reloadSections([indexPath.section], with: .automatic)
+            print("DELETE HAPPENS")
+        }
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
+        swipeActions.performsFirstActionWithFullSwipe = false
+        
+        return swipeActions
 
     }
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
