@@ -11,9 +11,6 @@ import CoreData
 
 class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    
-   
-    
     @IBOutlet weak var addImage: UIImageView!
     
     @IBOutlet weak var titleItemTextField: UITextField!
@@ -24,9 +21,18 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     var imagePicker = UIImagePickerController()
     var picker = UIPickerView()
-    var categories = CategoryTableViewController()
+    var categories = [Categories]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
+        do {
+            categories = (try context.fetch(fetchRequest))
+
+        } catch let error {
+            print("Не удалось загрузить данные из-за ошибки: \(error).")
+        }
         picker.delegate = self
         categoryItemTextField.inputView = picker
         // Do any additional setup after loading the view.
@@ -95,13 +101,14 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         let newItem = Item(context: context)
         newItem.titleItem = titleItemTextField.text
         newItem.priceItem = priceItemTextField.text
+//        newItem.categoryItem
         newItem.amountItem = amountItemTextField.text
         newItem.detailsItem = detailsItemTextfield.text
         newItem.imageItem = addImage.image?.pngData()
         do {
             try context.save()
         } catch let error {
-            print("Не удалось сохранить из-за ошибки \(error).")
+            print("Error \(error).")
         }
         dismiss(animated: true, completion: nil)
     }
@@ -110,7 +117,6 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         print("Press CANCEL.")
         dismiss(animated: true, completion: nil)
     }
-    
     internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         imagePicker.dismiss(animated: true, completion: nil)
@@ -118,26 +124,27 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         guard let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
         addImage.image = editedImage
             }
-    //dismis imagePicker
+    //dismiss imagePicker
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.isNavigationBarHidden = false
         self.dismiss(animated: true, completion: nil)
     }
+    //Configurate pickerView in textfield with data fromCoreData
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return categories.categories.count
+        return categories.count + 1
     }
-    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categories.categories[row].nameCategory
+        guard row > 0 else {
+            return "Без категорії"
+        }
+        return categories[row - 1].name
     }
-    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        categoryItemTextField.text = categories.categories[row].nameCategory
+        print(categories)
+        categoryItemTextField.text = row == 0 ?  "Без категорії" : categories[row - 1].name
         self.view.endEditing(false)
     }
-
 }

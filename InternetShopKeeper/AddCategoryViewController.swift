@@ -8,62 +8,100 @@
 
 import UIKit
 import CoreData
-protocol AddCategoryViewControllerDelegate {
-    func addCategoryViewController (_ addCategoryViewController: AddCategoryViewController, didAddCategory category: CategoryItem)
-}
 
 class AddCategoryViewController: UIViewController {
-    
-    
+// State for Bar button
+    enum State {
+        case addCategoryItem, editCategoryItem
+
+        var leftButtonTitle: String {
+            switch self {
+            case .addCategoryItem: return "Скасувати"
+            case .editCategoryItem: return "Назад"
+            }
+        }
+
+        var rightButtonTitle: String {
+            switch self {
+            case .addCategoryItem: return "Готово"
+            case .editCategoryItem: return "Змінити"
+            }
+        }
+    }
     @IBOutlet weak var saveCategoryButtonOutlet: UIButton!
     @IBOutlet weak var cancelButtonOutlet: UIButton!
     @IBOutlet weak var newCategoryLable: UILabel!
     @IBOutlet weak var enterCategoryLable: UILabel!
-    
-    var delegate : AddCategoryViewControllerDelegate?
-    
     @IBOutlet weak var addCategoryTextField: UITextField!
+
+    // Controller can additing and editing category item
+    var currentState = State.addCategoryItem
+    var isInEdit = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        addCategoryTextField.delegate = self as? UITextFieldDelegate
-        // Do any additional setup after loading the view.
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // what state in what moment using
+        if isEditing {
+            currentState = .editCategoryItem
+            addCategoryTextField.isUserInteractionEnabled = false
+        }
+        saveCategoryButtonOutlet.setTitle(currentState.rightButtonTitle, for: .normal)
+        cancelButtonOutlet.setTitle(currentState.leftButtonTitle, for: .normal)
     }
     // press button ADD
     @IBAction func saveCategoryButtonAction(_ sender: UIButton) {
         print("Press ADD")
-        let category = CategoryItem(nameCategory: addCategoryTextField.text ?? "")
-        delegate?.addCategoryViewController(self, didAddCategory: category)
-        print(category.nameCategory)
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let context = appDelegate.persistentContainer.viewContext
-//        guard let entity = NSEntityDescription.entity(forEntityName: "Item", in: context) else { return }
-//        let itemCategory = NSManagedObject(entity: entity, insertInto: context)
-//        itemCategory.setValue(addCategoryTextField.text, forKey: "categoryItem")
-//        if context.hasChanges {
-//            do {
-//                try context.save()
-//            } catch let error {
-//                print("Не удалось сохранить из-за ошибки \(error).")
-//            }
-//        }
-        dismiss(animated: true, completion: nil)
+        let category = addCategoryTextField.text ?? ""
+        if isEditing {
+            // edit category and update coredata
+            currentState = .editCategoryItem
+            sender.isMultipleTouchEnabled = true
+            sender.setTitle("Готово", for: .normal)
+            addCategoryTextField.isUserInteractionEnabled = true
+            //update category to CoreData
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let entitidec = NSEntityDescription.entity(forEntityName: "Categories", in: context)
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Categories")
+            request.entity = entitidec
+            let pred = NSPredicate(format: "name = %@", category)
+            request.predicate = pred
+            do {
+                let updateContext = try context.fetch(request)
+                if updateContext.count > 0 {
+                    let objUpdate =  updateContext[0] as! NSManagedObject
+                    objUpdate.setValue(category, forKey: "name")
+                    do {
+                        try context.save()
+                    } catch let error {
+                        print("Error \(error).")
+                    }
+                }
+                
+            } catch let error {
+                print("Error \(error).")
+            }
+        } else {
+            //save category to CoreData
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let newCategory = Categories(context: context)
+            newCategory.name = category
+            do {
+                try context.save()
+            } catch let error {
+                print("Error \(error).")
+            }
+            dismiss(animated: true, completion: nil)
+        }
     }
-    
     // press button CANCEL
     @IBAction func cancelButtonAction(_ sender: UIButton) {
         print("Press CANCEL.")
         dismiss(animated: true, completion: nil)
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
