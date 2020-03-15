@@ -10,18 +10,50 @@ import UIKit
 import CoreData
 
 class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+    // State for Bar button
+    enum State {
+        case addItem, editItem
+
+        var leftButtonTitle: String {
+            switch self {
+            case .addItem: return "Скасувати"
+            case .editItem: return "Назад"
+            }
+        }
+
+        var rightButtonTitle: String {
+            switch self {
+            case .addItem: return "Готово"
+            case .editItem: return "Змінити"
+            }
+        }
+    }
     
+    @IBOutlet weak var saveItemButtonOutlet: UIButton!
+    @IBOutlet weak var cancelButtonOutlet: UIButton!
+    @IBOutlet weak var tapGestureOutlet: UITapGestureRecognizer!
     @IBOutlet weak var addImage: UIImageView!
     @IBOutlet weak var titleItemTextField: UITextField!
     @IBOutlet weak var categoryItemTextField: UITextField!
     @IBOutlet weak var priceItemTextField: UITextField!
     @IBOutlet weak var amountItemTextField: UITextField!
     @IBOutlet weak var detailsItemTextfield: UITextField!
+    @IBOutlet weak var newItemLabel: UILabel!
+    @IBOutlet weak var enterImageItemLable: UILabel!
+    @IBOutlet weak var enterTitleItemLable: UILabel!
+    @IBOutlet weak var enterCategoryItemLable: UILabel!
+    @IBOutlet weak var enterPriceItemLable: UILabel!
+    @IBOutlet weak var enterAmountItemLabel: UILabel!
+    @IBOutlet weak var enterDetailsItemLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
-    
+    // Controller can additing and editing category item
+    var currentState = State.addItem
+    var isInEdit = false
+    //Add imagePicker and pickerView
     var imagePicker = UIImagePickerController()
     var picker = UIPickerView()
     var categories = [Categories]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         titleItemTextField.delegate = self
@@ -29,24 +61,54 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         priceItemTextField.delegate = self
         amountItemTextField.delegate = self
         detailsItemTextfield.delegate = self
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
-        do {
-            categories = (try context.fetch(fetchRequest))
-
-        } catch let error {
-            print("Не удалось загрузить данные из-за ошибки: \(error).")
-        }
         picker.delegate = self
         categoryItemTextField.inputView = picker
-        // Do any additional setup after loading the view.
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // what state in what moment using
+        if isInEdit {
+            currentState = .editItem
+            titleItemTextField.isUserInteractionEnabled = false
+            categoryItemTextField.isUserInteractionEnabled = false
+            priceItemTextField.isUserInteractionEnabled = false
+            amountItemTextField.isUserInteractionEnabled = false
+            detailsItemTextfield.isUserInteractionEnabled = false
+            tapGestureOutlet.isEnabled = false
+        }
+        saveItemButtonOutlet.setTitle(currentState.rightButtonTitle, for: .normal)
+        cancelButtonOutlet.setTitle(currentState.leftButtonTitle, for: .normal)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if isInEdit {
+            view.endEditing(false)
+        }
+        view.endEditing(true)
+        
+    }
+    @objc func keyboardWillAppear(notification: Notification) {
+            guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+            let keyboardScreenEndFrame = keyboardValue.cgRectValue
+            let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+            if notification.name == UIResponder.keyboardWillHideNotification {
+                scrollView.contentInset = .zero
+            } else {
+                scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
+            }
+            scrollView.scrollIndicatorInsets = scrollView.contentInset
+        }
+
+        @objc func keyboardWillHide(notification: Notification) {
+            print(notification)
+        }
+
     //TODO - add animate imageView and
     // press on screen to add image of item
     
@@ -97,28 +159,49 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
    
     // press button ADD
-    @IBAction func AddButtonAction(_ sender: UIButton) {
+    @IBAction func addButtonAction(_ sender: UIButton) {
         print("Press ADD.")
-        
-        //save all information of item to coreData
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let newItem = Item(context: context)
-        newItem.titleItem = titleItemTextField.text
-        newItem.priceItem = priceItemTextField.text
-//        newItem.categoryItem
-        newItem.amountItem = amountItemTextField.text
-        newItem.detailsItem = detailsItemTextfield.text
-        newItem.imageItem = addImage.image?.pngData()
-        do {
-            try context.save()
-        } catch let error {
-            print("Error \(error).")
+        let titleItem = titleItemTextField.text ?? ""
+        let category = categoryItemTextField.text ?? ""
+        let priceItem = priceItemTextField.text ?? ""
+        let amountItem = amountItemTextField.text ?? ""
+        let detailsItem = detailsItemTextfield.text ?? ""
+        let imageItem = addImage.image?.pngData()
+         // edit item and update coredata
+        if isInEdit {
+            currentState = .editItem
+            sender.isMultipleTouchEnabled = true
+            sender.setTitle("Готово", for: .normal)
+            titleItemTextField.isUserInteractionEnabled = true
+            categoryItemTextField.isUserInteractionEnabled = true
+            priceItemTextField.isUserInteractionEnabled = true
+            amountItemTextField.isUserInteractionEnabled = true
+            detailsItemTextfield.isUserInteractionEnabled = true
+            tapGestureOutlet.isEnabled = true
+            newItemLabel.text = "Зміни деталі товару"
+            enterImageItemLable.text = "Зміни фото твого товару"
+        } else {
+            //save all information of item to coreData
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let newItem = Item(context: context)
+            newItem.titleItem = titleItem
+            newItem.priceItem = priceItem
+            newItem.categoryItem = category
+            newItem.amountItem = amountItem
+            newItem.detailsItem = detailsItem
+            newItem.imageItem = imageItem
+            
+            do {
+                try context.save()
+            } catch let error {
+                print("Error \(error).")
+            }
+            dismiss(animated: true, completion: nil)
         }
-        dismiss(animated: true, completion: nil)
     }
     // press button CANCEL
-    @IBAction func CancelButtonAction(_ sender: UIButton) {
+    @IBAction func cancelButtonAction(_ sender: UIButton) {
         print("Press CANCEL.")
         dismiss(animated: true, completion: nil)
     }

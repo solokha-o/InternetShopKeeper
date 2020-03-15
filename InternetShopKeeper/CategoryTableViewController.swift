@@ -74,10 +74,9 @@ class CategoryTableViewController: UITableViewController {
     }
     // Selected Row you see details
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      //  let category = categoryVC.categoryArray[indexPath.row]
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "AddCategoryViewController") as? AddCategoryViewController else { return }
         _ = vc.view
-        vc.isEditing = true
+        vc.isInEdit = true
         vc.addCategoryTextField.text = categories[indexPath.row].name
         vc.newCategoryLable.text = "Категорія товару"
         vc.enterCategoryLable.text = "Створена категорія товару"

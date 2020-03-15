@@ -45,7 +45,7 @@ class AddCategoryViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // what state in what moment using
-        if isEditing {
+        if isInEdit {
             currentState = .editCategoryItem
             addCategoryTextField.isUserInteractionEnabled = false
         }
@@ -56,7 +56,7 @@ class AddCategoryViewController: UIViewController {
     @IBAction func saveCategoryButtonAction(_ sender: UIButton) {
         print("Press ADD")
         let category = addCategoryTextField.text ?? ""
-        if isEditing {
+        if isInEdit {
             // edit category and update coredata
             currentState = .editCategoryItem
             sender.isMultipleTouchEnabled = true

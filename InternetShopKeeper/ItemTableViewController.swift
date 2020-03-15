@@ -54,7 +54,7 @@ class ItemTableViewController: UITableViewController {
             items = try context.fetch(fetchRequest)
 
         } catch let error {
-            print("Не удалось загрузить данные из-за ошибки: \(error).")
+            print("Eror: \(error).")
         }
         tableView.reloadData()
     }
@@ -82,62 +82,49 @@ class ItemTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemTableViewCell", for: indexPath) as? ItemTableViewCell else { return UITableViewCell() }
 
         let item = items[indexPath.row]
-        
-       // let imageLoad = UIImage(data: item.imageItem!)
-        //cell.imageItemView.image = imageLoad
+        let imageLoad = UIImage(data: item.imageItem!)
+        cell.imageItemView.image = imageLoad
         cell.titleItemLable.text = item.titleItem
-       // cell.categoryItemLable.text = item.
+        cell.categoryItemLable.text = item.categoryItem
         cell.priceItemLable.text = item.priceItem
         cell.amountItemLable.text = item.amountItem
         cell.detailsItemLable.text = item.detailsItem
         return cell
     }
-    
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    // Selected Row you see details
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "AddItemViewController") as? AddItemViewController else { return }
+        _ = vc.view
+        vc.isInEdit = true
+        vc.titleItemTextField.text = items[indexPath.row].titleItem
+        vc.categoryItemTextField.text = items[indexPath.row].categoryItem
+        vc.priceItemTextField.text = items[indexPath.row].priceItem
+        vc.amountItemTextField.text = items[indexPath.row].amountItem
+        vc.detailsItemTextfield.text = items[indexPath.row].detailsItem
+        vc.newItemLabel.text = "Твій товар"
+        vc.enterImageItemLable.text = "Фото товару"
+        present(vc, animated: true, completion: nil)
+        }
+    // Trailing swipe configutate delete  item
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let contextItem = UIContextualAction(style: .destructive, title: "Видалити") {  [weak self] (_, _, _) in
+            // delete item from CoreData
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            context.delete((self?.items[indexPath.row])!)
+            self?.items.remove(at: indexPath.row)
+            self?.tableView.deleteRows(at:[indexPath],with: .fade)
+            do{
+                try context.save()
+            } catch let error {
+                print("Error \(error).")
+            }
+            self?.tableView.reloadSections([indexPath.section], with: .automatic)
+            print("DELETE HAPPENS")
+        }
+        let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
+        swipeActions.performsFirstActionWithFullSwipe = false
+        return swipeActions
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 

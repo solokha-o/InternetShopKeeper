@@ -32,7 +32,7 @@
                 <navigationController id="JbH-dO-UNM" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Товари" image="Home" selectedImage="Home" id="vhX-ZK-2ng"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5xM-Xk-xPy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="1" green="0.80626076130000002" blue="0.31413918210000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -173,7 +173,7 @@
                 <navigationController id="OC7-QR-l1V" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Категорії" image="Category" selectedImage="Category" id="zEC-tH-mh0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qdk-4V-GFf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="1" green="0.80626076130000002" blue="0.31413918210000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -226,7 +226,7 @@
         <!--Add Item View Controller-->
         <scene sceneID="aMJ-OB-o6P">
             <objects>
-                <viewController id="uwy-0Y-5uC" customClass="AddItemViewController" customModule="InternetShopKeeper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddItemViewController" id="uwy-0Y-5uC" customClass="AddItemViewController" customModule="InternetShopKeeper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4u0-FQ-0WC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -241,23 +241,21 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GYV-EV-Klf">
-                                                        <rect key="frame" x="0.0" y="0.0" width="85.5" height="30"/>
-                                                        <state key="normal" title="Скасувати"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="44.5" height="30"/>
                                                         <connections>
-                                                            <action selector="AddButtonAction:" destination="uwy-0Y-5uC" eventType="touchUpInside" id="81r-SX-mYG"/>
-                                                            <action selector="CancelButtonAction:" destination="uwy-0Y-5uC" eventType="touchUpInside" id="cFS-tt-T6v"/>
+                                                            <action selector="addButtonAction:" destination="uwy-0Y-5uC" eventType="touchUpInside" id="81r-SX-mYG"/>
+                                                            <action selector="cancelButtonAction:" destination="uwy-0Y-5uC" eventType="touchUpInside" id="cFS-tt-T6v"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Новий товар" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RO2-xO-oDR">
-                                                        <rect key="frame" x="102.5" y="0.0" width="122" height="30"/>
+                                                        <rect key="frame" x="61.5" y="0.0" width="160.5" height="30"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKK-LD-brz">
-                                                        <rect key="frame" x="241.5" y="0.0" width="58.5" height="30"/>
-                                                        <state key="normal" title="Готово"/>
+                                                        <rect key="frame" x="239" y="0.0" width="61" height="30"/>
                                                         <connections>
-                                                            <action selector="AddButtonAction:" destination="uwy-0Y-5uC" eventType="touchUpInside" id="h5D-C2-TZB"/>
+                                                            <action selector="addButtonAction:" destination="uwy-0Y-5uC" eventType="touchUpInside" id="h5D-C2-TZB"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -401,10 +399,20 @@
                     <connections>
                         <outlet property="addImage" destination="mns-sU-Rac" id="WA0-hi-Y17"/>
                         <outlet property="amountItemTextField" destination="OcN-G4-J6M" id="Uwd-4U-Jda"/>
+                        <outlet property="cancelButtonOutlet" destination="GYV-EV-Klf" id="CuN-xK-9se"/>
                         <outlet property="categoryItemTextField" destination="BXc-Hx-ekG" id="Bip-3E-FqV"/>
                         <outlet property="detailsItemTextfield" destination="0vU-fR-qVa" id="lVh-7k-J34"/>
+                        <outlet property="enterAmountItemLabel" destination="QLg-Gg-O4V" id="WG1-Oy-dHG"/>
+                        <outlet property="enterCategoryItemLable" destination="yPi-l2-XlN" id="LAP-7V-Jmv"/>
+                        <outlet property="enterDetailsItemLabel" destination="vtu-11-mbo" id="Qru-Pp-YSg"/>
+                        <outlet property="enterImageItemLable" destination="n0i-Ei-amf" id="J4f-WH-v9c"/>
+                        <outlet property="enterPriceItemLable" destination="4wG-kC-Zq6" id="DSE-fz-LKC"/>
+                        <outlet property="enterTitleItemLable" destination="uJG-d5-tIe" id="GmZ-f4-3ba"/>
+                        <outlet property="newItemLabel" destination="RO2-xO-oDR" id="Upo-xa-1Gl"/>
                         <outlet property="priceItemTextField" destination="Cwh-Md-XVw" id="mPU-Ox-KGC"/>
+                        <outlet property="saveItemButtonOutlet" destination="pKK-LD-brz" id="V8Q-pi-GAI"/>
                         <outlet property="scrollView" destination="Wmr-Lo-XOm" id="KNw-XN-eQP"/>
+                        <outlet property="tapGestureOutlet" destination="eFg-aE-NIe" id="M6B-vr-aTS"/>
                         <outlet property="titleItemTextField" destination="aGt-Zl-UGi" id="Pyk-pe-Ibm"/>
                     </connections>
                 </viewController>
