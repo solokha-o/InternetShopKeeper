@@ -62,6 +62,7 @@ class AddCategoryViewController: UIViewController {
             sender.isMultipleTouchEnabled = true
             sender.setTitle("Готово", for: .normal)
             addCategoryTextField.isUserInteractionEnabled = true
+            enterCategoryLable.text = "Відредагуйте категорію товару"
             //update category to CoreData
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let context = appDelegate.persistentContainer.viewContext
@@ -81,7 +82,6 @@ class AddCategoryViewController: UIViewController {
                         print("Error \(error).")
                     }
                 }
-                
             } catch let error {
                 print("Error \(error).")
             }
