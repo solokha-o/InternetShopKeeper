@@ -11,13 +11,21 @@ import CoreData
 
 class CategoryTableViewController: UITableViewController {
     
+    @IBOutlet weak var addCategoryButtonOutlet: UIBarButtonItem!
     var categories = [Categories]()
+    // create property for search bar and filtered results
+    let search = UISearchController(searchResultsController: nil)
+    var filteredCategories = [Categories]()
+    var isSearchBarEmpty: Bool {
+        return search.searchBar.text?.isEmpty ?? true
+    }
+    var isFiltering: Bool {
+        return search.isActive && !isSearchBarEmpty
+    }
     
-//    var categories = [CategoryItem]()
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.rightBarButtonItem?.titlePositionAdjustment(for: .compactPrompt)
 //        let appDelegate = UIApplication.shared.delegate as! AppDelegate
 //        let context = appDelegate.persistentContainer.viewContext
 //        let fetchRequest = Item.fetchRequest() as NSFetchRequest<Item>
@@ -27,17 +35,28 @@ class CategoryTableViewController: UITableViewController {
 //        } catch let error {
 //            print("Не удалось загрузить данные из-за ошибки: \(error).")
 //        }
+        // Navigation bar have large title and search controller
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.searchController = search
+        navigationItem.hidesSearchBarWhenScrolling = false
+        search.searchResultsUpdater = self
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchBar.placeholder = "Пошук категорії"
+        definesPresentationContext = true
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        reload()
+        super.viewWillAppear(true)
+        navigationController?.navigationBar.prefersLargeTitles = true
+        reloadCategoryTableViewController()
     }
-
-    func reload() {
+// func for reloat tableview
+    func reloadCategoryTableViewController() {
+        tableView.reloadData()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
@@ -47,22 +66,38 @@ class CategoryTableViewController: UITableViewController {
         } catch let error {
             print("Error: \(error).")
         }
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
-
+    // func for filter Content For Search Text
+    func filterContentForSearchText(_ searchText: String,
+                                    category: Categories? = nil) {
+      filteredCategories = categories.filter { (category: Categories) -> Bool in
+        return (category.name?.lowercased().contains(searchText.lowercased()) ?? false)
+      }
+      tableView.reloadData()
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // number of row return from coredata or filtering results
+        if isFiltering {
+            return filteredCategories.count
+        }
         return categories.count
     }
 
     // configurate cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let category = categories[indexPath.row]
+        let category: Categories
+        if isFiltering {
+            category = filteredCategories[indexPath.row]
+        } else {
+            category = categories[indexPath.row]
+        }
         let itemCategory = category.name ?? ""
         cell.textLabel?.text = itemCategory
         
@@ -103,5 +138,14 @@ class CategoryTableViewController: UITableViewController {
         swipeActions.performsFirstActionWithFullSwipe = false
         return swipeActions
     }
+}
+// add extension UISearchResultsUpdating to CategoryTableViewController
+extension CategoryTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = search.searchBar
+        filterContentForSearchText(searchBar.text!)
+    }
+    
+    
 }
 

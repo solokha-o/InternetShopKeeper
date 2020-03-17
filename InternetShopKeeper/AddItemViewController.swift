@@ -66,6 +66,15 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
+        do {
+            categories = (try context.fetch(fetchRequest))
+
+        } catch let error {
+            print("Error \(error).")
+        }
         // what state in what moment using
         if isInEdit {
             currentState = .editItem
@@ -242,8 +251,6 @@ extension AddItemViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case titleItemTextField:
-            categoryItemTextField.becomeFirstResponder()
-        case categoryItemTextField:
             priceItemTextField.becomeFirstResponder()
         case priceItemTextField:
             amountItemTextField.becomeFirstResponder()

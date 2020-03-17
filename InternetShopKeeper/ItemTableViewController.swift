@@ -17,6 +17,8 @@ class ItemTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
+
 //        let appDelegate = UIApplication.shared.delegate as! AppDelegate
 //        let context = appDelegate.persistentContainer.viewContext
 //        let fetchRequest = Item.fetchRequest() as NSFetchRequest<Item>
@@ -31,7 +33,7 @@ class ItemTableViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
-        self.tableView.rowHeight = 200.0
+//        self.tableView.rowHeight = 200.0
         
         reload()
     }

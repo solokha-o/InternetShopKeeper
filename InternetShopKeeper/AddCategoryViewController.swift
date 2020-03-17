@@ -70,9 +70,11 @@ class AddCategoryViewController: UIViewController {
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Categories")
             request.entity = entitidec
             let pred = NSPredicate(format: "name = %@", category)
+            print(pred)
             request.predicate = pred
             do {
                 let updateContext = try context.fetch(request)
+                print(updateContext)
                 if updateContext.count > 0 {
                     let objUpdate =  updateContext[0] as! NSManagedObject
                     objUpdate.setValue(category, forKey: "name")
