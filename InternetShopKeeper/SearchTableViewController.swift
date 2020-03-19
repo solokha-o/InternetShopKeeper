@@ -7,85 +7,110 @@
 //
 
 import UIKit
+import CoreData
 
 class SearchTableViewController: UITableViewController {
 
+    // array of item from core data
+    var items = [Item]()
+    // create property for search bar and filtered results
+    let search = UISearchController(searchResultsController: nil)
+    var filteredItem = [Item]()
+    var isSearchBarEmpty: Bool {
+        return search.searchBar.text?.isEmpty ?? true
+    }
+    var isFiltering: Bool {
+        return search.isActive && !isSearchBarEmpty
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        navigationItem.searchController = search
+        navigationItem.hidesSearchBarWhenScrolling = false
+        let nib = UINib(nibName: "ItemTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "ItemTableViewCell")
+        search.searchResultsUpdater = self
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchBar.placeholder = "Введи назву товару"
+        definesPresentationContext = true
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.tableFooterView = UIView()
+        tableView.reloadData()
+        self.tableView.rowHeight = 130.0
+        
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadData()
+    }
+    // Load data from coredata to table view
+    func loadData() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = Item.fetchRequest() as NSFetchRequest<Item>
+        do {
+            items = try context.fetch(fetchRequest)
 
+        } catch let error {
+            print("Error: \(error).")
+        }
+    }
+    // func for filter Content For Search Text
+    func filterContentForSearchText(_ searchText: String) {
+      filteredItem = items.filter { (category: Item) -> Bool in
+        return (category.titleItem?.lowercased().contains(searchText.lowercased()) ?? false)
+      }
+      tableView.reloadData()
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        if isFiltering {
+            return filteredItem.count
+        }
+        return filteredItem.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemTableViewCell", for: indexPath) as? ItemTableViewCell else {return UITableViewCell()}
+        let item: Item
+        if isFiltering {
+            item = filteredItem[indexPath.row]
+            let imageLoad = UIImage(data: item.imageItem!)
+            cell.imageItemView.image = imageLoad
+            cell.titleItemLable.text = item.titleItem
+            cell.categoryItemLable.text = item.categoryItem
+            cell.priceItemLable.text = item.priceItem
+            cell.amountItemLable.text = item.amountItem
+            cell.detailsItemLable.text = item.detailsItem
+        }
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    // Selected Row you see details
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "AddItemViewController") as? AddItemViewController else { return }
+        _ = vc.view
+        vc.isInEdit = true
+        vc.titleItemTextField.text = filteredItem[indexPath.row].titleItem
+        vc.categoryItemTextField.text = filteredItem[indexPath.row].categoryItem
+        vc.priceItemTextField.text = filteredItem[indexPath.row].priceItem
+        vc.amountItemTextField.text = filteredItem[indexPath.row].amountItem
+        vc.detailsItemTextfield.text = filteredItem[indexPath.row].detailsItem
+        vc.newItemLabel.text = "Твій товар"
+        vc.enterImageItemLable.text = "Фото товару"
+        present(vc, animated: true, completion: nil)
+        }
+}
+// add extension UISearchResultsUpdating to SearchTableViewController
+extension SearchTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = search.searchBar
+        filterContentForSearchText(searchBar.text!)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -38,7 +38,7 @@ class CategoryTableViewController: UITableViewController {
         // Navigation bar have large title and search controller
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.searchController = search
-        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.hidesSearchBarWhenScrolling = true
         search.searchResultsUpdater = self
         search.obscuresBackgroundDuringPresentation = false
         search.searchBar.placeholder = "Пошук категорії"
@@ -51,10 +51,9 @@ class CategoryTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        navigationController?.navigationBar.prefersLargeTitles = true
         reloadCategoryTableViewController()
     }
-// func for reloat tableview
+    // func for reloat tableview
     func reloadCategoryTableViewController() {
         tableView.reloadData()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -69,8 +68,7 @@ class CategoryTableViewController: UITableViewController {
         tableView.reloadData()
     }
     // func for filter Content For Search Text
-    func filterContentForSearchText(_ searchText: String,
-                                    category: Categories? = nil) {
+    func filterContentForSearchText(_ searchText: String) {
       filteredCategories = categories.filter { (category: Categories) -> Bool in
         return (category.name?.lowercased().contains(searchText.lowercased()) ?? false)
       }
@@ -100,14 +98,9 @@ class CategoryTableViewController: UITableViewController {
         }
         let itemCategory = category.name ?? ""
         cell.textLabel?.text = itemCategory
-        
-
-        
-    //    cell.textLabel?.text = category.categoryItem
-   //     cell.detailTextLabel?.text = "Категорія товару"
         return cell
     }
-    // Selected Row you see details
+    // Selected Row for see details
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "AddCategoryViewController") as? AddCategoryViewController else { return }
         _ = vc.view
@@ -145,7 +138,5 @@ extension CategoryTableViewController: UISearchResultsUpdating {
         let searchBar = search.searchBar
         filterContentForSearchText(searchBar.text!)
     }
-    
-    
 }
 

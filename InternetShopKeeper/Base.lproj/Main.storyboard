@@ -36,11 +36,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5xM-Xk-xPy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="1" green="0.80626076130000002" blue="0.31413918210000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="erN-PV-wXc" kind="relationship" relationship="rootViewController" id="FtQ-Hy-OkV"/>
+                        <segue destination="l89-EJ-8Me" kind="relationship" relationship="rootViewController" id="alJ-r2-o4I"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LAy-YK-kIZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -96,11 +96,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <searchBar key="tableFooterView" contentMode="redraw" placeholder="Пошук товару" id="N2a-dl-ONL">
-                            <rect key="frame" x="0.0" y="102" width="320" height="56"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits" returnKeyType="go"/>
-                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="46" id="p0E-jY-WgR">
                                 <rect key="frame" x="0.0" y="28" width="320" height="46"/>
@@ -131,6 +126,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iRv-qy-uhI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
@@ -226,7 +222,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qdk-4V-GFf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="1" green="0.80626076130000002" blue="0.31413918210000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
@@ -238,42 +234,39 @@
             <point key="canvasLocation" x="-2951" y="104"/>
         </scene>
         <!--Мій товар-->
-        <scene sceneID="atK-JE-YHu">
+        <scene sceneID="xfs-9j-wYC">
             <objects>
-                <tableViewController id="erN-PV-wXc" customClass="ItemTableViewController" customModule="InternetShopKeeper" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="O0I-hH-Pg1">
+                <tableViewController id="l89-EJ-8Me" customClass="ItemTableViewController" customModule="InternetShopKeeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DPV-CU-cKx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" shouldIndentWhileEditing="NO" id="cvY-09-MjI">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Lbw-8U-Ipg">
                                 <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cvY-09-MjI" translatesAutoresizingMaskIntoConstraints="NO" id="fOe-Hi-AbI">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lbw-8U-Ipg" id="WIg-ec-Dz1">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="erN-PV-wXc" id="zlG-3G-wD6"/>
-                            <outlet property="delegate" destination="erN-PV-wXc" id="7nj-gl-TQ2"/>
+                            <outlet property="dataSource" destination="l89-EJ-8Me" id="to2-in-Zbs"/>
+                            <outlet property="delegate" destination="l89-EJ-8Me" id="jfY-G5-a47"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Товари" image="Home" selectedImage="Home" id="5rC-IR-S2h"/>
-                    <navigationItem key="navigationItem" title="Мій товар" id="wlt-0S-ZMI">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="6FV-tt-hS7">
+                    <navigationItem key="navigationItem" title="Мій товар" id="Ilz-bu-3Dq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ly3-XA-ALz">
                             <connections>
-                                <segue destination="uwy-0Y-5uC" kind="presentation" id="1dM-0E-ayT"/>
+                                <segue destination="uwy-0Y-5uC" kind="presentation" id="FAr-9Q-UJo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eTd-c2-Meg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UOp-4G-7Y4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1659.375" y="-770.07042253521126"/>
+            <point key="canvasLocation" x="-1656" y="-770"/>
         </scene>
         <!--Add Item View Controller-->
         <scene sceneID="aMJ-OB-o6P">
