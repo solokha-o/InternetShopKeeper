@@ -33,6 +33,8 @@ class AddCategoryViewController: UIViewController {
     @IBOutlet weak var newCategoryLable: UILabel!
     @IBOutlet weak var enterCategoryLable: UILabel!
     @IBOutlet weak var addCategoryTextField: UITextField!
+    
+    var ctwc = CategoryTableViewController()
 
     // Controller can additing and editing category item
     var currentState = State.addCategoryItem
@@ -66,17 +68,11 @@ class AddCategoryViewController: UIViewController {
             //update category to CoreData
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let context = appDelegate.persistentContainer.viewContext
-            let entitidec = NSEntityDescription.entity(forEntityName: "Categories", in: context)
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Categories")
-            request.entity = entitidec
-            let pred = NSPredicate(format: "name = %@", category)
-            print(pred)
-            request.predicate = pred
+            let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
             do {
-                let updateContext = try context.fetch(request)
-                print(updateContext)
+                let updateContext = try context.fetch(fetchRequest)
                 if updateContext.count > 0 {
-                    let objUpdate =  updateContext[0] as! NSManagedObject
+                    let objUpdate =  updateContext[0] as NSManagedObject
                     objUpdate.setValue(category, forKey: "name")
                     do {
                         try context.save()
@@ -85,7 +81,7 @@ class AddCategoryViewController: UIViewController {
                     }
                 }
             } catch let error {
-                print("Error \(error).")
+                    print("Error \(error).")
             }
         } else {
             //save category to CoreData

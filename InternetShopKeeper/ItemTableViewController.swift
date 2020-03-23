@@ -18,30 +18,17 @@ class ItemTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
-
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let context = appDelegate.persistentContainer.viewContext
-//        let fetchRequest = Item.fetchRequest() as NSFetchRequest<Item>
-//                do {
-//            items = try context.fetch(fetchRequest)
-//
-//        } catch let error {
-//            print("Не удалось загрузить данные из-за ошибки: \(error).")
-//        }
         let nib = UINib(nibName: "ItemTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "ItemTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         self.tableView.rowHeight = 130.0
-        
         reload()
     }
     
-   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,6 +68,7 @@ class ItemTableViewController: UITableViewController {
 
         let item = items[indexPath.row]
         let imageLoad = UIImage(data: item.imageItem!)
+        cell.imageItemView.contentMode = .scaleAspectFill
         cell.imageItemView.image = imageLoad
         cell.titleItemLable.text = item.titleItem
         cell.categoryItemLable.text = item.categoryItem
@@ -99,6 +87,8 @@ class ItemTableViewController: UITableViewController {
         vc.priceItemTextField.text = items[indexPath.row].priceItem
         vc.amountItemTextField.text = items[indexPath.row].amountItem
         vc.detailsItemTextfield.text = items[indexPath.row].detailsItem
+        let imageLoad = UIImage(data: items[indexPath.row].imageItem!)
+        vc.addImage.image = imageLoad
         vc.newItemLabel.text = "Твій товар"
         vc.enterImageItemLable.text = "Фото товару"
         present(vc, animated: true, completion: nil)
