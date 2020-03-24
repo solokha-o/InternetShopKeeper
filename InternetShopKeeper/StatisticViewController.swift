@@ -7,16 +7,53 @@
 //
 
 import UIKit
+import CoreData
 
 class StatisticViewController: UIViewController {
 
+    @IBOutlet weak var costsLabel: UILabel!
+    
+    var items = [Item]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchRequest()
         self.navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
-        // Do any additional setup after loading the view.
+        setupCostsLabel()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchRequest()
     }
     
+    // fetch request from coreData
+    func fetchRequest() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = Item.fetchRequest() as NSFetchRequest<Item>
+                do {
+            items = try context.fetch(fetchRequest)
+
+        } catch let error {
+            print("Eror: \(error).")
+        }
+    }
+    // calculation costs buying item
+    func costCalculation (items: [Item]) -> String {
+        var costs = 0
+        for item in items {
+            costs += ((Int(item.priceItem ?? "0") ?? 0) * (Int(item.amountItem ?? "0") ?? 0))
+            print(costs)
+        }
+        print(costs)
+        return String(costs)
+    }
+    // view costs in costsLabel
+    func setupCostsLabel() {
+        let costs = costCalculation(items: items)
+        costsLabel.text = costs
+    }
 
     /*
     // MARK: - Navigation

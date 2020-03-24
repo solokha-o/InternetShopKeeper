@@ -129,6 +129,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1yP-L0-Iqd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
@@ -142,18 +143,68 @@
         <!--Статистика-->
         <scene sceneID="ZgQ-bR-9PH">
             <objects>
-                <viewController id="gM9-Wx-h8d" customClass="StatisticViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StatisticViewController" id="gM9-Wx-h8d" customClass="StatisticViewController" customModule="InternetShopKeeper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kcw-20-mK2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aO0-G4-6uY">
+                                <rect key="frame" x="0.0" y="44" width="320" height="475"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FuG-M4-vRe">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="475"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillProportionally" spacing="102" translatesAutoresizingMaskIntoConstraints="NO" id="8oj-hf-eT3">
+                                                <rect key="frame" x="8" y="43" width="304.5" height="20.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Витрачено на товар" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCz-kl-kcd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="160.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qz4-mP-UdX">
+                                                        <rect key="frame" x="262.5" y="0.0" width="42" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="FuG-M4-vRe" secondAttribute="bottom" id="MkA-GN-6hA"/>
+                                    <constraint firstItem="FuG-M4-vRe" firstAttribute="bottom" secondItem="oBI-lV-TyV" secondAttribute="bottom" id="UY2-Es-RuM"/>
+                                    <constraint firstItem="FuG-M4-vRe" firstAttribute="top" secondItem="aO0-G4-6uY" secondAttribute="top" id="ZBn-2Q-zL3"/>
+                                    <constraint firstAttribute="trailing" secondItem="FuG-M4-vRe" secondAttribute="trailing" id="cOa-lx-KFl"/>
+                                    <constraint firstItem="FuG-M4-vRe" firstAttribute="centerX" secondItem="aO0-G4-6uY" secondAttribute="centerX" id="gkD-YV-toh"/>
+                                    <constraint firstItem="FuG-M4-vRe" firstAttribute="leading" secondItem="aO0-G4-6uY" secondAttribute="leading" id="jkf-DL-CMr"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="AsP-9e-mVt"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="oBI-lV-TyV"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="aO0-G4-6uY" secondAttribute="trailing" id="UnC-PY-u72"/>
+                            <constraint firstItem="aO0-G4-6uY" firstAttribute="bottom" secondItem="l94-iI-37v" secondAttribute="bottom" id="VMR-Rc-xrT"/>
+                            <constraint firstItem="aO0-G4-6uY" firstAttribute="leading" secondItem="kcw-20-mK2" secondAttribute="leading" id="bcq-Tj-n5Y"/>
+                            <constraint firstItem="aO0-G4-6uY" firstAttribute="top" secondItem="l94-iI-37v" secondAttribute="top" id="sv7-Zs-iUE"/>
+                            <constraint firstItem="FuG-M4-vRe" firstAttribute="height" secondItem="kcw-20-mK2" secondAttribute="height" multiplier="0.801056" constant="20" id="zxq-0L-9Zj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="l94-iI-37v"/>
                     </view>
                     <navigationItem key="navigationItem" title="Статистика" largeTitleDisplayMode="always" id="hj2-Da-CCq"/>
+                    <connections>
+                        <outlet property="costsLabel" destination="Qz4-mP-UdX" id="MMG-2R-psJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iZo-Md-7jw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3476" y="1482"/>
+            <point key="canvasLocation" x="-3476.25" y="1480.9859154929577"/>
         </scene>
         <!--Пошук-->
         <scene sceneID="6Iy-Gi-nen">
