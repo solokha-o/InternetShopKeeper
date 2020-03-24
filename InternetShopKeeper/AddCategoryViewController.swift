@@ -58,44 +58,51 @@ class AddCategoryViewController: UIViewController {
     @IBAction func saveCategoryButtonAction(_ sender: UIButton) {
         print("Press ADD")
         let category = addCategoryTextField.text ?? ""
-        if isInEdit {
-            // edit category and update coredata
-            currentState = .editCategoryItem
-            sender.isMultipleTouchEnabled = true
-            sender.setTitle("Готово", for: .normal)
-            addCategoryTextField.isUserInteractionEnabled = true
-            enterCategoryLable.text = "Відредагуйте категорію товару"
-            //update category to CoreData
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.viewContext
-            let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
-            do {
-                let updateContext = try context.fetch(fetchRequest)
-                if updateContext.count > 0 {
-                    let objUpdate =  updateContext[0] as NSManagedObject
-                    objUpdate.setValue(category, forKey: "name")
-                    do {
-                        try context.save()
-                    } catch let error {
-                        print("Error \(error).")
-                    }
-                }
-            } catch let error {
-                    print("Error \(error).")
-            }
+        if category == "" {
+            let alert = UIAlertController(title: "Помилка", message: "Поле має бути заповненим", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         } else {
-            //save category to CoreData
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.viewContext
-            let newCategory = Categories(context: context)
-            newCategory.name = category
-            do {
-                try context.save()
-            } catch let error {
-                print("Error \(error).")
+            if isInEdit {
+                // edit category and update coredata
+                currentState = .editCategoryItem
+                sender.isMultipleTouchEnabled = true
+                sender.setTitle("Готово", for: .normal)
+                addCategoryTextField.isUserInteractionEnabled = true
+                enterCategoryLable.text = "Відредагуйте категорію товару"
+                //update category to CoreData
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                let context = appDelegate.persistentContainer.viewContext
+                let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
+                do {
+                    let updateContext = try context.fetch(fetchRequest)
+                    if updateContext.count > 0 {
+                        let objUpdate =  updateContext[0] as NSManagedObject
+                        objUpdate.setValue(category, forKey: "name")
+                        do {
+                            try context.save()
+                        } catch let error {
+                            print("Error \(error).")
+                        }
+                    }
+                } catch let error {
+                        print("Error \(error).")
+                }
+            } else {
+                //save category to CoreData
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                let context = appDelegate.persistentContainer.viewContext
+                let newCategory = Categories(context: context)
+                newCategory.name = category
+                do {
+                    try context.save()
+                } catch let error {
+                    print("Error \(error).")
+                }
+                dismiss(animated: true, completion: nil)
             }
-            dismiss(animated: true, completion: nil)
         }
+        
     }
     // press button CANCEL
     @IBAction func cancelButtonAction(_ sender: UIButton) {
