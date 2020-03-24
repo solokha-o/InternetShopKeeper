@@ -177,36 +177,42 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         let detailsItem = detailsItemTextfield.text ?? ""
         let imageItem = addImage.image?.pngData()
          // edit item and update coredata
-        if isInEdit {
-            currentState = .editItem
-            sender.isMultipleTouchEnabled = true
-            sender.setTitle("Готово", for: .normal)
-            titleItemTextField.isUserInteractionEnabled = true
-            categoryItemTextField.isUserInteractionEnabled = true
-            priceItemTextField.isUserInteractionEnabled = true
-            amountItemTextField.isUserInteractionEnabled = true
-            detailsItemTextfield.isUserInteractionEnabled = true
-            tapGestureOutlet.isEnabled = true
-            newItemLabel.text = "Зміни деталі товару"
-            enterImageItemLable.text = "Зміни фото твого товару"
+        if titleItem == "" || category == "" || priceItem == "" || amountItem == "" || detailsItem == "" {
+            let alert = UIAlertController(title: "Ви забули!", message: "Всі поля мають бути заповненими!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         } else {
-            //save all information of item to coreData
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.viewContext
-            let newItem = Item(context: context)
-            newItem.titleItem = titleItem
-            newItem.priceItem = priceItem
-            newItem.categoryItem = category
-            newItem.amountItem = amountItem
-            newItem.detailsItem = detailsItem
-            newItem.imageItem = imageItem
-            
-            do {
-                try context.save()
-            } catch let error {
-                print("Error \(error).")
+            if isInEdit {
+                currentState = .editItem
+                sender.isMultipleTouchEnabled = true
+                sender.setTitle("Готово", for: .normal)
+                titleItemTextField.isUserInteractionEnabled = true
+                categoryItemTextField.isUserInteractionEnabled = true
+                priceItemTextField.isUserInteractionEnabled = true
+                amountItemTextField.isUserInteractionEnabled = true
+                detailsItemTextfield.isUserInteractionEnabled = true
+                tapGestureOutlet.isEnabled = true
+                newItemLabel.text = "Зміни деталі товару"
+                enterImageItemLable.text = "Зміни фото твого товару"
+            } else {
+                //save all information of item to coreData
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                let context = appDelegate.persistentContainer.viewContext
+                let newItem = Item(context: context)
+                newItem.titleItem = titleItem
+                newItem.priceItem = priceItem
+                newItem.categoryItem = category
+                newItem.amountItem = amountItem
+                newItem.detailsItem = detailsItem
+                newItem.imageItem = imageItem
+                
+                do {
+                    try context.save()
+                } catch let error {
+                    print("Error \(error).")
+                }
+                dismiss(animated: true, completion: nil)
             }
-            dismiss(animated: true, completion: nil)
         }
     }
     // press button CANCEL

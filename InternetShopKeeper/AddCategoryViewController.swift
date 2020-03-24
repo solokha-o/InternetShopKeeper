@@ -59,7 +59,7 @@ class AddCategoryViewController: UIViewController {
         print("Press ADD")
         let category = addCategoryTextField.text ?? ""
         if category == "" {
-            let alert = UIAlertController(title: "Помилка", message: "Поле має бути заповненим", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Ви забули!", message: "Поле має бути заповненим!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         } else {
