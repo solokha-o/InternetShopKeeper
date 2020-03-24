@@ -22,6 +22,7 @@
                         <segue destination="JbH-dO-UNM" kind="relationship" relationship="viewControllers" id="pd3-v4-Be0"/>
                         <segue destination="OC7-QR-l1V" kind="relationship" relationship="viewControllers" id="suI-W2-fLM"/>
                         <segue destination="N7l-bT-wd6" kind="relationship" relationship="viewControllers" id="XUi-2P-ceJ"/>
+                        <segue destination="nYd-0i-Pbp" kind="relationship" relationship="viewControllers" id="pFu-Qx-QIq"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pSA-p7-CZF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -117,6 +118,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hwb-fA-t4o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2658.75" y="786.97183098591552"/>
+        </scene>
+        <!--Статистика-->
+        <scene sceneID="qO7-Nv-d0a">
+            <objects>
+                <navigationController id="nYd-0i-Pbp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Статистика" image="Statistic" selectedImage="Statistic" id="YDx-Pi-o1e">
+                        <color key="badgeColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1yP-L0-Iqd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gM9-Wx-h8d" kind="relationship" relationship="rootViewController" id="dZv-l1-SI1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2hU-6Z-PXa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4193" y="1482"/>
+        </scene>
+        <!--Статистика-->
+        <scene sceneID="ZgQ-bR-9PH">
+            <objects>
+                <viewController id="gM9-Wx-h8d" customClass="StatisticViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kcw-20-mK2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="l94-iI-37v"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Статистика" largeTitleDisplayMode="always" id="hj2-Da-CCq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iZo-Md-7jw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3476" y="1482"/>
         </scene>
         <!--Пошук-->
         <scene sceneID="6Iy-Gi-nen">
@@ -469,5 +506,6 @@
         <image name="Category" width="30" height="30"/>
         <image name="Home" width="30" height="30"/>
         <image name="Search" width="30" height="30"/>
+        <image name="Statistic" width="30" height="30"/>
     </resources>
 </document>

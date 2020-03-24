@@ -68,7 +68,6 @@ class ItemTableViewController: UITableViewController {
 
         let item = items[indexPath.row]
         let imageLoad = UIImage(data: item.imageItem!)
-        cell.imageItemView.contentMode = .scaleAspectFill
         cell.imageItemView.image = imageLoad
         cell.titleItemLable.text = item.titleItem
         cell.categoryItemLable.text = item.categoryItem
