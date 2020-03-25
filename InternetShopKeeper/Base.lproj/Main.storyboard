@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="drv-bi-Z0B">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="drv-bi-Z0B">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -74,6 +74,11 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Категорії" image="Category" selectedImage="Category" id="GIx-8r-Z0S"/>
                     <navigationItem key="navigationItem" title="Категорії товару" id="Jcw-v5-0Yh">
+                        <barButtonItem key="leftBarButtonItem" title="Сортувати" id="cdP-5H-TyY">
+                            <connections>
+                                <action selector="sortButtonAction:" destination="GmD-03-zXi" id="UIa-3I-y32"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="vh2-qZ-X6I">
                             <connections>
                                 <segue destination="pS4-G2-67d" kind="presentation" id="XsS-64-RSi"/>
@@ -83,6 +88,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addCategoryButtonOutlet" destination="vh2-qZ-X6I" id="SxG-kt-jD0"/>
+                        <outlet property="sortButtonOutlet" destination="cdP-5H-TyY" id="USI-Wd-ibh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XuQ-gs-Fwq" userLabel="First Responder" sceneMemberID="firstResponder"/>

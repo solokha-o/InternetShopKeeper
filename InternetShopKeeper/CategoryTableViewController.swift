@@ -5,13 +5,18 @@
 //  Created by Oleksandr Solokha on 09.03.2020.
 //  Copyright © 2020 Oleksandr Solokha. All rights reserved.
 //
-
 import UIKit
 import CoreData
+import DropDown
 
 class CategoryTableViewController: UITableViewController {
     
     @IBOutlet weak var addCategoryButtonOutlet: UIBarButtonItem!
+    @IBOutlet weak var sortButtonOutlet: UIBarButtonItem!
+    
+    // cteate dropDown barButtonItem
+    let leftBarDropDown = DropDown()
+    // create array for coreData
     var categories = [Categories]()
     // create property for search bar and filtered results
     let search = UISearchController(searchResultsController: nil)
@@ -23,9 +28,14 @@ class CategoryTableViewController: UITableViewController {
         return search.isActive && !isSearchBarEmpty
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem?.titlePositionAdjustment(for: .compactPrompt)
+        leftBarDropDown.anchorView = sortButtonOutlet
+        leftBarDropDown.dataSource = ["Сортувати А - Я", "Сортувати Я - А"]
+        leftBarDropDown.cellConfiguration = { (index, item) in return "\(item)" }
 //        let appDelegate = UIApplication.shared.delegate as! AppDelegate
 //        let context = appDelegate.persistentContainer.viewContext
 //        let fetchRequest = Item.fetchRequest() as NSFetchRequest<Item>
@@ -147,6 +157,14 @@ class CategoryTableViewController: UITableViewController {
         let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
         swipeActions.performsFirstActionWithFullSwipe = false
         return swipeActions
+    }
+    // cofigurate sortButtonAction with dropDown view
+    @IBAction func sortButtonAction(_ sender: UIBarButtonItem) {
+        leftBarDropDown.selectionAction = { (index: Int, item: String) in
+          print("Selected item: \(item) at index: \(index)") }
+        leftBarDropDown.width = 140
+        leftBarDropDown.bottomOffset = CGPoint(x: 0, y:(leftBarDropDown.anchorView?.plainView.bounds.height)!)
+        leftBarDropDown.show()
     }
 }
 // add extension UISearchResultsUpdating to CategoryTableViewController
