@@ -36,6 +36,9 @@ class CategoryTableViewController: UITableViewController {
         leftBarDropDown.anchorView = sortButtonOutlet
         leftBarDropDown.dataSource = ["Сортувати А - Я", "Сортувати Я - А"]
         leftBarDropDown.cellConfiguration = { (index, item) in return "\(item)" }
+        leftBarDropDown.shadowColor = UIColor.black
+        leftBarDropDown.shadowOpacity = 0.8
+        leftBarDropDown.setupCornerRadius(10)
 //        let appDelegate = UIApplication.shared.delegate as! AppDelegate
 //        let context = appDelegate.persistentContainer.viewContext
 //        let fetchRequest = Item.fetchRequest() as NSFetchRequest<Item>
@@ -160,11 +163,24 @@ class CategoryTableViewController: UITableViewController {
     }
     // cofigurate sortButtonAction with dropDown view
     @IBAction func sortButtonAction(_ sender: UIBarButtonItem) {
+        // filter categories by select item of dropDown
         leftBarDropDown.selectionAction = { (index: Int, item: String) in
+            switch index {
+            case 0:
+                self.categories = self.categories.sorted {$0.name! < $1.name!}
+                self.tableView.reloadData()
+                print(self.categories)
+            case 1:
+                self.categories = self.categories.sorted {$0.name! > $1.name!}
+                self.tableView.reloadData()
+                print(self.categories)
+            default: break
+            }
           print("Selected item: \(item) at index: \(index)") }
         leftBarDropDown.width = 140
         leftBarDropDown.bottomOffset = CGPoint(x: 0, y:(leftBarDropDown.anchorView?.plainView.bounds.height)!)
         leftBarDropDown.show()
+        leftBarDropDown.dismissMode = .onTap
     }
 }
 // add extension UISearchResultsUpdating to CategoryTableViewController
