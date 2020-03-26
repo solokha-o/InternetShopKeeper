@@ -166,6 +166,13 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         imagePicker.delegate = self
         self.present(imagePicker, animated: true, completion: nil)
     }
+    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    
+    imagePicker.dismiss(animated: true, completion: nil)
+
+    guard let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
+    addImage.image = editedImage
+        }
    
     // press button ADD
     @IBAction func addButtonAction(_ sender: UIButton) {
@@ -220,14 +227,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         print("Press CANCEL.")
         dismiss(animated: true, completion: nil)
     }
-    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        imagePicker.dismiss(animated: true, completion: nil)
-
-        guard let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
-        addImage.image = editedImage
-            }
-    //dismiss imagePicker
+        //dismiss imagePicker
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.isNavigationBarHidden = false
         self.dismiss(animated: true, completion: nil)
