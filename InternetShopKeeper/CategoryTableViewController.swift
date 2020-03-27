@@ -28,11 +28,15 @@ class CategoryTableViewController: UITableViewController {
         return search.isActive && !isSearchBarEmpty
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reloadCategoryTableViewController()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem?.titlePositionAdjustment(for: .compactPrompt)
+        reloadCategoryTableViewController()
+        // configurate BarButtonItem DropDown
         leftBarDropDown.anchorView = sortButtonOutlet
         leftBarDropDown.dataSource = ["Сортувати А - Я", "Сортувати Я - А"]
         leftBarDropDown.cellConfiguration = { (index, item) in return "\(item)" }
@@ -59,26 +63,20 @@ class CategoryTableViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
-        tableView.reloadData()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        reloadCategoryTableViewController()
+        
     }
     // func for reloat tableview
     func reloadCategoryTableViewController() {
-        tableView.reloadData()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
         do {
-            categories = try context.fetch(fetchRequest)
+            self.categories = try context.fetch(fetchRequest)
 
         } catch let error {
             print("Error: \(error).")
         }
-        tableView.reloadData()
+        self.tableView.reloadData()
     }
     // func for filter Content For Search Text
     func filterContentForSearchText(_ searchText: String) {

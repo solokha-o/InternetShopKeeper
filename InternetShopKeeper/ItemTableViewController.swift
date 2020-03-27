@@ -8,15 +8,26 @@
 
 import UIKit
 import CoreData
+import DropDown
+
 class ItemTableViewController: UITableViewController {
 
+    @IBOutlet weak var sortButtonOutlet: UIBarButtonItem!
+    
+    // cteate dropDown barButtonItem
+    let leftBarDropDown = DropDown()
     // add array of items
-    
-    var items = [Item]()
-    
+        var items = [Item]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // configurate BarButtonItem DropDown
+        leftBarDropDown.anchorView = sortButtonOutlet
+        leftBarDropDown.dataSource = ["Сортувати товари по назві А - Я", "Сортувати товари по назві Я - А"]
+        leftBarDropDown.cellConfiguration = { (index, item) in return "\(item)" }
+        leftBarDropDown.cornerRadius = 10
+        leftBarDropDown.shadowColor = UIColor.black
+        leftBarDropDown.shadowOpacity = 0.8
         navigationController?.navigationBar.prefersLargeTitles = true
         let nib = UINib(nibName: "ItemTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "ItemTableViewCell")
@@ -113,5 +124,26 @@ class ItemTableViewController: UITableViewController {
         swipeActions.performsFirstActionWithFullSwipe = false
         return swipeActions
     }
+    @IBAction func sortButtonAction(_ sender: UIBarButtonItem) {
+        // filter items by select item of dropDown
+        leftBarDropDown.selectionAction = { (index: Int, item: String) in
+            switch index {
+            case 0:
+                self.items = self.items.sorted {$0.titleItem! < $1.titleItem!}
+                self.tableView.reloadData()
+                print(self.items)
+            case 1:
+                self.items = self.items.sorted {$0.titleItem! > $1.titleItem!}
+                self.tableView.reloadData()
+                print(self.items)
+            default: break
+            }
+          print("Selected item: \(item) at index: \(index)") }
+        leftBarDropDown.width = 250
+        leftBarDropDown.bottomOffset = CGPoint(x: 0, y:(leftBarDropDown.anchorView?.plainView.bounds.height)!)
+        leftBarDropDown.show()
+        leftBarDropDown.dismissMode = .onTap
+    }
+    
 }
 

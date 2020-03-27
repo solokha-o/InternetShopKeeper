@@ -351,12 +351,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Мій товар" id="Ilz-bu-3Dq">
+                        <barButtonItem key="leftBarButtonItem" title="Сортувати" id="Igg-7b-9Lf">
+                            <connections>
+                                <action selector="sortButtonAction:" destination="l89-EJ-8Me" id="hIa-ej-3uN"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ly3-XA-ALz">
                             <connections>
                                 <segue destination="uwy-0Y-5uC" kind="presentation" id="FAr-9Q-UJo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="sortButtonOutlet" destination="Igg-7b-9Lf" id="zeI-7Y-m61"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UOp-4G-7Y4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
