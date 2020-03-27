@@ -393,7 +393,6 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GYV-EV-Klf">
                                                                 <rect key="frame" x="0.0" y="0.0" width="44.5" height="30"/>
                                                                 <connections>
-                                                                    <action selector="addButtonAction:" destination="uwy-0Y-5uC" eventType="touchUpInside" id="81r-SX-mYG"/>
                                                                     <action selector="cancelButtonAction:" destination="uwy-0Y-5uC" eventType="touchUpInside" id="cFS-tt-T6v"/>
                                                                 </connections>
                                                             </button>

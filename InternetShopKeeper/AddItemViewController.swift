@@ -173,7 +173,6 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     guard let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
     addImage.image = editedImage
         }
-   
     // press button ADD
     @IBAction func addButtonAction(_ sender: UIButton) {
         print("Press ADD.")
@@ -212,7 +211,6 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                 newItem.amountItem = amountItem
                 newItem.detailsItem = detailsItem
                 newItem.imageItem = imageItem
-                
                 do {
                     try context.save()
                 } catch let error {
