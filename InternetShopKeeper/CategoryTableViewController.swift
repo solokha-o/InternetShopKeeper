@@ -165,11 +165,11 @@ class CategoryTableViewController: UITableViewController {
         leftBarDropDown.selectionAction = { (index: Int, item: String) in
             switch index {
             case 0:
-                self.categories = self.categories.sorted {$0.name! < $1.name!}
+                self.categories = self.categories.sorted {$0.name!.lowercased() < $1.name!.lowercased()}
                 self.tableView.reloadData()
                 print(self.categories)
             case 1:
-                self.categories = self.categories.sorted {$0.name! > $1.name!}
+                self.categories = self.categories.sorted {$0.name!.lowercased() > $1.name!.lowercased()}
                 self.tableView.reloadData()
                 print(self.categories)
             default: break

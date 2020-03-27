@@ -123,11 +123,11 @@ class ItemTableViewController: UITableViewController {
         leftBarDropDown.selectionAction = { (index: Int, item: String) in
             switch index {
             case 0:
-                self.items = self.items.sorted {$0.titleItem! < $1.titleItem!}
+                self.items = self.items.sorted {$0.titleItem!.lowercased() < $1.titleItem!.lowercased()}
                 self.tableView.reloadData()
                 print(self.items)
             case 1:
-                self.items = self.items.sorted {$0.titleItem! > $1.titleItem!}
+                self.items = self.items.sorted {$0.titleItem!.lowercased() > $1.titleItem!.lowercased()}
                 self.tableView.reloadData()
                 print(self.items)
             default: break
