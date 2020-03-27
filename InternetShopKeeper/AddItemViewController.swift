@@ -56,6 +56,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addImage.isHighlighted = true
         titleItemTextField.delegate = self
         categoryItemTextField.delegate = self
         priceItemTextField.delegate = self
@@ -114,7 +115,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             scrollView.scrollIndicatorInsets = scrollView.contentInset
         }
 
-        @objc func keyboardWillHide(notification: Notification) {
+    @objc func keyboardWillHide(notification: Notification) {
             print(notification)
         }
 
@@ -171,7 +172,8 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     imagePicker.dismiss(animated: true, completion: nil)
 
     guard let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
-    addImage.image = editedImage
+        addImage.isHighlighted = false
+        addImage.image = editedImage
         }
     // press button ADD
     @IBAction func addButtonAction(_ sender: UIButton) {

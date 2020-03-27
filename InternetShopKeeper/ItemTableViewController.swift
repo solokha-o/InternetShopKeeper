@@ -35,7 +35,7 @@ class ItemTableViewController: UITableViewController {
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         self.tableView.rowHeight = 130.0
-        reload()
+        reloadItemTableViewController()
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,10 +43,10 @@ class ItemTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        reload()
+        reloadItemTableViewController()
     }
-
-    func reload() {
+    // reload tableview and fetch CoreData
+    func reloadItemTableViewController() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest = Item.fetchRequest() as NSFetchRequest<Item>
@@ -59,18 +59,11 @@ class ItemTableViewController: UITableViewController {
         tableView.reloadData()
     }
 
-    
-   
-
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return items.count
     }
     
@@ -98,6 +91,7 @@ class ItemTableViewController: UITableViewController {
         vc.amountItemTextField.text = items[indexPath.row].amountItem
         vc.detailsItemTextfield.text = items[indexPath.row].detailsItem
         let imageLoad = UIImage(data: items[indexPath.row].imageItem!)
+        vc.addImage.isHighlighted = false
         vc.addImage.image = imageLoad
         vc.newItemLabel.text = "Твій товар"
         vc.enterImageItemLable.text = "Фото товару"
