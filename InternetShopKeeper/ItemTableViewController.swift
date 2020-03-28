@@ -34,7 +34,7 @@ class ItemTableViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
-        self.tableView.rowHeight = 130.0
+        self.tableView.rowHeight = 160.0
         reloadItemTableViewController()
     }
     

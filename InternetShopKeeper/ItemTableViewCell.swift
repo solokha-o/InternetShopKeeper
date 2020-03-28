@@ -16,19 +16,27 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet weak var priceItemLable: UILabel!
     @IBOutlet weak var amountItemLable: UILabel!
     @IBOutlet weak var detailsItemLable: UILabel!
-    
-    // add array with item
-  //  var items = [Item]()
+    @IBOutlet weak var saleView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        saleView.isHidden = true
 
         // Configure the view for the selected state
     }
+    //Configure sale button
+    @IBAction func saleButtonAction(_ sender: UIButton) {
+        saleView.isHidden = false
+    }
     
+    
+    @IBAction func cancelSaveViewButtonAction(_ sender: UIButton) {
+        saleView.isHidden = true
+    }
 }
+

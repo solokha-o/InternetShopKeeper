@@ -541,7 +541,7 @@
                         <outlet property="amountItemTextField" destination="OcN-G4-J6M" id="Uwd-4U-Jda"/>
                         <outlet property="cancelButtonOutlet" destination="GYV-EV-Klf" id="CuN-xK-9se"/>
                         <outlet property="categoryItemTextField" destination="BXc-Hx-ekG" id="Bip-3E-FqV"/>
-                        <outlet property="detailsItemTextView" destination="vSH-eU-A4l" id="2Da-3p-QNn"/>
+                        <outlet property="detailsItemTextView" destination="vSH-eU-A4l" id="fTu-cT-bUl"/>
                         <outlet property="enterAmountItemLabel" destination="QLg-Gg-O4V" id="WG1-Oy-dHG"/>
                         <outlet property="enterCategoryItemLable" destination="yPi-l2-XlN" id="LAP-7V-Jmv"/>
                         <outlet property="enterDetailsItemLabel" destination="vtu-11-mbo" id="Qru-Pp-YSg"/>
