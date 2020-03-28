@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate {
     // State for Bar button
     enum State {
         case addItem, editItem
@@ -37,7 +37,8 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var categoryItemTextField: UITextField!
     @IBOutlet weak var priceItemTextField: UITextField!
     @IBOutlet weak var amountItemTextField: UITextField!
-    @IBOutlet weak var detailsItemTextfield: UITextField!
+    @IBOutlet weak var detailsItemTextView: UITextView!
+//    @IBOutlet weak var detailsItemTextField: UITextField!
     @IBOutlet weak var newItemLabel: UILabel!
     @IBOutlet weak var enterImageItemLable: UILabel!
     @IBOutlet weak var enterTitleItemLable: UILabel!
@@ -61,9 +62,12 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         categoryItemTextField.delegate = self
         priceItemTextField.delegate = self
         amountItemTextField.delegate = self
-        detailsItemTextfield.delegate = self
+        detailsItemTextView.delegate = self
         picker.delegate = self
         categoryItemTextField.inputView = picker
+        // Create placeholder to detailsItemTextView
+        detailsItemTextView.text = "Введіть деталі свого товару"
+        detailsItemTextView.textColor = UIColor.lightGray
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -83,7 +87,8 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             categoryItemTextField.isUserInteractionEnabled = false
             priceItemTextField.isUserInteractionEnabled = false
             amountItemTextField.isUserInteractionEnabled = false
-            detailsItemTextfield.isUserInteractionEnabled = false
+            detailsItemTextView.isUserInteractionEnabled = false
+            detailsItemTextView.textColor = UIColor.black
             tapGestureOutlet.isEnabled = false
         }
         saveItemButtonOutlet.setTitle(currentState.rightButtonTitle, for: .normal)
@@ -93,6 +98,20 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    //configure textView that you can see placeholder
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Введіть деталі свого товару"
+            textView.textColor = UIColor.lightGray
+        }
+    }
+    //Deinit NotificationCenter
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -101,7 +120,6 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             view.endEditing(false)
         }
         view.endEditing(true)
-        
     }
     @objc func keyboardWillAppear(notification: Notification) {
             guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
@@ -182,7 +200,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         let category = categoryItemTextField.text ?? ""
         let priceItem = priceItemTextField.text ?? ""
         let amountItem = amountItemTextField.text ?? ""
-        let detailsItem = detailsItemTextfield.text ?? ""
+        let detailsItem = detailsItemTextView.text ?? ""
         let imageItem = addImage.image?.pngData()
          // edit item and update coredata
         if titleItem == "" || category == "" || priceItem == "" || amountItem == "" || detailsItem == "" {
@@ -198,7 +216,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                 categoryItemTextField.isUserInteractionEnabled = true
                 priceItemTextField.isUserInteractionEnabled = true
                 amountItemTextField.isUserInteractionEnabled = true
-                detailsItemTextfield.isUserInteractionEnabled = true
+                detailsItemTextView.isUserInteractionEnabled = true
                 tapGestureOutlet.isEnabled = true
                 newItemLabel.text = "Зміни деталі товару"
                 enterImageItemLable.text = "Зміни фото твого товару"
@@ -261,7 +279,7 @@ extension AddItemViewController: UITextFieldDelegate {
         case priceItemTextField:
             amountItemTextField.becomeFirstResponder()
         case amountItemTextField:
-            detailsItemTextfield.becomeFirstResponder()
+            detailsItemTextView.becomeFirstResponder()
         default: break
         }
         return true

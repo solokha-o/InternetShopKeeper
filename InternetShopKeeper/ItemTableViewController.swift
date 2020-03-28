@@ -89,7 +89,7 @@ class ItemTableViewController: UITableViewController {
         vc.categoryItemTextField.text = items[indexPath.row].categoryItem
         vc.priceItemTextField.text = items[indexPath.row].priceItem
         vc.amountItemTextField.text = items[indexPath.row].amountItem
-        vc.detailsItemTextfield.text = items[indexPath.row].detailsItem
+        vc.detailsItemTextView.text = items[indexPath.row].detailsItem
         let imageLoad = UIImage(data: items[indexPath.row].imageItem!)
         vc.addImage.isHighlighted = false
         vc.addImage.image = imageLoad

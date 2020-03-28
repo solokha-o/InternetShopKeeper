@@ -101,7 +101,7 @@ class SearchTableViewController: UITableViewController {
         vc.categoryItemTextField.text = filteredItem[indexPath.row].categoryItem
         vc.priceItemTextField.text = filteredItem[indexPath.row].priceItem
         vc.amountItemTextField.text = filteredItem[indexPath.row].amountItem
-        vc.detailsItemTextfield.text = filteredItem[indexPath.row].detailsItem
+        vc.detailsItemTextView.text = filteredItem[indexPath.row].detailsItem
         vc.newItemLabel.text = "Твій товар"
         vc.enterImageItemLable.text = "Фото товару"
         present(vc, animated: true, completion: nil)

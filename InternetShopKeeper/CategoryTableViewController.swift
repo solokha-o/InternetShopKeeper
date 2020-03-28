@@ -65,6 +65,10 @@ class CategoryTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        reloadCategoryTableViewController()
+    }
     // func for reloat tableview
     func reloadCategoryTableViewController() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
