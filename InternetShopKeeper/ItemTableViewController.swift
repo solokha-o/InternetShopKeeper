@@ -13,7 +13,7 @@ import DropDown
 class ItemTableViewController: UITableViewController {
 
     @IBOutlet weak var sortButtonOutlet: UIBarButtonItem!
-    
+
     // cteate dropDown barButtonItem
     let leftBarDropDown = DropDown()
     // add array of items
@@ -34,7 +34,7 @@ class ItemTableViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
-//        self.tableView.rowHeight = 160.0
+        self.tableView.rowHeight = 130.0
         reloadItemTableViewController()
     }
     
@@ -138,6 +138,5 @@ class ItemTableViewController: UITableViewController {
         leftBarDropDown.show()
         leftBarDropDown.dismissMode = .onTap
     }
-    
-}
+  }
 

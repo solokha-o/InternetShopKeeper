@@ -47,6 +47,11 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var enterAmountItemLabel: UILabel!
     @IBOutlet weak var enterDetailsItemLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
+   // add sale View and sale Button and text fields of view
+    @IBOutlet weak var saleButtonOutlet: UIButton!
+    @IBOutlet weak var saleView: UIView!
+    @IBOutlet weak var priceSaleViewTextFieldOutlet: UITextField!
+    @IBOutlet weak var amountSaleViewTextFieldOutlet: UITextField!
     // Controller can additing and editing category item
     var currentState = State.addItem
     var isInEdit = false
@@ -68,6 +73,11 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         // Create placeholder to detailsItemTextView
         detailsItemTextView.text = "Введіть деталі свого товару"
         detailsItemTextView.textColor = UIColor.lightGray
+        //configure saleView
+        saleView.isHidden = true
+        saleView.layer.cornerRadius = 10
+        saleView.layer.shadowOpacity = 0.8
+        saleView.layer.shadowColor = UIColor.black.cgColor
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -80,6 +90,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         } catch let error {
             print("Error \(error).")
         }
+        saleButtonOutlet.isHidden = true
         // what state in what moment using
         if isInEdit {
             currentState = .editItem
@@ -90,6 +101,8 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             detailsItemTextView.isUserInteractionEnabled = false
             detailsItemTextView.textColor = UIColor.black
             tapGestureOutlet.isEnabled = false
+            saleButtonOutlet.isHidden = false
+
         }
         saveItemButtonOutlet.setTitle(currentState.rightButtonTitle, for: .normal)
         cancelButtonOutlet.setTitle(currentState.leftButtonTitle, for: .normal)
@@ -165,6 +178,22 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     }
     
+    // configure sale Button
+    @IBAction func saleButtonAction(_ sender: UIButton) {
+        print("Press Sale BUTTON")
+        saleView.isHidden = false
+        UIView.animate(withDuration: 0.5) {
+                self.saleView.alpha = 1
+            }
+    }
+    // configure cancel sale view button
+    @IBAction func cancelSaleViewButtonAction(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.saleView.alpha = 0
+        }) { (finished) in
+            self.saleView.isHidden = finished
+        }
+    }
     func openCamera(){
         if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera)){
             imagePicker.sourceType = UIImagePickerController.SourceType.camera
@@ -292,4 +321,5 @@ extension AddItemViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
+    
 }
