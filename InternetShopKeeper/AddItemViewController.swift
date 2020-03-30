@@ -76,8 +76,9 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         //configure saleView
         saleView.isHidden = true
         saleView.layer.cornerRadius = 10
-        saleView.layer.shadowOpacity = 0.8
+        saleView.layer.shadowOpacity = 0.5
         saleView.layer.shadowColor = UIColor.black.cgColor
+        saleView.layer.shadowOffset = .zero
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

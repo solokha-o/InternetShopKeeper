@@ -480,6 +480,7 @@
                                                                         </constraints>
                                                                     </stackView>
                                                                 </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
                                                                     <constraint firstItem="AQf-ZI-Sy0" firstAttribute="centerY" secondItem="Wu7-Ge-L61" secondAttribute="centerY" id="5bS-7G-9kv"/>
                                                                     <constraint firstItem="AQf-ZI-Sy0" firstAttribute="top" secondItem="Wu7-Ge-L61" secondAttribute="top" id="OkM-Py-U9V"/>
@@ -613,7 +614,6 @@
                     <connections>
                         <outlet property="addImage" destination="mns-sU-Rac" id="WA0-hi-Y17"/>
                         <outlet property="amountItemTextField" destination="OcN-G4-J6M" id="Uwd-4U-Jda"/>
-                        <outlet property="amountSaleViewTextFieldOutlet" destination="Nlu-nW-6Qc" id="Mio-Ad-ys4"/>
                         <outlet property="cancelButtonOutlet" destination="GYV-EV-Klf" id="CuN-xK-9se"/>
                         <outlet property="categoryItemTextField" destination="BXc-Hx-ekG" id="Bip-3E-FqV"/>
                         <outlet property="detailsItemTextView" destination="vSH-eU-A4l" id="fTu-cT-bUl"/>
@@ -625,7 +625,6 @@
                         <outlet property="enterTitleItemLable" destination="uJG-d5-tIe" id="GmZ-f4-3ba"/>
                         <outlet property="newItemLabel" destination="RO2-xO-oDR" id="Upo-xa-1Gl"/>
                         <outlet property="priceItemTextField" destination="Cwh-Md-XVw" id="mPU-Ox-KGC"/>
-                        <outlet property="priceSaleViewTextFieldOutlet" destination="eki-Rw-17l" id="dKf-bH-dAW"/>
                         <outlet property="saleButtonOutlet" destination="hF6-Pz-TNz" id="Rz4-op-eee"/>
                         <outlet property="saleView" destination="Wu7-Ge-L61" id="Ghb-fX-Vb2"/>
                         <outlet property="saveItemButtonOutlet" destination="pKK-LD-brz" id="V8Q-pi-GAI"/>
@@ -642,7 +641,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-664" y="-770"/>
+            <point key="canvasLocation" x="-864.375" y="-770.07042253521126"/>
         </scene>
     </scenes>
     <resources>
