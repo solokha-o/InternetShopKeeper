@@ -183,9 +183,9 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     // configure sale Button
     @IBAction func saleButtonAction(_ sender: UIButton) {
         print("Press Sale BUTTON")
-        saleView.isHidden = false
         UIView.animate(withDuration: 0.5) {
-                self.saleView.alpha = 1
+            self.saleView.alpha = 1
+            self.saleView.isHidden = false
             }
     }
     // configure cancel sale view button
@@ -249,6 +249,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                 amountItemTextField.isUserInteractionEnabled = true
                 detailsItemTextView.isUserInteractionEnabled = true
                 tapGestureOutlet.isEnabled = true
+                saleButtonOutlet.isHidden = true
                 newItemLabel.text = "Зміни деталі товару"
                 enterImageItemLable.text = "Зміни фото твого товару"
                 // TODO add update to coreData
