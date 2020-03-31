@@ -103,6 +103,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             detailsItemTextView.textColor = UIColor.black
             tapGestureOutlet.isEnabled = false
             saleButtonOutlet.isHidden = false
+            saleButtonOutlet.isMultipleTouchEnabled = true
 
         }
         saveItemButtonOutlet.setTitle(currentState.rightButtonTitle, for: .normal)

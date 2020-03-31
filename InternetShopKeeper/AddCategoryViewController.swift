@@ -50,6 +50,7 @@ class AddCategoryViewController: UIViewController {
         if isInEdit {
             currentState = .editCategoryItem
             addCategoryTextField.isUserInteractionEnabled = false
+            saveCategoryButtonOutlet.isMultipleTouchEnabled = true
         }
         saveCategoryButtonOutlet.setTitle(currentState.rightButtonTitle, for: .normal)
         cancelButtonOutlet.setTitle(currentState.leftButtonTitle, for: .normal)
@@ -66,7 +67,6 @@ class AddCategoryViewController: UIViewController {
             if isInEdit {
                 // edit category and update coredata
                 currentState = .editCategoryItem
-                sender.isMultipleTouchEnabled = true
                 sender.setTitle("Готово", for: .normal)
                 addCategoryTextField.isUserInteractionEnabled = true
                 enterCategoryLable.text = "Відредагуйте категорію товару"
@@ -88,6 +88,9 @@ class AddCategoryViewController: UIViewController {
                 } catch let error {
                         print("Error \(error).")
                 }
+                if sender.titleLabel?.text == "Готово" {
+                    dismiss(animated: true, completion: nil)
+                }
             } else {
                 //save category to CoreData
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -102,7 +105,6 @@ class AddCategoryViewController: UIViewController {
                 dismiss(animated: true, completion: nil)
             }
         }
-        
     }
     // press button CANCEL
     @IBAction func cancelButtonAction(_ sender: UIButton) {

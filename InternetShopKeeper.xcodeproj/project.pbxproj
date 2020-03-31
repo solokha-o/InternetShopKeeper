@@ -24,6 +24,30 @@
 		DBDC7E992409B345005E35CA /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC7E982409B345005E35CA /* ItemTableViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		DBFAB63D24339C2C00108421 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DBFAB63724339C2C00108421 /* DropDown.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0A76440F1B676C2300BF1A2D;
+			remoteInfo = Demo;
+		};
+		DBFAB63F24339C2C00108421 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DBFAB63724339C2C00108421 /* DropDown.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0A7644241B676C2300BF1A2D;
+			remoteInfo = DropDownTests;
+		};
+		DBFAB64124339C2C00108421 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DBFAB63724339C2C00108421 /* DropDown.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0AB5D8711D0EEECD002D3A17;
+			remoteInfo = DropDown;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		DB0C8878242BD80C00AD4755 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -55,6 +79,7 @@
 		DB5C9DF9242A6BDE00E2CA86 /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
 		DB7EBD14241FFCA300234A9E /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		DBDC7E982409B345005E35CA /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
+		DBFAB63724339C2C00108421 /* DropDown.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DropDown.xcodeproj; path = "DropDown-master/DropDown.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +97,7 @@
 		DB0C8874242BD80C00AD4755 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DBFAB63724339C2C00108421 /* DropDown.xcodeproj */,
 				DB0C8875242BD80C00AD4755 /* DropDown.framework */,
 			);
 			name = Frameworks;
@@ -113,6 +139,16 @@
 				DB599B9B24098D3B0065CA3D /* InternetShopKeeper.xcdatamodeld */,
 			);
 			path = InternetShopKeeper;
+			sourceTree = "<group>";
+		};
+		DBFAB63824339C2C00108421 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DBFAB63E24339C2C00108421 /* Demo.app */,
+				DBFAB64024339C2C00108421 /* DropDownTests.xctest */,
+				DBFAB64224339C2C00108421 /* DropDown.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,12 +199,42 @@
 			mainGroup = DB599B8824098D3A0065CA3D;
 			productRefGroup = DB599B9224098D3B0065CA3D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DBFAB63824339C2C00108421 /* Products */;
+					ProjectRef = DBFAB63724339C2C00108421 /* DropDown.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				DB599B9024098D3A0065CA3D /* InternetShopKeeper */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		DBFAB63E24339C2C00108421 /* Demo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Demo.app;
+			remoteRef = DBFAB63D24339C2C00108421 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DBFAB64024339C2C00108421 /* DropDownTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = DropDownTests.xctest;
+			remoteRef = DBFAB63F24339C2C00108421 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DBFAB64224339C2C00108421 /* DropDown.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DropDown.framework;
+			remoteRef = DBFAB64124339C2C00108421 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		DB599B8F24098D3A0065CA3D /* Resources */ = {
