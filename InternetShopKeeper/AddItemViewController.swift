@@ -232,7 +232,10 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         let priceItem = priceItemTextField.text ?? ""
         let amountItem = amountItemTextField.text ?? ""
         let detailsItem = detailsItemTextView.text ?? ""
-        let imageItem = addImage.image?.pngData()
+        var imageItem = addImage.image?.pngData()
+        if imageItem == nil {
+            imageItem = addImage.highlightedImage?.pngData()
+        }
          // edit item and update coredata
         if titleItem == "" || category == "" || priceItem == "" || amountItem == "" || detailsItem == "" {
             let alert = UIAlertController(title: "Ви забули!", message: "Всі поля мають бути заповненими!", preferredStyle: .alert)
