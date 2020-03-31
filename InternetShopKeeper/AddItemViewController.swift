@@ -251,6 +251,10 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                 tapGestureOutlet.isEnabled = true
                 newItemLabel.text = "Зміни деталі товару"
                 enterImageItemLable.text = "Зміни фото твого товару"
+                // TODO add update to coreData
+                if sender.titleLabel?.text == "Готово" {
+                    dismiss(animated: true, completion: nil)
+                }
             } else {
                 //save all information of item to coreData
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
