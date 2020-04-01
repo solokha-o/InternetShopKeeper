@@ -14,6 +14,9 @@ class CategoryTableViewController: UITableViewController {
     @IBOutlet weak var addCategoryButtonOutlet: UIBarButtonItem!
     @IBOutlet weak var sortButtonOutlet: UIBarButtonItem!
     
+    // create array with CategoryStruct
+    let categoriesStruct = [CategoryStruct]()
+    
     // cteate dropDown barButtonItem
     let leftBarDropDown = DropDown()
     // create array for coreData
@@ -122,25 +125,29 @@ class CategoryTableViewController: UITableViewController {
         vc.addCategoryTextField.text = categories[indexPath.row].name
         vc.newCategoryLable.text = "Категорія товару"
         vc.enterCategoryLable.text = "Створена категорія товару"
-        present(vc, animated: true, completion: nil)
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let context = appDelegate.persistentContainer.viewContext
-//        let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
-//        do {
-//            categories = try context.fetch(fetchRequest)
-//            if categories.count > 0 {
-//                let category =  categories[indexPath.row] as NSManagedObject
-//                category.setValue(vc.addCategoryTextField.text, forKey: "name")
-//                do {
-//                    try context.save()
-//                } catch let error {
-//                    print("Error \(error).")
+//        if vc.isEditing {
+//            print("Core data update")
+//            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//            let context = appDelegate.persistentContainer.viewContext
+//            let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
+//            do {
+//                categories = try context.fetch(fetchRequest)
+//                if categories.count > 0 {
+//                    let category =  categories[indexPath.row] as NSManagedObject
+//                    category.setValue(vc.addCategoryTextField.text, forKey: "name")
+//                    do {
+//                        try context.save()
+//                    } catch let error {
+//                        print("Error \(error).")
+//                    }
 //                }
+//            } catch let error {
+//                    print("Error \(error).")
 //            }
-//        } catch let error {
-//                print("Error \(error).")
 //        }
+        present(vc, animated: true, completion: nil)
     }
+    
     // Trailing swipe configutate delete category item
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let contextItem = UIContextualAction(style: .destructive, title: "Видалити") {  [weak self] (_, _, _) in

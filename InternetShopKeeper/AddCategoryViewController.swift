@@ -9,6 +9,11 @@
 import UIKit
 import CoreData
 
+// protocol for create instance of CategoryStruct
+protocol AddCategoryViewControllerDelegate {
+    func addCategoryViewController (_ addCategoryViewController: AddCategoryViewController, didAddCategory category: CategoryStruct)
+}
+
 class AddCategoryViewController: UIViewController {
 // State for Bar button
     enum State {
@@ -34,7 +39,8 @@ class AddCategoryViewController: UIViewController {
     @IBOutlet weak var enterCategoryLable: UILabel!
     @IBOutlet weak var addCategoryTextField: UITextField!
     
-    var ctwc = CategoryTableViewController()
+    // create delegate of AddCategoryViewController
+    var delegate : AddCategoryViewControllerDelegate?
 
     // Controller can additing and editing category item
     var currentState = State.addCategoryItem
@@ -58,8 +64,10 @@ class AddCategoryViewController: UIViewController {
     // press button ADD
     @IBAction func saveCategoryButtonAction(_ sender: UIButton) {
         print("Press ADD")
-        let category = addCategoryTextField.text ?? ""
-        if category == "" {
+        // create constant that class will delegate
+        let category = CategoryStruct(name: addCategoryTextField.text ?? "")
+        delegate?.addCategoryViewController(self, didAddCategory: category)
+        if category.name == "" {
             let alert = UIAlertController(title: "Ви забули!", message: "Поле має бути заповненим!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -71,37 +79,37 @@ class AddCategoryViewController: UIViewController {
                 addCategoryTextField.isUserInteractionEnabled = true
                 enterCategoryLable.text = "Відредагуйте категорію товару"
                 //update category to CoreData
-                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                let context = appDelegate.persistentContainer.viewContext
-                let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
-                do {
-                    let updateContext = try context.fetch(fetchRequest)
-                    if updateContext.count > 0 {
-                        let objUpdate =  updateContext[0] as NSManagedObject
-                        objUpdate.setValue(category, forKey: "name")
-                        do {
-                            try context.save()
-                        } catch let error {
-                            print("Error \(error).")
-                        }
-                    }
-                } catch let error {
-                        print("Error \(error).")
-                }
+//                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//                let context = appDelegate.persistentContainer.viewContext
+//                let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
+//                do {
+//                    let updateContext = try context.fetch(fetchRequest)
+//                    if updateContext.count > 0 {
+//                        let objUpdate =  updateContext[0] as NSManagedObject
+//                        objUpdate.setValue(category, forKey: "name")
+//                        do {
+//                            try context.save()
+//                        } catch let error {
+//                            print("Error \(error).")
+//                        }
+//                    }
+//                } catch let error {
+//                        print("Error \(error).")
+//                }
                 if sender.titleLabel?.text == "Готово" {
                     dismiss(animated: true, completion: nil)
                 }
             } else {
                 //save category to CoreData
-                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                let context = appDelegate.persistentContainer.viewContext
-                let newCategory = Categories(context: context)
-                newCategory.name = category
-                do {
-                    try context.save()
-                } catch let error {
-                    print("Error \(error).")
-                }
+//                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//                let context = appDelegate.persistentContainer.viewContext
+//                let newCategory = Categories(context: context)
+//                newCategory.name = category
+//                do {
+//                    try context.save()
+//                } catch let error {
+//                    print("Error \(error).")
+//                }
                 dismiss(animated: true, completion: nil)
             }
         }
