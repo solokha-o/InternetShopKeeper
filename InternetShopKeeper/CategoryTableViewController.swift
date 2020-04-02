@@ -85,11 +85,11 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
     }
     // update category in coreDate
     func updateCategory(id: String) {
-        //TODO
+        //TODO: do this
     }
     // remove category from coreDate
     func removeCategory() {
-        //TODO
+        //TODO: do this
     }
     // get category from core data to array what will view in tableview
     func getAllCategory() {
@@ -102,7 +102,7 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
     }
     // get category for id from coreData
     func getIdCategory() {
-        //TODO
+        //TODO: do this
     }
     // func for filter Content For Search Text
     func filterContentForSearchText(_ searchText: String) {
