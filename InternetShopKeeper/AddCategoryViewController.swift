@@ -65,7 +65,7 @@ class AddCategoryViewController: UIViewController {
     @IBAction func saveCategoryButtonAction(_ sender: UIButton) {
         print("Press ADD")
         // create constant that class will delegate
-        let category = CategoryStruct(name: addCategoryTextField.text ?? "")
+        let category = CategoryStruct(name: addCategoryTextField.text ?? "", id: UUID() .uuidString)
         delegate?.addCategoryViewController(self, didAddCategory: category)
         if category.name == "" {
             let alert = UIAlertController(title: "Ви забули!", message: "Поле має бути заповненим!", preferredStyle: .alert)

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Categories" representedClassName="Categories" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
@@ -12,7 +13,7 @@
         <attribute name="titleItem" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Categories" positionX="105.5" positionY="-15.97265625" width="128" height="58"/>
+        <element name="Categories" positionX="105.5" positionY="-15.97265625" width="128" height="73"/>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="133"/>
     </elements>
 </model>

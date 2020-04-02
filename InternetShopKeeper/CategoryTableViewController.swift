@@ -9,21 +9,21 @@ import UIKit
 import CoreData
 import DropDown
 
-class CategoryTableViewController: UITableViewController {
+class CategoryTableViewController: UITableViewController, AddCategoryViewControllerDelegate {
+    
     
     @IBOutlet weak var addCategoryButtonOutlet: UIBarButtonItem!
     @IBOutlet weak var sortButtonOutlet: UIBarButtonItem!
     
-    // create array with CategoryStruct
-    let categoriesStruct = [CategoryStruct]()
-    
+    // create array with CategoryStruct for view in tableview
+    var categoriesStruct = [CategoryStruct]()
     // cteate dropDown barButtonItem
     let leftBarDropDown = DropDown()
     // create array for coreData
     var categories = [Categories]()
     // create property for search bar and filtered results
     let search = UISearchController(searchResultsController: nil)
-    var filteredCategories = [Categories]()
+    var filteredCategories = [CategoryStruct]()
     var isSearchBarEmpty: Bool {
         return search.searchBar.text?.isEmpty ?? true
     }
@@ -33,12 +33,13 @@ class CategoryTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        reloadCategoryTableViewController()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        reloadCategoryTableViewController()
+        // load array from coreData and get to array table view
+        fetchCategory()
+        getAllCategory()
         // configurate BarButtonItem DropDown
         leftBarDropDown.anchorView = sortButtonOutlet
         leftBarDropDown.dataSource = ["Сортувати А - Я", "Сортувати Я - А"]
@@ -46,15 +47,6 @@ class CategoryTableViewController: UITableViewController {
         leftBarDropDown.shadowColor = UIColor.black
         leftBarDropDown.shadowOpacity = 0.8
         leftBarDropDown.setupCornerRadius(10)
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let context = appDelegate.persistentContainer.viewContext
-//        let fetchRequest = Item.fetchRequest() as NSFetchRequest<Item>
-//                do {
-//            categories = try context.fetch(fetchRequest)
-//
-//        } catch let error {
-//            print("Не удалось загрузить данные из-за ошибки: \(error).")
-//        }
         // Navigation bar have large title and search controller
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.searchController = search
@@ -66,54 +58,82 @@ class CategoryTableViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
-        
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        reloadCategoryTableViewController()
-    }
-    // func for reloat tableview
-    func reloadCategoryTableViewController() {
+    // fetch category from coreData
+    func fetchCategory(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
         do {
             self.categories = try context.fetch(fetchRequest)
-
         } catch let error {
             print("Error: \(error).")
         }
-        self.tableView.reloadData()
+    }
+    // add save cayegory to coreData
+    func saveCategory(category: CategoryStruct) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let newCategory = Categories(context: context)
+        newCategory.name = category.name
+        newCategory.id = category.id
+            do {
+                try context.save()
+               } catch let error {
+                print("Error \(error).")
+            }
+    }
+    // update category in coreDate
+    func updateCategory(id: String) {
+        //TODO
+    }
+    // remove category from coreDate
+    func removeCategory() {
+        //TODO
+    }
+    // get category from core data to array what will view in tableview
+    func getAllCategory() {
+        for category in categories {
+            var newCategoryStruct = CategoryStruct(name: "", id: "")
+            newCategoryStruct.name = category.name ?? ""
+            newCategoryStruct.id = category.id ?? ""
+            categoriesStruct.append(newCategoryStruct)
+        }
+    }
+    // get category for id from coreData
+    func getIdCategory() {
+        //TODO
     }
     // func for filter Content For Search Text
     func filterContentForSearchText(_ searchText: String) {
-      filteredCategories = categories.filter { (category: Categories) -> Bool in
-        return (category.name?.lowercased().contains(searchText.lowercased()) ?? false)
+      filteredCategories = categoriesStruct.filter { (category: CategoryStruct) -> Bool in
+        return (category.name.lowercased().contains(searchText.lowercased()))
       }
       tableView.reloadData()
     }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1    }
+        return 1
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // number of row return from coredata or filtering results
         if isFiltering {
             return filteredCategories.count
         }
-        return categories.count
+        return categoriesStruct.count
     }
     // configurate cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let category: Categories
+        let category: CategoryStruct
         if isFiltering {
             category = filteredCategories[indexPath.row]
         } else {
-            category = categories[indexPath.row]
+            category = categoriesStruct[indexPath.row]
         }
-        let itemCategory = category.name ?? ""
+        let itemCategory = category.name
         cell.textLabel?.text = itemCategory
         return cell
     }
@@ -122,7 +142,7 @@ class CategoryTableViewController: UITableViewController {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "AddCategoryViewController") as? AddCategoryViewController else { return }
         _ = vc.view
         vc.isInEdit = true
-        vc.addCategoryTextField.text = categories[indexPath.row].name
+        vc.addCategoryTextField.text = categoriesStruct[indexPath.row].name
         vc.newCategoryLable.text = "Категорія товару"
         vc.enterCategoryLable.text = "Створена категорія товару"
 //        if vc.isEditing {
@@ -175,13 +195,13 @@ class CategoryTableViewController: UITableViewController {
         leftBarDropDown.selectionAction = { (index: Int, item: String) in
             switch index {
             case 0:
-                self.categories = self.categories.sorted {$0.name!.lowercased() < $1.name!.lowercased()}
+                self.categoriesStruct = self.categoriesStruct.sorted {$0.name.lowercased() < $1.name.lowercased()}
                 self.tableView.reloadData()
-                print(self.categories)
+                print(self.categoriesStruct)
             case 1:
-                self.categories = self.categories.sorted {$0.name!.lowercased() > $1.name!.lowercased()}
+                self.categoriesStruct = self.categoriesStruct.sorted {$0.name.lowercased() > $1.name.lowercased()}
                 self.tableView.reloadData()
-                print(self.categories)
+                print(self.categoriesStruct)
             default: break
             }
           print("Selected item: \(item) at index: \(index)") }
@@ -189,6 +209,18 @@ class CategoryTableViewController: UITableViewController {
         leftBarDropDown.bottomOffset = CGPoint(x: 0, y:(leftBarDropDown.anchorView?.plainView.bounds.height)!)
         leftBarDropDown.show()
         leftBarDropDown.dismissMode = .onTap
+    }
+    // configure func addCategoryViewController
+    func addCategoryViewController(_ addCategoryViewController: AddCategoryViewController, didAddCategory category: CategoryStruct) {
+        categoriesStruct.append(category)
+        saveCategory(category: category)
+        tableView.reloadData()
+    }
+    // configure segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        guard let desctinationVC = segue.destination as? AddCategoryViewController else { return }
+        desctinationVC.delegate = self
     }
 }
 // add extension UISearchResultsUpdating to CategoryTableViewController
