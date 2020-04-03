@@ -30,6 +30,8 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
     var isFiltering: Bool {
         return search.isActive && !isSearchBarEmpty
     }
+    //create Bool for state of using coreData
+    var isUpdateCoreData = false
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -84,12 +86,41 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
             }
     }
     // update category in coreDate
-    func updateCategory(id: String) {
-        //TODO: do this
+    func updateCategory(id: String, category: String) {
+        for i in 0..<categories.count {
+            if categories[i].id == id {
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                let context = appDelegate.persistentContainer.viewContext
+                let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
+                do {
+                    let updateContext = try context.fetch(fetchRequest)
+                    if updateContext.count > 0 {
+                        let objUpdate =  updateContext[i] as NSManagedObject
+                        objUpdate.setValue(category, forKey: "name")
+                        do {
+                            try context.save()
+                        } catch let error {
+                            print("Error \(error).")
+                        }
+                    }
+                } catch let error {
+                        print("Error \(error).")
+                }
+            }
+        }
     }
     // remove category from coreDate
-    func removeCategory() {
-        //TODO: do this
+    func removeCategory(category: Categories?) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        if let category = category {
+            context.delete(category)
+        }
+        do{
+            try context.save()
+        } catch let error {
+            print("Error \(error).")
+        }
     }
     // get category from core data to array what will view in tableview
     func getAllCategory() {
@@ -141,10 +172,14 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "AddCategoryViewController") as? AddCategoryViewController else { return }
         _ = vc.view
+        isUpdateCoreData = true
+        vc.category.id = categoriesStruct[indexPath.row].id
+        print("ID" + categoriesStruct[indexPath.row].id)
         vc.isInEdit = true
         vc.addCategoryTextField.text = categoriesStruct[indexPath.row].name
         vc.newCategoryLable.text = "Категорія товару"
         vc.enterCategoryLable.text = "Створена категорія товару"
+        vc.delegate = self
 //        if vc.isEditing {
 //            print("Core data update")
 //            let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -165,6 +200,7 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
 //                    print("Error \(error).")
 //            }
 //        }
+        isUpdateCoreData = false
         present(vc, animated: true, completion: nil)
     }
     
@@ -172,16 +208,9 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let contextItem = UIContextualAction(style: .destructive, title: "Видалити") {  [weak self] (_, _, _) in
             // delete category from CoreData
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.viewContext
-            context.delete((self?.categories[indexPath.row])!)
-            self?.categories.remove(at: indexPath.row)
+            self?.removeCategory(category: self?.categories[indexPath.row])
+            self?.categoriesStruct.remove(at: indexPath.row)
             self?.tableView.deleteRows(at:[indexPath],with: .fade)
-            do{
-                try context.save()
-            } catch let error {
-                print("Error \(error).")
-            }
             self?.tableView.reloadSections([indexPath.section], with: .automatic)
             print("DELETE HAPPENS")
         }
@@ -210,10 +239,23 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
         leftBarDropDown.show()
         leftBarDropDown.dismissMode = .onTap
     }
-    // configure func addCategoryViewController
+    // configure func addCategoryViewController for delegate
     func addCategoryViewController(_ addCategoryViewController: AddCategoryViewController, didAddCategory category: CategoryStruct) {
-        categoriesStruct.append(category)
-        saveCategory(category: category)
+        print(category.id)
+        // if state edit coreData we find category for id and update in coreData and  tableview
+        if isUpdateCoreData{
+            for i in 0..<categoriesStruct.count {
+                if categoriesStruct[i].id == category.id {
+                    categoriesStruct[i].name = category.name
+                    updateCategory(id: category.id, category: category.name)
+                }
+            }
+            
+        } else {
+            // else save to coreData and and view in tableview
+            categoriesStruct.append(category)
+            saveCategory(category: category)
+        }
         tableView.reloadData()
     }
     // configure segue

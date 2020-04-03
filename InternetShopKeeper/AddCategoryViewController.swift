@@ -41,7 +41,8 @@ class AddCategoryViewController: UIViewController {
     
     // create delegate of AddCategoryViewController
     var delegate : AddCategoryViewControllerDelegate?
-
+    //create instance of CategoryStruct
+    var category = CategoryStruct(name: "", id: "")
     // Controller can additing and editing category item
     var currentState = State.addCategoryItem
     var isInEdit = false
@@ -56,7 +57,6 @@ class AddCategoryViewController: UIViewController {
         if isInEdit {
             currentState = .editCategoryItem
             addCategoryTextField.isUserInteractionEnabled = false
-            saveCategoryButtonOutlet.isMultipleTouchEnabled = true
         }
         saveCategoryButtonOutlet.setTitle(currentState.rightButtonTitle, for: .normal)
         cancelButtonOutlet.setTitle(currentState.leftButtonTitle, for: .normal)
@@ -64,53 +64,37 @@ class AddCategoryViewController: UIViewController {
     // press button ADD
     @IBAction func saveCategoryButtonAction(_ sender: UIButton) {
         print("Press ADD")
-        // create constant that class will delegate
-        let category = CategoryStruct(name: addCategoryTextField.text ?? "", id: UUID() .uuidString)
-        delegate?.addCategoryViewController(self, didAddCategory: category)
-        if category.name == "" {
-            let alert = UIAlertController(title: "Ви забули!", message: "Поле має бути заповненим!", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        } else {
-            if isInEdit {
-                // edit category and update coredata
-                currentState = .editCategoryItem
-                sender.setTitle("Готово", for: .normal)
-                addCategoryTextField.isUserInteractionEnabled = true
-                enterCategoryLable.text = "Відредагуйте категорію товару"
-                //update category to CoreData
-//                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//                let context = appDelegate.persistentContainer.viewContext
-//                let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
-//                do {
-//                    let updateContext = try context.fetch(fetchRequest)
-//                    if updateContext.count > 0 {
-//                        let objUpdate =  updateContext[0] as NSManagedObject
-//                        objUpdate.setValue(category, forKey: "name")
-//                        do {
-//                            try context.save()
-//                        } catch let error {
-//                            print("Error \(error).")
-//                        }
-//                    }
-//                } catch let error {
-//                        print("Error \(error).")
-//                }
-                if sender.titleLabel?.text == "Готово" {
+        // configure button to save category or edit category
+        switch isInEdit {
+        case false:
+            category.name = addCategoryTextField.text ?? ""
+            category.id =  UUID() .uuidString
+            print(category.id)
+            if category.name == "" {
+                let alert = UIAlertController(title: "Ви забули!", message: "Поле має бути заповненим!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                 delegate?.addCategoryViewController(self, didAddCategory: category)
+            }
+            dismiss(animated: true, completion: nil)
+        case true:
+            currentState = .editCategoryItem
+            sender.setTitle("Готово", for: .normal)
+            addCategoryTextField.isUserInteractionEnabled = true
+            enterCategoryLable.text = "Відредагуйте категорію товару"
+            if sender.titleLabel?.text == "Готово" {
+                category.name = addCategoryTextField.text ?? ""
+                print(category.id)
+                if category.name == "" {
+                    let alert = UIAlertController(title: "Ви забули!", message: "Поле має бути заповненим!", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                } else {
+                    delegate?.addCategoryViewController(self, didAddCategory: category)
+                    print(category)
                     dismiss(animated: true, completion: nil)
                 }
-            } else {
-                //save category to CoreData
-//                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//                let context = appDelegate.persistentContainer.viewContext
-//                let newCategory = Categories(context: context)
-//                newCategory.name = category
-//                do {
-//                    try context.save()
-//                } catch let error {
-//                    print("Error \(error).")
-//                }
-                dismiss(animated: true, completion: nil)
             }
         }
     }
