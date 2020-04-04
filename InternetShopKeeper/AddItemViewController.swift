@@ -250,8 +250,8 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                 self.present(alert, animated: true, completion: nil)
             } else {
                 delegate?.addItemViewController(self, didAddItem: item)
+                dismiss(animated: true, completion: nil)
             }
-            dismiss(animated: true, completion: nil)
         case true:
             currentState = .editItem
             sender.isMultipleTouchEnabled = true

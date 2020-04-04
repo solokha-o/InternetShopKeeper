@@ -76,8 +76,8 @@ class AddCategoryViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
             } else {
                  delegate?.addCategoryViewController(self, didAddCategory: category)
+                dismiss(animated: true, completion: nil)
             }
-            dismiss(animated: true, completion: nil)
         case true:
             currentState = .editCategoryItem
             sender.setTitle("Готово", for: .normal)
