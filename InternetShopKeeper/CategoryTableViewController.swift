@@ -61,6 +61,7 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
     }
+    
     // fetch category from coreData
     func fetchCategory(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -84,6 +85,8 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
                } catch let error {
                 print("Error \(error).")
             }
+        // add new element to corData array
+        categories.append(newCategory)
     }
     // update category in coreDate
     func updateCategory(id: String, category: String) {
@@ -173,6 +176,7 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "AddCategoryViewController") as? AddCategoryViewController else { return }
         _ = vc.view
         isUpdateCoreData = true
+        // configure AddCategoryViewController for state isInEdit
         vc.category.id = categoriesStruct[indexPath.row].id
         print("ID" + categoriesStruct[indexPath.row].id)
         vc.isInEdit = true
@@ -180,38 +184,16 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
         vc.newCategoryLable.text = "Категорія товару"
         vc.enterCategoryLable.text = "Створена категорія товару"
         vc.delegate = self
-//        if vc.isEditing {
-//            print("Core data update")
-//            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//            let context = appDelegate.persistentContainer.viewContext
-//            let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
-//            do {
-//                categories = try context.fetch(fetchRequest)
-//                if categories.count > 0 {
-//                    let category =  categories[indexPath.row] as NSManagedObject
-//                    category.setValue(vc.addCategoryTextField.text, forKey: "name")
-//                    do {
-//                        try context.save()
-//                    } catch let error {
-//                        print("Error \(error).")
-//                    }
-//                }
-//            } catch let error {
-//                    print("Error \(error).")
-//            }
-//        }
-        isUpdateCoreData = false
         present(vc, animated: true, completion: nil)
     }
-    
     // Trailing swipe configutate delete category item
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let contextItem = UIContextualAction(style: .destructive, title: "Видалити") {  [weak self] (_, _, _) in
             // delete category from CoreData
-            self?.removeCategory(category: self?.categories[indexPath.row])
             self?.categoriesStruct.remove(at: indexPath.row)
             self?.tableView.deleteRows(at:[indexPath],with: .fade)
             self?.tableView.reloadSections([indexPath.section], with: .automatic)
+            self?.removeCategory(category: self?.categories[indexPath.row])
             print("DELETE HAPPENS")
         }
         let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
@@ -241,20 +223,21 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
     }
     // configure func addCategoryViewController for delegate
     func addCategoryViewController(_ addCategoryViewController: AddCategoryViewController, didAddCategory category: CategoryStruct) {
-        print(category.id)
         // if state edit coreData we find category for id and update in coreData and  tableview
         if isUpdateCoreData{
             for i in 0..<categoriesStruct.count {
                 if categoriesStruct[i].id == category.id {
                     categoriesStruct[i].name = category.name
                     updateCategory(id: category.id, category: category.name)
+                    print("update " + category.id)
                 }
             }
-            
+            isUpdateCoreData = false
         } else {
             // else save to coreData and and view in tableview
             categoriesStruct.append(category)
             saveCategory(category: category)
+            print("Save " + category.id)
         }
         tableView.reloadData()
     }
@@ -263,6 +246,7 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
         super.prepare(for: segue, sender: sender)
         guard let desctinationVC = segue.destination as? AddCategoryViewController else { return }
         desctinationVC.delegate = self
+        isUpdateCoreData = false
     }
 }
 // add extension UISearchResultsUpdating to CategoryTableViewController
