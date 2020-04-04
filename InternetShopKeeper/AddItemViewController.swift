@@ -60,7 +60,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     // create delegate of AddCategoryViewController
     var delegate : AddItemViewControllerDelegate?
     //create instance of CategoryStruct
-    var item = ItemStruct(title: "", category: "", price: "", amount: "", details: "", image: UIImage(imageLiteralResourceName: "AddImage"), id: "", salePriceItem: "")
+    var item = ItemStruct(title: "", category: "", price: "", amount: "", details: "", image: UIImage(imageLiteralResourceName: "AddImage"), id: "", salePrice: "")
     // Controller can additing and editing category item
     var currentState = State.addItem
     var isInEdit = false
@@ -71,6 +71,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         addImage.isHighlighted = true
         titleItemTextField.delegate = self
         categoryItemTextField.delegate = self
@@ -91,6 +92,17 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // get category from coreData to piker
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
+        do {
+            categories = (try context.fetch(fetchRequest))
+
+        } catch let error {
+            print("Error \(error).")
+        }
+        saleButtonOutlet.isHidden = true
         // what state in what moment using
         if isInEdit {
             currentState = .editItem
@@ -267,6 +279,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                 } else {
                     delegate?.addItemViewController(self, didAddItem: item)
                     dismiss(animated: true, completion: nil)
+                    print("Delegate " + item.id)
                 }
             }
         }
@@ -322,5 +335,4 @@ extension AddItemViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
-    
 }

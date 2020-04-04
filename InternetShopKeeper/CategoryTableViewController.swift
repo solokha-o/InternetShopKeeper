@@ -73,7 +73,7 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
             print("Error: \(error).")
         }
     }
-    // add save cayegory to coreData
+    // add save category to coreData
     func saveCategory(category: CategoryStruct) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
@@ -152,7 +152,7 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // number of row return from coredata or filtering results
+        // number of row return from array categories or filtering results
         if isFiltering {
             return filteredCategories.count
         }
