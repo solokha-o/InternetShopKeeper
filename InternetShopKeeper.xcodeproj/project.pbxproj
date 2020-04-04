@@ -12,8 +12,8 @@
 		DB0C8876242BD80C00AD4755 /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0C8875242BD80C00AD4755 /* DropDown.framework */; };
 		DB0C8877242BD80C00AD4755 /* DropDown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB0C8875242BD80C00AD4755 /* DropDown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DB1BFD5C2416BA3E00197229 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1BFD5B2416BA3E00197229 /* CategoryTableViewController.swift */; };
-		DB3345FA243662600076368A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3345F9243662600076368A /* Category.swift */; };
-		DB3345FC2436626B0076368A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3345FB2436626A0076368A /* Item.swift */; };
+		DB3345FA243662600076368A /* CategoryStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3345F9243662600076368A /* CategoryStruct.swift */; };
+		DB3345FC2436626B0076368A /* ItemStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3345FB2436626A0076368A /* ItemStruct.swift */; };
 		DB3B46ED2416B33800A79BB0 /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3B46EC2416B33800A79BB0 /* AddCategoryViewController.swift */; };
 		DB599B9524098D3B0065CA3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB599B9424098D3B0065CA3D /* AppDelegate.swift */; };
 		DB599B9A24098D3B0065CA3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB599B9824098D3B0065CA3D /* Main.storyboard */; };
@@ -69,8 +69,8 @@
 		DB07E26D24100CE600A86645 /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 		DB0C8875242BD80C00AD4755 /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB1BFD5B2416BA3E00197229 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
-		DB3345F9243662600076368A /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Category.swift; path = "../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/Category.swift"; sourceTree = "<group>"; };
-		DB3345FB2436626A0076368A /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Item.swift; path = "../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/Item.swift"; sourceTree = "<group>"; };
+		DB3345F9243662600076368A /* CategoryStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryStruct.swift; path = "../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/CategoryStruct.swift"; sourceTree = "<group>"; };
+		DB3345FB2436626A0076368A /* ItemStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemStruct.swift; path = "../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/ItemStruct.swift"; sourceTree = "<group>"; };
 		DB3B46EC2416B33800A79BB0 /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
 		DB599B9124098D3B0065CA3D /* InternetShopKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InternetShopKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB599B9424098D3B0065CA3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,8 +136,8 @@
 				DB07E26D24100CE600A86645 /* ItemTableViewCell.xib */,
 				DB7EBD14241FFCA300234A9E /* SearchTableViewController.swift */,
 				DB5C9DF9242A6BDE00E2CA86 /* StatisticViewController.swift */,
-				DB3345F9243662600076368A /* Category.swift */,
-				DB3345FB2436626A0076368A /* Item.swift */,
+				DB3345F9243662600076368A /* CategoryStruct.swift */,
+				DB3345FB2436626A0076368A /* ItemStruct.swift */,
 				DB599B9824098D3B0065CA3D /* Main.storyboard */,
 				DB599B9E24098D3B0065CA3D /* Assets.xcassets */,
 				DB599BA024098D3B0065CA3D /* LaunchScreen.storyboard */,
@@ -262,12 +262,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB07E26E24100CE600A86645 /* ItemTableViewCell.swift in Sources */,
-				DB3345FA243662600076368A /* Category.swift in Sources */,
+				DB3345FA243662600076368A /* CategoryStruct.swift in Sources */,
 				DBDC7E992409B345005E35CA /* ItemTableViewController.swift in Sources */,
 				DB1BFD5C2416BA3E00197229 /* CategoryTableViewController.swift in Sources */,
 				DB599BAA24099F230065CA3D /* AddItemViewController.swift in Sources */,
 				DB599B9524098D3B0065CA3D /* AppDelegate.swift in Sources */,
-				DB3345FC2436626B0076368A /* Item.swift in Sources */,
+				DB3345FC2436626B0076368A /* ItemStruct.swift in Sources */,
 				DB3B46ED2416B33800A79BB0 /* AddCategoryViewController.swift in Sources */,
 				DB5C9DFA242A6BDE00E2CA86 /* StatisticViewController.swift in Sources */,
 				DB599B9D24098D3B0065CA3D /* InternetShopKeeper.xcdatamodeld in Sources */,

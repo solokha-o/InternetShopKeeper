@@ -9,6 +9,11 @@
 import UIKit
 import CoreData
 
+// protocol for create instance of ItemStruct
+protocol AddItemViewControllerDelegate {
+    func addItemViewController (_ addItemViewController: AddItemViewController, didAddItem item: Item)
+}
+
 class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate {
     // State for Bar button
     enum State {
