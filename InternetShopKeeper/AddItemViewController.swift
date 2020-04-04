@@ -11,7 +11,7 @@ import CoreData
 
 // protocol for create instance of ItemStruct
 protocol AddItemViewControllerDelegate {
-    func addItemViewController (_ addItemViewController: AddItemViewController, didAddItem item: Item)
+    func addItemViewController (_ addItemViewController: AddItemViewController, didAddItem item: ItemStruct)
 }
 
 class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate {
@@ -57,6 +57,10 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var saleView: UIView!
     @IBOutlet weak var priceSaleViewTextFieldOutlet: UITextField!
     @IBOutlet weak var amountSaleViewTextFieldOutlet: UITextField!
+    // create delegate of AddCategoryViewController
+    var delegate : AddItemViewControllerDelegate?
+    //create instance of CategoryStruct
+    var item = ItemStruct(title: "", category: "", price: "", amount: "", details: "", image: UIImage(imageLiteralResourceName: "AddImage"), id: "", salePriceItem: "")
     // Controller can additing and editing category item
     var currentState = State.addItem
     var isInEdit = false
@@ -87,16 +91,6 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
-        do {
-            categories = (try context.fetch(fetchRequest))
-
-        } catch let error {
-            print("Error \(error).")
-        }
-        saleButtonOutlet.isHidden = true
         // what state in what moment using
         if isInEdit {
             currentState = .editItem
@@ -108,8 +102,6 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             detailsItemTextView.textColor = UIColor.black
             tapGestureOutlet.isEnabled = false
             saleButtonOutlet.isHidden = false
-            saleButtonOutlet.isMultipleTouchEnabled = true
-
         }
         saveItemButtonOutlet.setTitle(currentState.rightButtonTitle, for: .normal)
         cancelButtonOutlet.setTitle(currentState.leftButtonTitle, for: .normal)
@@ -135,12 +127,14 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
+    // configure touchesBegan for state isInEdit
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if isInEdit {
             view.endEditing(false)
         }
         view.endEditing(true)
     }
+    // configure keyboard to scrollView
     @objc func keyboardWillAppear(notification: Notification) {
             guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
             let keyboardScreenEndFrame = keyboardValue.cgRectValue
@@ -156,10 +150,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     @objc func keyboardWillHide(notification: Notification) {
             print(notification)
         }
-
-    //TODO - add animate imageView and
     // press on screen to add image of item
-    
     @IBAction func addImageAction(_ sender: UITapGestureRecognizer) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
                 alert.addAction(UIAlertAction(title: "Зробити фото", style: .default, handler: { _ in
@@ -182,9 +173,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         //            break
         //        }
                 self.present(alert, animated: true, completion: nil)
-
     }
-    
     // configure sale Button
     @IBAction func saleButtonAction(_ sender: UIButton) {
         print("Press Sale BUTTON")
@@ -201,6 +190,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.saleView.isHidden = finished
         }
     }
+    // configurate open camera and add photo
     func openCamera(){
         if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera)){
             imagePicker.sourceType = UIImagePickerController.SourceType.camera
@@ -215,72 +205,69 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.present(alert, animated: true, completion: nil)
         }
     }
+    // configurate open gallery and add photo
     func openGallary(){
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
         self.present(imagePicker, animated: true, completion: nil)
     }
+    // configure image what will chose after finish imagePickerController
     internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-    
-    imagePicker.dismiss(animated: true, completion: nil)
-
-    guard let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
+        imagePicker.dismiss(animated: true, completion: nil)
+        guard let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
         addImage.isHighlighted = false
         addImage.image = editedImage
         }
     // press button ADD
     @IBAction func addButtonAction(_ sender: UIButton) {
         print("Press ADD.")
-        let titleItem = titleItemTextField.text ?? ""
-        let category = categoryItemTextField.text ?? ""
-        let priceItem = priceItemTextField.text ?? ""
-        let amountItem = amountItemTextField.text ?? ""
-        let detailsItem = detailsItemTextView.text ?? ""
-        var imageItem = addImage.image?.pngData()
-        if imageItem == nil {
-            imageItem = addImage.highlightedImage?.pngData()
-        }
-         // edit item and update coredata
-        if titleItem == "" || category == "" || priceItem == "" || amountItem == "" || detailsItem == "" {
-            let alert = UIAlertController(title: "Ви забули!", message: "Всі поля мають бути заповненими!", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        } else {
-            if isInEdit {
-                currentState = .editItem
-                sender.isMultipleTouchEnabled = true
-                sender.setTitle("Готово", for: .normal)
-                titleItemTextField.isUserInteractionEnabled = true
-                categoryItemTextField.isUserInteractionEnabled = true
-                priceItemTextField.isUserInteractionEnabled = true
-                amountItemTextField.isUserInteractionEnabled = true
-                detailsItemTextView.isUserInteractionEnabled = true
-                tapGestureOutlet.isEnabled = true
-                saleButtonOutlet.isHidden = true
-                newItemLabel.text = "Зміни деталі товару"
-                enterImageItemLable.text = "Зміни фото твого товару"
-                // TODO add update to coreData
-                if sender.titleLabel?.text == "Готово" {
+        // configure button to save item or edit item
+        switch isInEdit {
+        case false:
+            item.title = titleItemTextField.text ?? ""
+            item.category = categoryItemTextField.text ?? ""
+            item.price = priceItemTextField.text ?? ""
+            item.amount = amountItemTextField.text ?? ""
+            item.details = detailsItemTextView.text ?? ""
+            item.id = UUID() .uuidString
+            item.image = addImage.image ?? addImage.highlightedImage!
+            if item.title == "" || item.category == "" || item.price == "" || item.amount == "" || item.details == "" {
+                let alert = UIAlertController(title: "Ви забули!", message: "Всі поля мають бути заповненими!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                delegate?.addItemViewController(self, didAddItem: item)
+            }
+            dismiss(animated: true, completion: nil)
+        case true:
+            currentState = .editItem
+            sender.isMultipleTouchEnabled = true
+            sender.setTitle("Готово", for: .normal)
+            titleItemTextField.isUserInteractionEnabled = true
+            categoryItemTextField.isUserInteractionEnabled = true
+            priceItemTextField.isUserInteractionEnabled = true
+            amountItemTextField.isUserInteractionEnabled = true
+            detailsItemTextView.isUserInteractionEnabled = true
+            tapGestureOutlet.isEnabled = true
+            saleButtonOutlet.isHidden = true
+            newItemLabel.text = "Зміни деталі товару"
+            enterImageItemLable.text = "Зміни фото твого товару"
+            if sender.titleLabel?.text == "Готово"{
+                item.title = titleItemTextField.text ?? ""
+                item.category = categoryItemTextField.text ?? ""
+                item.price = priceItemTextField.text ?? ""
+                item.amount = amountItemTextField.text ?? ""
+                item.details = detailsItemTextView.text ?? ""
+                item.image = addImage.image ?? addImage.highlightedImage!
+                if item.title == "" || item.category == "" || item.price == "" || item.amount == "" || item.details == "" {
+                    let alert = UIAlertController(title: "Ви забули!", message: "Всі поля мають бути заповненими!", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                } else {
+                    delegate?.addItemViewController(self, didAddItem: item)
                     dismiss(animated: true, completion: nil)
                 }
-            } else {
-                //save all information of item to coreData
-                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                let context = appDelegate.persistentContainer.viewContext
-                let newItem = Item(context: context)
-                newItem.titleItem = titleItem
-                newItem.priceItem = priceItem
-                newItem.categoryItem = category
-                newItem.amountItem = amountItem
-                newItem.detailsItem = detailsItem
-                newItem.imageItem = imageItem
-                do {
-                    try context.save()
-                } catch let error {
-                    print("Error \(error).")
-                }
-                dismiss(animated: true, completion: nil)
             }
         }
     }
@@ -289,12 +276,12 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         print("Press CANCEL.")
         dismiss(animated: true, completion: nil)
     }
-        //dismiss imagePicker
+    //dismiss imagePicker to press cancel
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.isNavigationBarHidden = false
         self.dismiss(animated: true, completion: nil)
     }
-    //Configurate pickerView in textfield with data fromCoreData
+    //Configurate pickerView in textfield with data from CategoryTableViewController
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -312,7 +299,6 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         categoryItemTextField.text = row == 0 ?  "Без категорії" : categories[row - 1].name
         self.view.endEditing(false)
     }
-    
 }
 // move to next textField
 extension AddItemViewController: UITextFieldDelegate {
