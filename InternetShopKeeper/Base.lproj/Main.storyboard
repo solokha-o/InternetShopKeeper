@@ -21,7 +21,6 @@
                     <connections>
                         <segue destination="JbH-dO-UNM" kind="relationship" relationship="viewControllers" id="pd3-v4-Be0"/>
                         <segue destination="OC7-QR-l1V" kind="relationship" relationship="viewControllers" id="suI-W2-fLM"/>
-                        <segue destination="N7l-bT-wd6" kind="relationship" relationship="viewControllers" id="XUi-2P-ceJ"/>
                         <segue destination="nYd-0i-Pbp" kind="relationship" relationship="viewControllers" id="pFu-Qx-QIq"/>
                     </connections>
                 </tabBarController>
@@ -93,37 +92,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XuQ-gs-Fwq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2220" y="104"/>
-        </scene>
-        <!--Пошук Товару-->
-        <scene sceneID="qfP-95-cg9">
-            <objects>
-                <tableViewController id="cth-qz-9WS" customClass="SearchTableViewController" customModule="InternetShopKeeper" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="COF-dO-pcs">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="46" id="p0E-jY-WgR">
-                                <rect key="frame" x="0.0" y="28" width="320" height="46"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p0E-jY-WgR" id="rbR-Ft-6yS">
-                                    <rect key="frame" x="0.0" y="0.0" width="293" height="46"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <sections/>
-                        <connections>
-                            <outlet property="dataSource" destination="cth-qz-9WS" id="g0Z-hi-Te1"/>
-                            <outlet property="delegate" destination="cth-qz-9WS" id="ejO-vc-DYU"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Пошук Товару" id="cwT-zz-StV"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hwb-fA-t4o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2658.75" y="786.97183098591552"/>
+            <point key="canvasLocation" x="-1658" y="15"/>
         </scene>
         <!--Статистика-->
         <scene sceneID="qO7-Nv-d0a">
@@ -144,7 +113,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hU-6Z-PXa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4193" y="1482"/>
+            <point key="canvasLocation" x="-2496" y="697"/>
         </scene>
         <!--Статистика-->
         <scene sceneID="ZgQ-bR-9PH">
@@ -210,26 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iZo-Md-7jw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3476.25" y="1480.9859154929577"/>
-        </scene>
-        <!--Пошук-->
-        <scene sceneID="6Iy-Gi-nen">
-            <objects>
-                <navigationController id="N7l-bT-wd6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Пошук" image="Search" selectedImage="Search" id="JfE-uH-Mri"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iRv-qy-uhI">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="cth-qz-9WS" kind="relationship" relationship="rootViewController" id="FbJ-8v-s9l"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oUr-8F-oJO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3388" y="787"/>
+            <point key="canvasLocation" x="-1658" y="696"/>
         </scene>
         <!--Add Category View Controller-->
         <scene sceneID="hrK-7l-da8">
@@ -306,7 +256,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGA-1f-xZd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="cYp-hc-ZMb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1487" y="104"/>
+            <point key="canvasLocation" x="-864" y="15"/>
         </scene>
         <!--Категорії-->
         <scene sceneID="Nvi-mQ-hvw">
@@ -325,7 +275,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xBG-Oa-9TU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2951" y="104"/>
+            <point key="canvasLocation" x="-2496" y="15"/>
         </scene>
         <!--Мій товар-->
         <scene sceneID="xfs-9j-wYC">
@@ -648,7 +598,6 @@
         <image name="AddImage" width="100" height="100"/>
         <image name="Category" width="30" height="30"/>
         <image name="Home" width="30" height="30"/>
-        <image name="Search" width="30" height="30"/>
         <image name="Statistic" width="30" height="30"/>
         <image name="hryvniasign.circle" catalog="system" width="128" height="121"/>
     </resources>
