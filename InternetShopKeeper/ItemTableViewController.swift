@@ -159,8 +159,8 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
     }
     // func for filter Content For Search Text
     func filterContentForSearchText(_ searchText: String) {
-      filteredItemsStruct = itemsStruct.filter { (category: ItemStruct) -> Bool in
-        return (category.title.lowercased().contains(searchText.lowercased()))
+      filteredItemsStruct = itemsStruct.filter { (item: ItemStruct) -> Bool in
+        return (item.title.lowercased().contains(searchText.lowercased()))
       }
       tableView.reloadData()
     }
