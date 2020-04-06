@@ -10,6 +10,11 @@ import UIKit
 import CoreData
 import DropDown
 
+// protocol for create array of itemStruct
+protocol ItemTableViewControllerDelegate {
+    func itemTableViewController (_ itemTableViewController: ItemTableViewController, didAddItems items: [ItemStruct])
+}
+
 class ItemTableViewController: UITableViewController, AddItemViewControllerDelegate {
    
     @IBOutlet weak var sortButtonOutlet: UIBarButtonItem!
@@ -31,6 +36,9 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
     }
     //create Bool for state of using coreData
     var isUpdateCoreData = false
+    
+    //create delegate ItemTableViewController
+    var delegate : ItemTableViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +72,10 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
         super.didReceiveMemoryWarning()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
     }
     
@@ -88,7 +100,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
         newItem.priceItem = item.price
         newItem.amountItem = item.amount
         newItem.detailsItem = item.details
-        newItem.salePriceItem = item.salePrice
+        newItem.incomePriceItem = item.incomePrice
         newItem.imageItem = item.image.pngData()
         newItem.id = item.id
             do {
@@ -115,7 +127,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
                         objUpdate.setValue(item.price, forKey: "priceItem")
                         objUpdate.setValue(item.amount, forKey: "amountItem")
                         objUpdate.setValue(item.details, forKey: "detailsItem")
-                        objUpdate.setValue(item.salePrice, forKey: "salePriceItem")
+                        objUpdate.setValue(item.incomePrice, forKey: "incomePriceItem")
                         objUpdate.setValue(item.image.pngData(), forKey: "imageItem")
                         do {
                             try context.save()
@@ -145,17 +157,23 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
     // get item from core data to array what will view in tableview
     func getAllItem() {
         for item in items {
-            var newItemStruct = ItemStruct(title: "", category: "", price: "", amount: "", details: "", image: UIImage(imageLiteralResourceName: "AddImage"), id: "", salePrice: "")
+            var newItemStruct = ItemStruct(title: "", category: "", price: "", amount: "", details: "", image: UIImage(imageLiteralResourceName: "AddImage"), id: "", incomePrice: "")
             newItemStruct.title = item.titleItem ?? ""
             newItemStruct.category = item.categoryItem ?? ""
             newItemStruct.price = item.priceItem ?? ""
             newItemStruct.amount = item.amountItem ?? ""
             newItemStruct.details = item.detailsItem ?? ""
-            newItemStruct.salePrice = item.salePriceItem ?? ""
+            newItemStruct.incomePrice = item.incomePriceItem ?? ""
             newItemStruct.id = item.id ?? ""
             newItemStruct.image = UIImage(data: item.imageItem!)!
             itemsStruct.append(newItemStruct)
+            delegate?.itemTableViewController(self, didAddItems: itemsStruct)
         }
+    }
+    
+    // delegate ItemStruct array
+    func delegateItemStruct() {
+        delegate?.itemTableViewController(self, didAddItems: itemsStruct)
     }
     // func for filter Content For Search Text
     func filterContentForSearchText(_ searchText: String) {
@@ -258,7 +276,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
                     itemsStruct[i].price = item.price
                     itemsStruct[i].amount = item.amount
                     itemsStruct[i].details = item.details
-                    itemsStruct[i].salePrice = item.salePrice
+                    itemsStruct[i].incomePrice = item.incomePrice
                     itemsStruct[i].image = item.image
                     updateItem(id: item.id, item: item)
                     print("update " + item.id)

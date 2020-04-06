@@ -22,12 +22,11 @@
                         <segue destination="JbH-dO-UNM" kind="relationship" relationship="viewControllers" id="pd3-v4-Be0"/>
                         <segue destination="OC7-QR-l1V" kind="relationship" relationship="viewControllers" id="suI-W2-fLM"/>
                         <segue destination="nYd-0i-Pbp" kind="relationship" relationship="viewControllers" id="pFu-Qx-QIq"/>
-                        <segue destination="Tsy-5f-6WM" kind="relationship" relationship="viewControllers" id="jtL-Ue-8Sx"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pSA-p7-CZF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4097" y="859"/>
+            <point key="canvasLocation" x="-3388" y="-770"/>
         </scene>
         <!--Товари-->
         <scene sceneID="cJ4-cx-cZ8">
@@ -130,21 +129,69 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FuG-M4-vRe">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="475"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillProportionally" spacing="102" translatesAutoresizingMaskIntoConstraints="NO" id="8oj-hf-eT3">
-                                                <rect key="frame" x="8" y="43" width="304.5" height="20.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kdZ-2q-Kdi">
+                                                <rect key="frame" x="8" y="43" width="324" height="101.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Витрачено на товар" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCz-kl-kcd">
-                                                        <rect key="frame" x="0.0" y="0.0" width="160.5" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qz4-mP-UdX">
-                                                        <rect key="frame" x="262.5" y="0.0" width="42" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="8oj-hf-eT3">
+                                                        <rect key="frame" x="0.0" y="0.0" width="324" height="20.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Витрачено на товар" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCz-kl-kcd">
+                                                                <rect key="frame" x="0.0" y="0.0" width="184" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qz4-mP-UdX">
+                                                                <rect key="frame" x="264" y="0.0" width="60" height="20.5"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="Rsz-Tv-k4y"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="78" translatesAutoresizingMaskIntoConstraints="NO" id="VFO-Hm-phF">
+                                                        <rect key="frame" x="0.0" y="40.5" width="324" height="20.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Отримано від продажу" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEM-eR-0Hj">
+                                                                <rect key="frame" x="0.0" y="0.0" width="186" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rgv-B0-Va7">
+                                                                <rect key="frame" x="264" y="0.0" width="60" height="20.5"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="VWb-ds-oig"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="157" translatesAutoresizingMaskIntoConstraints="NO" id="dJl-4t-PUM">
+                                                        <rect key="frame" x="0.0" y="81" width="324" height="20.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Чистий дохід" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubq-wp-o5s">
+                                                                <rect key="frame" x="0.0" y="0.0" width="107" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1t-DM-aTG">
+                                                                <rect key="frame" x="264" y="0.0" width="60" height="20.5"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="03m-Xs-8Af"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -176,58 +223,13 @@
                     <navigationItem key="navigationItem" title="Статистика" largeTitleDisplayMode="always" id="hj2-Da-CCq"/>
                     <connections>
                         <outlet property="costsLabel" destination="Qz4-mP-UdX" id="MMG-2R-psJ"/>
+                        <outlet property="netProfitLable" destination="X1t-DM-aTG" id="G8S-dS-v3E"/>
+                        <outlet property="profitLable" destination="Rgv-B0-Va7" id="usb-Ed-Or4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iZo-Md-7jw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1658" y="696"/>
-        </scene>
-        <!--Настройки-->
-        <scene sceneID="cJf-My-KDP">
-            <objects>
-                <tableViewController id="GHC-CI-ns9" customClass="ToolsTableViewController" customModule="InternetShopKeeper" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MxR-rF-QHL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="vU3-Wr-5HO">
-                                <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vU3-Wr-5HO" id="gwZ-Ys-GD8">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="GHC-CI-ns9" id="Gj3-Ku-aDf"/>
-                            <outlet property="delegate" destination="GHC-CI-ns9" id="qxh-dB-ryI"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Настройки" id="iaH-ul-Fiq"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U0z-ES-20E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1658" y="1384"/>
-        </scene>
-        <!--Настройки-->
-        <scene sceneID="rVE-3v-agj">
-            <objects>
-                <navigationController id="Tsy-5f-6WM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Настройки" image="Tools" selectedImage="Tools" id="q4I-9r-K2M"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jW7-dq-lfm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="GHC-CI-ns9" kind="relationship" relationship="rootViewController" id="6gU-qG-GGT"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DpN-AM-co6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2498" y="1384"/>
+            <point key="canvasLocation" x="-1659.375" y="695.07042253521126"/>
         </scene>
         <!--Add Category View Controller-->
         <scene sceneID="hrK-7l-da8">
@@ -380,10 +382,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bO-XE-o9k">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="547"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="329.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillProportionally" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="emg-nb-Xg4">
-                                                <rect key="frame" x="10" y="0.0" width="300" height="557.5"/>
+                                                <rect key="frame" x="10" y="0.0" width="300" height="340"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="8sB-E0-SkL">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
@@ -420,9 +422,9 @@
                                                         </connections>
                                                     </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Xum-DT-NDm">
-                                                        <rect key="frame" x="0.0" y="68" width="300" height="289.5"/>
+                                                        <rect key="frame" x="0.0" y="68" width="300" height="72"/>
                                                         <subviews>
-                                                            <view hidden="YES" contentMode="scaleToFill" id="Wu7-Ge-L61">
+                                                            <view contentMode="scaleToFill" id="Wu7-Ge-L61">
                                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="0.0"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <subviews>
@@ -444,7 +446,7 @@
                                                                                             <constraint firstAttribute="width" constant="90" id="s7K-2h-5KX"/>
                                                                                         </constraints>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                        <textInputTraits key="textInputTraits"/>
+                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                                     </textField>
                                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Кількість" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nlu-nW-6Qc">
                                                                                         <rect key="frame" x="110" y="0.0" width="170" height="34"/>
@@ -452,7 +454,7 @@
                                                                                             <constraint firstAttribute="width" constant="90" id="dfg-br-cKc"/>
                                                                                         </constraints>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                        <textInputTraits key="textInputTraits"/>
+                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                                     </textField>
                                                                                 </subviews>
                                                                             </stackView>
@@ -469,6 +471,9 @@
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0M-5x-GHw">
                                                                                         <rect key="frame" x="199" y="0.0" width="81" height="30"/>
                                                                                         <state key="normal" title="Готово"/>
+                                                                                        <connections>
+                                                                                            <action selector="saveSaleViewButtonAction:" destination="uwy-0Y-5uC" eventType="touchUpInside" id="udC-Ou-Fmk"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                 </subviews>
                                                                             </stackView>
@@ -486,40 +491,40 @@
                                                                 </constraints>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вибери фото товару" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0i-Ei-amf">
-                                                                <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="12" width="300" height="0.0"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" highlightedImage="AddImage" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mns-sU-Rac">
-                                                                <rect key="frame" x="0.0" y="32.5" width="300" height="100"/>
+                                                                <rect key="frame" x="0.0" y="24" width="300" height="0.0"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Назва товару" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJG-d5-tIe">
-                                                                <rect key="frame" x="0.0" y="144.5" width="300" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="36" width="300" height="0.0"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введіть назву товару" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aGt-Zl-UGi">
-                                                                <rect key="frame" x="0.0" y="177" width="300" height="34"/>
+                                                                <rect key="frame" x="0.0" y="48" width="300" height="0.0"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Категорія товару" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPi-l2-XlN">
-                                                                <rect key="frame" x="0.0" y="223" width="300" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="60" width="300" height="0.0"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Вибери категорію товару" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="BXc-Hx-ekG">
-                                                                <rect key="frame" x="0.0" y="255.5" width="300" height="34"/>
+                                                                <rect key="frame" x="0.0" y="72" width="300" height="0.0"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="y7N-2K-DB1">
-                                                        <rect key="frame" x="0.0" y="395.5" width="300" height="62.5"/>
+                                                        <rect key="frame" x="0.0" y="178" width="300" height="62.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Umg-9D-agO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="118.5" height="62.5"/>
@@ -556,7 +561,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Hd1-OP-TpD">
-                                                        <rect key="frame" x="0.0" y="496" width="300" height="61.5"/>
+                                                        <rect key="frame" x="0.0" y="278.5" width="300" height="61.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Опис Вашого товару" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtu-11-mbo">
                                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
@@ -612,6 +617,7 @@
                     <connections>
                         <outlet property="addImage" destination="mns-sU-Rac" id="WA0-hi-Y17"/>
                         <outlet property="amountItemTextField" destination="OcN-G4-J6M" id="Uwd-4U-Jda"/>
+                        <outlet property="amountSaleViewTextFieldOutlet" destination="Nlu-nW-6Qc" id="ZCf-A7-bpu"/>
                         <outlet property="cancelButtonOutlet" destination="GYV-EV-Klf" id="CuN-xK-9se"/>
                         <outlet property="categoryItemTextField" destination="BXc-Hx-ekG" id="Bip-3E-FqV"/>
                         <outlet property="detailsItemTextView" destination="vSH-eU-A4l" id="fTu-cT-bUl"/>
@@ -621,6 +627,7 @@
                         <outlet property="enterImageItemLable" destination="n0i-Ei-amf" id="J4f-WH-v9c"/>
                         <outlet property="enterPriceItemLable" destination="4wG-kC-Zq6" id="DSE-fz-LKC"/>
                         <outlet property="enterTitleItemLable" destination="uJG-d5-tIe" id="GmZ-f4-3ba"/>
+                        <outlet property="incomePriceSaleViewTextFieldOutlet" destination="eki-Rw-17l" id="Bha-ND-1mi"/>
                         <outlet property="newItemLabel" destination="RO2-xO-oDR" id="Upo-xa-1Gl"/>
                         <outlet property="priceItemTextField" destination="Cwh-Md-XVw" id="mPU-Ox-KGC"/>
                         <outlet property="saleButtonOutlet" destination="hF6-Pz-TNz" id="Rz4-op-eee"/>
@@ -647,7 +654,6 @@
         <image name="Category" width="30" height="30"/>
         <image name="Home" width="30" height="30"/>
         <image name="Statistic" width="30" height="30"/>
-        <image name="Tools" width="25" height="25"/>
         <image name="hryvniasign.circle" catalog="system" width="128" height="121"/>
     </resources>
 </document>

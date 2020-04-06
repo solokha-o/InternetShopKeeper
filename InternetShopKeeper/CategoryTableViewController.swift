@@ -241,6 +241,7 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
         }
         tableView.reloadData()
     }
+    
     // configure segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)

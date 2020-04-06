@@ -10,8 +10,8 @@
         <attribute name="detailsItem" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="imageItem" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="incomePriceItem" optional="YES" attributeType="String"/>
         <attribute name="priceItem" optional="YES" attributeType="String"/>
-        <attribute name="salePriceItem" optional="YES" attributeType="String"/>
         <attribute name="titleItem" optional="YES" attributeType="String"/>
     </entity>
     <elements>
