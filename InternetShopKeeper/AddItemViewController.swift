@@ -55,12 +55,12 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
    // add sale View and sale Button and text fields of view
     @IBOutlet weak var saleButtonOutlet: UIButton!
     @IBOutlet weak var saleView: UIView!
-    @IBOutlet weak var priceSaleViewTextFieldOutlet: UITextField!
+    @IBOutlet weak var incomePriceSaleViewTextFieldOutlet: UITextField!
     @IBOutlet weak var amountSaleViewTextFieldOutlet: UITextField!
     // create delegate of AddCategoryViewController
     var delegate : AddItemViewControllerDelegate?
     //create instance of CategoryStruct
-    var item = ItemStruct(title: "", category: "", price: "", amount: "", details: "", image: UIImage(imageLiteralResourceName: "AddImage"), id: "", salePrice: "")
+    var item = ItemStruct(title: "", category: "", price: "", amount: "", details: "", image: UIImage(imageLiteralResourceName: "AddImage"), id: "", incomePrice: "")
     // Controller can additing and editing category item
     var currentState = State.addItem
     var isInEdit = false
@@ -194,8 +194,44 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.saleView.isHidden = false
             }
     }
-    // configure cancel sale view button
+    // configure press button SAVE of saleView
+       @IBAction func saveSaleViewButtonAction(_ sender: UIButton) {
+        let incomePrice = incomePriceSaleViewTextFieldOutlet.text ?? ""
+        let saleAmount = amountSaleViewTextFieldOutlet.text ?? ""
+        item.incomePrice = String((Int(incomePrice) ?? 0) * (Int(saleAmount) ?? 0))
+        let amount = amountItemTextField.text ?? ""
+        let newAmount = (Int(amount) ?? 0) - (Int(saleAmount) ?? 0)
+        if newAmount < 0 {
+            let alert = UIAlertController(title: " Помилка!", message: "Перевірте кількість проданих товарів! Кількість не має бути більшою за ту що у Вас є в наявності", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            item.amount = String(newAmount)
+            amountItemTextField.text = item.amount
+            if incomePrice == "" || saleAmount == "" {
+                let alert = UIAlertController(title: "Ви забули!", message: "Всі поля мають бути заповненими!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                item.title = titleItemTextField.text ?? ""
+                item.category = categoryItemTextField.text ?? ""
+                item.price = priceItemTextField.text ?? ""
+                item.amount = amountItemTextField.text ?? ""
+                item.details = detailsItemTextView.text
+                item.image = addImage.image ?? addImage.highlightedImage!
+                delegate?.addItemViewController(self, didAddItem: item)
+                // cohfiguge hide saveView
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.saleView.alpha = 0
+                }) { (finished) in
+                    self.saleView.isHidden = finished
+                }
+            }
+        }
+    }
+    // configure cancel button of saleView
     @IBAction func cancelSaleViewButtonAction(_ sender: UIButton) {
+        // cohfiguge hide saveView
         UIView.animate(withDuration: 0.5, animations: {
             self.saleView.alpha = 0
         }) { (finished) in
@@ -284,7 +320,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }
     }
-    // press button CANCEL
+    // configure press button CANCEL
     @IBAction func cancelButtonAction(_ sender: UIButton) {
         print("Press CANCEL.")
         dismiss(animated: true, completion: nil)
