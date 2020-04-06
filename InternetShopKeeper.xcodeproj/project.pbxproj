@@ -15,6 +15,7 @@
 		DB3B46ED2416B33800A79BB0 /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3B46EC2416B33800A79BB0 /* AddCategoryViewController.swift */; };
 		DB3F3009243B759D0021D09F /* CategoryStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F3008243B759D0021D09F /* CategoryStruct.swift */; };
 		DB3F300E243B76E60021D09F /* ItemStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F300D243B76E60021D09F /* ItemStruct.swift */; };
+		DB3F3010243BB3310021D09F /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F300F243BB3310021D09F /* LaunchScreenViewController.swift */; };
 		DB599B9524098D3B0065CA3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB599B9424098D3B0065CA3D /* AppDelegate.swift */; };
 		DB599B9A24098D3B0065CA3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB599B9824098D3B0065CA3D /* Main.storyboard */; };
 		DB599B9D24098D3B0065CA3D /* InternetShopKeeper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB599B9B24098D3B0065CA3D /* InternetShopKeeper.xcdatamodeld */; };
@@ -72,6 +73,7 @@
 		DB3B46EC2416B33800A79BB0 /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
 		DB3F3008243B759D0021D09F /* CategoryStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStruct.swift; sourceTree = "<group>"; };
 		DB3F300D243B76E60021D09F /* ItemStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStruct.swift; sourceTree = "<group>"; };
+		DB3F300F243BB3310021D09F /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		DB599B9124098D3B0065CA3D /* InternetShopKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InternetShopKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB599B9424098D3B0065CA3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB599B9924098D3B0065CA3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				DB599B9824098D3B0065CA3D /* Main.storyboard */,
 				DB599B9E24098D3B0065CA3D /* Assets.xcassets */,
 				DB599BA024098D3B0065CA3D /* LaunchScreen.storyboard */,
+				DB3F300F243BB3310021D09F /* LaunchScreenViewController.swift */,
 				DB599BA324098D3B0065CA3D /* Info.plist */,
 				DB599B9B24098D3B0065CA3D /* InternetShopKeeper.xcdatamodeld */,
 			);
@@ -271,6 +274,7 @@
 				DB3B46ED2416B33800A79BB0 /* AddCategoryViewController.swift in Sources */,
 				DB3F300E243B76E60021D09F /* ItemStruct.swift in Sources */,
 				DB5C9DFA242A6BDE00E2CA86 /* StatisticViewController.swift in Sources */,
+				DB3F3010243BB3310021D09F /* LaunchScreenViewController.swift in Sources */,
 				DB599B9D24098D3B0065CA3D /* InternetShopKeeper.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

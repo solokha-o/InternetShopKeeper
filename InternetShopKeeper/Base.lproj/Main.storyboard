@@ -22,11 +22,12 @@
                         <segue destination="JbH-dO-UNM" kind="relationship" relationship="viewControllers" id="pd3-v4-Be0"/>
                         <segue destination="OC7-QR-l1V" kind="relationship" relationship="viewControllers" id="suI-W2-fLM"/>
                         <segue destination="nYd-0i-Pbp" kind="relationship" relationship="viewControllers" id="pFu-Qx-QIq"/>
+                        <segue destination="J6I-Th-CyL" kind="relationship" relationship="viewControllers" id="w2Z-yf-TCm"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pSA-p7-CZF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3388" y="-770"/>
+            <point key="canvasLocation" x="-3709" y="1064"/>
         </scene>
         <!--Товари-->
         <scene sceneID="cJ4-cx-cZ8">
@@ -230,6 +231,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iZo-Md-7jw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1659.375" y="695.07042253521126"/>
+        </scene>
+        <!--Параметри-->
+        <scene sceneID="2RN-am-ckZ">
+            <objects>
+                <tableViewController id="4pj-44-9WX" customClass="ToolsTableViewController" customModule="InternetShopKeeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="x7h-SR-TPj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="MOg-cd-VkX">
+                                <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MOg-cd-VkX" id="SGi-Io-uIb">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4pj-44-9WX" id="wRC-H8-f93"/>
+                            <outlet property="delegate" destination="4pj-44-9WX" id="IpK-6F-kZZ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Параметри" id="pWl-vP-DXb"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f4G-03-Jxo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1659" y="1412"/>
+        </scene>
+        <!--Параметри-->
+        <scene sceneID="cgh-is-0Xg">
+            <objects>
+                <navigationController id="J6I-Th-CyL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Параметри" image="Tools" selectedImage="Tools" id="cyL-R0-nT2"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="n1Q-0p-aG2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="4pj-44-9WX" kind="relationship" relationship="rootViewController" id="xrC-Ue-Coy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z0L-mL-RuD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2498" y="1411"/>
         </scene>
         <!--Add Category View Controller-->
         <scene sceneID="hrK-7l-da8">
@@ -654,6 +702,7 @@
         <image name="Category" width="30" height="30"/>
         <image name="Home" width="30" height="30"/>
         <image name="Statistic" width="30" height="30"/>
+        <image name="Tools" width="25" height="25"/>
         <image name="hryvniasign.circle" catalog="system" width="128" height="121"/>
     </resources>
 </document>

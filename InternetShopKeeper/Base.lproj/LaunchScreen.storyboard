@@ -15,13 +15,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="nGp-qy-FDj">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen3" highlightedImage="LaunchScreen3" translatesAutoresizingMaskIntoConstraints="NO" id="nGp-qy-FDj">
+                                <rect key="frame" x="0.0" y="124" width="320" height="320"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nGp-qy-FDj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Jje-Qo-sDk"/>
+                            <constraint firstItem="nGp-qy-FDj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WLx-hJ-s6q"/>
+                            <constraint firstItem="nGp-qy-FDj" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="mXB-8p-ADs"/>
+                            <constraint firstItem="nGp-qy-FDj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="124" id="tS5-RF-joF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -31,6 +36,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchScreen" width="21.333333969116211" height="21.333333969116211"/>
+        <image name="LaunchScreen3" width="21.333333969116211" height="21.333333969116211"/>
     </resources>
 </document>
