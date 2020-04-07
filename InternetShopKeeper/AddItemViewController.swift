@@ -36,6 +36,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBOutlet weak var saveItemButtonOutlet: UIButton!
     @IBOutlet weak var cancelButtonOutlet: UIButton!
+    @IBOutlet weak var clearPhotoButtonOutlet: UIButton!
     @IBOutlet weak var tapGestureOutlet: UITapGestureRecognizer!
     @IBOutlet weak var addImage: UIImageView!
     @IBOutlet weak var titleItemTextField: UITextField!
@@ -114,6 +115,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             detailsItemTextView.textColor = UIColor.black
             tapGestureOutlet.isEnabled = false
             saleButtonOutlet.isHidden = false
+            clearPhotoButtonOutlet.isHidden = true
         }
         saveItemButtonOutlet.setTitle(currentState.rightButtonTitle, for: .normal)
         cancelButtonOutlet.setTitle(currentState.leftButtonTitle, for: .normal)
@@ -192,6 +194,12 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         UIView.animate(withDuration: 0.5) {
             self.saleView.alpha = 1
             self.saleView.isHidden = false
+            }
+    }
+    // configure clear button photo
+    @IBAction func clearPhotoButtonAction(_ sender: UIButton) {
+        UIImageView.animate(withDuration: 0.5) {
+            self.addImage.image = self.addImage.highlightedImage
             }
     }
     // configure press button SAVE of saleView
@@ -290,6 +298,9 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
         case true:
             currentState = .editItem
+            UIButton.animate(withDuration: 0.5) {
+                self.clearPhotoButtonOutlet.isHidden = false
+            }
             sender.isMultipleTouchEnabled = true
             sender.setTitle("Готово", for: .normal)
             titleItemTextField.isUserInteractionEnabled = true
