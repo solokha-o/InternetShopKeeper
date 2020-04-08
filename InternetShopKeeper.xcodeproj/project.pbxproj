@@ -23,6 +23,10 @@
 		DB599BA224098D3B0065CA3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB599BA024098D3B0065CA3D /* LaunchScreen.storyboard */; };
 		DB599BAA24099F230065CA3D /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB599BA924099F230065CA3D /* AddItemViewController.swift */; };
 		DB5C9DFA242A6BDE00E2CA86 /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C9DF9242A6BDE00E2CA86 /* StatisticViewController.swift */; };
+		DB7098A4243E2E5D00AA4159 /* ModelFirstLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7098A3243E2E5D00AA4159 /* ModelFirstLaunch.swift */; };
+		DB7098A6243E2F5300AA4159 /* FirstLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7098A5243E2F5300AA4159 /* FirstLaunchViewController.swift */; };
+		DB7098A8243E2FA000AA4159 /* FirstLaunchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7098A7243E2FA000AA4159 /* FirstLaunchPageViewController.swift */; };
+		DB7098AA243E316B00AA4159 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7098A9243E316B00AA4159 /* OnboardingViewController.swift */; };
 		DB81E8442438CAEC0097E606 /* ToolsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81E8432438CAEC0097E606 /* ToolsTableViewController.swift */; };
 		DBDC7E992409B345005E35CA /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC7E982409B345005E35CA /* ItemTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -83,6 +87,10 @@
 		DB599BA324098D3B0065CA3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB599BA924099F230065CA3D /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		DB5C9DF9242A6BDE00E2CA86 /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
+		DB7098A3243E2E5D00AA4159 /* ModelFirstLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelFirstLaunch.swift; sourceTree = "<group>"; };
+		DB7098A5243E2F5300AA4159 /* FirstLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchViewController.swift; sourceTree = "<group>"; };
+		DB7098A7243E2FA000AA4159 /* FirstLaunchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchPageViewController.swift; sourceTree = "<group>"; };
+		DB7098A9243E316B00AA4159 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		DB81E8432438CAEC0097E606 /* ToolsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsTableViewController.swift; sourceTree = "<group>"; };
 		DBDC7E982409B345005E35CA /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		DBFAB63724339C2C00108421 /* DropDown.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DropDown.xcodeproj; path = "DropDown-master/DropDown.xcodeproj"; sourceTree = "<group>"; };
@@ -140,6 +148,10 @@
 				DB5C9DF9242A6BDE00E2CA86 /* StatisticViewController.swift */,
 				DB3F3008243B759D0021D09F /* CategoryStruct.swift */,
 				DB3F300D243B76E60021D09F /* ItemStruct.swift */,
+				DB7098A3243E2E5D00AA4159 /* ModelFirstLaunch.swift */,
+				DB7098A9243E316B00AA4159 /* OnboardingViewController.swift */,
+				DB7098A7243E2FA000AA4159 /* FirstLaunchPageViewController.swift */,
+				DB7098A5243E2F5300AA4159 /* FirstLaunchViewController.swift */,
 				DB599B9824098D3B0065CA3D /* Main.storyboard */,
 				DB599B9E24098D3B0065CA3D /* Assets.xcassets */,
 				DB599BA024098D3B0065CA3D /* LaunchScreen.storyboard */,
@@ -264,6 +276,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB7098A8243E2FA000AA4159 /* FirstLaunchPageViewController.swift in Sources */,
+				DB7098A6243E2F5300AA4159 /* FirstLaunchViewController.swift in Sources */,
 				DB81E8442438CAEC0097E606 /* ToolsTableViewController.swift in Sources */,
 				DB07E26E24100CE600A86645 /* ItemTableViewCell.swift in Sources */,
 				DB3F3009243B759D0021D09F /* CategoryStruct.swift in Sources */,
@@ -272,6 +286,8 @@
 				DB599BAA24099F230065CA3D /* AddItemViewController.swift in Sources */,
 				DB599B9524098D3B0065CA3D /* AppDelegate.swift in Sources */,
 				DB3B46ED2416B33800A79BB0 /* AddCategoryViewController.swift in Sources */,
+				DB7098A4243E2E5D00AA4159 /* ModelFirstLaunch.swift in Sources */,
+				DB7098AA243E316B00AA4159 /* OnboardingViewController.swift in Sources */,
 				DB3F300E243B76E60021D09F /* ItemStruct.swift in Sources */,
 				DB5C9DFA242A6BDE00E2CA86 /* StatisticViewController.swift in Sources */,
 				DB3F3010243BB3310021D09F /* LaunchScreenViewController.swift in Sources */,
