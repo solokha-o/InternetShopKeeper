@@ -10,10 +10,6 @@ import UIKit
 import CoreData
 import DropDown
 
-// protocol for create array of itemStruct
-protocol ItemTableViewControllerDelegate {
-    func itemTableViewController (_ itemTableViewController: ItemTableViewController, didAddItems items: [ItemStruct])
-}
 
 class ItemTableViewController: UITableViewController, AddItemViewControllerDelegate {
    
@@ -36,9 +32,6 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
     }
     //create Bool for state of using coreData
     var isUpdateCoreData = false
-    
-    //create delegate ItemTableViewController
-    var delegate : ItemTableViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -171,13 +164,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
             newItemStruct.id = item.id ?? ""
             newItemStruct.image = UIImage(data: item.imageItem!)!
             itemsStruct.append(newItemStruct)
-            delegate?.itemTableViewController(self, didAddItems: itemsStruct)
         }
-    }
-    
-    // delegate ItemStruct array
-    func delegateItemStruct() {
-        delegate?.itemTableViewController(self, didAddItems: itemsStruct)
     }
     // func for filter Content For Search Text
     func filterContentForSearchText(_ searchText: String) {
@@ -302,6 +289,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
         desctinationVC.delegate = self
         isUpdateCoreData = false
     }
+    
 }
 
 // add extension UISearchResultsUpdating to CategoryTableViewController

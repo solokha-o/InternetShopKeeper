@@ -14,6 +14,8 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate{
         super.viewDidLoad()
         setupTitleTabBarItem()
         delegate = self
+        //To preload all view controllers
+        tabBarController?.viewControllers?.forEach { let _ = $0.view }
     }
    
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {

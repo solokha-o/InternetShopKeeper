@@ -200,7 +200,6 @@
                             <outlet property="delegate" destination="GmD-03-zXi" id="CDY-VF-Kh3"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="" image="Category" selectedImage="Category" id="GIx-8r-Z0S"/>
                     <navigationItem key="navigationItem" title="Категорії товару" id="Jcw-v5-0Yh">
                         <barButtonItem key="leftBarButtonItem" title="Сортувати" id="cdP-5H-TyY">
                             <connections>
@@ -324,7 +323,7 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -508,7 +507,9 @@
         <scene sceneID="Nvi-mQ-hvw">
             <objects>
                 <navigationController id="OC7-QR-l1V" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="" image="Category" selectedImage="Category" id="zEC-tH-mh0"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="Category" selectedImage="Category" id="zEC-tH-mh0">
+                        <color key="badgeColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qdk-4V-GFf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -526,7 +527,7 @@
         <!--Мій товар-->
         <scene sceneID="xfs-9j-wYC">
             <objects>
-                <tableViewController id="l89-EJ-8Me" customClass="ItemTableViewController" customModule="InternetShopKeeper" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ItemTableViewController" id="l89-EJ-8Me" customClass="ItemTableViewController" customModule="InternetShopKeeper" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DPV-CU-cKx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
