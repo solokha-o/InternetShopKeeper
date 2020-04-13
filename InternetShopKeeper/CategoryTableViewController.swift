@@ -51,8 +51,8 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
         leftBarDropDown.shadowOpacity = 0.8
         leftBarDropDown.setupCornerRadius(10)
         // Navigation bar have large title and search controller
-        navigationController?.title = "Categories".localized
-        navigationItem.title = "Product Categories".localized
+        navigationController?.title = "Категорії".localized
+        navigationItem.title = "Категорії товару".localized
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.searchController = search
         navigationItem.hidesSearchBarWhenScrolling = true
