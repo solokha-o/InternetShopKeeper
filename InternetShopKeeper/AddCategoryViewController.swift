@@ -75,7 +75,7 @@ class AddCategoryViewController: UIViewController {
                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             } else {
-                 delegate?.addCategoryViewController(self, didAddCategory: category)
+                delegate?.addCategoryViewController(self, didAddCategory: category)
                 dismiss(animated: true, completion: nil)
             }
         case true:

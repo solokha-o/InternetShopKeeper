@@ -48,7 +48,12 @@ class OnboardingViewController: UIViewController {
     }
     // configure button skip
     @IBAction func skipTutorialAction(_ sender: UIButton) {
-
+        // configure button to skip tutorial
+        dismiss(animated: true, completion: nil)
+        UserDefaults.standard.set(true, forKey: "onboarding")
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let VC = storyboard?.instantiateViewController(identifier: "HomeViewController")
+        appDelegate.window?.rootViewController = VC
     }
     // configure UIPageControl
     @IBAction func pageControllerAction(_ sender: UIPageControl) {
