@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // configure first launch app
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if UserDefaults.standard.bool(forKey: "onboarding") {
-            UserDefaults.standard.set(true, forKey: "onboarding")
             window?.rootViewController = storyboard.instantiateViewController(identifier: "HomeViewController")
         } else {
             window?.rootViewController = storyboard.instantiateViewController(identifier: "OnboardingViewController")

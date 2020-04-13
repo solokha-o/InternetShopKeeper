@@ -1,0 +1,75 @@
+// localized english
+"Пропустити" = "Skip";
+"Облік товарів магазину!" = "Store accounting!";
+"Доходи видно тут!" = "Revenue is visible here!";
+"Завжди під рукою!" = "Always at hand!";
+"Слідкуй за наявністю товарів в своєму магазині та веди облік." = "Keep track of the availability of goods in your store and keep records.";
+"Не потрібен тобі калькулятор, всі доходи та видатки рахуються тут." = "You do not need a calculator, all income and expenses are calculated here.";
+"Все що тобі потрібно для твого магазину в одному додатку." = "Everything you need for your store in one app.";
+
+"Скасувати" = "Cancel";
+"Назад" = "Back";
+"Готово" = "Done";
+"Змінити" = "Edit";
+"Твій товар" = "Your product";
+"Новий товар" = "New product";
+"Вибери фото товару" = "Choose product photo";
+"Фото товару" = "Product photo";
+"Очистити фото" = "Clear photo";
+"Назва товару" = "Product name";
+"Введіть назву товару" = "Enter a product name";
+"Категорія товару" = "Product category";
+"Вибери категорію товару" = "Choose a product category";
+"Без категорії" = "Uncategorized";
+"Ціна товару" = "Price of product";
+"Ціна" = "Price";
+"Кількість товару" = "Amount of products";
+"Кількість" = "Amount";
+"Опис вашого товару" = "Description of your product";
+"Введіть деталі свого товару" = "Enter your product details";
+"Продати товар" = "Sell product";
+"Ціна та кількість проданого товару" = "Price and amount of products sold";
+"Зробити фото" = "Take a photo";
+"Вибрати з галереї" = "Choose from gallery";
+"Помилка!" = "Error!";
+"Перевірте кількість проданих товарів! Кількість не має бути більшою за ту що у Вас є в наявності" = "Check the amount of products sold! The amount should not be greater than what you have available";
+"Ви забули!" = "You forgot!";
+"Всі поля мають бути заповненими!" = "All fields must be filled!";
+"У Вас немає камери!" = "You have no camera!";
+"Зміни деталі товару" = "Edit your product detail";
+"Зміни фото твого товару" = "Edit your product photo";
+
+"Сортувати товари по назві А - Я" = "Sort products by name A - Z";
+"Сортувати товари по назві Я - А" = "Sort products by name Z - A";
+"Пошук товару" = "Product search";
+"Видалити" = "Remove";
+"Мій товар" = "My product";
+"Сортувати" = "Sort";
+
+"Грн" = "UAH";
+"В наявності" = "In stock";
+"Шт" = "Piece";
+
+"Поле має бути заповненим!" = "The field must be filled!";
+"Відредагуйте категорію товару" = "Edit product category";
+"Нова категорія" = "New category";
+"Введи категорію товару" = "Enter product category";
+"Категорія товару" = "Product category";
+"Створена категорія товару" = "Product category";
+
+"Категорії товару" = "Product Categories";
+"Сортувати А - Я" = "Sort A - Z";
+"Сортувати Я - А" = "Sort Z - A";
+"Категорії" = "Categories";
+"Пошук категорії" = "Category search";
+
+"Статистика" = "Statistics";
+"Витрачено на товар" = "Spent on prodacts";
+"Отримано від продажу" = "Received from sale";
+"Чистий дохід" = "Net profit";
+
+"Параметри" = "Tools";
+"Написати нам!" = "Write to us!";
+"Задати питання через e-mail" = "Ask a question by e-mail";
+"У Вас відсутній додаток  Mail! Відправте пошту на адресу: oleksandr.solokha@gmail.com." = "You do not have the Mail app! Email: oleksandr.solokha@gmail.com.";
+"Версія додатку:" = "Application version:";

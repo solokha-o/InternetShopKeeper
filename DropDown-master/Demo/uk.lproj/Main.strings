@@ -1,0 +1,57 @@
+
+/* Class = "UINavigationItem"; title = "DropDown"; ObjectID = "0mV-mU-nOt"; */
+"0mV-mU-nOt.title" = "DropDown";
+
+/* Class = "UIButton"; normalTitle = "Centered drop down (no anchor view)"; ObjectID = "72P-V6-wxi"; */
+"72P-V6-wxi.normalTitle" = "Centered drop down (no anchor view)";
+
+/* Class = "UIButton"; normalTitle = "Amount"; ObjectID = "7KF-lo-KS7"; */
+"7KF-lo-KS7.normalTitle" = "Amount";
+
+/* Class = "UIButton"; normalTitle = "Choose an article"; ObjectID = "F0B-sh-55C"; */
+"F0B-sh-55C.normalTitle" = "Choose an article";
+
+/* Class = "UILabel"; text = "Options"; ObjectID = "FJF-wb-wuG"; */
+"FJF-wb-wuG.text" = "Options";
+
+/* Class = "UILabel"; text = "Dismiss mode (on tap: need a tap to dismiss, auto: interact with other UI elements to dismiss, manual: when you want in code)"; ObjectID = "MeY-qi-ZDF"; */
+"MeY-qi-ZDF.text" = "Dismiss mode (on tap: need a tap to dismiss, auto: interact with other UI elements to dismiss, manual: when you want in code)";
+
+/* Class = "UISegmentedControl"; SPc-ge-GiP.segmentTitles[0] = "Auto"; ObjectID = "SPc-ge-GiP"; */
+"SPc-ge-GiP.segmentTitles[0]" = "Auto";
+
+/* Class = "UISegmentedControl"; SPc-ge-GiP.segmentTitles[1] = "On Tap"; ObjectID = "SPc-ge-GiP"; */
+"SPc-ge-GiP.segmentTitles[1]" = "On Tap";
+
+/* Class = "UISegmentedControl"; SPc-ge-GiP.segmentTitles[2] = "Manual"; ObjectID = "SPc-ge-GiP"; */
+"SPc-ge-GiP.segmentTitles[2]" = "Manual";
+
+/* Class = "UILabel"; text = "Direction (of the dropdown, any: below anchor view if possible, otherwise, above)"; ObjectID = "Sxf-NX-PA6"; */
+"Sxf-NX-PA6.text" = "Direction (of the dropdown, any: below anchor view if possible, otherwise, above)";
+
+/* Class = "UIBarButtonItem"; title = "•••"; ObjectID = "UAB-ZP-MMT"; */
+"UAB-ZP-MMT.title" = "•••";
+
+/* Class = "UISegmentedControl"; aXM-aw-Gwc.segmentTitles[0] = "Basic DropDown UI"; ObjectID = "aXM-aw-Gwc"; */
+"aXM-aw-Gwc.segmentTitles[0]" = "Basic DropDown UI";
+
+/* Class = "UISegmentedControl"; aXM-aw-Gwc.segmentTitles[1] = "Example of custom UI"; ObjectID = "aXM-aw-Gwc"; */
+"aXM-aw-Gwc.segmentTitles[1]" = "Example of custom UI";
+
+/* Class = "UILabel"; text = "Don't forget to test the orientation! (even with a drop down displayed)"; ObjectID = "ajN-P2-z3O"; */
+"ajN-P2-z3O.text" = "Don't forget to test the orientation! (even with a drop down displayed)";
+
+/* Class = "UISegmentedControl"; evd-34-0pX.segmentTitles[0] = "Any"; ObjectID = "evd-34-0pX"; */
+"evd-34-0pX.segmentTitles[0]" = "Any";
+
+/* Class = "UISegmentedControl"; evd-34-0pX.segmentTitles[1] = "Bottom"; ObjectID = "evd-34-0pX"; */
+"evd-34-0pX.segmentTitles[1]" = "Bottom";
+
+/* Class = "UISegmentedControl"; evd-34-0pX.segmentTitles[2] = "Top"; ObjectID = "evd-34-0pX"; */
+"evd-34-0pX.segmentTitles[2]" = "Top";
+
+/* Class = "UIButton"; normalTitle = "Show keyboard"; ObjectID = "jhl-iV-Oh8"; */
+"jhl-iV-Oh8.normalTitle" = "Show keyboard";
+
+/* Class = "UIButton"; normalTitle = "Choose..."; ObjectID = "svj-jk-Xj6"; */
+"svj-jk-Xj6.normalTitle" = "Choose...";

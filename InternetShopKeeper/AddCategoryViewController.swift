@@ -21,15 +21,15 @@ class AddCategoryViewController: UIViewController {
 
         var leftButtonTitle: String {
             switch self {
-            case .addCategoryItem: return "Скасувати"
-            case .editCategoryItem: return "Назад"
+            case .addCategoryItem: return "Скасувати".localized
+            case .editCategoryItem: return "Назад".localized
             }
         }
 
         var rightButtonTitle: String {
             switch self {
-            case .addCategoryItem: return "Готово"
-            case .editCategoryItem: return "Змінити"
+            case .addCategoryItem: return "Готово".localized
+            case .editCategoryItem: return "Змінити".localized
             }
         }
     }
@@ -49,7 +49,9 @@ class AddCategoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        newCategoryLable.text = "Нова категорія".localized
+        enterCategoryLable.text = "Введи категорію товару".localized
+        addCategoryTextField.placeholder = "Категорія товару".localized
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -71,7 +73,7 @@ class AddCategoryViewController: UIViewController {
             category.id =  UUID() .uuidString
             print(category.id)
             if category.name == "" {
-                let alert = UIAlertController(title: "Ви забули!", message: "Поле має бути заповненим!", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Ви забули!".localized, message: "Поле має бути заповненим!".localized, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             } else {
@@ -80,14 +82,14 @@ class AddCategoryViewController: UIViewController {
             }
         case true:
             currentState = .editCategoryItem
-            sender.setTitle("Готово", for: .normal)
+            sender.setTitle("Готово".localized, for: .normal)
             addCategoryTextField.isUserInteractionEnabled = true
-            enterCategoryLable.text = "Відредагуйте категорію товару"
-            if sender.titleLabel?.text == "Готово" {
+            enterCategoryLable.text = "Відредагуйте категорію товару".localized
+            if sender.titleLabel?.text == "Готово".localized {
                 category.name = addCategoryTextField.text ?? ""
                 print(category.id)
                 if category.name == "" {
-                    let alert = UIAlertController(title: "Ви забули!", message: "Поле має бути заповненим!", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Ви забули!".localized, message: "Поле має бути заповненим!".localized, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 } else {

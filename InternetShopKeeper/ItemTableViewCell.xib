@@ -133,8 +133,11 @@
                 <outlet property="categoryItemLable" destination="Ff5-Ng-t2T" id="Ctg-Li-BLz"/>
                 <outlet property="detailsItemLable" destination="GL2-42-mEY" id="xXv-sV-S5Q"/>
                 <outlet property="imageItemView" destination="XfG-Bj-hXj" id="AIh-kn-Llh"/>
+                <outlet property="inStockLable" destination="7B7-BL-L4C" id="48z-ky-QBy"/>
+                <outlet property="pieceLable" destination="OTX-hs-RLh" id="tQo-ld-avF"/>
                 <outlet property="priceItemLable" destination="Zfd-Q2-4hu" id="fuN-xt-ezy"/>
                 <outlet property="titleItemLable" destination="isc-Ns-sfG" id="0gw-3U-nRb"/>
+                <outlet property="uahLable" destination="pbb-cQ-2Hv" id="Vbq-Sn-D8q"/>
             </connections>
             <point key="canvasLocation" x="48.75" y="-211.26760563380282"/>
         </tableViewCell>

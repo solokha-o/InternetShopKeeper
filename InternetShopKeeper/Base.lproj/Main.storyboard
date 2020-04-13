@@ -42,6 +42,7 @@
                                         <state key="normal" title="Пропустити"/>
                                         <connections>
                                             <action selector="skipTutorialAction:" destination="2Dy-Lh-Nzg" eventType="touchUpInside" id="AaP-aq-F9K"/>
+                                            <segue destination="Bg7-QQ-nfK" kind="unwind" unwindAction="unwindToViewControllerWithSender:" id="kak-ge-XTI"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -62,6 +63,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bGY-0Y-EzC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Bg7-QQ-nfK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-4824" y="1064"/>
         </scene>
@@ -135,7 +137,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="sY9-n7-0Md">
             <objects>
-                <tabBarController storyboardIdentifier="HomeViewController" id="drv-bi-Z0B" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeViewController" id="drv-bi-Z0B" customClass="TabBarController" customModule="InternetShopKeeper" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="laX-fe-uqX"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WtU-6l-rZ4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -155,11 +157,11 @@
             </objects>
             <point key="canvasLocation" x="-3709" y="1064"/>
         </scene>
-        <!--Товари-->
+        <!--Navigation Controller-->
         <scene sceneID="cJ4-cx-cZ8">
             <objects>
                 <navigationController id="JbH-dO-UNM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Товари" image="Home" selectedImage="Home" id="vhX-ZK-2ng"/>
+                    <tabBarItem key="tabBarItem" title="" image="Home" selectedImage="Home" id="vhX-ZK-2ng"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5xM-Xk-xPy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -198,7 +200,7 @@
                             <outlet property="delegate" destination="GmD-03-zXi" id="CDY-VF-Kh3"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Категорії" image="Category" selectedImage="Category" id="GIx-8r-Z0S"/>
+                    <tabBarItem key="tabBarItem" title="" image="Category" selectedImage="Category" id="GIx-8r-Z0S"/>
                     <navigationItem key="navigationItem" title="Категорії товару" id="Jcw-v5-0Yh">
                         <barButtonItem key="leftBarButtonItem" title="Сортувати" id="cdP-5H-TyY">
                             <connections>
@@ -221,11 +223,11 @@
             </objects>
             <point key="canvasLocation" x="-1658" y="15"/>
         </scene>
-        <!--Статистика-->
+        <!--Navigation Controller-->
         <scene sceneID="qO7-Nv-d0a">
             <objects>
                 <navigationController id="nYd-0i-Pbp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Статистика" image="Statistic" selectedImage="Statistic" id="YDx-Pi-o1e">
+                    <tabBarItem key="tabBarItem" tag="2" title="" image="Statistic" selectedImage="Statistic" id="YDx-Pi-o1e">
                         <color key="badgeColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1yP-L0-Iqd">
@@ -350,8 +352,11 @@
                     <navigationItem key="navigationItem" title="Статистика" largeTitleDisplayMode="always" id="hj2-Da-CCq"/>
                     <connections>
                         <outlet property="costsLabel" destination="Qz4-mP-UdX" id="MMG-2R-psJ"/>
+                        <outlet property="costsTitleLable" destination="dCz-kl-kcd" id="7C1-jB-lOn"/>
                         <outlet property="netProfitLable" destination="X1t-DM-aTG" id="G8S-dS-v3E"/>
+                        <outlet property="netProfitTitleLable" destination="Ubq-wp-o5s" id="ugz-gj-H2O"/>
                         <outlet property="profitLable" destination="Rgv-B0-Va7" id="usb-Ed-Or4"/>
+                        <outlet property="profitTitleLable" destination="wEM-eR-0Hj" id="RbU-Sn-7Ry"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iZo-Md-7jw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -404,11 +409,11 @@
             </objects>
             <point key="canvasLocation" x="-1659" y="1412"/>
         </scene>
-        <!--Параметри-->
+        <!--Navigation Controller-->
         <scene sceneID="cgh-is-0Xg">
             <objects>
                 <navigationController id="J6I-Th-CyL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Параметри" image="Tools" selectedImage="Tools" id="cyL-R0-nT2"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="" image="Tools" selectedImage="Tools" id="cyL-R0-nT2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="n1Q-0p-aG2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -499,11 +504,11 @@
             </objects>
             <point key="canvasLocation" x="-864" y="15"/>
         </scene>
-        <!--Категорії-->
+        <!--Navigation Controller-->
         <scene sceneID="Nvi-mQ-hvw">
             <objects>
                 <navigationController id="OC7-QR-l1V" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Категорії" image="Category" selectedImage="Category" id="zEC-tH-mh0"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="Category" selectedImage="Category" id="zEC-tH-mh0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qdk-4V-GFf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -729,7 +734,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Umg-9D-agO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="118.5" height="62.5"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Ціна товару" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wG-kC-Zq6">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Ціна товару" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wG-kC-Zq6">
                                                                         <rect key="frame" x="0.0" y="0.0" width="118.5" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
@@ -745,7 +750,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Amy-id-Vjp">
                                                                 <rect key="frame" x="134.5" y="0.0" width="165.5" height="62.5"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кількість товару" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLg-Gg-O4V">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кількість товару" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLg-Gg-O4V">
                                                                         <rect key="frame" x="0.0" y="0.0" width="165.5" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
@@ -819,8 +824,9 @@
                         <outlet property="amountItemTextField" destination="OcN-G4-J6M" id="Uwd-4U-Jda"/>
                         <outlet property="amountSaleViewTextFieldOutlet" destination="Nlu-nW-6Qc" id="ZCf-A7-bpu"/>
                         <outlet property="cancelButtonOutlet" destination="GYV-EV-Klf" id="CuN-xK-9se"/>
+                        <outlet property="cancelButtonSaleViewOutlet" destination="Mea-Cx-VIn" id="KBv-rL-VWp"/>
                         <outlet property="categoryItemTextField" destination="BXc-Hx-ekG" id="Bip-3E-FqV"/>
-                        <outlet property="clearPhotoButtonOutlet" destination="DGU-qv-NUk" id="Iad-Xp-mIm"/>
+                        <outlet property="clearPhotoButtonOutlet" destination="DGU-qv-NUk" id="I9x-Ey-5cR"/>
                         <outlet property="detailsItemTextView" destination="vSH-eU-A4l" id="fTu-cT-bUl"/>
                         <outlet property="enterAmountItemLabel" destination="QLg-Gg-O4V" id="WG1-Oy-dHG"/>
                         <outlet property="enterCategoryItemLable" destination="yPi-l2-XlN" id="LAP-7V-Jmv"/>
@@ -833,6 +839,8 @@
                         <outlet property="priceItemTextField" destination="Cwh-Md-XVw" id="mPU-Ox-KGC"/>
                         <outlet property="saleButtonOutlet" destination="hF6-Pz-TNz" id="Rz4-op-eee"/>
                         <outlet property="saleView" destination="Wu7-Ge-L61" id="Ghb-fX-Vb2"/>
+                        <outlet property="saleViewLable" destination="ibL-Ss-ghv" id="jDF-Mz-mVU"/>
+                        <outlet property="saveButtonSaleViewOutlet" destination="K0M-5x-GHw" id="og6-LN-jqu"/>
                         <outlet property="saveItemButtonOutlet" destination="pKK-LD-brz" id="V8Q-pi-GAI"/>
                         <outlet property="scrollView" destination="Wmr-Lo-XOm" id="KNw-XN-eQP"/>
                         <outlet property="tapGestureOutlet" destination="eFg-aE-NIe" id="M6B-vr-aTS"/>

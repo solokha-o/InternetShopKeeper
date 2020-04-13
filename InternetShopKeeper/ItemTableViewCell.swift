@@ -16,14 +16,19 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet weak var priceItemLable: UILabel!
     @IBOutlet weak var amountItemLable: UILabel!
     @IBOutlet weak var detailsItemLable: UILabel!
+    @IBOutlet weak var uahLable: UILabel!
+    @IBOutlet weak var inStockLable: UILabel!
+    @IBOutlet weak var pieceLable: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        uahLable.text = "Грн".localized
+        inStockLable.text = "В наявності".localized
+        pieceLable.text = "Шт".localized
     }
 }
 

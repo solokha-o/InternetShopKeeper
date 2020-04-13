@@ -21,15 +21,15 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
 
         var leftButtonTitle: String {
             switch self {
-            case .addItem: return "Скасувати"
-            case .editItem: return "Назад"
+            case .addItem: return "Скасувати".localized
+            case .editItem: return "Назад".localized
             }
         }
 
         var rightButtonTitle: String {
             switch self {
-            case .addItem: return "Готово"
-            case .editItem: return "Змінити"
+            case .addItem: return "Готово".localized
+            case .editItem: return "Змінити".localized
             }
         }
     }
@@ -44,7 +44,6 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var priceItemTextField: UITextField!
     @IBOutlet weak var amountItemTextField: UITextField!
     @IBOutlet weak var detailsItemTextView: UITextView!
-//    @IBOutlet weak var detailsItemTextField: UITextField!
     @IBOutlet weak var newItemLabel: UILabel!
     @IBOutlet weak var enterImageItemLable: UILabel!
     @IBOutlet weak var enterTitleItemLable: UILabel!
@@ -56,8 +55,11 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
    // add sale View and sale Button and text fields of view
     @IBOutlet weak var saleButtonOutlet: UIButton!
     @IBOutlet weak var saleView: UIView!
+    @IBOutlet weak var saleViewLable: UILabel!
     @IBOutlet weak var incomePriceSaleViewTextFieldOutlet: UITextField!
     @IBOutlet weak var amountSaleViewTextFieldOutlet: UITextField!
+    @IBOutlet weak var cancelButtonSaleViewOutlet: UIButton!
+    @IBOutlet weak var saveButtonSaleViewOutlet: UIButton!
     // create delegate of AddCategoryViewController
     var delegate : AddItemViewControllerDelegate?
     //create instance of CategoryStruct
@@ -82,7 +84,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         picker.delegate = self
         categoryItemTextField.inputView = picker
         // Create placeholder to detailsItemTextView
-        detailsItemTextView.text = "Введіть деталі свого товару"
+        detailsItemTextView.text = "Введіть деталі свого товару".localized
         detailsItemTextView.textColor = UIColor.lightGray
         //configure saleView
         saleView.isHidden = true
@@ -90,6 +92,26 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         saleView.layer.shadowOpacity = 0.5
         saleView.layer.shadowColor = UIColor.black.cgColor
         saleView.layer.shadowOffset = .zero
+        // localize all objact
+        newItemLabel.text = "Новий товар".localized
+        enterImageItemLable.text = "Вибери фото товару".localized
+        clearPhotoButtonOutlet.setTitle("Очистити фото".localized, for: .normal)
+        enterTitleItemLable.text = "Назва товару".localized
+        titleItemTextField.placeholder = "Введіть назву товару".localized
+        enterCategoryItemLable.text = "Категорія товару".localized
+        categoryItemTextField.placeholder = "Вибери категорію товару".localized
+        enterPriceItemLable.text = "Ціна товару".localized
+        priceItemTextField.placeholder = "Ціна".localized
+        enterAmountItemLabel.text = "Кількість товару".localized
+        amountItemTextField.placeholder = "Кількість".localized
+        enterDetailsItemLabel.text = "Опис вашого товару".localized
+        saleButtonOutlet.setTitle("Продати товар".localized, for: .normal)
+        saleViewLable.text = "Ціна та кількість проданого товару".localized
+        incomePriceSaleViewTextFieldOutlet.placeholder = "Ціна".localized
+        amountSaleViewTextFieldOutlet.placeholder = "Кількість".localized
+        cancelButtonSaleViewOutlet.setTitle("Скасувати".localized, for: .normal)
+        saveButtonSaleViewOutlet.setTitle("Готово".localized, for: .normal)
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -133,7 +155,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "Введіть деталі свого товару"
+            textView.text = "Введіть деталі свого товару".localized
             textView.textColor = UIColor.lightGray
         }
     }
@@ -167,15 +189,15 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     // press on screen to add image of item
     @IBAction func addImageAction(_ sender: UITapGestureRecognizer) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-                alert.addAction(UIAlertAction(title: "Зробити фото", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "Зробити фото".localized, style: .default, handler: { _ in
                     self.openCamera()
                 }))
                 
-                alert.addAction(UIAlertAction(title: "Вибрати з галереї", style: .default, handler: { _ in
+                alert.addAction(UIAlertAction(title: "Вибрати з галереї".localized, style: .default, handler: { _ in
                     self.openGallary()
                 }))
                 
-                alert.addAction(UIAlertAction(title: "Скасувати", style: .cancel, handler: nil))
+                alert.addAction(UIAlertAction(title: "Скасувати".localized, style: .cancel, handler: nil))
                 
                 //If you want work actionsheet on ipad then you have to use popoverPresentationController to present the actionsheet, otherwise app will crash in iPad
         //        switch UIDevice.current.userInterfaceIdiom {
@@ -210,14 +232,14 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         let amount = amountItemTextField.text ?? ""
         let newAmount = (Int(amount) ?? 0) - (Int(saleAmount) ?? 0)
         if newAmount < 0 {
-            let alert = UIAlertController(title: " Помилка!", message: "Перевірте кількість проданих товарів! Кількість не має бути більшою за ту що у Вас є в наявності", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Помилка!".localized, message: "Перевірте кількість проданих товарів! Кількість не має бути більшою за ту що у Вас є в наявності".localized, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         } else {
             item.amount = String(newAmount)
             amountItemTextField.text = item.amount
             if incomePrice == "" || saleAmount == "" {
-                let alert = UIAlertController(title: "Ви забули!", message: "Всі поля мають бути заповненими!", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Ви забули!".localized, message: "Всі поля мають бути заповненими!".localized, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             } else {
@@ -255,7 +277,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.present(imagePicker, animated: true, completion: nil)
         }
         else{
-            let alert  = UIAlertController(title: "Помилка", message: "У Вас немає камери", preferredStyle: .alert)
+            let alert  = UIAlertController(title: "Помилка".localized, message: "У Вас немає камери!".localized, preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -289,7 +311,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             item.id = UUID() .uuidString
             item.image = addImage.image ?? addImage.highlightedImage!
             if item.title == "" || item.category == "" || item.price == "" || item.amount == "" || item.details == "" {
-                let alert = UIAlertController(title: "Ви забули!", message: "Всі поля мають бути заповненими!", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Ви забули!".localized, message: "Всі поля мають бути заповненими!".localized, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             } else {
@@ -302,7 +324,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                 self.clearPhotoButtonOutlet.isHidden = false
             }
             sender.isMultipleTouchEnabled = true
-            sender.setTitle("Готово", for: .normal)
+            sender.setTitle("Готово".localized, for: .normal)
             titleItemTextField.isUserInteractionEnabled = true
             categoryItemTextField.isUserInteractionEnabled = true
             priceItemTextField.isUserInteractionEnabled = true
@@ -310,9 +332,9 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             detailsItemTextView.isUserInteractionEnabled = true
             tapGestureOutlet.isEnabled = true
             saleButtonOutlet.isHidden = true
-            newItemLabel.text = "Зміни деталі товару"
-            enterImageItemLable.text = "Зміни фото твого товару"
-            if sender.titleLabel?.text == "Готово"{
+            newItemLabel.text = "Зміни деталі товару".localized
+            enterImageItemLable.text = "Зміни фото твого товару".localized
+            if sender.titleLabel?.text == "Готово".localized{
                 item.title = titleItemTextField.text ?? ""
                 item.category = categoryItemTextField.text ?? ""
                 item.price = priceItemTextField.text ?? ""
@@ -320,7 +342,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                 item.details = detailsItemTextView.text ?? ""
                 item.image = addImage.image ?? addImage.highlightedImage!
                 if item.title == "" || item.category == "" || item.price == "" || item.amount == "" || item.details == "" {
-                    let alert = UIAlertController(title: "Ви забули!", message: "Всі поля мають бути заповненими!", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Ви забули!".localized, message: "Всі поля мають бути заповненими!".localized, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 } else {
@@ -350,13 +372,13 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         guard row > 0 else {
-            return "Без категорії"
+            return "Без категорії".localized
         }
         return categories[row - 1].name
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print(categories)
-        categoryItemTextField.text = row == 0 ?  "Без категорії" : categories[row - 1].name
+        categoryItemTextField.text = row == 0 ?  "Без категорії".localized : categories[row - 1].name
         self.view.endEditing(false)
     }
 }

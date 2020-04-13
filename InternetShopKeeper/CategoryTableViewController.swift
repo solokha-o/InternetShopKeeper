@@ -43,19 +43,22 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
         fetchCategory()
         getAllCategory()
         // configurate BarButtonItem DropDown
+        sortButtonOutlet.title = "Сортувати".localized
         leftBarDropDown.anchorView = sortButtonOutlet
-        leftBarDropDown.dataSource = ["Сортувати А - Я", "Сортувати Я - А"]
+        leftBarDropDown.dataSource = ["Сортувати А - Я".localized, "Сортувати Я - А".localized]
         leftBarDropDown.cellConfiguration = { (index, item) in return "\(item)" }
         leftBarDropDown.shadowColor = UIColor.black
         leftBarDropDown.shadowOpacity = 0.8
         leftBarDropDown.setupCornerRadius(10)
         // Navigation bar have large title and search controller
+        navigationController?.title = "Categories".localized
+        navigationItem.title = "Product Categories".localized
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.searchController = search
         navigationItem.hidesSearchBarWhenScrolling = true
         search.searchResultsUpdater = self
         search.obscuresBackgroundDuringPresentation = false
-        search.searchBar.placeholder = "Пошук категорії"
+        search.searchBar.placeholder = "Пошук категорії".localized
         definesPresentationContext = true
         tableView.delegate = self
         tableView.dataSource = self
@@ -181,14 +184,14 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
         print("ID" + categoriesStruct[indexPath.row].id)
         vc.isInEdit = true
         vc.addCategoryTextField.text = categoriesStruct[indexPath.row].name
-        vc.newCategoryLable.text = "Категорія товару"
-        vc.enterCategoryLable.text = "Створена категорія товару"
+        vc.newCategoryLable.text = "Категорія товару".localized
+        vc.enterCategoryLable.text = "Створена категорія товару".localized
         vc.delegate = self
         present(vc, animated: true, completion: nil)
     }
     // Trailing swipe configutate delete category item
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let contextItem = UIContextualAction(style: .destructive, title: "Видалити") {  [weak self] (_, _, _) in
+        let contextItem = UIContextualAction(style: .destructive, title: "Видалити".localized) {  [weak self] (_, _, _) in
             // delete category from CoreData
             self?.categoriesStruct.remove(at: indexPath.row)
             self?.tableView.deleteRows(at:[indexPath],with: .fade)

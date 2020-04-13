@@ -28,6 +28,9 @@
 		DB7098AA243E316B00AA4159 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7098A9243E316B00AA4159 /* OnboardingViewController.swift */; };
 		DB81E8442438CAEC0097E606 /* ToolsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81E8432438CAEC0097E606 /* ToolsTableViewController.swift */; };
 		DBDC7E992409B345005E35CA /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC7E982409B345005E35CA /* ItemTableViewController.swift */; };
+		DBF45FF62444B0520045349E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF45FF52444B0520045349E /* TabBarController.swift */; };
+		DBF45FFE2444B7870045349E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DBF460002444B7870045349E /* Localizable.strings */; };
+		DBF460032444B8020045349E /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF460022444B8020045349E /* String+Localized.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +94,10 @@
 		DB7098A9243E316B00AA4159 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		DB81E8432438CAEC0097E606 /* ToolsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsTableViewController.swift; sourceTree = "<group>"; };
 		DBDC7E982409B345005E35CA /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
+		DBF45FF52444B0520045349E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		DBF45FFF2444B7870045349E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DBF460012444B7B60045349E /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DBF460022444B8020045349E /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		DBFAB63724339C2C00108421 /* DropDown.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DropDown.xcodeproj; path = "DropDown-master/DropDown.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +157,9 @@
 				DB7098A9243E316B00AA4159 /* OnboardingViewController.swift */,
 				DB7098A7243E2FA000AA4159 /* FirstLaunchPageViewController.swift */,
 				DB7098A5243E2F5300AA4159 /* FirstLaunchViewController.swift */,
+				DBF45FF52444B0520045349E /* TabBarController.swift */,
+				DBF460022444B8020045349E /* String+Localized.swift */,
+				DBF460002444B7870045349E /* Localizable.strings */,
 				DB599B9824098D3B0065CA3D /* Main.storyboard */,
 				DB599B9E24098D3B0065CA3D /* Assets.xcassets */,
 				DB599BA024098D3B0065CA3D /* LaunchScreen.storyboard */,
@@ -213,6 +223,7 @@
 			knownRegions = (
 				en,
 				Base,
+				uk,
 			);
 			mainGroup = DB599B8824098D3A0065CA3D;
 			productRefGroup = DB599B9224098D3B0065CA3D /* Products */;
@@ -259,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBF45FFE2444B7870045349E /* Localizable.strings in Resources */,
 				DB07E26F24100CE600A86645 /* ItemTableViewCell.xib in Resources */,
 				DB599BA224098D3B0065CA3D /* LaunchScreen.storyboard in Resources */,
 				DB599B9F24098D3B0065CA3D /* Assets.xcassets in Resources */,
@@ -274,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB7098A8243E2FA000AA4159 /* FirstLaunchPageViewController.swift in Sources */,
+				DBF45FF62444B0520045349E /* TabBarController.swift in Sources */,
 				DB7098A6243E2F5300AA4159 /* FirstLaunchViewController.swift in Sources */,
 				DB81E8442438CAEC0097E606 /* ToolsTableViewController.swift in Sources */,
 				DB07E26E24100CE600A86645 /* ItemTableViewCell.swift in Sources */,
@@ -283,6 +296,7 @@
 				DB599BAA24099F230065CA3D /* AddItemViewController.swift in Sources */,
 				DB599B9524098D3B0065CA3D /* AppDelegate.swift in Sources */,
 				DB3B46ED2416B33800A79BB0 /* AddCategoryViewController.swift in Sources */,
+				DBF460032444B8020045349E /* String+Localized.swift in Sources */,
 				DB7098A4243E2E5D00AA4159 /* ModelFirstLaunch.swift in Sources */,
 				DB7098AA243E316B00AA4159 /* OnboardingViewController.swift in Sources */,
 				DB3F300E243B76E60021D09F /* ItemStruct.swift in Sources */,
@@ -310,6 +324,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		DBF460002444B7870045349E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DBF45FFF2444B7870045349E /* en */,
+				DBF460012444B7B60045349E /* uk */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -317,6 +340,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -376,6 +400,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -440,7 +465,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = OleksandrSolokha.InternetShopKeeper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -459,7 +484,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = OleksandrSolokha.InternetShopKeeper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

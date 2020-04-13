@@ -22,12 +22,13 @@ class OnboardingViewController: UIViewController {
     let modelFirstLaunch: [ModelFirstLaunch] = [
         ModelFirstLaunch(imageName: "onBoardingImage1", title: "Облік товарів магазину!", subtitle: "Слідкуй за наявністю товарів в своєму магазині та веди облік."),
         ModelFirstLaunch(imageName: "onBoardingImage2", title: "Доходи видно тут!", subtitle: "Не потрібен тобі калькулятор, всі доходи та видатки рахуються тут."),
-        ModelFirstLaunch(imageName: "onBoardingImage3", title: "Завжди під руклю!", subtitle: "Все що тобі потрібно для твого магазину в одному додатку.")
+        ModelFirstLaunch(imageName: "onBoardingImage3", title: "Завжди під рукою!", subtitle: "Все що тобі потрібно для твого магазину в одному додатку.")
     ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         pageControl.numberOfPages = modelFirstLaunch.count
+        skipTutorialButton.setTitle("Пропустити".localized, for: .normal)
     }
     // configure segue to FirstLaunchPageViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -49,11 +50,13 @@ class OnboardingViewController: UIViewController {
     // configure button skip
     @IBAction func skipTutorialAction(_ sender: UIButton) {
         // configure button to skip tutorial
-        dismiss(animated: true, completion: nil)
         UserDefaults.standard.set(true, forKey: "onboarding")
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let VC = storyboard?.instantiateViewController(identifier: "HomeViewController")
         appDelegate.window?.rootViewController = VC
+    }
+    @IBAction func unwindToViewController (sender: UIStoryboardSegue){
+
     }
     // configure UIPageControl
     @IBAction func pageControllerAction(_ sender: UIPageControl) {

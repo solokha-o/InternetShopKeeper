@@ -16,7 +16,7 @@ class FirstLaunchViewController: UIViewController {
     // setup ModelFirstLaunch in FirstLaunchViewController
     func setupWhitModel(model: ModelFirstLaunch) {
         imageView.image = UIImage(named: model.imageName)
-        titleLabel.text = model.title
-        subtitleLable.text = model.subtitle
+        titleLabel.text = model.title.localized
+        subtitleLable.text = model.subtitle.localized
     }
 }

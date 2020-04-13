@@ -13,6 +13,8 @@ class ToolsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.title = "Параметри".localized
+        navigationItem.title = "Параметри".localized
         navigationController?.navigationBar.prefersLargeTitles = true
         tableView.tableFooterView = UIView()
     }
@@ -35,11 +37,11 @@ class ToolsTableViewController: UITableViewController {
         
         switch indexPath.row {
         case 0:
-            cell.textLabel?.text = "Написати нам!"
-            cell.detailTextLabel?.text = "Задати питання через e-mail"
+            cell.textLabel?.text = "Написати нам!".localized
+            cell.detailTextLabel?.text = "Задати питання через e-mail".localized
         case 1:
             let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-            cell.textLabel?.text = "Версія додатку:"
+            cell.textLabel?.text = "Версія додатку:".localized
             cell.detailTextLabel?.text = appVersion
             cell.accessoryType = .none
         default:
@@ -64,7 +66,7 @@ class ToolsTableViewController: UITableViewController {
             } else {
                 // if mail on device is not available
                 print("Mail services are not available")
-                let alert = UIAlertController(title: "Помилка!", message: "У Вас відсутній додаток  Mail! Відправте пошту на адресу: oleksandr.solokha@gmail.com.", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Помилка!".localized, message: "У Вас відсутній додаток  Mail! Відправте пошту на адресу: oleksandr.solokha@gmail.com.".localized, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }

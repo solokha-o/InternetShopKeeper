@@ -1,0 +1,129 @@
+
+/* Class = "UILabel"; text = "Ціна товару"; ObjectID = "4wG-kC-Zq6"; */
+"4wG-kC-Zq6.text" = "Ціна товару";
+
+/* Class = "UITextField"; placeholder = "Вибери категорію товару"; ObjectID = "BXc-Hx-ekG"; */
+"BXc-Hx-ekG.placeholder" = "Вибери категорію товару";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "C4x-d3-SYn"; */
+"C4x-d3-SYn.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "Ціна"; ObjectID = "Cwh-Md-XVw"; */
+"Cwh-Md-XVw.placeholder" = "Ціна";
+
+/* Class = "UIButton"; normalTitle = "Очистити фото"; ObjectID = "DGU-qv-NUk"; */
+"DGU-qv-NUk.normalTitle" = "Очистити фото";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "FsR-vD-Xp2"; */
+"FsR-vD-Xp2.text" = "Title";
+
+/* Class = "UITabBarItem"; title = "Категорії"; ObjectID = "GIx-8r-Z0S"; */
+"GIx-8r-Z0S.title" = "Категорії";
+
+/* Class = "UIBarButtonItem"; title = "Сортувати"; ObjectID = "Igg-7b-9Lf"; */
+"Igg-7b-9Lf.title" = "Сортувати";
+
+/* Class = "UINavigationItem"; title = "Мій товар"; ObjectID = "Ilz-bu-3Dq"; */
+"Ilz-bu-3Dq.title" = "Мій товар";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "J06-gE-0Sh"; */
+"J06-gE-0Sh.text" = "Subtitle";
+
+/* Class = "UINavigationItem"; title = "Категорії товару"; ObjectID = "Jcw-v5-0Yh"; */
+"Jcw-v5-0Yh.title" = "Категорії товару";
+
+/* Class = "UIButton"; normalTitle = "Готово"; ObjectID = "K0M-5x-GHw"; */
+"K0M-5x-GHw.normalTitle" = "Готово";
+
+/* Class = "UIButton"; normalTitle = "Скасувати"; ObjectID = "Mea-Cx-VIn"; */
+"Mea-Cx-VIn.normalTitle" = "Скасувати";
+
+/* Class = "UITextField"; placeholder = "Кількість"; ObjectID = "Nlu-nW-6Qc"; */
+"Nlu-nW-6Qc.placeholder" = "Кількість";
+
+/* Class = "UITextField"; placeholder = "Кількість"; ObjectID = "OcN-G4-J6M"; */
+"OcN-G4-J6M.placeholder" = "Кількість";
+
+/* Class = "UITextField"; placeholder = "Категорія товару"; ObjectID = "Ofr-uR-cMG"; */
+"Ofr-uR-cMG.placeholder" = "Категорія товару";
+
+/* Class = "UILabel"; text = "Кількість товару"; ObjectID = "QLg-Gg-O4V"; */
+"QLg-Gg-O4V.text" = "Кількість товару";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Qz4-mP-UdX"; */
+"Qz4-mP-UdX.text" = "Label";
+
+/* Class = "UILabel"; text = "Новий товар"; ObjectID = "RO2-xO-oDR"; */
+"RO2-xO-oDR.text" = "Новий товар";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Rgv-B0-Va7"; */
+"Rgv-B0-Va7.text" = "Label";
+
+/* Class = "UILabel"; text = "Чистий дохід"; ObjectID = "Ubq-wp-o5s"; */
+"Ubq-wp-o5s.text" = "Чистий дохід";
+
+/* Class = "UIButton"; normalTitle = "Пропустити"; ObjectID = "Vpf-ms-V3K"; */
+"Vpf-ms-V3K.normalTitle" = "Пропустити";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "X1t-DM-aTG"; */
+"X1t-DM-aTG.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "Статистика"; ObjectID = "YDx-Pi-o1e"; */
+"YDx-Pi-o1e.title" = "Статистика";
+
+/* Class = "UILabel"; text = "Нова категорія"; ObjectID = "aAq-xu-e1K"; */
+"aAq-xu-e1K.text" = "Нова категорія";
+
+/* Class = "UITextField"; placeholder = "Введіть назву товару"; ObjectID = "aGt-Zl-UGi"; */
+"aGt-Zl-UGi.placeholder" = "Введіть назву товару";
+
+/* Class = "UIBarButtonItem"; title = "Сортувати"; ObjectID = "cdP-5H-TyY"; */
+"cdP-5H-TyY.title" = "Сортувати";
+
+/* Class = "UITabBarItem"; title = "Параметри"; ObjectID = "cyL-R0-nT2"; */
+"cyL-R0-nT2.title" = "Параметри";
+
+/* Class = "UILabel"; text = "Витрачено на товар"; ObjectID = "dCz-kl-kcd"; */
+"dCz-kl-kcd.text" = "Витрачено на товар";
+
+/* Class = "UITextField"; placeholder = "Ціна"; ObjectID = "eki-Rw-17l"; */
+"eki-Rw-17l.placeholder" = "Ціна";
+
+/* Class = "UIButton"; normalTitle = "Продати товар"; ObjectID = "hF6-Pz-TNz"; */
+"hF6-Pz-TNz.normalTitle" = "Продати товар";
+
+/* Class = "UILabel"; text = "Введи категорію товару"; ObjectID = "hWZ-FC-NzS"; */
+"hWZ-FC-NzS.text" = "Введи категорію товару";
+
+/* Class = "UINavigationItem"; title = "Статистика"; ObjectID = "hj2-Da-CCq"; */
+"hj2-Da-CCq.title" = "Статистика";
+
+/* Class = "UILabel"; text = "Ціна та кількість проданого товару"; ObjectID = "ibL-Ss-ghv"; */
+"ibL-Ss-ghv.text" = "Ціна та кількість проданого товару";
+
+/* Class = "UILabel"; text = "Вибери фото товару"; ObjectID = "n0i-Ei-amf"; */
+"n0i-Ei-amf.text" = "Вибери фото товару";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "nqR-b0-5nT"; */
+"nqR-b0-5nT.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Параметри"; ObjectID = "pWl-vP-DXb"; */
+"pWl-vP-DXb.title" = "Параметри";
+
+/* Class = "UILabel"; text = "Назва товару"; ObjectID = "uJG-d5-tIe"; */
+"uJG-d5-tIe.text" = "Назва товару";
+
+/* Class = "UITabBarItem"; title = "Товари"; ObjectID = "vhX-ZK-2ng"; */
+"vhX-ZK-2ng.title" = "Товари";
+
+/* Class = "UILabel"; text = "Опис Вашого товару"; ObjectID = "vtu-11-mbo"; */
+"vtu-11-mbo.text" = "Опис Вашого товару";
+
+/* Class = "UILabel"; text = "Отримано від продажу"; ObjectID = "wEM-eR-0Hj"; */
+"wEM-eR-0Hj.text" = "Отримано від продажу";
+
+/* Class = "UILabel"; text = "Категорія товару"; ObjectID = "yPi-l2-XlN"; */
+"yPi-l2-XlN.text" = "Категорія товару";
+
+/* Class = "UITabBarItem"; title = "Категорії"; ObjectID = "zEC-tH-mh0"; */
+"zEC-tH-mh0.title" = "Категорії";

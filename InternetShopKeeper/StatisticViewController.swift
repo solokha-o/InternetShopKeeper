@@ -14,6 +14,9 @@ class StatisticViewController: UIViewController, ItemTableViewControllerDelegate
     @IBOutlet weak var costsLabel: UILabel!
     @IBOutlet weak var profitLable: UILabel!
     @IBOutlet weak var netProfitLable: UILabel!
+    @IBOutlet weak var costsTitleLable: UILabel!
+    @IBOutlet weak var profitTitleLable: UILabel!
+    @IBOutlet weak var netProfitTitleLable: UILabel!
     
     // create array ItemStruct
     var itemsStruct = [ItemStruct]()
@@ -21,6 +24,11 @@ class StatisticViewController: UIViewController, ItemTableViewControllerDelegate
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        costsTitleLable.text = "Витрачено на товар".localized
+        profitTitleLable.text = "Отримано від продажу".localized
+        netProfitTitleLable.text = "Чистий дохід".localized
+        navigationController?.title = "Статистика".localized
+        navigationItem.title = "Статистика".localized
         self.navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
         let itemTVC = ItemTableViewController()

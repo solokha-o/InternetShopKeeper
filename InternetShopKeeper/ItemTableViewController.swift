@@ -46,19 +46,22 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
         fetchItem()
         getAllItem()
         // configurate BarButtonItem DropDown
+        sortButtonOutlet.title = "Сортувати".localized
         leftBarDropDown.anchorView = sortButtonOutlet
-        leftBarDropDown.dataSource = ["Сортувати товари по назві А - Я", "Сортувати товари по назві Я - А"]
+        leftBarDropDown.dataSource = ["Сортувати товари по назві А - Я".localized, "Сортувати товари по назві Я - А".localized]
         leftBarDropDown.cellConfiguration = { (index, item) in return "\(item)" }
         leftBarDropDown.cornerRadius = 10
         leftBarDropDown.shadowColor = UIColor.black
         leftBarDropDown.shadowOpacity = 0.8
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.title = "Мій товар".localized
+        navigationItem.title = "Мій товар".localized
         //add searchController to navigationItem
         navigationItem.searchController = search
         navigationItem.hidesSearchBarWhenScrolling = true
         search.searchResultsUpdater = self
         search.obscuresBackgroundDuringPresentation = false
-        search.searchBar.placeholder = "Пошук товару"
+        search.searchBar.placeholder = "Пошук товару".localized
         definesPresentationContext = true
         let nib = UINib(nibName: "ItemTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "ItemTableViewCell")
@@ -66,6 +69,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         self.tableView.rowHeight = 130.0
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -225,14 +229,14 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
         vc.detailsItemTextView.text = itemsStruct[indexPath.row].details
         vc.addImage.image = itemsStruct[indexPath.row].image
         vc.addImage.isHighlighted = false
-        vc.newItemLabel.text = "Твій товар"
-        vc.enterImageItemLable.text = "Фото товару"
+        vc.newItemLabel.text = "Твій товар".localized
+        vc.enterImageItemLable.text = "Фото товару".localized
         vc.delegate = self
         present(vc, animated: true, completion: nil)
         }
     // Trailing swipe configutate delete  item
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let contextItem = UIContextualAction(style: .destructive, title: "Видалити") {  [weak self] (_, _, _) in
+        let contextItem = UIContextualAction(style: .destructive, title: "Видалити".localized) {  [weak self] (_, _, _) in
             // delete category from CoreData
             self?.itemsStruct.remove(at: indexPath.row)
             self?.tableView.deleteRows(at:[indexPath],with: .fade)
