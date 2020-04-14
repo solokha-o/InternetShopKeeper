@@ -270,6 +270,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
                     itemsStruct[i].incomePrice = item.incomePrice
                     itemsStruct[i].image = item.image
                     updateItem(id: item.id, item: item)
+                    itemsStruct[i] = item
                     print("update " + item.id)
                 }
             }

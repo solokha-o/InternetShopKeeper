@@ -16,16 +16,46 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate{
         delegate = self
         //To preload all view controllers
         tabBarController?.viewControllers?.forEach { let _ = $0.view }
+        
+        let navVC0 = self.viewControllers?[0] as! UINavigationController
+        let ITVC = navVC0.topViewController as! ItemTableViewController
+        
+        let navVC2 = self.viewControllers?[2] as! UINavigationController
+        let SVC = navVC2.topViewController as! StatisticViewController
+        
+        SVC.itemsStract = ITVC.itemsStruct
+        print(SVC.itemsStract)
+        print(ITVC.itemsStruct)
     }
    
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         guard let tabViewControllers = tabBarController.viewControllers, let toIndex = tabViewControllers.firstIndex(of: viewController) else {
             return false
         }
+        let navVC0 = self.viewControllers?[0] as! UINavigationController
+        let ITVC = navVC0.topViewController as! ItemTableViewController
+        
+        let navVC2 = self.viewControllers?[2] as! UINavigationController
+        let SVC = navVC2.topViewController as! StatisticViewController
+        
+        SVC.itemsStract = ITVC.itemsStruct
+        tabBarController.selectedIndex = 2
         animateToTab(toIndex: toIndex)
         return true
     }
-
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        let navVC0 = self.viewControllers?[0] as! UINavigationController
+        let ITVC = navVC0.topViewController as! ItemTableViewController
+        
+        let navVC2 = self.viewControllers?[2] as! UINavigationController
+        let SVC = navVC2.topViewController as! StatisticViewController
+        
+        SVC.itemsStract = ITVC.itemsStruct
+        tabBarController.selectedIndex = 2
+    }
+    
+    
     func animateToTab(toIndex: Int) {
         guard let tabViewControllers = viewControllers,
             let selectedVC = selectedViewController else { return }
@@ -64,6 +94,13 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate{
             self.selectedIndex = toIndex
             self.view.isUserInteractionEnabled = true
         })
+        let navVC0 = self.viewControllers?[0] as! UINavigationController
+        let ITVC = navVC0.topViewController as! ItemTableViewController
+        
+        let navVC2 = self.viewControllers?[2] as! UINavigationController
+        let SVC = navVC2.topViewController as! StatisticViewController
+        
+        SVC.itemsStract = ITVC.itemsStruct
     }
     
     func setupTitleTabBarItem() {
@@ -80,4 +117,5 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate{
             break
         }
     }
+    
 }
