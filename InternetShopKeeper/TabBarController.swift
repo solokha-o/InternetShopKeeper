@@ -27,6 +27,11 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate{
         print(SVC.itemsStract)
         print(ITVC.itemsStruct)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupTitleTabBarItem()
+    }
    
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         guard let tabViewControllers = tabBarController.viewControllers, let toIndex = tabViewControllers.firstIndex(of: viewController) else {
@@ -39,7 +44,6 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate{
         let SVC = navVC2.topViewController as! StatisticViewController
         
         SVC.itemsStract = ITVC.itemsStruct
-        tabBarController.selectedIndex = 2
         animateToTab(toIndex: toIndex)
         return true
     }
@@ -52,7 +56,6 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate{
         let SVC = navVC2.topViewController as! StatisticViewController
         
         SVC.itemsStract = ITVC.itemsStruct
-        tabBarController.selectedIndex = 2
     }
     
     
@@ -104,7 +107,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate{
     }
     
     func setupTitleTabBarItem() {
-        switch tabBarItem.tag {
+        switch self.tabBarItem.tag {
         case 0:
             self.tabBarItem.title = "Мій товар".localized
         case 1:
@@ -112,10 +115,9 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate{
         case 2:
             self.tabBarItem.title = "Статистика".localized
         case 3:
-            self.tabBarItem.title = "Мій товар".localized
+            self.tabBarItem.title = "Параметри".localized
         default:
             break
         }
     }
-    
 }
