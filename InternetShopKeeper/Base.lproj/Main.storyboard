@@ -698,9 +698,18 @@
                                                                     <action selector="clearPhotoButtonAction:" destination="uwy-0Y-5uC" eventType="touchUpInside" id="9YG-Hf-llH"/>
                                                                 </connections>
                                                             </button>
-                                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" highlightedImage="AddImage" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mns-sU-Rac">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="q8u-hv-Ou3">
                                                                 <rect key="frame" x="0.0" y="66.5" width="300" height="100"/>
-                                                            </imageView>
+                                                                <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" highlightedImage="AddImage" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mns-sU-Rac">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
+                                                                    </imageView>
+                                                                </subviews>
+                                                                <gestureRecognizers/>
+                                                                <connections>
+                                                                    <outletCollection property="gestureRecognizers" destination="eFg-aE-NIe" appends="YES" id="1gv-dw-pay"/>
+                                                                </connections>
+                                                            </stackView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Назва товару" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJG-d5-tIe">
                                                                 <rect key="frame" x="0.0" y="178.5" width="300" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -724,6 +733,7 @@
                                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                             </textField>
                                                         </subviews>
+                                                        <gestureRecognizers/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="y7N-2K-DB1">
                                                         <rect key="frame" x="0.0" y="429.5" width="300" height="62.5"/>
@@ -771,7 +781,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vSH-eU-A4l">
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vSH-eU-A4l">
                                                                 <rect key="frame" x="0.0" y="28.5" width="300" height="33"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -781,6 +791,7 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="300" id="sFX-An-sFa"/>
                                                 </constraints>
@@ -802,12 +813,10 @@
                                     <constraint firstAttribute="bottom" secondItem="0bO-XE-o9k" secondAttribute="bottom" id="kN4-kc-OPB"/>
                                     <constraint firstItem="0bO-XE-o9k" firstAttribute="leading" secondItem="Wmr-Lo-XOm" secondAttribute="leading" id="vdY-Is-Vdn"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="eFg-aE-NIe" appends="YES" id="m19-bQ-Ryi"/>
-                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Wmr-Lo-XOm" firstAttribute="top" secondItem="HPy-XF-udo" secondAttribute="top" id="9p4-M0-InJ"/>
                             <constraint firstItem="Wmr-Lo-XOm" firstAttribute="leading" secondItem="4u0-FQ-0WC" secondAttribute="leading" id="HoR-vD-Mb0"/>

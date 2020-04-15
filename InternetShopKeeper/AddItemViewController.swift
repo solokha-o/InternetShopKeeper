@@ -14,7 +14,7 @@ protocol AddItemViewControllerDelegate {
     func addItemViewController (_ addItemViewController: AddItemViewController, didAddItem item: ItemStruct)
 }
 
-class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate {
+class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     // State for Bar button
     enum State {
         case addItem, editItem
@@ -86,6 +86,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         // Create placeholder to detailsItemTextView
         detailsItemTextView.text = "Введіть деталі свого товару".localized
         detailsItemTextView.textColor = UIColor.lightGray
+        detailsItemTextView.layer.cornerRadius = 5
         //configure saleView
         saleView.isHidden = true
         saleView.layer.cornerRadius = 10
@@ -111,7 +112,9 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         amountSaleViewTextFieldOutlet.placeholder = "Кількість".localized
         cancelButtonSaleViewOutlet.setTitle("Скасувати".localized, for: .normal)
         saveButtonSaleViewOutlet.setTitle("Готово".localized, for: .normal)
-        
+        // create NotificationCenter for keyboardWillShowNotification and keyboardWillHideNotification
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -383,7 +386,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
 }
 // move to next textField
-extension AddItemViewController: UITextFieldDelegate {
+extension AddItemViewController: UITextFieldDelegate, UITextViewDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case titleItemTextField:
@@ -396,12 +399,32 @@ extension AddItemViewController: UITextFieldDelegate {
         }
         return true
     }
-
+    // Move textfield when keyboard appears
     func textFieldDidBeginEditing(_ textField: UITextField) {
         scrollView.setContentOffset(CGPoint(x: 0, y: textField.superview?.frame.origin.y ?? 0), animated: true)
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+    }
+    
+//    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+//        scrollView.setContentOffset(CGPoint(x: 0, y: textField.superview?.frame.origin.y ?? 0), animated: true)
+//        return true
+//    }
+//
+//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+//        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+//        return true
+//    }
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        scrollView.setContentOffset(CGPoint(x: 0, y: textView.superview?.frame.origin.y ?? 0), animated: true)
+        return true
+    }
+    
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        return true
     }
 }
