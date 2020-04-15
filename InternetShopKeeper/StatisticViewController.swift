@@ -37,20 +37,11 @@ class StatisticViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        fetchRequest()
+        setupCostsLabel()
+        setupProfitLable()
+        setupNetProfitLable()
     }
-    //     fetch request from coreData and get to array itemsStract
-//    func fetchRequest() {
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let context = appDelegate.persistentContainer.viewContext
-//        let fetchRequest = Item.fetchRequest() as NSFetchRequest<Item>
-//                do {
-//            itemsStract = try context.fetch(fetchRequest)
-//
-//        } catch let error {
-//            print("Eror: \(error).")
-//        }
-//    }
+    
     // calculation costs bought item
     func costCalculation(itemsStract: [ItemStruct]) -> String {
         var costs = 0
