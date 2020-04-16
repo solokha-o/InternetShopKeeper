@@ -12,6 +12,7 @@
 		DB0C8876242BD80C00AD4755 /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0C8875242BD80C00AD4755 /* DropDown.framework */; };
 		DB0C8877242BD80C00AD4755 /* DropDown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB0C8875242BD80C00AD4755 /* DropDown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DB1BFD5C2416BA3E00197229 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1BFD5B2416BA3E00197229 /* CategoryTableViewController.swift */; };
+		DB2E3B2E2448CDE90043DD7C /* CRUDModelCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E3B2D2448CDE90043DD7C /* CRUDModelCategory.swift */; };
 		DB3B46ED2416B33800A79BB0 /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3B46EC2416B33800A79BB0 /* AddCategoryViewController.swift */; };
 		DB3F3009243B759D0021D09F /* CategoryStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F3008243B759D0021D09F /* CategoryStruct.swift */; };
 		DB3F300E243B76E60021D09F /* ItemStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F300D243B76E60021D09F /* ItemStruct.swift */; };
@@ -76,6 +77,7 @@
 		DB07E26D24100CE600A86645 /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 		DB0C8875242BD80C00AD4755 /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB1BFD5B2416BA3E00197229 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		DB2E3B2D2448CDE90043DD7C /* CRUDModelCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDModelCategory.swift; sourceTree = "<group>"; };
 		DB3B46EC2416B33800A79BB0 /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
 		DB3F3008243B759D0021D09F /* CategoryStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStruct.swift; sourceTree = "<group>"; };
 		DB3F300D243B76E60021D09F /* ItemStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStruct.swift; sourceTree = "<group>"; };
@@ -122,6 +124,65 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DB2E3B272448C8570043DD7C /*  Items */ = {
+			isa = PBXGroup;
+			children = (
+				DB599BA924099F230065CA3D /* AddItemViewController.swift */,
+				DBDC7E982409B345005E35CA /* ItemTableViewController.swift */,
+				DB3F300D243B76E60021D09F /* ItemStruct.swift */,
+				DB07E26C24100CE600A86645 /* ItemTableViewCell.swift */,
+				DB07E26D24100CE600A86645 /* ItemTableViewCell.xib */,
+			);
+			path = " Items";
+			sourceTree = "<group>";
+		};
+		DB2E3B282448CCEE0043DD7C /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				DB3B46EC2416B33800A79BB0 /* AddCategoryViewController.swift */,
+				DB1BFD5B2416BA3E00197229 /* CategoryTableViewController.swift */,
+				DB3F3008243B759D0021D09F /* CategoryStruct.swift */,
+				DB2E3B2D2448CDE90043DD7C /* CRUDModelCategory.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		DB2E3B292448CD3E0043DD7C /* Statistic */ = {
+			isa = PBXGroup;
+			children = (
+				DB5C9DF9242A6BDE00E2CA86 /* StatisticViewController.swift */,
+			);
+			path = Statistic;
+			sourceTree = "<group>";
+		};
+		DB2E3B2A2448CD550043DD7C /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				DB81E8432438CAEC0097E606 /* ToolsTableViewController.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		DB2E3B2B2448CD6F0043DD7C /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				DB7098A9243E316B00AA4159 /* OnboardingViewController.swift */,
+				DB7098A7243E2FA000AA4159 /* FirstLaunchPageViewController.swift */,
+				DB7098A5243E2F5300AA4159 /* FirstLaunchViewController.swift */,
+				DB7098A3243E2E5D00AA4159 /* ModelFirstLaunch.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		DB2E3B2C2448CD9A0043DD7C /* Localase */ = {
+			isa = PBXGroup;
+			children = (
+				DBF460022444B8020045349E /* String+Localized.swift */,
+				DBF460002444B7870045349E /* Localizable.strings */,
+			);
+			path = Localase;
+			sourceTree = "<group>";
+		};
 		DB599B8824098D3A0065CA3D = {
 			isa = PBXGroup;
 			children = (
@@ -143,23 +204,13 @@
 			isa = PBXGroup;
 			children = (
 				DB599B9424098D3B0065CA3D /* AppDelegate.swift */,
-				DB599BA924099F230065CA3D /* AddItemViewController.swift */,
-				DBDC7E982409B345005E35CA /* ItemTableViewController.swift */,
-				DB3B46EC2416B33800A79BB0 /* AddCategoryViewController.swift */,
-				DB1BFD5B2416BA3E00197229 /* CategoryTableViewController.swift */,
-				DB81E8432438CAEC0097E606 /* ToolsTableViewController.swift */,
-				DB07E26C24100CE600A86645 /* ItemTableViewCell.swift */,
-				DB07E26D24100CE600A86645 /* ItemTableViewCell.xib */,
-				DB5C9DF9242A6BDE00E2CA86 /* StatisticViewController.swift */,
-				DB3F3008243B759D0021D09F /* CategoryStruct.swift */,
-				DB3F300D243B76E60021D09F /* ItemStruct.swift */,
-				DB7098A3243E2E5D00AA4159 /* ModelFirstLaunch.swift */,
-				DB7098A9243E316B00AA4159 /* OnboardingViewController.swift */,
-				DB7098A7243E2FA000AA4159 /* FirstLaunchPageViewController.swift */,
-				DB7098A5243E2F5300AA4159 /* FirstLaunchViewController.swift */,
 				DBF45FF52444B0520045349E /* TabBarController.swift */,
-				DBF460022444B8020045349E /* String+Localized.swift */,
-				DBF460002444B7870045349E /* Localizable.strings */,
+				DB2E3B272448C8570043DD7C /*  Items */,
+				DB2E3B282448CCEE0043DD7C /* Categories */,
+				DB2E3B292448CD3E0043DD7C /* Statistic */,
+				DB2E3B2A2448CD550043DD7C /* Tools */,
+				DB2E3B2B2448CD6F0043DD7C /* Onboarding */,
+				DB2E3B2C2448CD9A0043DD7C /* Localase */,
 				DB599B9824098D3B0065CA3D /* Main.storyboard */,
 				DB599B9E24098D3B0065CA3D /* Assets.xcassets */,
 				DB599BA024098D3B0065CA3D /* LaunchScreen.storyboard */,
@@ -302,6 +353,7 @@
 				DB3F300E243B76E60021D09F /* ItemStruct.swift in Sources */,
 				DB5C9DFA242A6BDE00E2CA86 /* StatisticViewController.swift in Sources */,
 				DB599B9D24098D3B0065CA3D /* InternetShopKeeper.xcdatamodeld in Sources */,
+				DB2E3B2E2448CDE90043DD7C /* CRUDModelCategory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

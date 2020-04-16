@@ -15,6 +15,9 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
     @IBOutlet weak var addCategoryButtonOutlet: UIBarButtonItem!
     @IBOutlet weak var sortButtonOutlet: UIBarButtonItem!
     
+    //create instance of CRUDModelCategory
+    let crudModelCategory = CRUDModelCategory()
+    
     // create array with CategoryStruct for view in tableview
     var categoriesStruct = [CategoryStruct]()
     // cteate dropDown barButtonItem
@@ -40,7 +43,8 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
     override func viewDidLoad() {
         super.viewDidLoad()
         // load array from coreData and get to array table view
-        fetchCategory()
+        categories = crudModelCategory.fetchCategory(categories: categories)
+//        fetchCategory()
         getAllCategory()
         // configurate BarButtonItem DropDown
         sortButtonOutlet.title = "Сортувати".localized
@@ -65,17 +69,17 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
         tableView.tableFooterView = UIView()
     }
     
-    // fetch category from coreData
-    func fetchCategory(){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
-        do {
-            self.categories = try context.fetch(fetchRequest)
-        } catch let error {
-            print("Error: \(error).")
-        }
-    }
+//    // fetch category from coreData
+//    func fetchCategory(){
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let context = appDelegate.persistentContainer.viewContext
+//        let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
+//        do {
+//            self.categories = try context.fetch(fetchRequest)
+//        } catch let error {
+//            print("Error: \(error).")
+//        }
+//    }
     // add save category to coreData
     func saveCategory(category: CategoryStruct) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
