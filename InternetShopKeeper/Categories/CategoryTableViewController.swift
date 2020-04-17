@@ -80,21 +80,21 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
 //            print("Error: \(error).")
 //        }
 //    }
-    // add save category to coreData
-    func saveCategory(category: CategoryStruct) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let newCategory = Categories(context: context)
-        newCategory.name = category.name
-        newCategory.id = category.id
-            do {
-                try context.save()
-               } catch let error {
-                print("Error \(error).")
-            }
-        // add new element to corData array
-        categories.append(newCategory)
-    }
+//    // add save category to coreData
+//    func saveCategory(category: CategoryStruct) {
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let context = appDelegate.persistentContainer.viewContext
+//        let newCategory = Categories(context: context)
+//        newCategory.name = category.name
+//        newCategory.id = category.id
+//            do {
+//                try context.save()
+//               } catch let error {
+//                print("Error \(error).")
+//            }
+//        // add new element to corData array
+//        categories.append(newCategory)
+//    }
     // update category in coreDate
     func updateCategory(id: String, category: String) {
         for i in 0..<categories.count {
@@ -243,7 +243,7 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
         } else {
             // else save to coreData and and view in tableview
             categoriesStruct.append(category)
-            saveCategory(category: category)
+            categories.append(crudModelCategory.saveCategory(category: category))
             print("Save " + category.id)
         }
         tableView.reloadData()

@@ -25,4 +25,19 @@ class CRUDModelCategory {
         }
         return fetchCategories
     }
+    // add save category to coreData
+    func saveCategory(category: CategoryStruct) -> Categories {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let newCategory = Categories(context: context)
+        newCategory.name = category.name
+        newCategory.id = category.id
+            do {
+                try context.save()
+               } catch let error {
+                print("Error \(error).")
+            }
+        return newCategory
+    }
+    
 }
