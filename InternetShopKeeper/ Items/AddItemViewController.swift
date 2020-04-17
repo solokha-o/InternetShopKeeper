@@ -62,6 +62,8 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var saveButtonSaleViewOutlet: UIButton!
     // create delegate of AddCategoryViewController
     var delegate : AddItemViewControllerDelegate?
+    //create instance of CRUDModelCategory
+    let crudModelCategory = CRUDModelCategory()
     //create instance of CategoryStruct
     var item = ItemStruct(title: "", category: "", price: "", amount: "", details: "", image: UIImage(imageLiteralResourceName: "AddImage"), id: "", incomePrice: "")
     // Controller can additing and editing category item
@@ -119,15 +121,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // get category from coreData to piker
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
-        do {
-            categories = (try context.fetch(fetchRequest))
-
-        } catch let error {
-            print("Error \(error).")
-        }
+        categories = crudModelCategory.fetchCategory(categories: categories)
         saleButtonOutlet.isHidden = true
         // what state in what moment using
         if isInEdit {
@@ -223,9 +217,10 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     // configure clear button photo
     @IBAction func clearPhotoButtonAction(_ sender: UIButton) {
-        UIImageView.animate(withDuration: 0.5) {
+        UIImageView.animate(withDuration: 1.0) {
             self.addImage.image = self.addImage.highlightedImage
             }
+            tapGestureOutlet.isEnabled = true
     }
     // configure press button SAVE of saleView
        @IBAction func saveSaleViewButtonAction(_ sender: UIButton) {
@@ -299,6 +294,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         guard let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
         addImage.isHighlighted = false
         addImage.image = editedImage
+        tapGestureOutlet.isEnabled = false
         }
     // press button ADD
     @IBAction func addButtonAction(_ sender: UIButton) {
@@ -333,7 +329,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             priceItemTextField.isUserInteractionEnabled = true
             amountItemTextField.isUserInteractionEnabled = true
             detailsItemTextView.isUserInteractionEnabled = true
-            tapGestureOutlet.isEnabled = true
+            tapGestureOutlet.isEnabled = false
             saleButtonOutlet.isHidden = true
             newItemLabel.text = "Зміни деталі товару".localized
             enterImageItemLable.text = "Зміни фото твого товару".localized
