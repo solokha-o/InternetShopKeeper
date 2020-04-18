@@ -15,6 +15,8 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
    
     @IBOutlet weak var sortButtonOutlet: UIBarButtonItem!
     
+    //add instance of CRUDModelItem
+    let crudModelItem = CRUDModelItem()
     // create array with ItemStruct for view in tableview
     var itemsStruct = [ItemStruct]()
     // cteate dropDown barButtonItem
@@ -36,8 +38,8 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         // load array from coreData and get to array table view
-        fetchItem()
-        getAllItem()
+        items = crudModelItem.fetchItem(items: items)
+        itemsStruct = crudModelItem.getAllItem(items: items)
         // configurate BarButtonItem DropDown
         sortButtonOutlet.title = "Сортувати".localized
         leftBarDropDown.anchorView = sortButtonOutlet
@@ -75,97 +77,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
     
     override func viewWillAppear(_ animated: Bool) {
     }
-    
-    // fetch item from coreData
-    func fetchItem(){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let fetchRequest = Item.fetchRequest() as NSFetchRequest<Item>
-        do {
-            self.items = try context.fetch(fetchRequest)
-        } catch let error {
-            print("Error: \(error).")
-        }
-    }
-    // add save Item to coreData
-    func saveItem(item: ItemStruct) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let newItem = Item(context: context)
-        newItem.titleItem = item.title
-        newItem.categoryItem = item.category
-        newItem.priceItem = item.price
-        newItem.amountItem = item.amount
-        newItem.detailsItem = item.details
-        newItem.incomePriceItem = item.incomePrice
-        newItem.imageItem = item.image.pngData()
-        newItem.id = item.id
-            do {
-                try context.save()
-               } catch let error {
-                print("Error \(error).")
-            }
-        // add new element to corData array
-        items.append(newItem)
-    }
-    // update item in coreDate
-    func updateItem(id: String, item: ItemStruct) {
-        for i in 0..<items.count {
-            if items[i].id == id {
-                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                let context = appDelegate.persistentContainer.viewContext
-                let fetchRequest = Item.fetchRequest() as NSFetchRequest<Item>
-                do {
-                    let updateContext = try context.fetch(fetchRequest)
-                    if updateContext.count > 0 {
-                        let objUpdate =  updateContext[i] as NSManagedObject
-                        objUpdate.setValue(item.title, forKey: "titleItem")
-                        objUpdate.setValue(item.category, forKey: "categoryItem")
-                        objUpdate.setValue(item.price, forKey: "priceItem")
-                        objUpdate.setValue(item.amount, forKey: "amountItem")
-                        objUpdate.setValue(item.details, forKey: "detailsItem")
-                        objUpdate.setValue(item.incomePrice, forKey: "incomePriceItem")
-                        objUpdate.setValue(item.image.pngData(), forKey: "imageItem")
-                        do {
-                            try context.save()
-                        } catch let error {
-                            print("Error \(error).")
-                        }
-                    }
-                } catch let error {
-                        print("Error \(error).")
-                }
-            }
-        }
-    }
-    // remove item from coreDate
-    func removeItem(item: Item?) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        if let item = item {
-            context.delete(item)
-        }
-        do{
-            try context.save()
-        } catch let error {
-            print("Error \(error).")
-        }
-    }
-    // get item from core data to array what will view in tableview
-    func getAllItem() {
-        for item in items {
-            var newItemStruct = ItemStruct(title: "", category: "", price: "", amount: "", details: "", image: UIImage(imageLiteralResourceName: "AddImage"), id: "", incomePrice: "")
-            newItemStruct.title = item.titleItem ?? ""
-            newItemStruct.category = item.categoryItem ?? ""
-            newItemStruct.price = item.priceItem ?? ""
-            newItemStruct.amount = item.amountItem ?? ""
-            newItemStruct.details = item.detailsItem ?? ""
-            newItemStruct.incomePrice = item.incomePriceItem ?? ""
-            newItemStruct.id = item.id ?? ""
-            newItemStruct.image = UIImage(data: item.imageItem!)!
-            itemsStruct.append(newItemStruct)
-        }
-    }
+
     // func for filter Content For Search Text
     func filterContentForSearchText(_ searchText: String) {
       filteredItemsStruct = itemsStruct.filter { (item: ItemStruct) -> Bool in
@@ -173,6 +85,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
       }
       tableView.reloadData()
     }
+    // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -192,7 +105,6 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
         } else {
             item = itemsStruct[indexPath.row]
         }
-        
         cell.titleItemLable.text = item.title
         cell.categoryItemLable.text = item.category
         cell.priceItemLable.text = item.price
@@ -228,7 +140,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
             self?.itemsStruct.remove(at: indexPath.row)
             self?.tableView.deleteRows(at:[indexPath],with: .fade)
             self?.tableView.reloadSections([indexPath.section], with: .automatic)
-            self?.removeItem(item: self?.items[indexPath.row])
+            self?.crudModelItem.removeItem(item: self?.items[indexPath.row])
             print("DELETE HAPPENS")
         }
         let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
@@ -269,7 +181,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
                     itemsStruct[i].details = item.details
                     itemsStruct[i].incomePrice = item.incomePrice
                     itemsStruct[i].image = item.image
-                    updateItem(id: item.id, item: item)
+                    crudModelItem.updateItem(items: items, id: item.id, item: item)
                     itemsStruct[i] = item
                     print("update " + item.id)
                 }
@@ -278,7 +190,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
         } else {
             // else save to coreData and and view in tableview
             itemsStruct.append(item)
-            saveItem(item: item)
+            items.append(crudModelItem.saveItem(item: item))
             print("Save " + item.id)
         }
         tableView.reloadData()
