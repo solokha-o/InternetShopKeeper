@@ -126,7 +126,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DB2E3B272448C8570043DD7C /*  Items */ = {
+		DB2E3B272448C8570043DD7C /*  ItemsViewController */ = {
 			isa = PBXGroup;
 			children = (
 				DB599BA924099F230065CA3D /* AddItemViewController.swift */,
@@ -136,10 +136,10 @@
 				DB07E26D24100CE600A86645 /* ItemTableViewCell.xib */,
 				DB4A132F244B1E0800F7A266 /* CRUDModelItem.swift */,
 			);
-			path = " Items";
+			path = " ItemsViewController";
 			sourceTree = "<group>";
 		};
-		DB2E3B282448CCEE0043DD7C /* Categories */ = {
+		DB2E3B282448CCEE0043DD7C /* CategoriesViewController */ = {
 			isa = PBXGroup;
 			children = (
 				DB3B46EC2416B33800A79BB0 /* AddCategoryViewController.swift */,
@@ -147,26 +147,26 @@
 				DB3F3008243B759D0021D09F /* CategoryStruct.swift */,
 				DB2E3B2D2448CDE90043DD7C /* CRUDModelCategory.swift */,
 			);
-			path = Categories;
+			path = CategoriesViewController;
 			sourceTree = "<group>";
 		};
-		DB2E3B292448CD3E0043DD7C /* Statistic */ = {
+		DB2E3B292448CD3E0043DD7C /* StatisticViewController */ = {
 			isa = PBXGroup;
 			children = (
 				DB5C9DF9242A6BDE00E2CA86 /* StatisticViewController.swift */,
 			);
-			path = Statistic;
+			path = StatisticViewController;
 			sourceTree = "<group>";
 		};
-		DB2E3B2A2448CD550043DD7C /* Tools */ = {
+		DB2E3B2A2448CD550043DD7C /* ToolsViewController */ = {
 			isa = PBXGroup;
 			children = (
 				DB81E8432438CAEC0097E606 /* ToolsTableViewController.swift */,
 			);
-			path = Tools;
+			path = ToolsViewController;
 			sourceTree = "<group>";
 		};
-		DB2E3B2B2448CD6F0043DD7C /* Onboarding */ = {
+		DB2E3B2B2448CD6F0043DD7C /* OnboardingViewController */ = {
 			isa = PBXGroup;
 			children = (
 				DB7098A9243E316B00AA4159 /* OnboardingViewController.swift */,
@@ -174,7 +174,7 @@
 				DB7098A5243E2F5300AA4159 /* FirstLaunchViewController.swift */,
 				DB7098A3243E2E5D00AA4159 /* ModelFirstLaunch.swift */,
 			);
-			path = Onboarding;
+			path = OnboardingViewController;
 			sourceTree = "<group>";
 		};
 		DB2E3B2C2448CD9A0043DD7C /* Localase */ = {
@@ -208,11 +208,11 @@
 			children = (
 				DB599B9424098D3B0065CA3D /* AppDelegate.swift */,
 				DBF45FF52444B0520045349E /* TabBarController.swift */,
-				DB2E3B272448C8570043DD7C /*  Items */,
-				DB2E3B282448CCEE0043DD7C /* Categories */,
-				DB2E3B292448CD3E0043DD7C /* Statistic */,
-				DB2E3B2A2448CD550043DD7C /* Tools */,
-				DB2E3B2B2448CD6F0043DD7C /* Onboarding */,
+				DB2E3B272448C8570043DD7C /*  ItemsViewController */,
+				DB2E3B282448CCEE0043DD7C /* CategoriesViewController */,
+				DB2E3B292448CD3E0043DD7C /* StatisticViewController */,
+				DB2E3B2A2448CD550043DD7C /* ToolsViewController */,
+				DB2E3B2B2448CD6F0043DD7C /* OnboardingViewController */,
 				DB2E3B2C2448CD9A0043DD7C /* Localase */,
 				DB599B9824098D3B0065CA3D /* Main.storyboard */,
 				DB599B9E24098D3B0065CA3D /* Assets.xcassets */,
