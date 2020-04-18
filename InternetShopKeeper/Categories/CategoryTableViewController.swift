@@ -44,8 +44,7 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
         super.viewDidLoad()
         // load array from coreData and get to array table view
         categories = crudModelCategory.fetchCategory(categories: categories)
-//        fetchCategory()
-        getAllCategory()
+        categoriesStruct = crudModelCategory.getAllCategory(categories: categories)
         // configurate BarButtonItem DropDown
         sortButtonOutlet.title = "Сортувати".localized
         leftBarDropDown.anchorView = sortButtonOutlet
@@ -119,32 +118,29 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
 //            }
 //        }
 //    }
-    // remove category from coreDate
-    func removeCategory(category: Categories?) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        if let category = category {
-            context.delete(category)
-        }
-        do{
-            try context.save()
-        } catch let error {
-            print("Error \(error).")
-        }
-    }
-    // get category from core data to array what will view in tableview
-    func getAllCategory() {
-        for category in categories {
-            var newCategoryStruct = CategoryStruct(name: "", id: "")
-            newCategoryStruct.name = category.name ?? ""
-            newCategoryStruct.id = category.id ?? ""
-            categoriesStruct.append(newCategoryStruct)
-        }
-    }
-    // get category for id from coreData
-    func getIdCategory() {
-        //TODO: do this
-    }
+//    // remove category from coreDate
+//    func removeCategory(category: Categories?) {
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let context = appDelegate.persistentContainer.viewContext
+//        if let category = category {
+//            context.delete(category)
+//        }
+//        do{
+//            try context.save()
+//        } catch let error {
+//            print("Error \(error).")
+//        }
+//    }
+//    // get category from core data to array what will view in tableview
+//    func getAllCategory() {
+//        for category in categories {
+//            var newCategoryStruct = CategoryStruct(name: "", id: "")
+//            newCategoryStruct.name = category.name ?? ""
+//            newCategoryStruct.id = category.id ?? ""
+//            categoriesStruct.append(newCategoryStruct)
+//        }
+//    }
+//    
     // func for filter Content For Search Text
     func filterContentForSearchText(_ searchText: String) {
       filteredCategories = categoriesStruct.filter { (category: CategoryStruct) -> Bool in
@@ -200,7 +196,7 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
             self?.categoriesStruct.remove(at: indexPath.row)
             self?.tableView.deleteRows(at:[indexPath],with: .fade)
             self?.tableView.reloadSections([indexPath.section], with: .automatic)
-            self?.removeCategory(category: self?.categories[indexPath.row])
+            self?.crudModelCategory.removeCategory(category: self?.categories[indexPath.row])
             print("DELETE HAPPENS")
         }
         let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])

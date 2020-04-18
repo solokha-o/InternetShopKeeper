@@ -64,5 +64,32 @@ class CRUDModelCategory {
             }
         }
     }
-    
+    // remove category from coreDate
+    func removeCategory(category: Categories?) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        if let category = category {
+            context.delete(category)
+        }
+        do{
+            try context.save()
+        } catch let error {
+            print("Error \(error).")
+        }
+    }
+    // get category from core data to array what will view in tableview
+    func getAllCategory(categories: [Categories]) -> [CategoryStruct] {
+        var categoriesStruct = [CategoryStruct]()
+        for category in categories {
+            var newCategoryStruct = CategoryStruct(name: "", id: "")
+            newCategoryStruct.name = category.name ?? ""
+            newCategoryStruct.id = category.id ?? ""
+            categoriesStruct.append(newCategoryStruct)
+        }
+        return categoriesStruct
+    }
+    // get category for id from coreData
+    func getIdCategory() {
+        //TODO: this function is not using now
+    }
 }
