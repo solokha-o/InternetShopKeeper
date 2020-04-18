@@ -11,13 +11,11 @@ import DropDown
 
 class CategoryTableViewController: UITableViewController, AddCategoryViewControllerDelegate {
     
-    
     @IBOutlet weak var addCategoryButtonOutlet: UIBarButtonItem!
     @IBOutlet weak var sortButtonOutlet: UIBarButtonItem!
     
     //create instance of CRUDModelCategory
     let crudModelCategory = CRUDModelCategory()
-    
     // create array with CategoryStruct for view in tableview
     var categoriesStruct = [CategoryStruct]()
     // cteate dropDown barButtonItem
@@ -67,80 +65,6 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
     }
-    
-//    // fetch category from coreData
-//    func fetchCategory(){
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let context = appDelegate.persistentContainer.viewContext
-//        let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
-//        do {
-//            self.categories = try context.fetch(fetchRequest)
-//        } catch let error {
-//            print("Error: \(error).")
-//        }
-//    }
-//    // add save category to coreData
-//    func saveCategory(category: CategoryStruct) {
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let context = appDelegate.persistentContainer.viewContext
-//        let newCategory = Categories(context: context)
-//        newCategory.name = category.name
-//        newCategory.id = category.id
-//            do {
-//                try context.save()
-//               } catch let error {
-//                print("Error \(error).")
-//            }
-//        // add new element to corData array
-//        categories.append(newCategory)
-//    }
-//    // update category in coreDate
-//    func updateCategory(id: String, category: String) {
-//        for i in 0..<categories.count {
-//            if categories[i].id == id {
-//                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//                let context = appDelegate.persistentContainer.viewContext
-//                let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
-//                do {
-//                    let updateContext = try context.fetch(fetchRequest)
-//                    if updateContext.count > 0 {
-//                        let objUpdate =  updateContext[i] as NSManagedObject
-//                        objUpdate.setValue(category, forKey: "name")
-//                        do {
-//                            try context.save()
-//                        } catch let error {
-//                            print("Error \(error).")
-//                        }
-//                    }
-//                } catch let error {
-//                        print("Error \(error).")
-//                }
-//            }
-//        }
-//    }
-//    // remove category from coreDate
-//    func removeCategory(category: Categories?) {
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let context = appDelegate.persistentContainer.viewContext
-//        if let category = category {
-//            context.delete(category)
-//        }
-//        do{
-//            try context.save()
-//        } catch let error {
-//            print("Error \(error).")
-//        }
-//    }
-//    // get category from core data to array what will view in tableview
-//    func getAllCategory() {
-//        for category in categories {
-//            var newCategoryStruct = CategoryStruct(name: "", id: "")
-//            newCategoryStruct.name = category.name ?? ""
-//            newCategoryStruct.id = category.id ?? ""
-//            categoriesStruct.append(newCategoryStruct)
-//        }
-//    }
-//    
     // func for filter Content For Search Text
     func filterContentForSearchText(_ searchText: String) {
       filteredCategories = categoriesStruct.filter { (category: CategoryStruct) -> Bool in
