@@ -95,30 +95,30 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
 //        // add new element to corData array
 //        categories.append(newCategory)
 //    }
-    // update category in coreDate
-    func updateCategory(id: String, category: String) {
-        for i in 0..<categories.count {
-            if categories[i].id == id {
-                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                let context = appDelegate.persistentContainer.viewContext
-                let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
-                do {
-                    let updateContext = try context.fetch(fetchRequest)
-                    if updateContext.count > 0 {
-                        let objUpdate =  updateContext[i] as NSManagedObject
-                        objUpdate.setValue(category, forKey: "name")
-                        do {
-                            try context.save()
-                        } catch let error {
-                            print("Error \(error).")
-                        }
-                    }
-                } catch let error {
-                        print("Error \(error).")
-                }
-            }
-        }
-    }
+//    // update category in coreDate
+//    func updateCategory(id: String, category: String) {
+//        for i in 0..<categories.count {
+//            if categories[i].id == id {
+//                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//                let context = appDelegate.persistentContainer.viewContext
+//                let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
+//                do {
+//                    let updateContext = try context.fetch(fetchRequest)
+//                    if updateContext.count > 0 {
+//                        let objUpdate =  updateContext[i] as NSManagedObject
+//                        objUpdate.setValue(category, forKey: "name")
+//                        do {
+//                            try context.save()
+//                        } catch let error {
+//                            print("Error \(error).")
+//                        }
+//                    }
+//                } catch let error {
+//                        print("Error \(error).")
+//                }
+//            }
+//        }
+//    }
     // remove category from coreDate
     func removeCategory(category: Categories?) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -235,7 +235,7 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
             for i in 0..<categoriesStruct.count {
                 if categoriesStruct[i].id == category.id {
                     categoriesStruct[i].name = category.name
-                    updateCategory(id: category.id, category: category.name)
+                    crudModelCategory.updateCategory(categories: categories, id: category.id, category: category)
                     print("update " + category.id)
                 }
             }

@@ -40,4 +40,29 @@ class CRUDModelCategory {
         return newCategory
     }
     
+    // update category in coreDate
+    func updateCategory(categories: [Categories], id: String, category: CategoryStruct) {
+        for i in 0..<categories.count {
+            if categories[i].id == id {
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                let context = appDelegate.persistentContainer.viewContext
+                let fetchRequest = Categories.fetchRequest() as NSFetchRequest<Categories>
+                do {
+                    let updateContext = try context.fetch(fetchRequest)
+                    if updateContext.count > 0 {
+                        let objUpdate =  updateContext[i] as NSManagedObject
+                        objUpdate.setValue(category.name, forKey: "name")
+                        do {
+                            try context.save()
+                        } catch let error {
+                            print("Error \(error).")
+                        }
+                    }
+                } catch let error {
+                        print("Error \(error).")
+                }
+            }
+        }
+    }
+    
 }
