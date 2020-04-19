@@ -37,6 +37,7 @@ class CRUDModelItem {
         newItem.incomePriceItem = item.incomePrice
         newItem.imageItem = item.image.pngData()
         newItem.id = item.id
+        newItem.dateItem = item.date
             do {
                 try context.save()
                } catch let error {
@@ -91,7 +92,7 @@ class CRUDModelItem {
     func getAllItem(items: [Item]) -> [ItemStruct] {
         var itemsStruct = [ItemStruct]()
         for item in items {
-            var newItemStruct = ItemStruct(title: "", category: "", price: "", amount: "", details: "", image: UIImage(imageLiteralResourceName: "AddImage"), id: "", incomePrice: "")
+            var newItemStruct = ItemStruct(title: "", category: "", price: "", amount: "", details: "", image: UIImage(imageLiteralResourceName: "AddImage"), id: "", incomePrice: "", date: "")
             newItemStruct.title = item.titleItem ?? ""
             newItemStruct.category = item.categoryItem ?? ""
             newItemStruct.price = item.priceItem ?? ""
@@ -100,6 +101,7 @@ class CRUDModelItem {
             newItemStruct.incomePrice = item.incomePriceItem ?? ""
             newItemStruct.id = item.id ?? ""
             newItemStruct.image = UIImage(data: item.imageItem!)!
+            newItemStruct.date = item.dateItem ?? ""
             itemsStruct.append(newItemStruct)
         }
         return itemsStruct

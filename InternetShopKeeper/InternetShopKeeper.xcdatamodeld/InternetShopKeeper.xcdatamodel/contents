@@ -7,6 +7,7 @@
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="amountItem" optional="YES" attributeType="String"/>
         <attribute name="categoryItem" optional="YES" attributeType="String"/>
+        <attribute name="dateItem" optional="YES" attributeType="String"/>
         <attribute name="detailsItem" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="imageItem" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
@@ -16,6 +17,6 @@
     </entity>
     <elements>
         <element name="Categories" positionX="105.5" positionY="-15.97265625" width="128" height="73"/>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="163"/>
+        <element name="Item" positionX="-63" positionY="-18" width="128" height="178"/>
     </elements>
 </model>

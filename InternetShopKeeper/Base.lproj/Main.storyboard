@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Dy-Lh-Nzg">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -65,7 +65,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bGY-0Y-EzC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Bg7-QQ-nfK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-4824" y="1064"/>
+            <point key="canvasLocation" x="-6334" y="1064"/>
         </scene>
         <!--First Launch Page View Controller-->
         <scene sceneID="2yY-Ek-gei">
@@ -73,7 +73,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="wNJ-2j-rll" customClass="FirstLaunchPageViewController" customModule="InternetShopKeeper" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fCi-6I-Hsa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5908" y="168"/>
+            <point key="canvasLocation" x="-5531" y="1064"/>
         </scene>
         <!--First Launch View Controller-->
         <scene sceneID="eFb-2c-lfH">
@@ -132,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eVL-j3-9to" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4639" y="213"/>
+            <point key="canvasLocation" x="-4714" y="1064"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="sY9-n7-0Md">
@@ -149,6 +149,7 @@
                     <connections>
                         <segue destination="JbH-dO-UNM" kind="relationship" relationship="viewControllers" id="pd3-v4-Be0"/>
                         <segue destination="OC7-QR-l1V" kind="relationship" relationship="viewControllers" id="suI-W2-fLM"/>
+                        <segue destination="aFf-fo-bHI" kind="relationship" relationship="viewControllers" id="Wqy-Jg-SPu"/>
                         <segue destination="nYd-0i-Pbp" kind="relationship" relationship="viewControllers" id="pFu-Qx-QIq"/>
                         <segue destination="J6I-Th-CyL" kind="relationship" relationship="viewControllers" id="w2Z-yf-TCm"/>
                     </connections>
@@ -222,6 +223,53 @@
             </objects>
             <point key="canvasLocation" x="-1658" y="15"/>
         </scene>
+        <!--Мої продажі-->
+        <scene sceneID="5ou-QG-uxe">
+            <objects>
+                <tableViewController storyboardIdentifier="SalesTableViewController" id="FHW-Sc-tIM" customClass="SalesTableViewController" customModule="InternetShopKeeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kZb-bW-tVi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kad-sW-2bh">
+                                <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kad-sW-2bh" id="Ptg-GW-I7K">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="FHW-Sc-tIM" id="cvp-rM-VVH"/>
+                            <outlet property="delegate" destination="FHW-Sc-tIM" id="zk7-39-m9q"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Мої продажі" id="dum-Jc-4yZ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eay-z6-5RK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1658" y="724"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="B3x-DE-IPO">
+            <objects>
+                <navigationController id="aFf-fo-bHI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="N3n-eL-VhJ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6Pd-LI-iJ6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="FHW-Sc-tIM" kind="relationship" relationship="rootViewController" id="txe-nB-QpM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KXD-eZ-iV4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2496" y="724"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="qO7-Nv-d0a">
             <objects>
@@ -241,7 +289,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hU-6Z-PXa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2496" y="697"/>
+            <point key="canvasLocation" x="-2498" y="1437"/>
         </scene>
         <!--Статистика-->
         <scene sceneID="ZgQ-bR-9PH">
@@ -360,7 +408,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iZo-Md-7jw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1659.375" y="695.07042253521126"/>
+            <point key="canvasLocation" x="-1659" y="1437"/>
         </scene>
         <!--Параметри-->
         <scene sceneID="2RN-am-ckZ">
@@ -406,7 +454,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f4G-03-Jxo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1659" y="1412"/>
+            <point key="canvasLocation" x="-1659" y="2280"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cgh-is-0Xg">
@@ -424,7 +472,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z0L-mL-RuD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2498" y="1411"/>
+            <point key="canvasLocation" x="-2498" y="2280"/>
         </scene>
         <!--Add Category View Controller-->
         <scene sceneID="hrK-7l-da8">

@@ -19,4 +19,5 @@ struct ItemStruct {
     var image : UIImage
     var id: String
     var incomePrice : String
+    var date : String
 }

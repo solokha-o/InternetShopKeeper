@@ -65,7 +65,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     //create instance of CRUDModelCategory
     let crudModelCategory = CRUDModelCategory()
     //create instance of CategoryStruct
-    var item = ItemStruct(title: "", category: "", price: "", amount: "", details: "", image: UIImage(imageLiteralResourceName: "AddImage"), id: "", incomePrice: "")
+    var item = ItemStruct(title: "", category: "", price: "", amount: "", details: "", image: UIImage(imageLiteralResourceName: "AddImage"), id: "", incomePrice: "", date: "")
     // Controller can additing and editing category item
     var currentState = State.addItem
     var isInEdit = false
@@ -73,6 +73,9 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     var imagePicker = UIImagePickerController()
     var picker = UIPickerView()
     var categories = [Categories]()
+    // add date property
+    let currentDate = Date()
+    let dateFormatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,6 +120,10 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         // create NotificationCenter for keyboardWillShowNotification and keyboardWillHideNotification
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        // formate of date
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -309,6 +316,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             item.details = detailsItemTextView.text ?? ""
             item.id = UUID() .uuidString
             item.image = addImage.image ?? addImage.highlightedImage!
+            item.date = dateFormatter.string(from: currentDate)
             if item.title == "" || item.category == "" || item.price == "" || item.amount == "" || item.details == "" {
                 let alert = UIAlertController(title: "Ви забули!".localized, message: "Всі поля мають бути заповненими!".localized, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))

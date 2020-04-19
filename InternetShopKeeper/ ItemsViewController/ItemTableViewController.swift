@@ -64,7 +64,6 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         self.tableView.rowHeight = 130.0
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -181,6 +180,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
                     itemsStruct[i].details = item.details
                     itemsStruct[i].incomePrice = item.incomePrice
                     itemsStruct[i].image = item.image
+                    itemsStruct[i].date = item.date
                     crudModelItem.updateItem(items: items, id: item.id, item: item)
                     itemsStruct[i] = item
                     print("update " + item.id)
