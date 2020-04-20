@@ -15,8 +15,18 @@
         <attribute name="priceItem" optional="YES" attributeType="String"/>
         <attribute name="titleItem" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="Sales" representedClassName="Sales" syncable="YES" codeGenerationType="class">
+        <attribute name="amountSaleItem" optional="YES" attributeType="String"/>
+        <attribute name="categorySaleItem" optional="YES" attributeType="String"/>
+        <attribute name="dateSaleItem" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="imageSaleItem" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="priseSaleItem" optional="YES" attributeType="String"/>
+        <attribute name="titleSaleItem" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="Categories" positionX="105.5" positionY="-15.97265625" width="128" height="73"/>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="178"/>
+        <element name="Sales" positionX="18" positionY="54" width="128" height="148"/>
     </elements>
 </model>

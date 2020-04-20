@@ -15,14 +15,14 @@ class CRUDModelItem {
     func fetchItem(items: [Item]) -> [Item]{
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        var fetchtems = items
+        var fetchItems = items
         let fetchRequest = Item.fetchRequest() as NSFetchRequest<Item>
         do {
-            fetchtems = try context.fetch(fetchRequest)
+            fetchItems = try context.fetch(fetchRequest)
         } catch let error {
             print("Error: \(error).")
         }
-        return fetchtems
+        return fetchItems
     }
     // add save Item to coreData
     func saveItem(item: ItemStruct) -> Item  {
@@ -38,11 +38,11 @@ class CRUDModelItem {
         newItem.imageItem = item.image.pngData()
         newItem.id = item.id
         newItem.dateItem = item.date
-            do {
-                try context.save()
-               } catch let error {
-                print("Error \(error).")
-            }
+        do {
+            try context.save()
+        } catch let error {
+            print("Error \(error).")
+        }
         return newItem
     }
     // update item in coreDate
@@ -70,7 +70,7 @@ class CRUDModelItem {
                         }
                     }
                 } catch let error {
-                        print("Error \(error).")
+                    print("Error \(error).")
                 }
             }
         }

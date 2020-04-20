@@ -29,7 +29,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate{
         let navVC0 = self.viewControllers?[0] as! UINavigationController
         let ITVC = navVC0.topViewController as! ItemTableViewController
         
-        let navVC2 = self.viewControllers?[2] as! UINavigationController
+        let navVC2 = self.viewControllers?[3] as! UINavigationController
         let SVC = navVC2.topViewController as! StatisticViewController
         
         SVC.itemsStract = ITVC.itemsStruct

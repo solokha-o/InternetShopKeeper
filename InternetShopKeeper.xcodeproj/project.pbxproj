@@ -29,6 +29,11 @@
 		DB7098A8243E2FA000AA4159 /* FirstLaunchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7098A7243E2FA000AA4159 /* FirstLaunchPageViewController.swift */; };
 		DB7098AA243E316B00AA4159 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7098A9243E316B00AA4159 /* OnboardingViewController.swift */; };
 		DB81E8442438CAEC0097E606 /* ToolsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81E8432438CAEC0097E606 /* ToolsTableViewController.swift */; };
+		DB8AB462244C564100D5D9E9 /* SalesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8AB461244C564100D5D9E9 /* SalesTableViewController.swift */; };
+		DBB58BDC244DE0D700662826 /* SalesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB58BDA244DE0D700662826 /* SalesTableViewCell.swift */; };
+		DBB58BDD244DE0D800662826 /* SalesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBB58BDB244DE0D700662826 /* SalesTableViewCell.xib */; };
+		DBB58BE2244DEC8D00662826 /* SalesStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB58BE1244DEC8D00662826 /* SalesStruct.swift */; };
+		DBB58BE4244DECA700662826 /* CRUDModelSales.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB58BE3244DECA700662826 /* CRUDModelSales.swift */; };
 		DBDC7E992409B345005E35CA /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC7E982409B345005E35CA /* ItemTableViewController.swift */; };
 		DBF45FF62444B0520045349E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF45FF52444B0520045349E /* TabBarController.swift */; };
 		DBF45FFE2444B7870045349E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DBF460002444B7870045349E /* Localizable.strings */; };
@@ -97,6 +102,11 @@
 		DB7098A7243E2FA000AA4159 /* FirstLaunchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchPageViewController.swift; sourceTree = "<group>"; };
 		DB7098A9243E316B00AA4159 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		DB81E8432438CAEC0097E606 /* ToolsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsTableViewController.swift; sourceTree = "<group>"; };
+		DB8AB461244C564100D5D9E9 /* SalesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesTableViewController.swift; sourceTree = "<group>"; };
+		DBB58BDA244DE0D700662826 /* SalesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesTableViewCell.swift; sourceTree = "<group>"; };
+		DBB58BDB244DE0D700662826 /* SalesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SalesTableViewCell.xib; sourceTree = "<group>"; };
+		DBB58BE1244DEC8D00662826 /* SalesStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesStruct.swift; sourceTree = "<group>"; };
+		DBB58BE3244DECA700662826 /* CRUDModelSales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDModelSales.swift; sourceTree = "<group>"; };
 		DBDC7E982409B345005E35CA /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		DBF45FF52444B0520045349E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DBF45FFF2444B7870045349E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -131,9 +141,9 @@
 			children = (
 				DB599BA924099F230065CA3D /* AddItemViewController.swift */,
 				DBDC7E982409B345005E35CA /* ItemTableViewController.swift */,
-				DB3F300D243B76E60021D09F /* ItemStruct.swift */,
 				DB07E26C24100CE600A86645 /* ItemTableViewCell.swift */,
 				DB07E26D24100CE600A86645 /* ItemTableViewCell.xib */,
+				DB3F300D243B76E60021D09F /* ItemStruct.swift */,
 				DB4A132F244B1E0800F7A266 /* CRUDModelItem.swift */,
 			);
 			path = " ItemsViewController";
@@ -210,6 +220,7 @@
 				DBF45FF52444B0520045349E /* TabBarController.swift */,
 				DB2E3B272448C8570043DD7C /*  ItemsViewController */,
 				DB2E3B282448CCEE0043DD7C /* CategoriesViewController */,
+				DB8AB45D244C560600D5D9E9 /* SalasViewController */,
 				DB2E3B292448CD3E0043DD7C /* StatisticViewController */,
 				DB2E3B2A2448CD550043DD7C /* ToolsViewController */,
 				DB2E3B2B2448CD6F0043DD7C /* OnboardingViewController */,
@@ -221,6 +232,18 @@
 				DB599B9B24098D3B0065CA3D /* InternetShopKeeper.xcdatamodeld */,
 			);
 			path = InternetShopKeeper;
+			sourceTree = "<group>";
+		};
+		DB8AB45D244C560600D5D9E9 /* SalasViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DB8AB461244C564100D5D9E9 /* SalesTableViewController.swift */,
+				DBB58BDA244DE0D700662826 /* SalesTableViewCell.swift */,
+				DBB58BDB244DE0D700662826 /* SalesTableViewCell.xib */,
+				DBB58BE1244DEC8D00662826 /* SalesStruct.swift */,
+				DBB58BE3244DECA700662826 /* CRUDModelSales.swift */,
+			);
+			path = SalasViewController;
 			sourceTree = "<group>";
 		};
 		DBFAB63824339C2C00108421 /* Products */ = {
@@ -326,6 +349,7 @@
 			files = (
 				DBF45FFE2444B7870045349E /* Localizable.strings in Resources */,
 				DB07E26F24100CE600A86645 /* ItemTableViewCell.xib in Resources */,
+				DBB58BDD244DE0D800662826 /* SalesTableViewCell.xib in Resources */,
 				DB599BA224098D3B0065CA3D /* LaunchScreen.storyboard in Resources */,
 				DB599B9F24098D3B0065CA3D /* Assets.xcassets in Resources */,
 				DB599B9A24098D3B0065CA3D /* Main.storyboard in Resources */,
@@ -344,17 +368,21 @@
 				DB7098A6243E2F5300AA4159 /* FirstLaunchViewController.swift in Sources */,
 				DB81E8442438CAEC0097E606 /* ToolsTableViewController.swift in Sources */,
 				DB07E26E24100CE600A86645 /* ItemTableViewCell.swift in Sources */,
+				DBB58BE2244DEC8D00662826 /* SalesStruct.swift in Sources */,
 				DB3F3009243B759D0021D09F /* CategoryStruct.swift in Sources */,
 				DBDC7E992409B345005E35CA /* ItemTableViewController.swift in Sources */,
 				DB1BFD5C2416BA3E00197229 /* CategoryTableViewController.swift in Sources */,
 				DB599BAA24099F230065CA3D /* AddItemViewController.swift in Sources */,
 				DB599B9524098D3B0065CA3D /* AppDelegate.swift in Sources */,
+				DBB58BDC244DE0D700662826 /* SalesTableViewCell.swift in Sources */,
+				DBB58BE4244DECA700662826 /* CRUDModelSales.swift in Sources */,
 				DB4A1330244B1E0800F7A266 /* CRUDModelItem.swift in Sources */,
 				DB3B46ED2416B33800A79BB0 /* AddCategoryViewController.swift in Sources */,
 				DBF460032444B8020045349E /* String+Localized.swift in Sources */,
 				DB7098A4243E2E5D00AA4159 /* ModelFirstLaunch.swift in Sources */,
 				DB7098AA243E316B00AA4159 /* OnboardingViewController.swift in Sources */,
 				DB3F300E243B76E60021D09F /* ItemStruct.swift in Sources */,
+				DB8AB462244C564100D5D9E9 /* SalesTableViewController.swift in Sources */,
 				DB5C9DFA242A6BDE00E2CA86 /* StatisticViewController.swift in Sources */,
 				DB599B9D24098D3B0065CA3D /* InternetShopKeeper.xcdatamodeld in Sources */,
 				DB2E3B2E2448CDE90043DD7C /* CRUDModelCategory.swift in Sources */,

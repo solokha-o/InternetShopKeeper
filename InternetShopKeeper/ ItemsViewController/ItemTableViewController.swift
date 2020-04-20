@@ -12,7 +12,7 @@ import DropDown
 
 
 class ItemTableViewController: UITableViewController, AddItemViewControllerDelegate {
-   
+    
     @IBOutlet weak var sortButtonOutlet: UIBarButtonItem!
     
     //add instance of CRUDModelItem
@@ -76,25 +76,26 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
     
     override func viewWillAppear(_ animated: Bool) {
     }
-
+    
     // func for filter Content For Search Text
     func filterContentForSearchText(_ searchText: String) {
-      filteredItemsStruct = itemsStruct.filter { (item: ItemStruct) -> Bool in
-        return (item.title.lowercased().contains(searchText.lowercased()) || item.category.lowercased().contains(searchText.lowercased()))
-      }
-      tableView.reloadData()
+        filteredItemsStruct = itemsStruct.filter { (item: ItemStruct) -> Bool in
+            return (item.title.lowercased().contains(searchText.lowercased()) || item.category.lowercased().contains(searchText.lowercased()))
+        }
+        tableView.reloadData()
     }
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // number of row return from array items or filtering results
         if isFiltering {
             return filteredItemsStruct.count
         }
-        return itemsStruct.count    }
+        return itemsStruct.count
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemTableViewCell", for: indexPath) as? ItemTableViewCell else { return UITableViewCell() }
@@ -129,9 +130,9 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
         vc.addImage.isHighlighted = false
         vc.newItemLabel.text = "Твій товар".localized
         vc.enterImageItemLable.text = "Фото товару".localized
-        vc.delegate = self
+        vc.delegateItem = self
         present(vc, animated: true, completion: nil)
-        }
+    }
     // Trailing swipe configutate delete  item
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let contextItem = UIContextualAction(style: .destructive, title: "Видалити".localized) {  [weak self] (_, _, _) in
@@ -160,7 +161,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
                 print(self.itemsStruct)
             default: break
             }
-          print("Selected item: \(item) at index: \(index)") }
+            print("Selected item: \(item) at index: \(index)") }
         leftBarDropDown.width = 250
         leftBarDropDown.bottomOffset = CGPoint(x: 0, y:(leftBarDropDown.anchorView?.plainView.bounds.height)!)
         leftBarDropDown.show()
@@ -183,7 +184,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
                     itemsStruct[i].date = item.date
                     crudModelItem.updateItem(items: items, id: item.id, item: item)
                     itemsStruct[i] = item
-                    print("update " + item.id)
+                    print("update item" + item.id)
                 }
             }
             isUpdateCoreData = false
@@ -191,7 +192,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
             // else save to coreData and and view in tableview
             itemsStruct.append(item)
             items.append(crudModelItem.saveItem(item: item))
-            print("Save " + item.id)
+            print("Save item" + item.id)
         }
         tableView.reloadData()
     }
@@ -199,10 +200,9 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         guard let desctinationVC = segue.destination as? AddItemViewController else { return }
-        desctinationVC.delegate = self
+        desctinationVC.delegateItem = self
         isUpdateCoreData = false
     }
-    
 }
 
 // add extension UISearchResultsUpdating to CategoryTableViewController

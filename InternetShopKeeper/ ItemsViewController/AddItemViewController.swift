@@ -13,6 +13,10 @@ import CoreData
 protocol AddItemViewControllerDelegate {
     func addItemViewController (_ addItemViewController: AddItemViewController, didAddItem item: ItemStruct)
 }
+// protocol for create instance of SalesStruct
+protocol AddItemSaleViewControllerDelegate {
+    func addItemSaleViewController (_ addItemSaleViewController: AddItemViewController, didAddItemSale sale: SalesStruct)
+}
 
 class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     // State for Bar button
@@ -61,11 +65,14 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var cancelButtonSaleViewOutlet: UIButton!
     @IBOutlet weak var saveButtonSaleViewOutlet: UIButton!
     // create delegate of AddCategoryViewController
-    var delegate : AddItemViewControllerDelegate?
+    var delegateItem : AddItemViewControllerDelegate?
+    var delegateSale : AddItemSaleViewControllerDelegate?
     //create instance of CRUDModelCategory
     let crudModelCategory = CRUDModelCategory()
-    //create instance of CategoryStruct
+    //create instance of ItemStruct
     var item = ItemStruct(title: "", category: "", price: "", amount: "", details: "", image: UIImage(imageLiteralResourceName: "AddImage"), id: "", incomePrice: "", date: "")
+    //create instance of SalesStruct
+    var sale = SalesStruct(title: "", category: "", price: "", amount: "", image: UIImage(imageLiteralResourceName: "AddImage"), id: "", date: "")
     // Controller can additing and editing category item
     var currentState = State.addItem
     var isInEdit = false
@@ -217,6 +224,8 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     // configure sale Button
     @IBAction func saleButtonAction(_ sender: UIButton) {
         print("Press Sale BUTTON")
+        incomePriceSaleViewTextFieldOutlet.text = ""
+        amountSaleViewTextFieldOutlet.text = ""
         UIView.animate(withDuration: 0.5) {
             self.saleView.alpha = 1
             self.saleView.isHidden = false
@@ -248,13 +257,23 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                 alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             } else {
+                // delegate to ItemTableViewController
                 item.title = titleItemTextField.text ?? ""
                 item.category = categoryItemTextField.text ?? ""
                 item.price = priceItemTextField.text ?? ""
                 item.amount = amountItemTextField.text ?? ""
                 item.details = detailsItemTextView.text
                 item.image = addImage.image ?? addImage.highlightedImage!
-                delegate?.addItemViewController(self, didAddItem: item)
+                delegateItem?.addItemViewController(self, didAddItem: item)
+                // delegate to SalesTableViewController
+                sale.title = titleItemTextField.text ?? ""
+                sale.category = categoryItemTextField.text ?? ""
+                sale.price = priceItemTextField.text ?? ""
+                sale.amount = amountItemTextField.text ?? ""
+                sale.image = addImage.image ?? addImage.highlightedImage!
+                sale.id = UUID() .uuidString
+                sale.date = dateFormatter.string(from: currentDate)
+                delegateSale?.addItemSaleViewController(self, didAddItemSale: sale)
                 // cohfiguge hide saveView
                 UIView.animate(withDuration: 0.5, animations: {
                     self.saleView.alpha = 0
@@ -322,7 +341,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                 alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             } else {
-                delegate?.addItemViewController(self, didAddItem: item)
+                delegateItem?.addItemViewController(self, didAddItem: item)
                 dismiss(animated: true, completion: nil)
             }
         case true:
@@ -353,7 +372,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                     alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 } else {
-                    delegate?.addItemViewController(self, didAddItem: item)
+                    delegateItem?.addItemViewController(self, didAddItem: item)
                     dismiss(animated: true, completion: nil)
                     print("Delegate " + item.id)
                 }
