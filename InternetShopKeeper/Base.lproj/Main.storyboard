@@ -201,7 +201,7 @@
                             <outlet property="delegate" destination="GmD-03-zXi" id="CDY-VF-Kh3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Категорії товару" id="Jcw-v5-0Yh">
+                    <navigationItem key="navigationItem" title="Категорії товару" largeTitleDisplayMode="always" id="Jcw-v5-0Yh">
                         <barButtonItem key="leftBarButtonItem" title="Сортувати" id="cdP-5H-TyY">
                             <connections>
                                 <action selector="sortButtonAction:" destination="GmD-03-zXi" id="UIa-3I-y32"/>
@@ -232,11 +232,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kad-sW-2bh">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="kad-sW-2bh">
                                 <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kad-sW-2bh" id="Ptg-GW-I7K">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="293" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -246,17 +246,17 @@
                             <outlet property="delegate" destination="FHW-Sc-tIM" id="zk7-39-m9q"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Мої продажі" id="dum-Jc-4yZ"/>
+                    <navigationItem key="navigationItem" title="Мої продажі" largeTitleDisplayMode="always" id="dum-Jc-4yZ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eay-z6-5RK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1658" y="724"/>
         </scene>
-        <!--Item-->
+        <!--Продажі-->
         <scene sceneID="B3x-DE-IPO">
             <objects>
                 <navigationController id="aFf-fo-bHI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="N3n-eL-VhJ"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Продажі" image="Sale" selectedImage="Sale" id="N3n-eL-VhJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6Pd-LI-iJ6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -274,7 +274,7 @@
         <scene sceneID="qO7-Nv-d0a">
             <objects>
                 <navigationController id="nYd-0i-Pbp" customClass="NavigationController" customModule="InternetShopKeeper" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="2" title="" image="Statistic" selectedImage="Statistic" id="YDx-Pi-o1e">
+                    <tabBarItem key="tabBarItem" tag="3" title="" image="Statistic" selectedImage="Statistic" id="YDx-Pi-o1e">
                         <color key="badgeColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1yP-L0-Iqd">
@@ -450,7 +450,7 @@
                             <outlet property="delegate" destination="4pj-44-9WX" id="IpK-6F-kZZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Параметри" id="pWl-vP-DXb"/>
+                    <navigationItem key="navigationItem" title="Параметри" largeTitleDisplayMode="always" id="pWl-vP-DXb"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f4G-03-Jxo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -460,7 +460,7 @@
         <scene sceneID="cgh-is-0Xg">
             <objects>
                 <navigationController id="J6I-Th-CyL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="3" title="" image="Tools" selectedImage="Tools" id="cyL-R0-nT2"/>
+                    <tabBarItem key="tabBarItem" tag="4" title="" image="Tools" selectedImage="Tools" id="cyL-R0-nT2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="n1Q-0p-aG2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -597,7 +597,7 @@
                             <outlet property="delegate" destination="l89-EJ-8Me" id="jfY-G5-a47"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Мій товар" id="Ilz-bu-3Dq">
+                    <navigationItem key="navigationItem" title="Мій товар" largeTitleDisplayMode="always" id="Ilz-bu-3Dq">
                         <barButtonItem key="leftBarButtonItem" title="Сортувати" id="Igg-7b-9Lf">
                             <connections>
                                 <action selector="sortButtonAction:" destination="l89-EJ-8Me" id="hIa-ej-3uN"/>
@@ -916,6 +916,7 @@
         <image name="AddImage" width="100" height="100"/>
         <image name="Category" width="30" height="30"/>
         <image name="Home" width="30" height="30"/>
+        <image name="Sale" width="30" height="30"/>
         <image name="Statistic" width="30" height="30"/>
         <image name="Tools" width="25" height="25"/>
         <image name="clear" catalog="system" width="128" height="114"/>

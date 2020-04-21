@@ -220,7 +220,7 @@
 				DBF45FF52444B0520045349E /* TabBarController.swift */,
 				DB2E3B272448C8570043DD7C /*  ItemsViewController */,
 				DB2E3B282448CCEE0043DD7C /* CategoriesViewController */,
-				DB8AB45D244C560600D5D9E9 /* SalasViewController */,
+				DB8AB45D244C560600D5D9E9 /* SalesViewController */,
 				DB2E3B292448CD3E0043DD7C /* StatisticViewController */,
 				DB2E3B2A2448CD550043DD7C /* ToolsViewController */,
 				DB2E3B2B2448CD6F0043DD7C /* OnboardingViewController */,
@@ -234,7 +234,7 @@
 			path = InternetShopKeeper;
 			sourceTree = "<group>";
 		};
-		DB8AB45D244C560600D5D9E9 /* SalasViewController */ = {
+		DB8AB45D244C560600D5D9E9 /* SalesViewController */ = {
 			isa = PBXGroup;
 			children = (
 				DB8AB461244C564100D5D9E9 /* SalesTableViewController.swift */,
@@ -243,7 +243,7 @@
 				DBB58BE1244DEC8D00662826 /* SalesStruct.swift */,
 				DBB58BE3244DECA700662826 /* CRUDModelSales.swift */,
 			);
-			path = SalasViewController;
+			path = SalesViewController;
 			sourceTree = "<group>";
 		};
 		DBFAB63824339C2C00108421 /* Products */ = {

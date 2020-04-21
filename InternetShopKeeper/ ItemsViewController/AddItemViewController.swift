@@ -13,10 +13,6 @@ import CoreData
 protocol AddItemViewControllerDelegate {
     func addItemViewController (_ addItemViewController: AddItemViewController, didAddItem item: ItemStruct)
 }
-// protocol for create instance of SalesStruct
-protocol AddItemSaleViewControllerDelegate {
-    func addItemSaleViewController (_ addItemSaleViewController: AddItemViewController, didAddItemSale sale: SalesStruct)
-}
 
 class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     // State for Bar button
@@ -66,7 +62,6 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var saveButtonSaleViewOutlet: UIButton!
     // create delegate of AddCategoryViewController
     var delegateItem : AddItemViewControllerDelegate?
-    var delegateSale : AddItemSaleViewControllerDelegate?
     //create instance of CRUDModelCategory
     let crudModelCategory = CRUDModelCategory()
     //create instance of ItemStruct
@@ -265,15 +260,18 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                 item.details = detailsItemTextView.text
                 item.image = addImage.image ?? addImage.highlightedImage!
                 delegateItem?.addItemViewController(self, didAddItem: item)
-                // delegate to SalesTableViewController
+                // pass sale to SalesTableViewController
                 sale.title = titleItemTextField.text ?? ""
                 sale.category = categoryItemTextField.text ?? ""
-                sale.price = priceItemTextField.text ?? ""
-                sale.amount = amountItemTextField.text ?? ""
+                sale.price = incomePriceSaleViewTextFieldOutlet.text ?? ""
+                sale.amount = amountSaleViewTextFieldOutlet.text ?? ""
                 sale.image = addImage.image ?? addImage.highlightedImage!
                 sale.id = UUID() .uuidString
                 sale.date = dateFormatter.string(from: currentDate)
-                delegateSale?.addItemSaleViewController(self, didAddItemSale: sale)
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                guard let salesVC = storyboard.instantiateViewController(identifier: "SalesTableViewController") as? SalesTableViewController else { return }
+                salesVC.appendSale(sale: sale)
+                salesVC.reloadTable()
                 // cohfiguge hide saveView
                 UIView.animate(withDuration: 0.5, animations: {
                     self.saleView.alpha = 0
