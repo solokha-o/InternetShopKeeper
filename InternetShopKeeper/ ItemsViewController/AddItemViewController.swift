@@ -270,8 +270,8 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                 sale.date = dateFormatter.string(from: currentDate)
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 guard let salesVC = storyboard.instantiateViewController(identifier: "SalesTableViewController") as? SalesTableViewController else { return }
+                _ = salesVC.view
                 salesVC.appendSale(sale: sale)
-                salesVC.reloadTable()
                 // cohfiguge hide saveView
                 UIView.animate(withDuration: 0.5, animations: {
                     self.saleView.alpha = 0

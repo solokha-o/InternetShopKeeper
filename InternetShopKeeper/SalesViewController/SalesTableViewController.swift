@@ -49,14 +49,15 @@ class SalesTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        reloadTable()
+        super.viewWillAppear(animated)
+        DispatchQueue.main.async {
+            self.sales = self.crudModelSales.fetchSale(sales: self.sales)
+            self.salesStruct = self.crudModelSales.getAllSale(sales: self.sales)
+            self.tableView.reloadData()
+            print(self.salesStruct.count)
+            print(self.sales.count)
+        }
     }
-    // reload tableWiev
-    func reloadTable() {
-        tableView.reloadData()
-    }
-    
     
     // MARK: - Table view data source
     
@@ -87,6 +88,22 @@ class SalesTableViewController: UITableViewController {
         cell.amountSaleItemLable.text = sale.amount
         cell.imageSaleItem.image = sale.image
         return cell
+    }
+    // Trailing swipe configure delete  sale
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let contextItem = UIContextualAction(style: .destructive, title: "Видалити") {[weak self] (_,_,_) in
+            // delete sale from array and core data
+            self?.salesStruct.remove(at: indexPath.row)
+            self?.tableView.deleteRows(at: [indexPath], with: .fade)
+            self?.tableView.reloadSections([indexPath.section], with: .automatic)
+            DispatchQueue.main.async {
+                self?.crudModelSales.removeSale(sale: self?.sales[indexPath.row])
+            }
+            print("Delete happens")
+        }
+        let swipeAction = UISwipeActionsConfiguration(actions: [contextItem])
+        swipeAction.performsFirstActionWithFullSwipe = false
+        return swipeAction
     }
     
 //    func addItemSaleViewController(_ addItemSaleViewController: AddItemViewController, didAddItemSale sale: SalesStruct) {
@@ -124,9 +141,12 @@ class SalesTableViewController: UITableViewController {
 //    }
     // append sale to array
     func appendSale(sale: SalesStruct) {
-        salesStruct.append(sale)
-        sales.append(crudModelSales.saveSale(sale: sale))
+        DispatchQueue.main.async {
+            self.salesStruct.append(sale)
+            self.sales.append(self.crudModelSales.saveSale(sale: sale))
+        }
         print(sale)
-        print(salesStruct)
+        print(salesStruct.count)
+        print(sales.count)
     }
 }

@@ -139,7 +139,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
             // delete category from CoreData
             self?.itemsStruct.remove(at: indexPath.row)
             self?.tableView.deleteRows(at:[indexPath],with: .fade)
-            self?.tableView.reloadSections([indexPath.section], with: .automatic)
+            self?.tableView.reloadSections([indexPath.section], with: .fade)
             self?.crudModelItem.removeItem(item: self?.items[indexPath.row])
             print("DELETE HAPPENS")
         }

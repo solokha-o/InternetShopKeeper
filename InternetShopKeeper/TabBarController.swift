@@ -33,10 +33,6 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate{
         let navC3 = self.viewControllers?[3] as! UINavigationController
         let staticticVC = navC3.topViewController as! StatisticViewController
         staticticVC.itemsStract = itemTVC.itemsStruct
-        // reload table view in SalesTableViewController
-        let navC2 = self.viewControllers?[2] as! UINavigationController
-        let salesTVC = navC2.topViewController as! SalesTableViewController
-        salesTVC.reloadTable()
         
         animateToTab(toIndex: toIndex)
         return true
