@@ -35,7 +35,7 @@ extension UIView: AnchorView {
 extension UIBarButtonItem: AnchorView {
 
 	public var plainView: UIView {
-		return value(forKey: "view") as! UIView
+        return value(forKey: "view") as! UIView
 	}
 
 }
