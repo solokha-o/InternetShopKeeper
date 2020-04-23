@@ -43,7 +43,7 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
         // load array from coreData and get to array table view
         categories = crudModelCategory.fetchCategory(categories: categories)
         categoriesStruct = crudModelCategory.getAllCategory(categories: categories)
-        // configurate BarButtonItem DropDown
+        // configure BarButtonItem DropDown
         sortButtonOutlet.title = "Сортувати".localized
         leftBarDropDown.anchorView = sortButtonOutlet
         leftBarDropDown.dataSource = ["Сортувати А - Я".localized, "Сортувати Я - А".localized]
@@ -119,7 +119,7 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
             // delete category from CoreData
             self?.categoriesStruct.remove(at: indexPath.row)
             self?.tableView.deleteRows(at:[indexPath],with: .fade)
-            self?.tableView.reloadSections([indexPath.section], with: .automatic)
+            self?.tableView.reloadSections([indexPath.section], with: .fade)
             self?.crudModelCategory.removeCategory(category: self?.categories[indexPath.row])
             print("DELETE HAPPENS")
         }

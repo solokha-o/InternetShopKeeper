@@ -138,8 +138,8 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
         let contextItem = UIContextualAction(style: .destructive, title: "Видалити".localized) {  [weak self] (_, _, _) in
             // delete category from CoreData
             self?.itemsStruct.remove(at: indexPath.row)
-            self?.tableView.deleteRows(at:[indexPath],with: .fade)
-            self?.tableView.reloadSections([indexPath.section], with: .fade)
+            self?.tableView.deleteRows(at:[indexPath],with: .left)
+            self?.tableView.reloadSections([indexPath.section], with: .left)
             self?.crudModelItem.removeItem(item: self?.items[indexPath.row])
             print("DELETE HAPPENS")
         }
@@ -148,7 +148,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
         return swipeActions
     }
     @IBAction func sortButtonAction(_ sender: UIBarButtonItem) {
-        // filter items by select item of dropDown
+        // sort items by select item of dropDown
         leftBarDropDown.selectionAction = { (index: Int, item: String) in
             switch index {
             case 0:

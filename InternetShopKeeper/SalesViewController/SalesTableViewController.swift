@@ -8,8 +8,12 @@
 
 import UIKit
 import CoreData
+import DropDown
 
 class SalesTableViewController: UITableViewController {
+    
+    
+    @IBOutlet weak var sortButtonOutlet: UIBarButtonItem!
     
     // add instance of CRUDModelSales
     let crudModelSales = CRUDModelSales()
@@ -28,6 +32,8 @@ class SalesTableViewController: UITableViewController {
     var isFiltering: Bool {
         return search.isActive && !isSearchBarEmpty
     }
+    // create dropDown barButtonItem
+    let leftBarDropDown = DropDown()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +47,21 @@ class SalesTableViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.title = "Мої продажі".localized
         navigationItem.title = "Мої продажі".localized
+        // configure search controller
+        navigationItem.searchController = search
+        navigationItem.hidesSearchBarWhenScrolling = true
+        search.searchResultsUpdater = self
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchBar.placeholder = "Пошук продажі"
+        definesPresentationContext = true
+        // configure BarButtonItem DropDown
+        sortButtonOutlet.title = "Сортувати".localized
+        leftBarDropDown.anchorView = sortButtonOutlet
+        leftBarDropDown.dataSource = ["Сортувати товари по назві А - Я".localized, "Сортувати товари по назві Я - А".localized]
+        leftBarDropDown.cellConfiguration = { (index, item) in return "\(item)" }
+        leftBarDropDown.shadowOpacity = 0.8
+        leftBarDropDown.shadowColor = .black
+        leftBarDropDown.cornerRadius = 10
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -58,7 +79,13 @@ class SalesTableViewController: UITableViewController {
             print(self.sales.count)
         }
     }
-    
+    // func for filter Content For Search Text
+    func filterContentForSearchText(_ searchText: String) {
+        filteredSalesStruct = salesStruct.filter { (sale: SalesStruct) -> Bool in
+            return (sale.title.lowercased().contains(searchText.lowercased())) || (sale.category.lowercased().contains(searchText.lowercased()))
+        }
+        tableView.reloadData()
+    }
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -66,10 +93,10 @@ class SalesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // number of row return from array items or filtering results
-//        if isFiltering {
-//            return filteredSalesStruct.count
-//        }
+        //number of row return from array items or filtering results
+        if isFiltering {
+            return filteredSalesStruct.count
+        }
         return salesStruct.count
     }
     
@@ -77,11 +104,11 @@ class SalesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SalesTableViewCell", for: indexPath) as? SalesTableViewCell else { return UITableViewCell() }
         let sale : SalesStruct
-//        if isFiltering {
-//            sale = filteredSalesStruct[indexPath.row]
-//        } else {
+        if isFiltering {
+            sale = filteredSalesStruct[indexPath.row]
+        } else {
             sale = salesStruct[indexPath.row]
-//        }
+        }
         cell.titleSaleItemLable.text = sale.title
         cell.categorySaleItemLable.text = sale.category
         cell.priceSaleItemLable.text = sale.price
@@ -94,8 +121,8 @@ class SalesTableViewController: UITableViewController {
         let contextItem = UIContextualAction(style: .destructive, title: "Видалити") {[weak self] (_,_,_) in
             // delete sale from array and core data
             self?.salesStruct.remove(at: indexPath.row)
-            self?.tableView.deleteRows(at: [indexPath], with: .fade)
-            self?.tableView.reloadSections([indexPath.section], with: .automatic)
+            self?.tableView.deleteRows(at: [indexPath], with: .left)
+            self?.tableView.reloadSections([indexPath.section], with: .left)
             DispatchQueue.main.async {
                 self?.crudModelSales.removeSale(sale: self?.sales[indexPath.row])
             }
@@ -149,4 +176,34 @@ class SalesTableViewController: UITableViewController {
         print(salesStruct.count)
         print(sales.count)
     }
+    // cofigure sortButtonAction
+    @IBAction func sortButtonAction(_ sender: UIBarButtonItem) {
+        // sort sales by select sale of dropDown
+               leftBarDropDown.selectionAction = { (index: Int, sale: String) in
+                   switch index {
+                   case 0:
+                       self.salesStruct = self.salesStruct.sorted {$0.title.lowercased() < $1.title.lowercased()}
+                       self.tableView.reloadData()
+                       print(self.salesStruct)
+                   case 1:
+                       self.salesStruct = self.salesStruct.sorted {$0.title.lowercased() > $1.title.lowercased()}
+                       self.tableView.reloadData()
+                       print(self.salesStruct)
+                   default: break
+                   }
+                   print("Selected sale: \(sale) at index: \(index)") }
+               leftBarDropDown.width = 250
+               leftBarDropDown.bottomOffset = CGPoint(x: 0, y:(leftBarDropDown.anchorView?.plainView.bounds.height)!)
+               leftBarDropDown.show()
+               leftBarDropDown.dismissMode = .onTap
+    }
 }
+
+// add extension UISearchResultsUpdating to SalesTableViewController
+extension SalesTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = search.searchBar
+        filterContentForSearchText(searchBar.text!)
+    }
+}
+
