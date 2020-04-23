@@ -33,7 +33,7 @@ class SalesTableViewController: UITableViewController {
         return search.isActive && !isSearchBarEmpty
     }
     // create dropDown barButtonItem
-    let leftBarDropDown = DropDown()
+     let leftBarDropDown = DropDown()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,9 +55,9 @@ class SalesTableViewController: UITableViewController {
         search.searchBar.placeholder = "Пошук продажі"
         definesPresentationContext = true
         // configure BarButtonItem DropDown
-        sortButtonOutlet.title = "Сортувати".localized
+        sortButtonOutlet.title = "Сортувати"
         leftBarDropDown.anchorView = sortButtonOutlet
-        leftBarDropDown.dataSource = ["Сортувати товари по назві А - Я".localized, "Сортувати товари по назві Я - А".localized]
+        leftBarDropDown.dataSource = ["Сортувати товари по назві А - Я", "Сортувати товари по назві Я - А"]
         leftBarDropDown.cellConfiguration = { (index, item) in return "\(item)" }
         leftBarDropDown.shadowOpacity = 0.8
         leftBarDropDown.shadowColor = .black
@@ -111,7 +111,7 @@ class SalesTableViewController: UITableViewController {
         }
         cell.titleSaleItemLable.text = sale.title
         cell.categorySaleItemLable.text = sale.category
-        cell.priceSaleItemLable.text = sale.price
+        cell.priceSaleItemLable.text = sale.price + "₴"
         cell.amountSaleItemLable.text = sale.amount
         cell.imageSaleItem.image = sale.image
         return cell
@@ -176,26 +176,26 @@ class SalesTableViewController: UITableViewController {
         print(salesStruct.count)
         print(sales.count)
     }
-    // cofigure sortButtonAction
+    // configure sortButtonAction
     @IBAction func sortButtonAction(_ sender: UIBarButtonItem) {
         // sort sales by select sale of dropDown
-               leftBarDropDown.selectionAction = { (index: Int, sale: String) in
-                   switch index {
-                   case 0:
-                       self.salesStruct = self.salesStruct.sorted {$0.title.lowercased() < $1.title.lowercased()}
-                       self.tableView.reloadData()
-                       print(self.salesStruct)
-                   case 1:
-                       self.salesStruct = self.salesStruct.sorted {$0.title.lowercased() > $1.title.lowercased()}
-                       self.tableView.reloadData()
-                       print(self.salesStruct)
-                   default: break
-                   }
-                   print("Selected sale: \(sale) at index: \(index)") }
-               leftBarDropDown.width = 250
-               leftBarDropDown.bottomOffset = CGPoint(x: 0, y:(leftBarDropDown.anchorView?.plainView.bounds.height)!)
-               leftBarDropDown.show()
-               leftBarDropDown.dismissMode = .onTap
+        leftBarDropDown.selectionAction = { (index: Int, item: String) in
+            switch index {
+            case 0:
+                self.salesStruct = self.salesStruct.sorted {$0.title.lowercased() < $1.title.lowercased()}
+                self.tableView.reloadData()
+                print(self.salesStruct)
+            case 1:
+                self.salesStruct = self.salesStruct.sorted {$0.title.lowercased() > $1.title.lowercased()}
+                self.tableView.reloadData()
+                print(self.salesStruct)
+            default: break
+            }
+            print("Selected item: \(item) at index: \(index)") }
+        leftBarDropDown.width = 250
+        leftBarDropDown.bottomOffset = CGPoint(x: 0, y:(leftBarDropDown.anchorView?.plainView.bounds.height)!)
+        leftBarDropDown.show()
+        leftBarDropDown.dismissMode = .onTap
     }
 }
 

@@ -63,7 +63,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
-        self.tableView.rowHeight = 130.0
+        self.tableView.rowHeight = 140.0
     }
     
     override func didReceiveMemoryWarning() {
@@ -107,7 +107,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
         }
         cell.titleItemLable.text = item.title
         cell.categoryItemLable.text = item.category
-        cell.priceItemLable.text = item.price
+        cell.priceItemLable.text = item.price + "₴"
         cell.amountItemLable.text = item.amount
         cell.detailsItemLable.text = item.details
         cell.imageItemView.image = item.image
