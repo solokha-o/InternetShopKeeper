@@ -26,8 +26,8 @@ class SalesTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        saleLable.text = "Продано".localized
+        pcsSaleItemLable.text = "Шт".localized
     }
     
 }

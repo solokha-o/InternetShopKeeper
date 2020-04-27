@@ -94,6 +94,8 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         picker.delegate = self
         picker.dataSource = self
         picker.backgroundColor = .white
+        picker.layer.shadowOpacity = 0.5
+        picker.layer.shadowColor = UIColor.black.cgColor
         // configure toolBar to pickerView
         toolBar.barStyle = .default
         toolBar.isTranslucent = true

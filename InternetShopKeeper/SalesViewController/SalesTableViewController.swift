@@ -52,12 +52,12 @@ class SalesTableViewController: UITableViewController {
         navigationItem.hidesSearchBarWhenScrolling = true
         search.searchResultsUpdater = self
         search.obscuresBackgroundDuringPresentation = false
-        search.searchBar.placeholder = "Пошук продажі"
+        search.searchBar.placeholder = "Пошук продажі".localized
         definesPresentationContext = true
         // configure BarButtonItem DropDown
-        sortButtonOutlet.title = "Сортувати"
+        sortButtonOutlet.title = "Сортувати".localized
         leftBarDropDown.anchorView = sortButtonOutlet
-        leftBarDropDown.dataSource = ["Сортувати товари по назві А - Я", "Сортувати товари по назві Я - А", "Новіші", "Старіші"]
+        leftBarDropDown.dataSource = ["Сортувати товари по назві А - Я".localized, "Сортувати товари по назві Я - А".localized, "Новіші".localized, "Старіші".localized]
         leftBarDropDown.cellConfiguration = { (index, item) in return "\(item)" }
         leftBarDropDown.shadowOpacity = 0.8
         leftBarDropDown.shadowColor = .black
@@ -119,7 +119,7 @@ class SalesTableViewController: UITableViewController {
     }
     // Trailing swipe configure delete  sale
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let contextItem = UIContextualAction(style: .destructive, title: "Видалити") {[weak self] (_,_,_) in
+        let contextItem = UIContextualAction(style: .destructive, title: "Видалити".localized) {[weak self] (_,_,_) in
             // delete sale from array and core data
             self?.salesStruct.remove(at: indexPath.row)
             self?.tableView.deleteRows(at: [indexPath], with: .fade)
