@@ -33,7 +33,7 @@ class SalesTableViewController: UITableViewController {
         return search.isActive && !isSearchBarEmpty
     }
     // create dropDown barButtonItem
-     let leftBarDropDown = DropDown()
+    let leftBarDropDown = DropDown()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +57,7 @@ class SalesTableViewController: UITableViewController {
         // configure BarButtonItem DropDown
         sortButtonOutlet.title = "Сортувати"
         leftBarDropDown.anchorView = sortButtonOutlet
-        leftBarDropDown.dataSource = ["Сортувати товари по назві А - Я", "Сортувати товари по назві Я - А"]
+        leftBarDropDown.dataSource = ["Сортувати товари по назві А - Я", "Сортувати товари по назві Я - А", "Новіші", "Старіші"]
         leftBarDropDown.cellConfiguration = { (index, item) in return "\(item)" }
         leftBarDropDown.shadowOpacity = 0.8
         leftBarDropDown.shadowColor = .black
@@ -82,7 +82,7 @@ class SalesTableViewController: UITableViewController {
     // func for filter Content For Search Text
     func filterContentForSearchText(_ searchText: String) {
         filteredSalesStruct = salesStruct.filter { (sale: SalesStruct) -> Bool in
-            return (sale.title.lowercased().contains(searchText.lowercased())) || (sale.category.lowercased().contains(searchText.lowercased()))
+            return (sale.title.lowercased().contains(searchText.lowercased())) || (sale.category.lowercased().contains(searchText.lowercased()) || sale.date.lowercased().contains(searchText.lowercased()))
         }
         tableView.reloadData()
     }
@@ -113,6 +113,7 @@ class SalesTableViewController: UITableViewController {
         cell.categorySaleItemLable.text = sale.category
         cell.priceSaleItemLable.text = sale.price + "₴"
         cell.amountSaleItemLable.text = sale.amount
+        cell.dateSaleItemLable.text = sale.date
         cell.imageSaleItem.image = sale.image
         return cell
     }
@@ -121,8 +122,8 @@ class SalesTableViewController: UITableViewController {
         let contextItem = UIContextualAction(style: .destructive, title: "Видалити") {[weak self] (_,_,_) in
             // delete sale from array and core data
             self?.salesStruct.remove(at: indexPath.row)
-            self?.tableView.deleteRows(at: [indexPath], with: .left)
-            self?.tableView.reloadSections([indexPath.section], with: .left)
+            self?.tableView.deleteRows(at: [indexPath], with: .fade)
+            self?.tableView.reloadSections([indexPath.section], with: .fade)
             DispatchQueue.main.async {
                 self?.crudModelSales.removeSale(sale: self?.sales[indexPath.row])
             }
@@ -133,39 +134,39 @@ class SalesTableViewController: UITableViewController {
         return swipeAction
     }
     
-//    func addItemSaleViewController(_ addItemSaleViewController: AddItemViewController, didAddItemSale sale: SalesStruct) {
-//        // if state edit coreData we find category for id and update in coreData and  tableview
-//        print(sale.id)
-//        if isUpdateCoreData{
-//            for i in salesStruct.indices {
-//                if salesStruct[i].id == sale.id {
-//                    salesStruct[i].title = sale.title
-//                    salesStruct[i].category = sale.category
-//                    salesStruct[i].price = sale.price
-//                    salesStruct[i].amount = sale.amount
-//                    salesStruct[i].image = sale.image
-//                    salesStruct[i].date = sale.date
-//                    crudModelSales.updateSale(sales: sales, id: sale.id, sale: sale)
-//                    salesStruct[i] = sale
-//                    print("update sale" + sale.id)
-//                }
-//            }
-//            isUpdateCoreData = false
-//        } else {
-//            // else save to coreData and and view in tableview
-//            salesStruct.append(sale)
-//            sales.append(crudModelSales.saveSale(sale: sale))
-//            print("Save sale" + sale.id)
-//        }
-//        tableView.reloadData()
-//    }
-//    // configure segue
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        super.prepare(for: segue, sender: sender)
-//        guard let desctinationVC = segue.destination as? AddItemViewController else { return }
-//        desctinationVC.delegateSale = self
-//        isUpdateCoreData = false
-//    }
+    //    func addItemSaleViewController(_ addItemSaleViewController: AddItemViewController, didAddItemSale sale: SalesStruct) {
+    //        // if state edit coreData we find category for id and update in coreData and  tableview
+    //        print(sale.id)
+    //        if isUpdateCoreData{
+    //            for i in salesStruct.indices {
+    //                if salesStruct[i].id == sale.id {
+    //                    salesStruct[i].title = sale.title
+    //                    salesStruct[i].category = sale.category
+    //                    salesStruct[i].price = sale.price
+    //                    salesStruct[i].amount = sale.amount
+    //                    salesStruct[i].image = sale.image
+    //                    salesStruct[i].date = sale.date
+    //                    crudModelSales.updateSale(sales: sales, id: sale.id, sale: sale)
+    //                    salesStruct[i] = sale
+    //                    print("update sale" + sale.id)
+    //                }
+    //            }
+    //            isUpdateCoreData = false
+    //        } else {
+    //            // else save to coreData and and view in tableview
+    //            salesStruct.append(sale)
+    //            sales.append(crudModelSales.saveSale(sale: sale))
+    //            print("Save sale" + sale.id)
+    //        }
+    //        tableView.reloadData()
+    //    }
+    //    // configure segue
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        super.prepare(for: segue, sender: sender)
+    //        guard let desctinationVC = segue.destination as? AddItemViewController else { return }
+    //        desctinationVC.delegateSale = self
+    //        isUpdateCoreData = false
+    //    }
     // append sale to array
     func appendSale(sale: SalesStruct) {
         DispatchQueue.main.async {
@@ -187,6 +188,14 @@ class SalesTableViewController: UITableViewController {
                 print(self.salesStruct)
             case 1:
                 self.salesStruct = self.salesStruct.sorted {$0.title.lowercased() > $1.title.lowercased()}
+                self.tableView.reloadData()
+                print(self.salesStruct)
+            case 2:
+                self.salesStruct = self.salesStruct.sorted {$0.date.lowercased() > $1.date.lowercased()}
+                self.tableView.reloadData()
+                print(self.salesStruct)
+            case 3:
+                self.salesStruct = self.salesStruct.sorted {$0.date.lowercased() < $1.date.lowercased()}
                 self.tableView.reloadData()
                 print(self.salesStruct)
             default: break

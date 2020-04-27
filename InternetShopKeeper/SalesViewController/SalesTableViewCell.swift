@@ -15,7 +15,7 @@ class SalesTableViewCell: UITableViewCell {
     @IBOutlet weak var categorySaleItemLable: UILabel!
     @IBOutlet weak var priceSaleItemLable: UILabel!
     @IBOutlet weak var amountSaleItemLable: UILabel!
-    @IBOutlet weak var uahSaleItemLable: UILabel!
+    @IBOutlet weak var dateSaleItemLable: UILabel!
     @IBOutlet weak var saleLable: UILabel!
     @IBOutlet weak var pcsSaleItemLable: UILabel!
     

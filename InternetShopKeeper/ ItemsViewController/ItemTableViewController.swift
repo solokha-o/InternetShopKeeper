@@ -34,6 +34,9 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
     }
     //create Bool for state of using coreData
     var isUpdateCoreData = false
+    // add instance of Date and dateFormatter
+    var date = Date()
+    var dateFormatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +46,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
         // configurate BarButtonItem DropDown
         sortButtonOutlet.title = "Сортувати".localized
         leftBarDropDown.anchorView = sortButtonOutlet
-        leftBarDropDown.dataSource = ["Сортувати товари по назві А - Я".localized, "Сортувати товари по назві Я - А".localized]
+        leftBarDropDown.dataSource = ["Сортувати товари по назві А - Я".localized, "Сортувати товари по назві Я - А".localized, "Новіші".localized, "Старіші".localized]
         leftBarDropDown.cellConfiguration = { (index, item) in return "\(item)" }
         leftBarDropDown.cornerRadius = 10
         leftBarDropDown.shadowColor = UIColor.black
@@ -64,6 +67,9 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         self.tableView.rowHeight = 140.0
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateFormat = "dd.mm.yy, hh:mm, a"
     }
     
     override func didReceiveMemoryWarning() {
@@ -80,7 +86,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
     // func for filter Content For Search Text
     func filterContentForSearchText(_ searchText: String) {
         filteredItemsStruct = itemsStruct.filter { (item: ItemStruct) -> Bool in
-            return (item.title.lowercased().contains(searchText.lowercased()) || item.category.lowercased().contains(searchText.lowercased()))
+            return (item.title.lowercased().contains(searchText.lowercased()) || item.category.lowercased().contains(searchText.lowercased()) || item.date.lowercased().contains(searchText.lowercased()))
         }
         tableView.reloadData()
     }
@@ -110,6 +116,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
         cell.priceItemLable.text = item.price + "₴"
         cell.amountItemLable.text = item.amount
         cell.detailsItemLable.text = item.details
+        cell.dateLable.text = item.date
         cell.imageItemView.image = item.image
         return cell
     }
@@ -138,8 +145,8 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
         let contextItem = UIContextualAction(style: .destructive, title: "Видалити".localized) {  [weak self] (_, _, _) in
             // delete category from CoreData
             self?.itemsStruct.remove(at: indexPath.row)
-            self?.tableView.deleteRows(at:[indexPath],with: .left)
-            self?.tableView.reloadSections([indexPath.section], with: .left)
+            self?.tableView.deleteRows(at:[indexPath],with: .fade)
+            self?.tableView.reloadSections([indexPath.section], with: .fade)
             self?.crudModelItem.removeItem(item: self?.items[indexPath.row])
             print("DELETE HAPPENS")
         }
@@ -157,6 +164,14 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
                 print(self.itemsStruct)
             case 1:
                 self.itemsStruct = self.itemsStruct.sorted {$0.title.lowercased() > $1.title.lowercased()}
+                self.tableView.reloadData()
+                print(self.itemsStruct)
+            case 2:
+                self.itemsStruct = self.itemsStruct.sorted {$0.date.lowercased() > $1.date.lowercased()}
+                self.tableView.reloadData()
+                print(self.itemsStruct)
+            case 3:
+                self.itemsStruct = self.itemsStruct.sorted {$0.date.lowercased() < $1.date.lowercased()}
                 self.tableView.reloadData()
                 print(self.itemsStruct)
             default: break

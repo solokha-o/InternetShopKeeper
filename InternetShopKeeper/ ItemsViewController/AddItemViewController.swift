@@ -142,7 +142,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         // formate of date
         dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .short
+        dateFormatter.timeStyle = .none
         
     }
     override func viewWillAppear(_ animated: Bool) {

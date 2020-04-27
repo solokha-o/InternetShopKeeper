@@ -42,8 +42,8 @@
                                         <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="115" translatesAutoresizingMaskIntoConstraints="NO" id="a8K-5B-STQ">
-                                        <rect key="frame" x="0.0" y="64" width="179.5" height="20.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="a8K-5B-STQ">
+                                        <rect key="frame" x="0.0" y="64" width="105.5" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ціна" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ac4-qI-W6l">
                                                 <rect key="frame" x="0.0" y="0.0" width="36" height="20.5"/>
@@ -52,8 +52,8 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Грн" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZm-Is-g4f">
-                                                <rect key="frame" x="151" y="0.0" width="28.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="86" y="0.0" width="19.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -99,12 +99,12 @@
             <connections>
                 <outlet property="amountSaleItemLable" destination="uKF-rh-kec" id="o9i-IW-ZA3"/>
                 <outlet property="categorySaleItemLable" destination="E2s-Tq-U1F" id="7na-hv-h9F"/>
+                <outlet property="dateSaleItemLable" destination="aZm-Is-g4f" id="34J-aa-AGI"/>
                 <outlet property="imageSaleItem" destination="MDw-ym-Voc" id="Ajg-zv-sXW"/>
                 <outlet property="pcsSaleItemLable" destination="c61-Ph-cKy" id="bDn-73-ILx"/>
                 <outlet property="priceSaleItemLable" destination="ac4-qI-W6l" id="GfN-yz-bFu"/>
                 <outlet property="saleLable" destination="udy-J2-MM5" id="sOa-aP-Ult"/>
                 <outlet property="titleSaleItemLable" destination="E4R-EX-cyq" id="xuu-XS-0wL"/>
-                <outlet property="uahSaleItemLable" destination="aZm-Is-g4f" id="34J-aa-AGI"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="115.84821428571428"/>
         </tableViewCell>
