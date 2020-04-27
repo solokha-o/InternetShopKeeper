@@ -18,14 +18,14 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     // State for Bar button
     enum State {
         case addItem, editItem
-
+        
         var leftButtonTitle: String {
             switch self {
             case .addItem: return "Скасувати".localized
             case .editItem: return "Назад".localized
             }
         }
-
+        
         var rightButtonTitle: String {
             switch self {
             case .addItem: return "Готово".localized
@@ -52,7 +52,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var enterAmountItemLabel: UILabel!
     @IBOutlet weak var enterDetailsItemLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
-   // add sale View and sale Button and text fields of view
+    // add sale View and sale Button and text fields of view
     @IBOutlet weak var saleButtonOutlet: UIButton!
     @IBOutlet weak var saleView: UIView!
     @IBOutlet weak var saleViewLable: UILabel!
@@ -75,6 +75,8 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     var imagePicker = UIImagePickerController()
     var picker = UIPickerView()
     var categories = [Categories]()
+    //create toolBar to pickerView
+    let toolBar = UIToolbar()
     // add date property
     let currentDate = Date()
     let dateFormatter = DateFormatter()
@@ -88,8 +90,24 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         priceItemTextField.delegate = self
         amountItemTextField.delegate = self
         detailsItemTextView.delegate = self
+        //configure pickerView
         picker.delegate = self
+        picker.dataSource = self
+        picker.backgroundColor = .white
+        // configure toolBar to pickerView
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = .systemBlue
+        toolBar.backgroundColor = .gray
+        toolBar.sizeToFit()
+        let doneButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.donePicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,target: self, action: #selector(self.cancelPicker))
+        toolBar.setItems([cancelButtonItem, spaceButton, doneButtonItem], animated: true)
+        toolBar.isUserInteractionEnabled = true
         categoryItemTextField.inputView = picker
+        categoryItemTextField.inputAccessoryView = toolBar
+        
         // Create placeholder to detailsItemTextView
         detailsItemTextView.text = "Введіть деталі свого товару".localized
         detailsItemTextView.textColor = UIColor.lightGray
@@ -178,34 +196,34 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     // configure keyboard to scrollView
     @objc func keyboardWillAppear(notification: Notification) {
-            guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-            let keyboardScreenEndFrame = keyboardValue.cgRectValue
-            let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
-            if notification.name == UIResponder.keyboardWillHideNotification {
-                scrollView.contentInset = .zero
-            } else {
-                scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
-            }
-            scrollView.scrollIndicatorInsets = scrollView.contentInset
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            scrollView.contentInset = .zero
+        } else {
+            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
         }
-
+        scrollView.scrollIndicatorInsets = scrollView.contentInset
+    }
+    
     @objc func keyboardWillHide(notification: Notification) {
-            print(notification)
-        }
+        print(notification)
+    }
     // press on screen to add image of item
     @IBAction func addImageAction(_ sender: UITapGestureRecognizer) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Зробити фото".localized, style: .default, handler: { _ in
-                    self.openCamera()
-                }))
-                
-                alert.addAction(UIAlertAction(title: "Вибрати з галереї".localized, style: .default, handler: { _ in
-                    self.openGallary()
-                }))
-                
-                alert.addAction(UIAlertAction(title: "Скасувати".localized, style: .cancel, handler: nil))
-                
-                //If you want work actionsheet on ipad then you have to use popoverPresentationController to present the actionsheet, otherwise app will crash in iPad
+            self.openCamera()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Вибрати з галереї".localized, style: .default, handler: { _ in
+            self.openGallary()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Скасувати".localized, style: .cancel, handler: nil))
+        
+        //If you want work actionsheet on ipad then you have to use popoverPresentationController to present the actionsheet, otherwise app will crash in iPad
         //        switch UIDevice.current.userInterfaceIdiom {
         //        case .pad:
         //            alert.popoverPresentationController?.sourceView = sender
@@ -214,7 +232,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         //        default:
         //            break
         //        }
-                self.present(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
     // configure sale Button
     @IBAction func saleButtonAction(_ sender: UIButton) {
@@ -224,17 +242,17 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         UIView.animate(withDuration: 0.5) {
             self.saleView.alpha = 1
             self.saleView.isHidden = false
-            }
+        }
     }
     // configure clear button photo
     @IBAction func clearPhotoButtonAction(_ sender: UIButton) {
         UIImageView.animate(withDuration: 1.0) {
             self.addImage.image = self.addImage.highlightedImage
-            }
-            tapGestureOutlet.isEnabled = true
+        }
+        tapGestureOutlet.isEnabled = true
     }
     // configure press button SAVE of saleView
-       @IBAction func saveSaleViewButtonAction(_ sender: UIButton) {
+    @IBAction func saveSaleViewButtonAction(_ sender: UIButton) {
         let incomePrice = incomePriceSaleViewTextFieldOutlet.text ?? ""
         let saleAmount = amountSaleViewTextFieldOutlet.text ?? ""
         item.incomePrice = String((Int(incomePrice) ?? 0) * (Int(saleAmount) ?? 0))
@@ -319,7 +337,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         addImage.isHighlighted = false
         addImage.image = editedImage
         tapGestureOutlet.isEnabled = false
-        }
+    }
     // press button ADD
     @IBAction func addButtonAction(_ sender: UIButton) {
         print("Press ADD.")
@@ -403,7 +421,14 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print(categories)
         categoryItemTextField.text = row == 0 ?  "Без категорії".localized : categories[row - 1].name
-        self.view.endEditing(false)
+    }
+    // action done and cancel pickerView
+    @objc func donePicker () {
+        categoryItemTextField.resignFirstResponder()
+    }
+    @objc func cancelPicker() {
+        categoryItemTextField.resignFirstResponder()
+        categoryItemTextField.text = ""
     }
 }
 // move to next textField
@@ -424,20 +449,10 @@ extension AddItemViewController: UITextFieldDelegate, UITextViewDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         scrollView.setContentOffset(CGPoint(x: 0, y: textField.superview?.frame.origin.y ?? 0), animated: true)
     }
-
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
-    
-//    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-//        scrollView.setContentOffset(CGPoint(x: 0, y: textField.superview?.frame.origin.y ?? 0), animated: true)
-//        return true
-//    }
-//
-//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-//        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
-//        return true
-//    }
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         scrollView.setContentOffset(CGPoint(x: 0, y: textView.superview?.frame.origin.y ?? 0), animated: true)
