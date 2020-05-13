@@ -23,13 +23,13 @@
 		DB599B9F24098D3B0065CA3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB599B9E24098D3B0065CA3D /* Assets.xcassets */; };
 		DB599BA224098D3B0065CA3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB599BA024098D3B0065CA3D /* LaunchScreen.storyboard */; };
 		DB599BAA24099F230065CA3D /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB599BA924099F230065CA3D /* AddItemViewController.swift */; };
-		DB5C9DFA242A6BDE00E2CA86 /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C9DF9242A6BDE00E2CA86 /* StatisticViewController.swift */; };
 		DB7098A4243E2E5D00AA4159 /* ModelFirstLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7098A3243E2E5D00AA4159 /* ModelFirstLaunch.swift */; };
 		DB7098A6243E2F5300AA4159 /* FirstLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7098A5243E2F5300AA4159 /* FirstLaunchViewController.swift */; };
 		DB7098A8243E2FA000AA4159 /* FirstLaunchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7098A7243E2FA000AA4159 /* FirstLaunchPageViewController.swift */; };
 		DB7098AA243E316B00AA4159 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7098A9243E316B00AA4159 /* OnboardingViewController.swift */; };
 		DB81E8442438CAEC0097E606 /* ToolsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81E8432438CAEC0097E606 /* ToolsTableViewController.swift */; };
 		DB8AB462244C564100D5D9E9 /* SalesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8AB461244C564100D5D9E9 /* SalesTableViewController.swift */; };
+		DB934516245743A400867D72 /* StatisticTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB934515245743A400867D72 /* StatisticTableViewController.swift */; };
 		DBB58BDC244DE0D700662826 /* SalesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB58BDA244DE0D700662826 /* SalesTableViewCell.swift */; };
 		DBB58BDD244DE0D800662826 /* SalesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBB58BDB244DE0D700662826 /* SalesTableViewCell.xib */; };
 		DBB58BE2244DEC8D00662826 /* SalesStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB58BE1244DEC8D00662826 /* SalesStruct.swift */; };
@@ -96,13 +96,13 @@
 		DB599BA124098D3B0065CA3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB599BA324098D3B0065CA3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB599BA924099F230065CA3D /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
-		DB5C9DF9242A6BDE00E2CA86 /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
 		DB7098A3243E2E5D00AA4159 /* ModelFirstLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelFirstLaunch.swift; sourceTree = "<group>"; };
 		DB7098A5243E2F5300AA4159 /* FirstLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchViewController.swift; sourceTree = "<group>"; };
 		DB7098A7243E2FA000AA4159 /* FirstLaunchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchPageViewController.swift; sourceTree = "<group>"; };
 		DB7098A9243E316B00AA4159 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		DB81E8432438CAEC0097E606 /* ToolsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsTableViewController.swift; sourceTree = "<group>"; };
 		DB8AB461244C564100D5D9E9 /* SalesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesTableViewController.swift; sourceTree = "<group>"; };
+		DB934515245743A400867D72 /* StatisticTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticTableViewController.swift; sourceTree = "<group>"; };
 		DBB58BDA244DE0D700662826 /* SalesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesTableViewCell.swift; sourceTree = "<group>"; };
 		DBB58BDB244DE0D700662826 /* SalesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SalesTableViewCell.xib; sourceTree = "<group>"; };
 		DBB58BE1244DEC8D00662826 /* SalesStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesStruct.swift; sourceTree = "<group>"; };
@@ -163,7 +163,7 @@
 		DB2E3B292448CD3E0043DD7C /* StatisticViewController */ = {
 			isa = PBXGroup;
 			children = (
-				DB5C9DF9242A6BDE00E2CA86 /* StatisticViewController.swift */,
+				DB934515245743A400867D72 /* StatisticTableViewController.swift */,
 			);
 			path = StatisticViewController;
 			sourceTree = "<group>";
@@ -375,6 +375,7 @@
 				DB599BAA24099F230065CA3D /* AddItemViewController.swift in Sources */,
 				DB599B9524098D3B0065CA3D /* AppDelegate.swift in Sources */,
 				DBB58BDC244DE0D700662826 /* SalesTableViewCell.swift in Sources */,
+				DB934516245743A400867D72 /* StatisticTableViewController.swift in Sources */,
 				DBB58BE4244DECA700662826 /* CRUDModelSales.swift in Sources */,
 				DB4A1330244B1E0800F7A266 /* CRUDModelItem.swift in Sources */,
 				DB3B46ED2416B33800A79BB0 /* AddCategoryViewController.swift in Sources */,
@@ -383,7 +384,6 @@
 				DB7098AA243E316B00AA4159 /* OnboardingViewController.swift in Sources */,
 				DB3F300E243B76E60021D09F /* ItemStruct.swift in Sources */,
 				DB8AB462244C564100D5D9E9 /* SalesTableViewController.swift in Sources */,
-				DB5C9DFA242A6BDE00E2CA86 /* StatisticViewController.swift in Sources */,
 				DB599B9D24098D3B0065CA3D /* InternetShopKeeper.xcdatamodeld in Sources */,
 				DB2E3B2E2448CDE90043DD7C /* CRUDModelCategory.swift in Sources */,
 			);

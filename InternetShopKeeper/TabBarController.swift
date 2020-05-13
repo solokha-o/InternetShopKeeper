@@ -31,8 +31,8 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate{
         let navC0 = self.viewControllers?[0] as! UINavigationController
         let itemTVC = navC0.topViewController as! ItemTableViewController
         let navC3 = self.viewControllers?[3] as! UINavigationController
-        let staticticVC = navC3.topViewController as! StatisticViewController
-        staticticVC.itemsStract = itemTVC.itemsStruct
+        let staticticTVC = navC3.topViewController as! StatisticTableViewController
+        staticticTVC.itemsStract = itemTVC.itemsStruct
         
         animateToTab(toIndex: toIndex)
         return true
