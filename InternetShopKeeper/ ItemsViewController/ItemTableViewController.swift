@@ -19,6 +19,8 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
     let crudModelItem = CRUDModelItem()
     // create array with ItemStruct for view in tableview
     var itemsStruct = [ItemStruct]()
+    // create array for statistic
+    var itemStructStatistic = [ItemStruct]()
     // cteate dropDown barButtonItem
     let leftBarDropDown = DropDown()
     // add array of items
@@ -43,6 +45,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
         // load array from coreData and get to array table view
         items = crudModelItem.fetchItem(items: items)
         itemsStruct = crudModelItem.getAllItem(items: items)
+        itemStructStatistic = crudModelItem.getAllItem(items: items)
         // configurate BarButtonItem DropDown
         sortButtonOutlet.title = "Сортувати".localized
         leftBarDropDown.anchorView = sortButtonOutlet
@@ -206,6 +209,7 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
         } else {
             // else save to coreData and and view in tableview
             itemsStruct.append(item)
+            itemStructStatistic.append(item)
             items.append(crudModelItem.saveItem(item: item))
             print("Save item" + item.id)
         }

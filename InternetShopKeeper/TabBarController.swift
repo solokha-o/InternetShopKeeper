@@ -9,7 +9,7 @@
 import UIKit
 
 class TabBarController: UITabBarController, UITabBarControllerDelegate{
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
@@ -32,7 +32,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate{
         let itemTVC = navC0.topViewController as! ItemTableViewController
         let navC3 = self.viewControllers?[3] as! UINavigationController
         let staticticTVC = navC3.topViewController as! StatisticTableViewController
-        staticticTVC.itemsStract = itemTVC.itemsStruct
+        staticticTVC.itemsStract = itemTVC.itemStructStatistic
         
         animateToTab(toIndex: toIndex)
         return true

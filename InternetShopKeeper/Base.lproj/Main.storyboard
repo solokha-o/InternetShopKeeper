@@ -346,6 +346,21 @@
             </objects>
             <point key="canvasLocation" x="-1658" y="1437"/>
         </scene>
+        <!--Costs View Controller-->
+        <scene sceneID="qE1-cb-eol">
+            <objects>
+                <viewController storyboardIdentifier="CostsViewController" id="AFG-Re-dY6" customClass="CostsViewController" customModule="InternetShopKeeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7jC-Uc-lL0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="nJ5-oV-rFg"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FbJ-Kp-BJH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-735" y="1437"/>
+        </scene>
         <!--Параметри-->
         <scene sceneID="2RN-am-ckZ">
             <objects>

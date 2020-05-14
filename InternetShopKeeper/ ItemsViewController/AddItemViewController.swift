@@ -143,8 +143,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         // formate of date
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .none
+        dateFormatter.dateFormat = "dd.MM.yy"
         
     }
     override func viewWillAppear(_ animated: Bool) {
