@@ -361,6 +361,21 @@
             </objects>
             <point key="canvasLocation" x="-735" y="1437"/>
         </scene>
+        <!--Sales View Controller-->
+        <scene sceneID="Kdx-3q-iOf">
+            <objects>
+                <viewController storyboardIdentifier="SalesViewController" id="D9l-Q2-RLd" customClass="SalesViewController" customModule="InternetShopKeeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0vA-SS-Htk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Gtn-HM-tMu"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pIt-uX-8dn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4" y="1437"/>
+        </scene>
         <!--Параметри-->
         <scene sceneID="2RN-am-ckZ">
             <objects>
@@ -827,6 +842,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HPy-XF-udo"/>
                     </view>
+                    <navigationItem key="navigationItem" id="5PZ-rL-gwJ"/>
                     <connections>
                         <outlet property="addImage" destination="mns-sU-Rac" id="WA0-hi-Y17"/>
                         <outlet property="amountItemTextField" destination="OcN-G4-J6M" id="Uwd-4U-Jda"/>

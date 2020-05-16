@@ -12,6 +12,7 @@
 		DB0C8876242BD80C00AD4755 /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0C8875242BD80C00AD4755 /* DropDown.framework */; };
 		DB0C8877242BD80C00AD4755 /* DropDown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB0C8875242BD80C00AD4755 /* DropDown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DB1BFD5C2416BA3E00197229 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1BFD5B2416BA3E00197229 /* CategoryTableViewController.swift */; };
+		DB2B12352470336C003E213C /* SalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B12342470336C003E213C /* SalesViewController.swift */; };
 		DB2E3B2E2448CDE90043DD7C /* CRUDModelCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E3B2D2448CDE90043DD7C /* CRUDModelCategory.swift */; };
 		DB3B46ED2416B33800A79BB0 /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3B46EC2416B33800A79BB0 /* AddCategoryViewController.swift */; };
 		DB3F3009243B759D0021D09F /* CategoryStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F3008243B759D0021D09F /* CategoryStruct.swift */; };
@@ -135,6 +136,7 @@
 		DB07E26D24100CE600A86645 /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 		DB0C8875242BD80C00AD4755 /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB1BFD5B2416BA3E00197229 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		DB2B12342470336C003E213C /* SalesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesViewController.swift; sourceTree = "<group>"; };
 		DB2E3B2D2448CDE90043DD7C /* CRUDModelCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDModelCategory.swift; sourceTree = "<group>"; };
 		DB3B46EC2416B33800A79BB0 /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
 		DB3F3008243B759D0021D09F /* CategoryStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStruct.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			children = (
 				DB934515245743A400867D72 /* StatisticTableViewController.swift */,
 				DBAFB6F7246C54C50009C1B1 /* CostsViewController.swift */,
+				DB2B12342470336C003E213C /* SalesViewController.swift */,
 				DBAFB748246C73BD0009C1B1 /* AAInfographics */,
 			);
 			path = StatisticViewController;
@@ -558,6 +561,7 @@
 				DB7098A6243E2F5300AA4159 /* FirstLaunchViewController.swift in Sources */,
 				DBAFB769246C73BE0009C1B1 /* AAChartView.swift in Sources */,
 				DBAFB77F246C73BE0009C1B1 /* AATitle.swift in Sources */,
+				DB2B12352470336C003E213C /* SalesViewController.swift in Sources */,
 				DBAFB781246C73BE0009C1B1 /* AATooltip.swift in Sources */,
 				DBAFB76C246C73BE0009C1B1 /* AASerializable.swift in Sources */,
 				DBAFB777246C73BE0009C1B1 /* AAAnimation.swift in Sources */,

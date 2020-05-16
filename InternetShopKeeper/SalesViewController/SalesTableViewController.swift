@@ -21,6 +21,8 @@ class SalesTableViewController: UITableViewController {
     var salesStruct = [SalesStruct]()
     // create array Sales
     var sales = [Sales]()
+    // create array for sales statistic
+    var salesStructStatistic = [SalesStruct]()
     //create Bool for state of using coreData
     var isUpdateCoreData = false
     // create property for search bar and filtered results
@@ -40,6 +42,7 @@ class SalesTableViewController: UITableViewController {
         // load array from coreData and get to array table view
         sales = crudModelSales.fetchSale(sales: sales)
         salesStruct = crudModelSales.getAllSale(sales: sales)
+        salesStructStatistic = crudModelSales.getAllSale(sales: sales)
         //register nib file
         let nib = UINib(nibName: "SalesTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "SalesTableViewCell")
@@ -74,6 +77,7 @@ class SalesTableViewController: UITableViewController {
         DispatchQueue.main.async {
             self.sales = self.crudModelSales.fetchSale(sales: self.sales)
             self.salesStruct = self.crudModelSales.getAllSale(sales: self.sales)
+            self.salesStructStatistic = self.crudModelSales.getAllSale(sales: self.sales)
             self.tableView.reloadData()
             print(self.salesStruct.count)
             print(self.sales.count)
@@ -122,6 +126,7 @@ class SalesTableViewController: UITableViewController {
         let contextItem = UIContextualAction(style: .destructive, title: "Видалити".localized) {[weak self] (_,_,_) in
             // delete sale from array and core data
             self?.salesStruct.remove(at: indexPath.row)
+            self?.salesStructStatistic.remove(at: indexPath.row)
             self?.tableView.deleteRows(at: [indexPath], with: .fade)
             self?.tableView.reloadSections([indexPath.section], with: .fade)
             DispatchQueue.main.async {
@@ -171,6 +176,7 @@ class SalesTableViewController: UITableViewController {
     func appendSale(sale: SalesStruct) {
         DispatchQueue.main.async {
             self.salesStruct.append(sale)
+            self.salesStructStatistic.append(sale)
             self.sales.append(self.crudModelSales.saveSale(sale: sale))
         }
         print(sale)

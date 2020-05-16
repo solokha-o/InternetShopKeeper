@@ -11,8 +11,10 @@ import UIKit
 class StatisticTableViewController: UITableViewController {
     
     
-    // create array Item
+    // create array ItemStruct
     var itemsStract = [ItemStruct]()
+    // create array SaleStruct
+    var salesStruct = [SalesStruct]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,11 +54,14 @@ class StatisticTableViewController: UITableViewController {
     }
     // configure didSelectRowAt
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let costsVC = storyboard?.instantiateViewController(identifier: "CostsViewController") as? CostsViewController else { return }
+        guard let costsVC = storyboard?.instantiateViewController(identifier: "CostsViewController") as? CostsViewController, let salesVC  = storyboard?.instantiateViewController(identifier: "SalesViewController") as? SalesViewController else { return }
         switch indexPath.row {
         case 0:
             costsVC.itemsStruct = itemsStract
             showDetailViewController(costsVC, sender: nil)
+        case 1:
+            salesVC.salesStruct = salesStruct
+            showDetailViewController(salesVC, sender: nil)
         default:
             break
         }
