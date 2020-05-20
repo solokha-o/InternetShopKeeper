@@ -28,6 +28,7 @@ class SalesTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         saleLable.text = "Продано".localized
         pcsSaleItemLable.text = "Шт".localized
+        imageSaleItem.layer.masksToBounds = true
+        imageSaleItem.layer.cornerRadius = 25
     }
-    
 }

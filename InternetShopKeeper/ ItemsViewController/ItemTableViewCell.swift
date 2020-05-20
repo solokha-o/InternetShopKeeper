@@ -22,12 +22,15 @@ class ItemTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+       
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         inStockLable.text = "В наявності".localized
         pieceLable.text = "Шт".localized
+        imageItemView.layer.masksToBounds = true
+        imageItemView.layer.cornerRadius = 25
     }
 }
 

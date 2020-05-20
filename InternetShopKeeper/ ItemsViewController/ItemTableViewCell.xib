@@ -29,11 +29,6 @@
                                             <constraint firstAttribute="width" constant="120" id="gHO-6d-BOE"/>
                                         </constraints>
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -132,7 +127,7 @@
                         </subviews>
                     </stackView>
                 </subviews>
-                <color key="backgroundColor" red="1" green="0.80626076132583901" blue="0.31413918211401493" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="2JT-gP-r39" secondAttribute="trailing" id="0Zm-Po-xBT"/>
                     <constraint firstAttribute="bottom" secondItem="2JT-gP-r39" secondAttribute="bottom" id="lQ9-8n-kOV"/>
