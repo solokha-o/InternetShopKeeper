@@ -29,6 +29,6 @@ class SalesTableViewCell: UITableViewCell {
         saleLable.text = "Продано".localized
         pcsSaleItemLable.text = "Шт".localized
         imageSaleItem.layer.masksToBounds = true
-        imageSaleItem.layer.cornerRadius = 25
+        imageSaleItem.layer.cornerRadius = 35.0
     }
 }
