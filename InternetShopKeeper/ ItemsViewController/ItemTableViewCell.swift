@@ -30,7 +30,7 @@ class ItemTableViewCell: UITableViewCell {
         inStockLable.text = "В наявності".localized
         pieceLable.text = "Шт".localized
         imageItemView.layer.masksToBounds = true
-        imageItemView.layer.cornerRadius = 25
+        imageItemView.layer.cornerRadius = 35.0
     }
 }
 
