@@ -15,7 +15,10 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate{
         delegate = self
         setupTitleTabBarItem()
         //To preload all view controllers
-        tabBarController?.viewControllers?.forEach { let _ = $0.view }
+        self.viewControllers?.forEach { let _ = $0.view }
+        // get notification center to receive
+        NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(_:)), name: .colorNotificationKey, object: nil)
+        self.tabBar.barTintColor = .systemOrange
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,5 +84,10 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate{
         self.viewControllers?[2].tabBarItem.title = "Мої продажі".localized
         self.viewControllers?[3].tabBarItem.title = "Статистика".localized
         self.viewControllers?[4].tabBarItem.title = "Параметри".localized
+    }
+    // function call to change color view
+    @objc func notificationReceived(_ notification: Notification) {
+        guard let color = notification.userInfo?["color"] as? UIColor else { return }
+        self.tabBar.barTintColor = color
     }
 }

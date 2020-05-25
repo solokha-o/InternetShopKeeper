@@ -43,6 +43,8 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
         // load array from coreData and get to array table view
         categories = crudModelCategory.fetchCategory(categories: categories)
         categoriesStruct = crudModelCategory.getAllCategory(categories: categories)
+        // get notification center to receive
+        NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(_:)), name: .colorNotificationKey, object: nil)
         // configure BarButtonItem DropDown
         sortButtonOutlet.title = "Сортувати".localized
         leftBarDropDown.anchorView = sortButtonOutlet
@@ -64,6 +66,7 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        
     }
     // func for filter Content For Search Text
     func filterContentForSearchText(_ searchText: String) {
@@ -175,6 +178,12 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
         guard let desctinationVC = segue.destination as? AddCategoryViewController else { return }
         desctinationVC.delegate = self
         isUpdateCoreData = false
+    }
+    // function call to change color view
+    @objc func notificationReceived(_ notification: Notification) {
+        guard let color = notification.userInfo?["color"] as? UIColor else { return }
+        navigationController?.navigationBar.barTintColor = color
+        navigationController?.navigationBar.backgroundColor = color
     }
 }
 // add extension UISearchResultsUpdating to CategoryTableViewController

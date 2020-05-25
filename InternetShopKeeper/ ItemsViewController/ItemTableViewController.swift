@@ -73,6 +73,8 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .none
         dateFormatter.dateFormat = "dd.mm.yy, hh:mm, a"
+        // get notification center to receive
+        NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(_:)), name: .colorNotificationKey, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -221,6 +223,12 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
         guard let desctinationVC = segue.destination as? AddItemViewController else { return }
         desctinationVC.delegateItem = self
         isUpdateCoreData = false
+    }
+    // function call to change color view
+    @objc func notificationReceived(_ notification: Notification) {
+        guard let color = notification.userInfo?["color"] as? UIColor else { return }
+        navigationController?.navigationBar.barTintColor = color
+        navigationController?.navigationBar.backgroundColor = color
     }
 }
 

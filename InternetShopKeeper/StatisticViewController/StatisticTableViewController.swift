@@ -22,6 +22,8 @@ class StatisticTableViewController: UITableViewController {
         navigationItem.title = "Статистика".localized
         self.navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
+        // get notification center to receive
+        NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(_:)), name: .colorNotificationKey, object: nil)
     }
     
     // MARK: - Table view data source
@@ -66,5 +68,10 @@ class StatisticTableViewController: UITableViewController {
             break
         }
     }
-    
+    // function call to change color view
+    @objc func notificationReceived(_ notification: Notification) {
+        guard let color = notification.userInfo?["color"] as? UIColor else { return }
+        navigationController?.navigationBar.barTintColor = color
+        navigationController?.navigationBar.backgroundColor = color
+    }
 }

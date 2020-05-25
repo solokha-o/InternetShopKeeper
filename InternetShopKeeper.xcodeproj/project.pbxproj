@@ -67,6 +67,8 @@
 		DBB58BE2244DEC8D00662826 /* SalesStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB58BE1244DEC8D00662826 /* SalesStruct.swift */; };
 		DBB58BE4244DECA700662826 /* CRUDModelSales.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB58BE3244DECA700662826 /* CRUDModelSales.swift */; };
 		DBDC7E992409B345005E35CA /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC7E982409B345005E35CA /* ItemTableViewController.swift */; };
+		DBEF553F2476CA350078826D /* ColorAppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEF553D2476CA350078826D /* ColorAppTableViewCell.swift */; };
+		DBEF55402476CA350078826D /* ColorAppTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBEF553E2476CA350078826D /* ColorAppTableViewCell.xib */; };
 		DBF45FF62444B0520045349E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF45FF52444B0520045349E /* TabBarController.swift */; };
 		DBF45FFE2444B7870045349E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DBF460002444B7870045349E /* Localizable.strings */; };
 		DBF460032444B8020045349E /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF460022444B8020045349E /* String+Localized.swift */; };
@@ -195,6 +197,8 @@
 		DBB58BE1244DEC8D00662826 /* SalesStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesStruct.swift; sourceTree = "<group>"; };
 		DBB58BE3244DECA700662826 /* CRUDModelSales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDModelSales.swift; sourceTree = "<group>"; };
 		DBDC7E982409B345005E35CA /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
+		DBEF553D2476CA350078826D /* ColorAppTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAppTableViewCell.swift; sourceTree = "<group>"; };
+		DBEF553E2476CA350078826D /* ColorAppTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorAppTableViewCell.xib; sourceTree = "<group>"; };
 		DBF45FF52444B0520045349E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DBF45FFF2444B7870045349E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DBF460012444B7B60045349E /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -265,6 +269,8 @@
 			isa = PBXGroup;
 			children = (
 				DB81E8432438CAEC0097E606 /* ToolsTableViewController.swift */,
+				DBEF553D2476CA350078826D /* ColorAppTableViewCell.swift */,
+				DBEF553E2476CA350078826D /* ColorAppTableViewCell.xib */,
 			);
 			path = ToolsViewController;
 			sourceTree = "<group>";
@@ -535,6 +541,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBEF55402476CA350078826D /* ColorAppTableViewCell.xib in Resources */,
 				DBF45FFE2444B7870045349E /* Localizable.strings in Resources */,
 				DB07E26F24100CE600A86645 /* ItemTableViewCell.xib in Resources */,
 				DBAFB76E246C73BE0009C1B1 /* AAJSFiles.bundle in Resources */,
@@ -594,6 +601,7 @@
 				DB3B46ED2416B33800A79BB0 /* AddCategoryViewController.swift in Sources */,
 				DBAFB782246C73BE0009C1B1 /* AAPlotBandsElement.swift in Sources */,
 				DBF460032444B8020045349E /* String+Localized.swift in Sources */,
+				DBEF553F2476CA350078826D /* ColorAppTableViewCell.swift in Sources */,
 				DBAFB775246C73BE0009C1B1 /* AALabels.swift in Sources */,
 				DB7098A4243E2E5D00AA4159 /* ModelFirstLaunch.swift in Sources */,
 				DB7098AA243E316B00AA4159 /* OnboardingViewController.swift in Sources */,

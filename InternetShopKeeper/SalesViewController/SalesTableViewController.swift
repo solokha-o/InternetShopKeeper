@@ -46,6 +46,8 @@ class SalesTableViewController: UITableViewController {
         //register nib file
         let nib = UINib(nibName: "SalesTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "SalesTableViewCell")
+        // get notification center to receive
+        NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(_:)), name: .colorNotificationKey, object: nil)
         // configure navigationItem and navigationBar
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.title = "Мої продажі".localized
@@ -70,6 +72,7 @@ class SalesTableViewController: UITableViewController {
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         self.tableView.rowHeight = 110.0
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -211,6 +214,12 @@ class SalesTableViewController: UITableViewController {
         leftBarDropDown.bottomOffset = CGPoint(x: 0, y:(leftBarDropDown.anchorView?.plainView.bounds.height)!)
         leftBarDropDown.show()
         leftBarDropDown.dismissMode = .onTap
+    }
+    // function call to change color view
+    @objc func notificationReceived(_ notification: Notification) {
+        guard let color = notification.userInfo?["color"] as? UIColor else { return }
+        navigationController?.navigationBar.barTintColor = color
+        navigationController?.navigationBar.backgroundColor = color
     }
 }
 
