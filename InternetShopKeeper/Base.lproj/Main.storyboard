@@ -117,7 +117,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Ze-AC-GTY" firstAttribute="centerX" secondItem="fWt-ld-QXQ" secondAttribute="centerX" id="0SB-Jx-5Ty"/>
                             <constraint firstItem="6Ze-AC-GTY" firstAttribute="centerY" secondItem="fWt-ld-QXQ" secondAttribute="centerY" id="SG2-k0-A4e"/>
@@ -282,9 +282,7 @@
         <scene sceneID="qO7-Nv-d0a">
             <objects>
                 <navigationController id="nYd-0i-Pbp" customClass="NavigationController" customModule="InternetShopKeeper" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="3" title="" image="Statistic" selectedImage="Statistic" id="YDx-Pi-o1e">
-                        <color key="badgeColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" tag="3" title="" image="Statistic" selectedImage="Statistic" id="YDx-Pi-o1e"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1yP-L0-Iqd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -491,7 +489,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="lQF-i0-Z7Q" firstAttribute="trailing" secondItem="FnO-6M-UYD" secondAttribute="trailing" constant="16" id="16L-Lj-2aa"/>
                             <constraint firstItem="FnO-6M-UYD" firstAttribute="centerX" secondItem="lQF-i0-Z7Q" secondAttribute="centerX" id="63a-UG-2Na"/>
@@ -521,9 +519,7 @@
         <scene sceneID="Nvi-mQ-hvw">
             <objects>
                 <navigationController id="OC7-QR-l1V" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="" image="Category" selectedImage="Category" id="zEC-tH-mh0">
-                        <color key="badgeColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="Category" selectedImage="Category" id="zEC-tH-mh0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qdk-4V-GFf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -812,7 +808,6 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="emg-nb-Xg4" secondAttribute="bottom" constant="-10.5" id="a0M-FM-n5J"/>
                                             <constraint firstItem="emg-nb-Xg4" firstAttribute="leading" secondItem="0bO-XE-o9k" secondAttribute="leading" constant="10" id="deD-8p-DD7"/>
@@ -830,7 +825,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Wmr-Lo-XOm" firstAttribute="top" secondItem="HPy-XF-udo" secondAttribute="top" id="9p4-M0-InJ"/>

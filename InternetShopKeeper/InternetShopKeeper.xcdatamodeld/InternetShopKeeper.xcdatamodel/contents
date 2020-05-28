@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AppColor" representedClassName="AppColor" syncable="YES" codeGenerationType="class">
+        <attribute name="color" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="Categories" representedClassName="Categories" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -28,5 +31,6 @@
         <element name="Categories" positionX="105.5" positionY="-15.97265625" width="128" height="73"/>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="178"/>
         <element name="Sales" positionX="18" positionY="54" width="128" height="148"/>
+        <element name="AppColor" positionX="18" positionY="72" width="128" height="58"/>
     </elements>
 </model>

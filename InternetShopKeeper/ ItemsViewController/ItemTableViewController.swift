@@ -25,6 +25,10 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
     let leftBarDropDown = DropDown()
     // add array of items
     var items = [Item]()
+    //add instance for color app
+    var color = [AppColor]()
+    //create instance CRUDModelAppColor for read color from core date 
+    let crudModelAppColor = CRUDModelAppColor()
     // create property for search bar and filtered results
     let search = UISearchController(searchResultsController: nil)
     var filteredItemsStruct = [ItemStruct]()
@@ -86,6 +90,8 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupColorApp()
     }
     
     // func for filter Content For Search Text
@@ -229,6 +235,13 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
         guard let color = notification.userInfo?["color"] as? UIColor else { return }
         navigationController?.navigationBar.barTintColor = color
         navigationController?.navigationBar.backgroundColor = color
+    }
+    // setup color app from core data
+    func setupColorApp() {
+        color = crudModelAppColor.fetchColor(color: color)
+        let uiColor = UIColor.uiColorFromString(string: color[0].color ?? ".systemOrange")
+        navigationController?.navigationBar.barTintColor = uiColor
+        navigationController?.navigationBar.backgroundColor = uiColor
     }
 }
 

@@ -64,6 +64,10 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     var delegateItem : AddItemViewControllerDelegate?
     //create instance of CRUDModelCategory
     let crudModelCategory = CRUDModelCategory()
+    //add instance for color app
+    var color = [AppColor]()
+    //create instance CRUDModelAppColor for read color from core date
+    let crudModelAppColor = CRUDModelAppColor()
     //create instance of ItemStruct
     var item = ItemStruct(title: "", category: "", price: "", amount: "", details: "", image: UIImage(imageLiteralResourceName: "AddImage"), id: "", incomePrice: "", date: "")
     //create instance of SalesStruct
@@ -80,6 +84,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     // add date property
     let currentDate = Date()
     let dateFormatter = DateFormatter()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,12 +144,13 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         amountSaleViewTextFieldOutlet.placeholder = "Кількість".localized
         cancelButtonSaleViewOutlet.setTitle("Скасувати".localized, for: .normal)
         saveButtonSaleViewOutlet.setTitle("Готово".localized, for: .normal)
+        // get notification center to receive
+        NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(_:)), name: .colorNotificationKey, object: nil)
         // create NotificationCenter for keyboardWillShowNotification and keyboardWillHideNotification
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         // formate of date
         dateFormatter.dateFormat = "dd.MM.yy"
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -166,6 +172,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         saveItemButtonOutlet.setTitle(currentState.rightButtonTitle, for: .normal)
         cancelButtonOutlet.setTitle(currentState.leftButtonTitle, for: .normal)
+        setupColorApp()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -430,6 +437,17 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     @objc func cancelPicker() {
         categoryItemTextField.resignFirstResponder()
         categoryItemTextField.text = ""
+    }
+    // function call to change color view
+    @objc func notificationReceived(_ notification: Notification) {
+        guard let color = notification.userInfo?["color"] as? UIColor else { return }
+        self.view.backgroundColor = color
+    }
+    // setup color app from core data
+    func setupColorApp() {
+        color = crudModelAppColor.fetchColor(color: color)
+        let uiColor = UIColor.uiColorFromString(string: color[0].color ?? ".systemOrange")
+        self.view.backgroundColor = uiColor
     }
 }
 // move to next textField

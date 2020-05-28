@@ -11,6 +11,16 @@ import MessageUI
 
 class ToolsTableViewController: UITableViewController {
 
+    //add instance for color app
+    var color = [AppColor]()
+    //create instance CRUDModelAppColor for read color from core date
+    let crudModelAppColor = CRUDModelAppColor()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupColorApp()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.title = "Параметри".localized
@@ -89,6 +99,13 @@ class ToolsTableViewController: UITableViewController {
         guard let color = notification.userInfo?["color"] as? UIColor else { return }
         navigationController?.navigationBar.barTintColor = color
         navigationController?.navigationBar.backgroundColor = color
+    }
+    // setup color app from core data
+    func setupColorApp() {
+        color = crudModelAppColor.fetchColor(color: color)
+        let uiColor = UIColor.uiColorFromString(string: color[0].color ?? ".systemOrange")
+        navigationController?.navigationBar.barTintColor = uiColor
+        navigationController?.navigationBar.backgroundColor = uiColor
     }
 }
 // extention for mail message

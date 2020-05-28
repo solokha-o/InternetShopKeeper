@@ -22,6 +22,10 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
     let leftBarDropDown = DropDown()
     // create array for coreData
     var categories = [Categories]()
+    //add instance for color app
+    var color = [AppColor]()
+    //create instance CRUDModelAppColor for read color from core date
+    let crudModelAppColor = CRUDModelAppColor()
     // create property for search bar and filtered results
     let search = UISearchController(searchResultsController: nil)
     var filteredCategories = [CategoryStruct]()
@@ -36,6 +40,7 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupColorApp()
     }
     
     override func viewDidLoad() {
@@ -184,6 +189,13 @@ class CategoryTableViewController: UITableViewController, AddCategoryViewControl
         guard let color = notification.userInfo?["color"] as? UIColor else { return }
         navigationController?.navigationBar.barTintColor = color
         navigationController?.navigationBar.backgroundColor = color
+    }
+    // setup color app from core data
+    func setupColorApp() {
+        color = crudModelAppColor.fetchColor(color: color)
+        let uiColor = UIColor.uiColorFromString(string: color[0].color ?? ".systemOrange")
+        navigationController?.navigationBar.barTintColor = uiColor
+        navigationController?.navigationBar.backgroundColor = uiColor
     }
 }
 // add extension UISearchResultsUpdating to CategoryTableViewController

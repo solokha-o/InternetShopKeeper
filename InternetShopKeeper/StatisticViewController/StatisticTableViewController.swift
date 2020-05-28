@@ -15,6 +15,15 @@ class StatisticTableViewController: UITableViewController {
     var itemsStract = [ItemStruct]()
     // create array SaleStruct
     var salesStruct = [SalesStruct]()
+    //add instance for color app
+    var color = [AppColor]()
+    //create instance CRUDModelAppColor for read color from core date
+    let crudModelAppColor = CRUDModelAppColor()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupColorApp()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,5 +82,12 @@ class StatisticTableViewController: UITableViewController {
         guard let color = notification.userInfo?["color"] as? UIColor else { return }
         navigationController?.navigationBar.barTintColor = color
         navigationController?.navigationBar.backgroundColor = color
+    }
+    // setup color app from core data
+    func setupColorApp() {
+        color = crudModelAppColor.fetchColor(color: color)
+        let uiColor = UIColor.uiColorFromString(string: color[0].color ?? ".systemOrange")
+        navigationController?.navigationBar.barTintColor = uiColor
+        navigationController?.navigationBar.backgroundColor = uiColor
     }
 }

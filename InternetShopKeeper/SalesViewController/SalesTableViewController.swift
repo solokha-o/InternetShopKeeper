@@ -23,6 +23,10 @@ class SalesTableViewController: UITableViewController {
     var sales = [Sales]()
     // create array for sales statistic
     var salesStructStatistic = [SalesStruct]()
+    //add instance for color app
+    var color = [AppColor]()
+    //create instance CRUDModelAppColor for read color from core date
+    let crudModelAppColor = CRUDModelAppColor()
     //create Bool for state of using coreData
     var isUpdateCoreData = false
     // create property for search bar and filtered results
@@ -85,6 +89,7 @@ class SalesTableViewController: UITableViewController {
             print(self.salesStruct.count)
             print(self.sales.count)
         }
+        setupColorApp()
     }
     // func for filter Content For Search Text
     func filterContentForSearchText(_ searchText: String) {
@@ -220,6 +225,13 @@ class SalesTableViewController: UITableViewController {
         guard let color = notification.userInfo?["color"] as? UIColor else { return }
         navigationController?.navigationBar.barTintColor = color
         navigationController?.navigationBar.backgroundColor = color
+    }
+    // setup color app from core data
+    func setupColorApp() {
+        color = crudModelAppColor.fetchColor(color: color)
+        let uiColor = UIColor.uiColorFromString(string: color[0].color ?? ".systemOrange")
+        navigationController?.navigationBar.barTintColor = uiColor
+        navigationController?.navigationBar.backgroundColor = uiColor
     }
 }
 

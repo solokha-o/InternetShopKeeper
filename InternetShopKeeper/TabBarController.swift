@@ -10,15 +10,21 @@ import UIKit
 
 class TabBarController: UITabBarController, UITabBarControllerDelegate{
     
+    //add instance for color app
+    var color = [AppColor]()
+    //create instance CRUDModelAppColor for read color from core date
+    let crudModelAppColor = CRUDModelAppColor()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
+        // call setup and configure controller function
+        setupColorApp()
         setupTitleTabBarItem()
         //To preload all view controllers
         self.viewControllers?.forEach { let _ = $0.view }
         // get notification center to receive
         NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(_:)), name: .colorNotificationKey, object: nil)
-        self.tabBar.barTintColor = .systemOrange
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,5 +95,13 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate{
     @objc func notificationReceived(_ notification: Notification) {
         guard let color = notification.userInfo?["color"] as? UIColor else { return }
         self.tabBar.barTintColor = color
+        self.tabBar.backgroundColor = color
+    }
+    // setup color app from core data
+    func setupColorApp() {
+        color = crudModelAppColor.fetchColor(color: color)
+        let uiColor = UIColor.uiColorFromString(string: color[0].color ?? ".systemOrange")
+        self.tabBar.barTintColor = uiColor
+        self.tabBar.backgroundColor = uiColor
     }
 }

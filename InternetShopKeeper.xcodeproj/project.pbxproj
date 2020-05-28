@@ -13,6 +13,7 @@
 		DB0C8877242BD80C00AD4755 /* DropDown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB0C8875242BD80C00AD4755 /* DropDown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DB1BFD5C2416BA3E00197229 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1BFD5B2416BA3E00197229 /* CategoryTableViewController.swift */; };
 		DB2B12352470336C003E213C /* SalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B12342470336C003E213C /* SalesViewController.swift */; };
+		DB2DA6AB247C06E7006D2073 /* CRUDModelAppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2DA6AA247C06E7006D2073 /* CRUDModelAppColor.swift */; };
 		DB2E3B2E2448CDE90043DD7C /* CRUDModelCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E3B2D2448CDE90043DD7C /* CRUDModelCategory.swift */; };
 		DB3B46ED2416B33800A79BB0 /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3B46EC2416B33800A79BB0 /* AddCategoryViewController.swift */; };
 		DB3F3009243B759D0021D09F /* CategoryStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F3008243B759D0021D09F /* CategoryStruct.swift */; };
@@ -139,6 +140,7 @@
 		DB0C8875242BD80C00AD4755 /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB1BFD5B2416BA3E00197229 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		DB2B12342470336C003E213C /* SalesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesViewController.swift; sourceTree = "<group>"; };
+		DB2DA6AA247C06E7006D2073 /* CRUDModelAppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDModelAppColor.swift; sourceTree = "<group>"; };
 		DB2E3B2D2448CDE90043DD7C /* CRUDModelCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDModelCategory.swift; sourceTree = "<group>"; };
 		DB3B46EC2416B33800A79BB0 /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
 		DB3F3008243B759D0021D09F /* CategoryStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStruct.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 			children = (
 				DB599B9424098D3B0065CA3D /* AppDelegate.swift */,
 				DBF45FF52444B0520045349E /* TabBarController.swift */,
+				DB2DA6AA247C06E7006D2073 /* CRUDModelAppColor.swift */,
 				DB2E3B272448C8570043DD7C /*  ItemsViewController */,
 				DB2E3B282448CCEE0043DD7C /* CategoriesViewController */,
 				DB8AB45D244C560600D5D9E9 /* SalesViewController */,
@@ -587,6 +590,7 @@
 				DBAFB783246C73BE0009C1B1 /* AASeries.swift in Sources */,
 				DBAFB76D246C73BE0009C1B1 /* AASeriesElement.swift in Sources */,
 				DBAFB77B246C73BE0009C1B1 /* AALegend.swift in Sources */,
+				DB2DA6AB247C06E7006D2073 /* CRUDModelAppColor.swift in Sources */,
 				DBAFB77D246C73BE0009C1B1 /* AADataLabels.swift in Sources */,
 				DBDC7E992409B345005E35CA /* ItemTableViewController.swift in Sources */,
 				DB1BFD5C2416BA3E00197229 /* CategoryTableViewController.swift in Sources */,

@@ -39,6 +39,10 @@ class AddCategoryViewController: UIViewController {
     @IBOutlet weak var enterCategoryLable: UILabel!
     @IBOutlet weak var addCategoryTextField: UITextField!
     
+    //add instance for color app
+    var color = [AppColor]()
+    //create instance CRUDModelAppColor for read color from core date
+    let crudModelAppColor = CRUDModelAppColor()
     // create delegate of AddCategoryViewController
     var delegate : AddCategoryViewControllerDelegate?
     //create instance of CategoryStruct
@@ -52,6 +56,8 @@ class AddCategoryViewController: UIViewController {
         newCategoryLable.text = "Нова категорія".localized
         enterCategoryLable.text = "Введи категорію товару".localized
         addCategoryTextField.placeholder = "Категорія товару".localized
+        // get notification center to receive
+        NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(_:)), name: .colorNotificationKey, object: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -62,6 +68,7 @@ class AddCategoryViewController: UIViewController {
         }
         saveCategoryButtonOutlet.setTitle(currentState.rightButtonTitle, for: .normal)
         cancelButtonOutlet.setTitle(currentState.leftButtonTitle, for: .normal)
+        setupColorApp()
     }
     // press button ADD
     @IBAction func saveCategoryButtonAction(_ sender: UIButton) {
@@ -104,5 +111,16 @@ class AddCategoryViewController: UIViewController {
     @IBAction func cancelButtonAction(_ sender: UIButton) {
         print("Press CANCEL.")
         dismiss(animated: true, completion: nil)
+    }
+    // function call to change color view
+    @objc func notificationReceived(_ notification: Notification) {
+        guard let color = notification.userInfo?["color"] as? UIColor else { return }
+        self.view.backgroundColor = color
+    }
+    // setup color app from core data
+    func setupColorApp() {
+        color = crudModelAppColor.fetchColor(color: color)
+        let uiColor = UIColor.uiColorFromString(string: color[0].color ?? ".systemOrange")
+        self.view.backgroundColor = uiColor
     }
 }

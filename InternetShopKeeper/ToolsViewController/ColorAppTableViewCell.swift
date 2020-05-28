@@ -13,6 +13,8 @@ class ColorAppTableViewCell: UITableViewCell {
     @IBOutlet weak var colorLabel: UILabel!
     @IBOutlet var colorButtonsOutletCollection: [UIButton]!
     
+    //create instance CRUDModelAppColor for update color in core date
+    let crudModelAppColor = CRUDModelAppColor()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,6 +36,8 @@ class ColorAppTableViewCell: UITableViewCell {
         // create notification to send other view changes color
         let userInfo : [AnyHashable:Any] = ["color" : sender.backgroundColor as Any]
         NotificationCenter.default.post(name: .colorNotificationKey, object: nil, userInfo: userInfo)
+        // update color app in core data
+        crudModelAppColor.updateColor(color: sender.backgroundColor ?? .systemOrange)
     }
     // configure view and setup it
     func setCell() {
@@ -50,11 +54,11 @@ class ColorAppTableViewCell: UITableViewCell {
             case 1:
                 colorButton.backgroundColor = .systemTeal
             case 2:
-                colorButton.backgroundColor = .systemIndigo
+                colorButton.backgroundColor = .systemGreen
             case 3:
-                colorButton.backgroundColor = .systemPurple
+                colorButton.backgroundColor = .systemRed
             case 4:
-                colorButton.backgroundColor = .white
+                colorButton.backgroundColor = .systemGroupedBackground
             default:
                 break
             }
