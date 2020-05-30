@@ -13,6 +13,8 @@ class ColorAppTableViewCell: UITableViewCell {
     @IBOutlet weak var colorLabel: UILabel!
     @IBOutlet var colorButtonsOutletCollection: [UIButton]!
     
+    //add instance for color app
+    var color = [AppColor]()
     //create instance CRUDModelAppColor for update color in core date
     let crudModelAppColor = CRUDModelAppColor()
     
@@ -41,6 +43,8 @@ class ColorAppTableViewCell: UITableViewCell {
     }
     // configure view and setup it
     func setCell() {
+        // fetch color from core data
+        color = crudModelAppColor.fetchColor(color: color)
         // configure text label
         colorLabel.text = "Вибери колір для додатку".localized
         //configure button
@@ -62,6 +66,16 @@ class ColorAppTableViewCell: UITableViewCell {
             default:
                 break
             }
+            // compare color in string app and color on string from core data to setup checkMark
+            let appColorString = UIColor.stringFromUIColor(color: colorButton.backgroundColor ?? .systemOrange)
+            if let uiColorString = color[0].color {
+                if appColorString == uiColorString {
+                    let checkMark = UIImage(systemName: "checkmark")
+                    colorButton.setImage(checkMark, for: .normal)
+                }
+                print(appColorString)
+                print(uiColorString)
+            }
         }
     }
 }
@@ -69,3 +83,4 @@ class ColorAppTableViewCell: UITableViewCell {
 extension Notification.Name {
     public static let colorNotificationKey = Notification.Name(rawValue: "colorNotificationKey")
 }
+

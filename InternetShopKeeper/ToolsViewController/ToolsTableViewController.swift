@@ -10,7 +10,7 @@ import UIKit
 import MessageUI
 
 class ToolsTableViewController: UITableViewController {
-
+    
     //add instance for color app
     var color = [AppColor]()
     //create instance CRUDModelAppColor for read color from core date
@@ -34,12 +34,12 @@ class ToolsTableViewController: UITableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(_:)), name: .colorNotificationKey, object: nil)
     }
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 3
@@ -111,7 +111,7 @@ class ToolsTableViewController: UITableViewController {
 // extention for mail message
 extension ToolsTableViewController: MFMailComposeViewControllerDelegate {
     private func mailComposeController(controller: MFMailComposeViewController,
-                               didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+                                       didFinishWithResult result: MFMailComposeResult, error: NSError?) {
         // Dismiss the mail compose view controller.
         controller.dismiss(animated: true, completion: nil)
     }
