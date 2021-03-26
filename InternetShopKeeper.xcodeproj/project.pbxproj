@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		074EB971A1657742A5A4A1A4 /* Pods_InternetShopKeeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B473DBD0A566C101D482389E /* Pods_InternetShopKeeper.framework */; };
 		DB07E26E24100CE600A86645 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB07E26C24100CE600A86645 /* ItemTableViewCell.swift */; };
 		DB07E26F24100CE600A86645 /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB07E26D24100CE600A86645 /* ItemTableViewCell.xib */; };
 		DB0C8876242BD80C00AD4755 /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0C8875242BD80C00AD4755 /* DropDown.framework */; };
@@ -135,6 +136,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B2C0982B72AF1F8E05390CA5 /* Pods-InternetShopKeeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InternetShopKeeper.release.xcconfig"; path = "Target Support Files/Pods-InternetShopKeeper/Pods-InternetShopKeeper.release.xcconfig"; sourceTree = "<group>"; };
+		B473DBD0A566C101D482389E /* Pods_InternetShopKeeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InternetShopKeeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB07E26C24100CE600A86645 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		DB07E26D24100CE600A86645 /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 		DB0C8875242BD80C00AD4755 /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +209,7 @@
 		DBF460012444B7B60045349E /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DBF460022444B8020045349E /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		DBFAB63724339C2C00108421 /* DropDown.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DropDown.xcodeproj; path = "DropDown-master/DropDown.xcodeproj"; sourceTree = "<group>"; };
+		FA0FFC93EC18F9221400C509 /* Pods-InternetShopKeeper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InternetShopKeeper.debug.xcconfig"; path = "Target Support Files/Pods-InternetShopKeeper/Pods-InternetShopKeeper.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB0C8876242BD80C00AD4755 /* DropDown.framework in Frameworks */,
+				074EB971A1657742A5A4A1A4 /* Pods_InternetShopKeeper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +233,7 @@
 				DBAFB6F9246C66EC0009C1B1 /* AAInfographicsDemo */,
 				DBFAB63724339C2C00108421 /* DropDown.xcodeproj */,
 				DB0C8875242BD80C00AD4755 /* DropDown.framework */,
+				B473DBD0A566C101D482389E /* Pods_InternetShopKeeper.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -303,6 +309,7 @@
 				DB599B9324098D3B0065CA3D /* InternetShopKeeper */,
 				DB599B9224098D3B0065CA3D /* Products */,
 				DB0C8874242BD80C00AD4755 /* Frameworks */,
+				DDAFB6311E78268E51EE6578 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -428,6 +435,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		DDAFB6311E78268E51EE6578 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FA0FFC93EC18F9221400C509 /* Pods-InternetShopKeeper.debug.xcconfig */,
+				B2C0982B72AF1F8E05390CA5 /* Pods-InternetShopKeeper.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -435,10 +451,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB599BA624098D3B0065CA3D /* Build configuration list for PBXNativeTarget "InternetShopKeeper" */;
 			buildPhases = (
+				340431A74C6F6FFEEA911B37 /* [CP] Check Pods Manifest.lock */,
 				DB599B8D24098D3A0065CA3D /* Sources */,
 				DB599B8E24098D3A0065CA3D /* Frameworks */,
 				DB599B8F24098D3A0065CA3D /* Resources */,
 				DB0C8878242BD80C00AD4755 /* Embed Frameworks */,
+				51229012429B4372EE121671 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -456,7 +474,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Oleksandr Solokha";
 				TargetAttributes = {
 					DB599B9024098D3A0065CA3D = {
@@ -557,6 +575,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		340431A74C6F6FFEEA911B37 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InternetShopKeeper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		51229012429B4372EE121671 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InternetShopKeeper/Pods-InternetShopKeeper-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InternetShopKeeper/Pods-InternetShopKeeper-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InternetShopKeeper/Pods-InternetShopKeeper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DB599B8D24098D3A0065CA3D /* Sources */ = {
@@ -678,6 +738,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -703,7 +764,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -738,6 +799,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -757,7 +819,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -768,12 +830,13 @@
 		};
 		DB599BA724098D3B0065CA3D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA0FFC93EC18F9221400C509 /* Pods-InternetShopKeeper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X8NNCQ3HW6;
 				INFOPLIST_FILE = InternetShopKeeper/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -787,12 +850,13 @@
 		};
 		DB599BA824098D3B0065CA3D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2C0982B72AF1F8E05390CA5 /* Pods-InternetShopKeeper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X8NNCQ3HW6;
 				INFOPLIST_FILE = InternetShopKeeper/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

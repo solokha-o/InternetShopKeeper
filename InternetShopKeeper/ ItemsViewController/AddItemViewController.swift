@@ -191,10 +191,10 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             textView.textColor = UIColor.lightGray
         }
     }
-    //Deinit NotificationCenter
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
+//    //Deinit NotificationCenter
+//    deinit {
+//        NotificationCenter.default.removeObserver(self)
+//    }
     // configure touchesBegan for state isInEdit
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if isInEdit {
