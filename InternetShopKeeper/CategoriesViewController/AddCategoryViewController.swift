@@ -56,6 +56,7 @@ class AddCategoryViewController: UIViewController {
         newCategoryLable.text = "Нова категорія".localized
         enterCategoryLable.text = "Введи категорію товару".localized
         addCategoryTextField.placeholder = "Категорія товару".localized
+        hideKeyboardTappedScreen()
         // get notification center to receive
         NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(_:)), name: .colorNotificationKey, object: nil)
     }

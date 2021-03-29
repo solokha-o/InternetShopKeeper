@@ -7,11 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		074EB971A1657742A5A4A1A4 /* Pods_InternetShopKeeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B473DBD0A566C101D482389E /* Pods_InternetShopKeeper.framework */; };
 		DB07E26E24100CE600A86645 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB07E26C24100CE600A86645 /* ItemTableViewCell.swift */; };
 		DB07E26F24100CE600A86645 /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB07E26D24100CE600A86645 /* ItemTableViewCell.xib */; };
-		DB0C8876242BD80C00AD4755 /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0C8875242BD80C00AD4755 /* DropDown.framework */; };
-		DB0C8877242BD80C00AD4755 /* DropDown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB0C8875242BD80C00AD4755 /* DropDown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DB1BFD5C2416BA3E00197229 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1BFD5B2416BA3E00197229 /* CategoryTableViewController.swift */; };
 		DB2B12352470336C003E213C /* SalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B12342470336C003E213C /* SalesViewController.swift */; };
 		DB2DA6AB247C06E7006D2073 /* CRUDModelAppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2DA6AA247C06E7006D2073 /* CRUDModelAppColor.swift */; };
@@ -121,20 +118,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		DB0C8878242BD80C00AD4755 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				DB0C8877242BD80C00AD4755 /* DropDown.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		B2C0982B72AF1F8E05390CA5 /* Pods-InternetShopKeeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InternetShopKeeper.release.xcconfig"; path = "Target Support Files/Pods-InternetShopKeeper/Pods-InternetShopKeeper.release.xcconfig"; sourceTree = "<group>"; };
 		B473DBD0A566C101D482389E /* Pods_InternetShopKeeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InternetShopKeeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -201,6 +184,8 @@
 		DBB58BDB244DE0D700662826 /* SalesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SalesTableViewCell.xib; sourceTree = "<group>"; };
 		DBB58BE1244DEC8D00662826 /* SalesStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesStruct.swift; sourceTree = "<group>"; };
 		DBB58BE3244DECA700662826 /* CRUDModelSales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDModelSales.swift; sourceTree = "<group>"; };
+		DBD9F3E0260E3F5200D9741A /* AAInfographics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AAInfographics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBD9F3E3260E3F6100D9741A /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBDC7E982409B345005E35CA /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		DBEF553D2476CA350078826D /* ColorAppTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAppTableViewCell.swift; sourceTree = "<group>"; };
 		DBEF553E2476CA350078826D /* ColorAppTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorAppTableViewCell.xib; sourceTree = "<group>"; };
@@ -217,8 +202,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB0C8876242BD80C00AD4755 /* DropDown.framework in Frameworks */,
-				074EB971A1657742A5A4A1A4 /* Pods_InternetShopKeeper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +211,8 @@
 		DB0C8874242BD80C00AD4755 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DBD9F3E3260E3F6100D9741A /* DropDown.framework */,
+				DBD9F3E0260E3F5200D9741A /* AAInfographics.framework */,
 				DBAFB6FB246C67C30009C1B1 /* AAInfographicsDemo.xcodeproj */,
 				DBAFB6FA246C67750009C1B1 /* AAInfographicsDemo.entitlements */,
 				DBAFB6F9246C66EC0009C1B1 /* AAInfographicsDemo */,
@@ -455,7 +440,6 @@
 				DB599B8D24098D3A0065CA3D /* Sources */,
 				DB599B8E24098D3A0065CA3D /* Frameworks */,
 				DB599B8F24098D3A0065CA3D /* Resources */,
-				DB0C8878242BD80C00AD4755 /* Embed Frameworks */,
 				51229012429B4372EE121671 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -764,7 +748,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -819,7 +803,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;

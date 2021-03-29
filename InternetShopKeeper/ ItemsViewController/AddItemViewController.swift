@@ -114,7 +114,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         toolBar.isUserInteractionEnabled = true
         categoryItemTextField.inputView = picker
         categoryItemTextField.inputAccessoryView = toolBar
-        
+        hideKeyboardTappedScreen()
         // Create placeholder to detailsItemTextView
         detailsItemTextView.text = "Введіть деталі свого товару".localized
         detailsItemTextView.textColor = UIColor.lightGray
@@ -226,7 +226,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         }))
         
         alert.addAction(UIAlertAction(title: "Вибрати з галереї".localized, style: .default, handler: { _ in
-            self.openGallary()
+            self.openGallery()
         }))
         
         alert.addAction(UIAlertAction(title: "Скасувати".localized, style: .cancel, handler: nil))
@@ -297,7 +297,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 guard let salesVC = storyboard.instantiateViewController(identifier: "SalesTableViewController") as? SalesTableViewController else { return }
                 salesVC.appendSale(sale: sale)
-                // cohfiguge hide saveView
+                // configure hide saveView
                 UIView.animate(withDuration: 0.5, animations: {
                     self.saleView.alpha = 0
                 }) { (finished) in
@@ -309,14 +309,14 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     // configure cancel button of saleView
     @IBAction func cancelSaleViewButtonAction(_ sender: UIButton) {
-        // cohfiguge hide saveView
+        // configure hide saveView
         UIView.animate(withDuration: 0.5, animations: {
             self.saleView.alpha = 0
         }) { (finished) in
             self.saleView.isHidden = finished
         }
     }
-    // configurate open camera and add photo
+    // configure open camera and add photo
     func openCamera(){
         if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera)){
             imagePicker.sourceType = UIImagePickerController.SourceType.camera
@@ -331,8 +331,8 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.present(alert, animated: true, completion: nil)
         }
     }
-    // configurate open gallery and add photo
-    func openGallary(){
+    // configure open gallery and add photo
+    func openGallery(){
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
@@ -481,5 +481,16 @@ extension AddItemViewController: UITextFieldDelegate, UITextViewDelegate {
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
         scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         return true
+    }
+}
+//hide keyboard when tap on screen
+extension UIViewController {
+    func hideKeyboardTappedScreen() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
