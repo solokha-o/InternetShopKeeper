@@ -1,0 +1,20 @@
+PODS:
+  - AAInfographics (6.0.0)
+  - DropDown (2.3.13)
+
+DEPENDENCIES:
+  - AAInfographics
+  - DropDown
+
+SPEC REPOS:
+  trunk:
+    - AAInfographics
+    - DropDown
+
+SPEC CHECKSUMS:
+  AAInfographics: e57c6cc15ddc17df3555db6f586fb0e1b911a0b7
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+
+PODFILE CHECKSUM: b4341ed00fd403b32d1b83e27698cece33769452
+
+COCOAPODS: 1.10.1

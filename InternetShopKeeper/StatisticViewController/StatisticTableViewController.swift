@@ -12,7 +12,7 @@ class StatisticTableViewController: UITableViewController {
     
     
     // create array ItemStruct
-    var itemsStract = [ItemStruct]()
+    var itemsStruct = [ItemStruct]()
     // create array SaleStruct
     var salesStruct = [SalesStruct]()
     //add instance for color app
@@ -31,7 +31,7 @@ class StatisticTableViewController: UITableViewController {
         navigationItem.title = "Статистика".localized
         self.navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
-        // get notification center to receive
+        // get notification Center to receive
         NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(_:)), name: .colorNotificationKey, object: nil)
     }
     
@@ -49,32 +49,36 @@ class StatisticTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StatisticCell", for: indexPath)
         switch indexPath.row {
-        case 0:
-            cell.textLabel?.text = "Твої витрати"
-            cell.detailTextLabel?.text = "Витрати, що зроблені на закупівлю товару"
-        case 1:
-            cell.textLabel?.text = "Твій прибуток"
-            cell.detailTextLabel?.text = "Інформація щодо прибутку від продажу товару"
-        case 2:
-            cell.textLabel?.text = "Чистий дохід"
-            cell.detailTextLabel?.text = "Вирахування чистого доходу від продажу товару"
-        default:
-            break
+            case 0:
+                cell.textLabel?.text = "Твої витрати".localized
+                cell.detailTextLabel?.text = "Витрати, що зроблені на закупівлю товару".localized
+            case 1:
+                cell.textLabel?.text = "Твій прибуток".localized
+                cell.detailTextLabel?.text = "Інформація щодо прибутку від продажу товару".localized
+            case 2:
+                cell.textLabel?.text = "Чистий дохід".localized
+                cell.detailTextLabel?.text = "Вирахування чистого доходу від продажу товару".localized
+            default:
+                break
         }
         return cell
     }
     // configure didSelectRowAt
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let costsVC = storyboard?.instantiateViewController(identifier: "CostsViewController") as? CostsViewController, let salesVC  = storyboard?.instantiateViewController(identifier: "SalesViewController") as? SalesViewController else { return }
+        guard let costsVC = storyboard?.instantiateViewController(identifier: "CostsViewController") as? CostsViewController, let salesVC  = storyboard?.instantiateViewController(identifier: "SalesViewController") as? SalesViewController, let profitVC = storyboard?.instantiateViewController(identifier: "ProfitViewController") as? ProfitViewController else { return }
         switch indexPath.row {
-        case 0:
-            costsVC.itemsStruct = itemsStract
-            showDetailViewController(costsVC, sender: nil)
-        case 1:
-            salesVC.salesStruct = salesStruct
-            showDetailViewController(salesVC, sender: nil)
-        default:
-            break
+            case 0:
+                costsVC.itemsStruct = itemsStruct
+                showDetailViewController(costsVC, sender: nil)
+            case 1:
+                salesVC.salesStruct = salesStruct
+                showDetailViewController(salesVC, sender: nil)
+            case 2:
+                profitVC.itemsStruct = itemsStruct
+                profitVC.salesStruct = salesStruct
+                showDetailViewController(profitVC, sender: nil)
+            default:
+                break
         }
     }
     // function call to change color view

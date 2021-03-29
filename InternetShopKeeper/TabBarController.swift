@@ -42,7 +42,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate{
         let navC3 = self.viewControllers?[3] as! UINavigationController
         let staticticTVC = navC3.topViewController as! StatisticTableViewController
         _ = staticticTVC.view
-        staticticTVC.itemsStract = itemTVC.itemStructStatistic
+        staticticTVC.itemsStruct = itemTVC.itemStructStatistic
         let navC2 = self.viewControllers?[2] as! UINavigationController
         let salesTVC = navC2.topViewController as! SalesTableViewController
         staticticTVC.salesStruct = salesTVC.salesStruct

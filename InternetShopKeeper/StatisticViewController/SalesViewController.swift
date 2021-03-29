@@ -7,15 +7,16 @@
 //
 
 import UIKit
+import AAInfographics
 
 class SalesViewController: UIViewController {
-
+    
     //create array SalesStruct
     var salesStruct = [SalesStruct]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //call setup fanction
+        //call setup function
         setupaaChartView()
     }
     // setup view with graphic
@@ -32,12 +33,11 @@ class SalesViewController: UIViewController {
         let aaChartModel = AAChartModel()
         aaChartModel.chartType = .area
         aaChartModel.animationType = .none
-        aaChartModel.title = "Твої доходи"
-        aaChartModel.tooltipValueSuffix("Грн")//the value suffix of the chart tooltip
-        aaChartModel.categories(["Січ", "Лют", "Бер", "Кві", "Тра", "Чер",
-                                 "Лип", "Сер", "Вер", "Жов", "Лис", "Гру"])
+        aaChartModel.title = "Твої продажі".localized
+        aaChartModel.tooltipValueSuffix("Грн".localized)//the value suffix of the chart tooltip
+        aaChartModel.categories(["Січ".localized, "Лют".localized, "Бер".localized, "Кві".localized, "Тра".localized, "Чер".localized, "Лип".localized, "Сер".localized, "Вер".localized, "Жов".localized, "Лис".localized, "Гру".localized])
         aaChartModel.colorsTheme(["#ffc069"])
-        // inctanse fo each month with count costs
+        // instance fo each month with count costs
         var jan = 0.0
         var feb = 0.0
         var mar = 0.0
@@ -50,44 +50,44 @@ class SalesViewController: UIViewController {
         var oct = 0.0
         var nov = 0.0
         var dec = 0.0
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yy"
         for saleStruct in salesStruct {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd.MM.yy"
             if let date = dateFormatter.date(from: saleStruct.date) {
                 dateFormatter.dateFormat = "MM"
                 let month = dateFormatter.string(from: date)
                 switch month {
-                case "01":
-                    jan += (Double(saleStruct.price) ?? 0.0) * (Double(saleStruct.amount) ?? 0.0)
-                case "02":
-                    feb += (Double(saleStruct.price) ?? 0.0) * (Double(saleStruct.amount) ?? 0.0)
-                case "03":
-                    mar += (Double(saleStruct.price) ?? 0.0) * (Double(saleStruct.amount) ?? 0.0)
-                case "04":
-                    apr += (Double(saleStruct.price) ?? 0.0) * (Double(saleStruct.amount) ?? 0.0)
-                case "05":
-                    may += (Double(saleStruct.price) ?? 0.0) * (Double(saleStruct.amount) ?? 0.0)
-                case "06":
-                    jun += (Double(saleStruct.price) ?? 0.0) * (Double(saleStruct.amount) ?? 0.0)
-                case "07":
-                    jul += (Double(saleStruct.price) ?? 0.0) * (Double(saleStruct.amount) ?? 0.0)
-                case "08":
-                    aug += (Double(saleStruct.price) ?? 0.0) * (Double(saleStruct.amount) ?? 0.0)
-                case "09":
-                    sep += (Double(saleStruct.price) ?? 0.0) * (Double(saleStruct.amount) ?? 0.0)
-                case "10":
-                    oct += (Double(saleStruct.price) ?? 0.0) * (Double(saleStruct.amount) ?? 0.0)
-                case "11":
-                    nov += (Double(saleStruct.price) ?? 0.0) * (Double(saleStruct.amount) ?? 0.0)
-                case "12":
-                    dec += (Double(saleStruct.price) ?? 0.0) * (Double(saleStruct.amount) ?? 0.0)
-                default: break
+                    case "01":
+                        jan += (Double(saleStruct.price) ?? 0.0) * (Double(saleStruct.amount) ?? 0.0)
+                    case "02":
+                        feb += (Double(saleStruct.price) ?? 0.0) * (Double(saleStruct.amount) ?? 0.0)
+                    case "03":
+                        mar += (Double(saleStruct.price) ?? 0.0) * (Double(saleStruct.amount) ?? 0.0)
+                    case "04":
+                        apr += (Double(saleStruct.price) ?? 0.0) * (Double(saleStruct.amount) ?? 0.0)
+                    case "05":
+                        may += (Double(saleStruct.price) ?? 0.0) * (Double(saleStruct.amount) ?? 0.0)
+                    case "06":
+                        jun += (Double(saleStruct.price) ?? 0.0) * (Double(saleStruct.amount) ?? 0.0)
+                    case "07":
+                        jul += (Double(saleStruct.price) ?? 0.0) * (Double(saleStruct.amount) ?? 0.0)
+                    case "08":
+                        aug += (Double(saleStruct.price) ?? 0.0) * (Double(saleStruct.amount) ?? 0.0)
+                    case "09":
+                        sep += (Double(saleStruct.price) ?? 0.0) * (Double(saleStruct.amount) ?? 0.0)
+                    case "10":
+                        oct += (Double(saleStruct.price) ?? 0.0) * (Double(saleStruct.amount) ?? 0.0)
+                    case "11":
+                        nov += (Double(saleStruct.price) ?? 0.0) * (Double(saleStruct.amount) ?? 0.0)
+                    case "12":
+                        dec += (Double(saleStruct.price) ?? 0.0) * (Double(saleStruct.amount) ?? 0.0)
+                    default: break
                 }
             }
         }
         aaChartModel.series([
             AASeriesElement()
-                .name("Доходи")
+                .name("Продажі".localized)
                 .data([jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec])
         ])
         return aaChartModel

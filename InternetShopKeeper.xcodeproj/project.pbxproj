@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB06C6EB2611B82F0055AC57 /* ProfitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB06C6EA2611B82F0055AC57 /* ProfitViewController.swift */; };
 		DB07E26E24100CE600A86645 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB07E26C24100CE600A86645 /* ItemTableViewCell.swift */; };
 		DB07E26F24100CE600A86645 /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB07E26D24100CE600A86645 /* ItemTableViewCell.xib */; };
 		DB1BFD5C2416BA3E00197229 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1BFD5B2416BA3E00197229 /* CategoryTableViewController.swift */; };
@@ -32,35 +33,6 @@
 		DB934516245743A400867D72 /* StatisticTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB934515245743A400867D72 /* StatisticTableViewController.swift */; };
 		DBAFB6F8246C54C50009C1B1 /* CostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB6F7246C54C50009C1B1 /* CostsViewController.swift */; };
 		DBAFB707246C67E50009C1B1 /* AAInfographicsDemo.app in Resources */ = {isa = PBXBuildFile; fileRef = DBAFB702246C67C30009C1B1 /* AAInfographicsDemo.app */; };
-		DBAFB769246C73BE0009C1B1 /* AAChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB74A246C73BD0009C1B1 /* AAChartView.swift */; };
-		DBAFB76A246C73BE0009C1B1 /* AAChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB74B246C73BD0009C1B1 /* AAChartModel.swift */; };
-		DBAFB76B246C73BE0009C1B1 /* AAOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB74C246C73BD0009C1B1 /* AAOptions.swift */; };
-		DBAFB76C246C73BE0009C1B1 /* AASerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB74D246C73BD0009C1B1 /* AASerializable.swift */; };
-		DBAFB76D246C73BE0009C1B1 /* AASeriesElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB74E246C73BD0009C1B1 /* AASeriesElement.swift */; };
-		DBAFB76E246C73BE0009C1B1 /* AAJSFiles.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DBAFB74F246C73BD0009C1B1 /* AAJSFiles.bundle */; };
-		DBAFB76F246C73BE0009C1B1 /* AAJSStringPurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB751246C73BD0009C1B1 /* AAJSStringPurer.swift */; };
-		DBAFB770246C73BE0009C1B1 /* AAColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB752246C73BD0009C1B1 /* AAColor.swift */; };
-		DBAFB771246C73BE0009C1B1 /* AAGradientColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB753246C73BD0009C1B1 /* AAGradientColor.swift */; };
-		DBAFB772246C73BE0009C1B1 /* AASubtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB755246C73BD0009C1B1 /* AASubtitle.swift */; };
-		DBAFB773246C73BE0009C1B1 /* AAStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB756246C73BD0009C1B1 /* AAStates.swift */; };
-		DBAFB774246C73BE0009C1B1 /* AALabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB757246C73BD0009C1B1 /* AALabel.swift */; };
-		DBAFB775246C73BE0009C1B1 /* AALabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB758246C73BD0009C1B1 /* AALabels.swift */; };
-		DBAFB776246C73BE0009C1B1 /* AAMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB759246C73BD0009C1B1 /* AAMarker.swift */; };
-		DBAFB777246C73BE0009C1B1 /* AAAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB75A246C73BD0009C1B1 /* AAAnimation.swift */; };
-		DBAFB778246C73BE0009C1B1 /* AAPlotOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB75B246C73BD0009C1B1 /* AAPlotOptions.swift */; };
-		DBAFB779246C73BE0009C1B1 /* AAPlotLinesElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB75C246C73BD0009C1B1 /* AAPlotLinesElement.swift */; };
-		DBAFB77A246C73BE0009C1B1 /* AAScrollablePlotArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB75D246C73BD0009C1B1 /* AAScrollablePlotArea.swift */; };
-		DBAFB77B246C73BE0009C1B1 /* AALegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB75E246C73BE0009C1B1 /* AALegend.swift */; };
-		DBAFB77C246C73BE0009C1B1 /* AAPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB75F246C73BE0009C1B1 /* AAPane.swift */; };
-		DBAFB77D246C73BE0009C1B1 /* AADataLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB760246C73BE0009C1B1 /* AADataLabels.swift */; };
-		DBAFB77E246C73BE0009C1B1 /* AAChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB761246C73BE0009C1B1 /* AAChart.swift */; };
-		DBAFB77F246C73BE0009C1B1 /* AATitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB762246C73BE0009C1B1 /* AATitle.swift */; };
-		DBAFB780246C73BE0009C1B1 /* AAYAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB763246C73BE0009C1B1 /* AAYAxis.swift */; };
-		DBAFB781246C73BE0009C1B1 /* AATooltip.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB764246C73BE0009C1B1 /* AATooltip.swift */; };
-		DBAFB782246C73BE0009C1B1 /* AAPlotBandsElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB765246C73BE0009C1B1 /* AAPlotBandsElement.swift */; };
-		DBAFB783246C73BE0009C1B1 /* AASeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB766246C73BE0009C1B1 /* AASeries.swift */; };
-		DBAFB784246C73BE0009C1B1 /* AAXAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB767246C73BE0009C1B1 /* AAXAxis.swift */; };
-		DBAFB785246C73BE0009C1B1 /* AACrosshair.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB768246C73BE0009C1B1 /* AACrosshair.swift */; };
 		DBB58BDC244DE0D700662826 /* SalesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB58BDA244DE0D700662826 /* SalesTableViewCell.swift */; };
 		DBB58BDD244DE0D800662826 /* SalesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBB58BDB244DE0D700662826 /* SalesTableViewCell.xib */; };
 		DBB58BE2244DEC8D00662826 /* SalesStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB58BE1244DEC8D00662826 /* SalesStruct.swift */; };
@@ -121,6 +93,7 @@
 /* Begin PBXFileReference section */
 		B2C0982B72AF1F8E05390CA5 /* Pods-InternetShopKeeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InternetShopKeeper.release.xcconfig"; path = "Target Support Files/Pods-InternetShopKeeper/Pods-InternetShopKeeper.release.xcconfig"; sourceTree = "<group>"; };
 		B473DBD0A566C101D482389E /* Pods_InternetShopKeeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InternetShopKeeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB06C6EA2611B82F0055AC57 /* ProfitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitViewController.swift; sourceTree = "<group>"; };
 		DB07E26C24100CE600A86645 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		DB07E26D24100CE600A86645 /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 		DB0C8875242BD80C00AD4755 /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,39 +124,12 @@
 		DBAFB6F9246C66EC0009C1B1 /* AAInfographicsDemo */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AAInfographicsDemo; sourceTree = "<group>"; };
 		DBAFB6FA246C67750009C1B1 /* AAInfographicsDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = AAInfographicsDemo.entitlements; path = AAInfographicsDemo/AAInfographicsDemo.entitlements; sourceTree = "<group>"; };
 		DBAFB6FB246C67C30009C1B1 /* AAInfographicsDemo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AAInfographicsDemo.xcodeproj; path = "AAChartKit-Swift-master/AAInfographicsDemo.xcodeproj"; sourceTree = "<group>"; };
-		DBAFB74A246C73BD0009C1B1 /* AAChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AAChartView.swift; sourceTree = "<group>"; };
-		DBAFB74B246C73BD0009C1B1 /* AAChartModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AAChartModel.swift; sourceTree = "<group>"; };
-		DBAFB74C246C73BD0009C1B1 /* AAOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AAOptions.swift; sourceTree = "<group>"; };
-		DBAFB74D246C73BD0009C1B1 /* AASerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AASerializable.swift; sourceTree = "<group>"; };
-		DBAFB74E246C73BD0009C1B1 /* AASeriesElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AASeriesElement.swift; sourceTree = "<group>"; };
-		DBAFB74F246C73BD0009C1B1 /* AAJSFiles.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AAJSFiles.bundle; sourceTree = "<group>"; };
-		DBAFB751246C73BD0009C1B1 /* AAJSStringPurer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AAJSStringPurer.swift; sourceTree = "<group>"; };
-		DBAFB752246C73BD0009C1B1 /* AAColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AAColor.swift; sourceTree = "<group>"; };
-		DBAFB753246C73BD0009C1B1 /* AAGradientColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AAGradientColor.swift; sourceTree = "<group>"; };
-		DBAFB755246C73BD0009C1B1 /* AASubtitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AASubtitle.swift; sourceTree = "<group>"; };
-		DBAFB756246C73BD0009C1B1 /* AAStates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AAStates.swift; sourceTree = "<group>"; };
-		DBAFB757246C73BD0009C1B1 /* AALabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AALabel.swift; sourceTree = "<group>"; };
-		DBAFB758246C73BD0009C1B1 /* AALabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AALabels.swift; sourceTree = "<group>"; };
-		DBAFB759246C73BD0009C1B1 /* AAMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AAMarker.swift; sourceTree = "<group>"; };
-		DBAFB75A246C73BD0009C1B1 /* AAAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AAAnimation.swift; sourceTree = "<group>"; };
-		DBAFB75B246C73BD0009C1B1 /* AAPlotOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AAPlotOptions.swift; sourceTree = "<group>"; };
-		DBAFB75C246C73BD0009C1B1 /* AAPlotLinesElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AAPlotLinesElement.swift; sourceTree = "<group>"; };
-		DBAFB75D246C73BD0009C1B1 /* AAScrollablePlotArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AAScrollablePlotArea.swift; sourceTree = "<group>"; };
-		DBAFB75E246C73BE0009C1B1 /* AALegend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AALegend.swift; sourceTree = "<group>"; };
-		DBAFB75F246C73BE0009C1B1 /* AAPane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AAPane.swift; sourceTree = "<group>"; };
-		DBAFB760246C73BE0009C1B1 /* AADataLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AADataLabels.swift; sourceTree = "<group>"; };
-		DBAFB761246C73BE0009C1B1 /* AAChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AAChart.swift; sourceTree = "<group>"; };
-		DBAFB762246C73BE0009C1B1 /* AATitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AATitle.swift; sourceTree = "<group>"; };
-		DBAFB763246C73BE0009C1B1 /* AAYAxis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AAYAxis.swift; sourceTree = "<group>"; };
-		DBAFB764246C73BE0009C1B1 /* AATooltip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AATooltip.swift; sourceTree = "<group>"; };
-		DBAFB765246C73BE0009C1B1 /* AAPlotBandsElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AAPlotBandsElement.swift; sourceTree = "<group>"; };
-		DBAFB766246C73BE0009C1B1 /* AASeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AASeries.swift; sourceTree = "<group>"; };
-		DBAFB767246C73BE0009C1B1 /* AAXAxis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AAXAxis.swift; sourceTree = "<group>"; };
-		DBAFB768246C73BE0009C1B1 /* AACrosshair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AACrosshair.swift; sourceTree = "<group>"; };
 		DBB58BDA244DE0D700662826 /* SalesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesTableViewCell.swift; sourceTree = "<group>"; };
 		DBB58BDB244DE0D700662826 /* SalesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SalesTableViewCell.xib; sourceTree = "<group>"; };
 		DBB58BE1244DEC8D00662826 /* SalesStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesStruct.swift; sourceTree = "<group>"; };
 		DBB58BE3244DECA700662826 /* CRUDModelSales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDModelSales.swift; sourceTree = "<group>"; };
+		DBC933842611E422005F2052 /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBC933882611E428005F2052 /* AAInfographics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AAInfographics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBD9F3E0260E3F5200D9741A /* AAInfographics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AAInfographics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBD9F3E3260E3F6100D9741A /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBDC7E982409B345005E35CA /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
@@ -211,6 +157,8 @@
 		DB0C8874242BD80C00AD4755 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DBC933882611E428005F2052 /* AAInfographics.framework */,
+				DBC933842611E422005F2052 /* DropDown.framework */,
 				DBD9F3E3260E3F6100D9741A /* DropDown.framework */,
 				DBD9F3E0260E3F5200D9741A /* AAInfographics.framework */,
 				DBAFB6FB246C67C30009C1B1 /* AAInfographicsDemo.xcodeproj */,
@@ -253,7 +201,7 @@
 				DB934515245743A400867D72 /* StatisticTableViewController.swift */,
 				DBAFB6F7246C54C50009C1B1 /* CostsViewController.swift */,
 				DB2B12342470336C003E213C /* SalesViewController.swift */,
-				DBAFB748246C73BD0009C1B1 /* AAInfographics */,
+				DB06C6EA2611B82F0055AC57 /* ProfitViewController.swift */,
 			);
 			path = StatisticViewController;
 			sourceTree = "<group>";
@@ -348,66 +296,6 @@
 				DBAFB706246C67C30009C1B1 /* AAInfographicsDemoUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		DBAFB748246C73BD0009C1B1 /* AAInfographics */ = {
-			isa = PBXGroup;
-			children = (
-				DBAFB749246C73BD0009C1B1 /* AAChartCreator */,
-				DBAFB74F246C73BD0009C1B1 /* AAJSFiles.bundle */,
-				DBAFB750246C73BD0009C1B1 /* AATool */,
-				DBAFB754246C73BD0009C1B1 /* AAOptionsModel */,
-			);
-			path = AAInfographics;
-			sourceTree = "<group>";
-		};
-		DBAFB749246C73BD0009C1B1 /* AAChartCreator */ = {
-			isa = PBXGroup;
-			children = (
-				DBAFB74A246C73BD0009C1B1 /* AAChartView.swift */,
-				DBAFB74B246C73BD0009C1B1 /* AAChartModel.swift */,
-				DBAFB74C246C73BD0009C1B1 /* AAOptions.swift */,
-				DBAFB74D246C73BD0009C1B1 /* AASerializable.swift */,
-				DBAFB74E246C73BD0009C1B1 /* AASeriesElement.swift */,
-			);
-			path = AAChartCreator;
-			sourceTree = "<group>";
-		};
-		DBAFB750246C73BD0009C1B1 /* AATool */ = {
-			isa = PBXGroup;
-			children = (
-				DBAFB751246C73BD0009C1B1 /* AAJSStringPurer.swift */,
-				DBAFB752246C73BD0009C1B1 /* AAColor.swift */,
-				DBAFB753246C73BD0009C1B1 /* AAGradientColor.swift */,
-			);
-			path = AATool;
-			sourceTree = "<group>";
-		};
-		DBAFB754246C73BD0009C1B1 /* AAOptionsModel */ = {
-			isa = PBXGroup;
-			children = (
-				DBAFB755246C73BD0009C1B1 /* AASubtitle.swift */,
-				DBAFB756246C73BD0009C1B1 /* AAStates.swift */,
-				DBAFB757246C73BD0009C1B1 /* AALabel.swift */,
-				DBAFB758246C73BD0009C1B1 /* AALabels.swift */,
-				DBAFB759246C73BD0009C1B1 /* AAMarker.swift */,
-				DBAFB75A246C73BD0009C1B1 /* AAAnimation.swift */,
-				DBAFB75B246C73BD0009C1B1 /* AAPlotOptions.swift */,
-				DBAFB75C246C73BD0009C1B1 /* AAPlotLinesElement.swift */,
-				DBAFB75D246C73BD0009C1B1 /* AAScrollablePlotArea.swift */,
-				DBAFB75E246C73BE0009C1B1 /* AALegend.swift */,
-				DBAFB75F246C73BE0009C1B1 /* AAPane.swift */,
-				DBAFB760246C73BE0009C1B1 /* AADataLabels.swift */,
-				DBAFB761246C73BE0009C1B1 /* AAChart.swift */,
-				DBAFB762246C73BE0009C1B1 /* AATitle.swift */,
-				DBAFB763246C73BE0009C1B1 /* AAYAxis.swift */,
-				DBAFB764246C73BE0009C1B1 /* AATooltip.swift */,
-				DBAFB765246C73BE0009C1B1 /* AAPlotBandsElement.swift */,
-				DBAFB766246C73BE0009C1B1 /* AASeries.swift */,
-				DBAFB767246C73BE0009C1B1 /* AAXAxis.swift */,
-				DBAFB768246C73BE0009C1B1 /* AACrosshair.swift */,
-			);
-			path = AAOptionsModel;
 			sourceTree = "<group>";
 		};
 		DBFAB63824339C2C00108421 /* Products */ = {
@@ -549,7 +437,6 @@
 				DBEF55402476CA350078826D /* ColorAppTableViewCell.xib in Resources */,
 				DBF45FFE2444B7870045349E /* Localizable.strings in Resources */,
 				DB07E26F24100CE600A86645 /* ItemTableViewCell.xib in Resources */,
-				DBAFB76E246C73BE0009C1B1 /* AAJSFiles.bundle in Resources */,
 				DBB58BDD244DE0D800662826 /* SalesTableViewCell.xib in Resources */,
 				DB599BA224098D3B0065CA3D /* LaunchScreen.storyboard in Resources */,
 				DBAFB707246C67E50009C1B1 /* AAInfographicsDemo.app in Resources */,
@@ -607,61 +494,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBAFB784246C73BE0009C1B1 /* AAXAxis.swift in Sources */,
-				DBAFB77A246C73BE0009C1B1 /* AAScrollablePlotArea.swift in Sources */,
 				DB7098A8243E2FA000AA4159 /* FirstLaunchPageViewController.swift in Sources */,
-				DBAFB772246C73BE0009C1B1 /* AASubtitle.swift in Sources */,
 				DBF45FF62444B0520045349E /* TabBarController.swift in Sources */,
 				DB7098A6243E2F5300AA4159 /* FirstLaunchViewController.swift in Sources */,
-				DBAFB769246C73BE0009C1B1 /* AAChartView.swift in Sources */,
-				DBAFB77F246C73BE0009C1B1 /* AATitle.swift in Sources */,
 				DB2B12352470336C003E213C /* SalesViewController.swift in Sources */,
-				DBAFB781246C73BE0009C1B1 /* AATooltip.swift in Sources */,
-				DBAFB76C246C73BE0009C1B1 /* AASerializable.swift in Sources */,
-				DBAFB777246C73BE0009C1B1 /* AAAnimation.swift in Sources */,
-				DBAFB76A246C73BE0009C1B1 /* AAChartModel.swift in Sources */,
-				DBAFB77C246C73BE0009C1B1 /* AAPane.swift in Sources */,
 				DB81E8442438CAEC0097E606 /* ToolsTableViewController.swift in Sources */,
-				DBAFB779246C73BE0009C1B1 /* AAPlotLinesElement.swift in Sources */,
 				DB07E26E24100CE600A86645 /* ItemTableViewCell.swift in Sources */,
-				DBAFB774246C73BE0009C1B1 /* AALabel.swift in Sources */,
 				DBB58BE2244DEC8D00662826 /* SalesStruct.swift in Sources */,
 				DB3F3009243B759D0021D09F /* CategoryStruct.swift in Sources */,
-				DBAFB780246C73BE0009C1B1 /* AAYAxis.swift in Sources */,
-				DBAFB77E246C73BE0009C1B1 /* AAChart.swift in Sources */,
 				DBAFB6F8246C54C50009C1B1 /* CostsViewController.swift in Sources */,
-				DBAFB776246C73BE0009C1B1 /* AAMarker.swift in Sources */,
-				DBAFB783246C73BE0009C1B1 /* AASeries.swift in Sources */,
-				DBAFB76D246C73BE0009C1B1 /* AASeriesElement.swift in Sources */,
-				DBAFB77B246C73BE0009C1B1 /* AALegend.swift in Sources */,
 				DB2DA6AB247C06E7006D2073 /* CRUDModelAppColor.swift in Sources */,
-				DBAFB77D246C73BE0009C1B1 /* AADataLabels.swift in Sources */,
 				DBDC7E992409B345005E35CA /* ItemTableViewController.swift in Sources */,
 				DB1BFD5C2416BA3E00197229 /* CategoryTableViewController.swift in Sources */,
 				DB599BAA24099F230065CA3D /* AddItemViewController.swift in Sources */,
 				DB599B9524098D3B0065CA3D /* AppDelegate.swift in Sources */,
-				DBAFB773246C73BE0009C1B1 /* AAStates.swift in Sources */,
 				DBB58BDC244DE0D700662826 /* SalesTableViewCell.swift in Sources */,
-				DBAFB770246C73BE0009C1B1 /* AAColor.swift in Sources */,
 				DB934516245743A400867D72 /* StatisticTableViewController.swift in Sources */,
 				DBB58BE4244DECA700662826 /* CRUDModelSales.swift in Sources */,
 				DB4A1330244B1E0800F7A266 /* CRUDModelItem.swift in Sources */,
 				DB3B46ED2416B33800A79BB0 /* AddCategoryViewController.swift in Sources */,
-				DBAFB782246C73BE0009C1B1 /* AAPlotBandsElement.swift in Sources */,
 				DBF460032444B8020045349E /* String+Localized.swift in Sources */,
+				DB06C6EB2611B82F0055AC57 /* ProfitViewController.swift in Sources */,
 				DBEF553F2476CA350078826D /* ColorAppTableViewCell.swift in Sources */,
-				DBAFB775246C73BE0009C1B1 /* AALabels.swift in Sources */,
 				DB7098A4243E2E5D00AA4159 /* ModelFirstLaunch.swift in Sources */,
 				DB7098AA243E316B00AA4159 /* OnboardingViewController.swift in Sources */,
 				DB3F300E243B76E60021D09F /* ItemStruct.swift in Sources */,
-				DBAFB785246C73BE0009C1B1 /* AACrosshair.swift in Sources */,
 				DB8AB462244C564100D5D9E9 /* SalesTableViewController.swift in Sources */,
 				DB599B9D24098D3B0065CA3D /* InternetShopKeeper.xcdatamodeld in Sources */,
-				DBAFB76B246C73BE0009C1B1 /* AAOptions.swift in Sources */,
-				DBAFB76F246C73BE0009C1B1 /* AAJSStringPurer.swift in Sources */,
 				DB2E3B2E2448CDE90043DD7C /* CRUDModelCategory.swift in Sources */,
-				DBAFB778246C73BE0009C1B1 /* AAPlotOptions.swift in Sources */,
-				DBAFB771246C73BE0009C1B1 /* AAGradientColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

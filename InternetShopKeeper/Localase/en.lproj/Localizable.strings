@@ -67,6 +67,30 @@
 "Витрачено на товар" = "Spent on prodacts";
 "Отримано від продажу" = "Received from sale";
 "Чистий дохід" = "Net profit";
+"Твої витрати" = "Your expenses";
+"Витрати, що зроблені на закупівлю товару" = "Expenses incurred for the purchase of goods";
+"Твій прибуток" = "Your profit";
+"Інформація щодо прибутку від продажу товару" = "Information on the profit from the sale of goods";
+"Вирахування чистого доходу від продажу товару" = "Deduction of net income from the sale of goods";
+"Твій дохід" = "Your income";
+"Січ" = "Jan";
+"Лют" = "Feb";
+"Бер" = "Mar";
+"Кві" = "Apr";
+"Тра" = "May";
+"Чер" = "Jun";
+"Лип" = "Jul";
+"Сер" = "Aug";
+"Вер" = "Sep";
+"Жов" = "Oct";
+"Лис" = "Nov";
+"Гру" = "Dec";
+"Витрати" = "Costs";
+"Доходи" = "Income";
+"Твої продажі" = "Your sales";
+"Продажі" = "Sales";
+
+
 
 "Параметри" = "Tools";
 "Написати нам!" = "Write to us!";
