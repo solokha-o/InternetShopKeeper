@@ -15,7 +15,6 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet weak var categoryItemLable: UILabel!
     @IBOutlet weak var priceItemLable: UILabel!
     @IBOutlet weak var amountItemLable: UILabel!
-    @IBOutlet weak var detailsItemLable: UILabel!
     @IBOutlet weak var dateLable: UILabel!
     @IBOutlet weak var inStockLable: UILabel!
     @IBOutlet weak var pieceLable: UILabel!

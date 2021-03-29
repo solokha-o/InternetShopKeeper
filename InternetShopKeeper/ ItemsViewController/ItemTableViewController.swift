@@ -126,7 +126,6 @@ class ItemTableViewController: UITableViewController, AddItemViewControllerDeleg
         cell.categoryItemLable.text = item.category
         cell.priceItemLable.text = item.price + "₴"
         cell.amountItemLable.text = item.amount
-        cell.detailsItemLable.text = item.details
         cell.dateLable.text = item.date
         cell.imageItemView.image = item.image
         return cell

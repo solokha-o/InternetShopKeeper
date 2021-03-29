@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleAspectFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ItemTableViewCell" rowHeight="130" id="KGk-i7-Jjw" customClass="ItemTableViewCell" customModule="InternetShopKeeper" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
+        <tableViewCell contentMode="scaleAspectFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ItemTableViewCell" rowHeight="144" id="KGk-i7-Jjw" customClass="ItemTableViewCell" customModule="InternetShopKeeper" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM" customClass="ItemTableViewCell" customModule="InternetShopKeeper" customModuleProvider="target">
-                <rect key="frame" x="0.0" y="0.0" width="293" height="130"/>
+                <rect key="frame" x="0.0" y="0.0" width="293" height="144"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2JT-gP-r39">
-                        <rect key="frame" x="0.0" y="0.0" width="294" height="120"/>
+                        <rect key="frame" x="0.0" y="0.0" width="293" height="120"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5fH-O1-TrA">
                                 <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
@@ -39,36 +40,36 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="kWh-0M-tRM">
-                                <rect key="frame" x="128" y="-8.5" width="166" height="128.5"/>
+                                <rect key="frame" x="128" y="15.5" width="165" height="104.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="6MI-Y3-MJB">
-                                        <rect key="frame" x="0.0" y="0.0" width="158.5" height="56.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="158" height="56.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Назва товару" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mkk-7r-FEe">
-                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="158" height="34"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Категорія товару " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lde-HS-qmQ">
-                                                <rect key="frame" x="0.0" y="36" width="140.5" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="36" width="139.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" systemColor="systemPinkColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="bBB-kj-f9a">
-                                        <rect key="frame" x="0.0" y="60.5" width="127" height="20"/>
+                                        <rect key="frame" x="0.0" y="60.5" width="126.5" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ціна" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mV0-cB-kSv">
-                                                <rect key="frame" x="0.0" y="0.0" width="36" height="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="35.5" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" systemColor="systemGreenColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Грн" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8D-k8-BSM">
-                                                <rect key="frame" x="106" y="0.0" width="21" height="20"/>
+                                                <rect key="frame" x="105.5" y="0.0" width="21" height="20"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -79,22 +80,22 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="gcF-Of-rt0">
-                                        <rect key="frame" x="0.0" y="84.5" width="166" height="20"/>
+                                        <rect key="frame" x="0.0" y="84.5" width="165" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="В наявності" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="be4-Cl-sZl">
-                                                <rect key="frame" x="0.0" y="0.0" width="81.5" height="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="80.5" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5d-eG-UZh">
-                                                <rect key="frame" x="109.5" y="0.0" width="16" height="20"/>
+                                                <rect key="frame" x="108.5" y="0.0" width="16" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="шт" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHJ-JG-AAd">
-                                                <rect key="frame" x="153.5" y="0.0" width="12.5" height="20"/>
+                                                <rect key="frame" x="152.5" y="0.0" width="12.5" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -104,24 +105,9 @@
                                             <constraint firstAttribute="height" constant="20" id="oqj-CV-FRg"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bRZ-JA-Tkg">
-                                        <rect key="frame" x="0.0" y="108.5" width="101" height="20"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Опис товару" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvp-JS-vAa">
-                                                <rect key="frame" x="0.0" y="0.0" width="101" height="20"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="Wxo-G2-OSW"/>
-                                        </constraints>
-                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="bBB-kj-f9a" firstAttribute="top" secondItem="kWh-0M-tRM" secondAttribute="top" constant="60.5" id="faH-JO-t8k"/>
-                                    <constraint firstItem="Rvp-JS-vAa" firstAttribute="firstBaseline" secondItem="gcF-Of-rt0" secondAttribute="baseline" constant="24.5" symbolType="layoutAnchor" id="vOW-qP-Zr0"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -140,17 +126,22 @@
                 <outlet property="amountItemLable" destination="e5d-eG-UZh" id="RQX-dj-JPe"/>
                 <outlet property="categoryItemLable" destination="lde-HS-qmQ" id="hrA-yS-rWP"/>
                 <outlet property="dateLable" destination="B8D-k8-BSM" id="i7W-ba-eMg"/>
-                <outlet property="detailsItemLable" destination="Rvp-JS-vAa" id="fwH-6s-fIs"/>
                 <outlet property="imageItemView" destination="XfG-Bj-hXj" id="AIh-kn-Llh"/>
                 <outlet property="inStockLable" destination="be4-Cl-sZl" id="RIq-tH-xXG"/>
                 <outlet property="pieceLable" destination="hHJ-JG-AAd" id="SGb-O6-S9b"/>
                 <outlet property="priceItemLable" destination="mV0-cB-kSv" id="EQJ-bT-ws4"/>
                 <outlet property="titleItemLable" destination="Mkk-7r-FEe" id="uP7-Sd-iEV"/>
             </connections>
-            <point key="canvasLocation" x="401.25" y="-238.73239436619718"/>
+            <point key="canvasLocation" x="401.25" y="-231.33802816901408"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="Test" width="103" height="103"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
