@@ -608,8 +608,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="p2f-iT-9gX">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="emg-nb-Xg4">
-                                        <rect key="frame" x="16" y="0.0" width="382" height="567.5"/>
+                                    <stackView opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="emg-nb-Xg4">
+                                        <rect key="frame" x="16" y="0.0" width="382" height="688"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="8sB-E0-SkL">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="30"/>
@@ -642,61 +642,54 @@
                                                     <action selector="saleButtonAction:" destination="uwy-0Y-5uC" eventType="touchUpInside" id="iGj-oj-mlQ"/>
                                                 </connections>
                                             </button>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Xum-DT-NDm">
-                                                <rect key="frame" x="0.0" y="60" width="382" height="323.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="AQf-ZI-Sy0">
+                                                <rect key="frame" x="0.0" y="60" width="382" height="90.5"/>
                                                 <subviews>
-                                                    <view hidden="YES" contentMode="scaleToFill" id="Wu7-Ge-L61">
-                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="0.0"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYi-WN-ZV6">
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="A4b-I8-vQW">
+                                                        <rect key="frame" x="0.0" y="23.5" width="382" height="34"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="AQf-ZI-Sy0">
-                                                                <rect key="frame" x="8" y="0.0" width="231" height="90.5"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ціна та кількість проданого товару" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ibL-Ss-ghv">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="231" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="A4b-I8-vQW">
-                                                                        <rect key="frame" x="0.0" y="23.5" width="231" height="34"/>
-                                                                        <subviews>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ціна" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eki-Rw-17l">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="81" height="34"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                                            </textField>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Кількість" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nlu-nW-6Qc">
-                                                                                <rect key="frame" x="101" y="0.0" width="130" height="34"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                                            </textField>
-                                                                        </subviews>
-                                                                    </stackView>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="107" translatesAutoresizingMaskIntoConstraints="NO" id="rUK-W2-RvE">
-                                                                        <rect key="frame" x="0.0" y="60.5" width="231" height="30"/>
-                                                                        <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mea-Cx-VIn">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="76" height="30"/>
-                                                                                <state key="normal" title="Скасувати"/>
-                                                                                <connections>
-                                                                                    <action selector="cancelSaleViewButtonAction:" destination="uwy-0Y-5uC" eventType="touchUpInside" id="f4u-5a-HVT"/>
-                                                                                </connections>
-                                                                            </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0M-5x-GHw">
-                                                                                <rect key="frame" x="183" y="0.0" width="48" height="30"/>
-                                                                                <state key="normal" title="Готово"/>
-                                                                                <connections>
-                                                                                    <action selector="saveSaleViewButtonAction:" destination="uwy-0Y-5uC" eventType="touchUpInside" id="udC-Ou-Fmk"/>
-                                                                                </connections>
-                                                                            </button>
-                                                                        </subviews>
-                                                                    </stackView>
-                                                                </subviews>
-                                                            </stackView>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ціна" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eki-Rw-17l">
+                                                                <rect key="frame" x="0.0" y="0.0" width="134" height="34"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                            </textField>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Кількість" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nlu-nW-6Qc">
+                                                                <rect key="frame" x="154" y="0.0" width="228" height="34"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                            </textField>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    </view>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="107" translatesAutoresizingMaskIntoConstraints="NO" id="rUK-W2-RvE">
+                                                        <rect key="frame" x="0.0" y="60.5" width="382" height="30"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mea-Cx-VIn">
+                                                                <rect key="frame" x="0.0" y="0.0" width="125.5" height="30"/>
+                                                                <state key="normal" title="Скасувати"/>
+                                                                <connections>
+                                                                    <action selector="cancelsaleStackViewButtonAction:" destination="uwy-0Y-5uC" eventType="touchUpInside" id="0mQ-xB-xcr"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0M-5x-GHw">
+                                                                <rect key="frame" x="232.5" y="0.0" width="149.5" height="30"/>
+                                                                <state key="normal" title="Готово"/>
+                                                                <connections>
+                                                                    <action selector="savesaleStackViewButtonAction:" destination="uwy-0Y-5uC" eventType="touchUpInside" id="lkl-pT-HlJ"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Xum-DT-NDm">
+                                                <rect key="frame" x="0.0" y="180.5" width="382" height="323.5"/>
+                                                <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вибери фото товару" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0i-Ei-amf">
                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -750,7 +743,7 @@
                                                 <gestureRecognizers/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="y7N-2K-DB1">
-                                                <rect key="frame" x="0.0" y="413.5" width="382" height="62.5"/>
+                                                <rect key="frame" x="0.0" y="534" width="382" height="62.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Umg-9D-agO">
                                                         <rect key="frame" x="0.0" y="0.0" width="150.5" height="62.5"/>
@@ -787,7 +780,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Hd1-OP-TpD">
-                                                <rect key="frame" x="0.0" y="506" width="382" height="61.5"/>
+                                                <rect key="frame" x="0.0" y="626.5" width="382" height="61.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Опис Вашого товару" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtu-11-mbo">
                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
@@ -841,9 +834,9 @@
                     <connections>
                         <outlet property="addImage" destination="mns-sU-Rac" id="WA0-hi-Y17"/>
                         <outlet property="amountItemTextField" destination="OcN-G4-J6M" id="Uwd-4U-Jda"/>
-                        <outlet property="amountSaleViewTextFieldOutlet" destination="Nlu-nW-6Qc" id="ZCf-A7-bpu"/>
+                        <outlet property="amountsaleStackViewTextFieldOutlet" destination="Nlu-nW-6Qc" id="YaZ-K6-M1h"/>
                         <outlet property="cancelButtonOutlet" destination="GYV-EV-Klf" id="CuN-xK-9se"/>
-                        <outlet property="cancelButtonSaleViewOutlet" destination="Mea-Cx-VIn" id="KBv-rL-VWp"/>
+                        <outlet property="cancelButtonsaleStackViewOutlet" destination="Mea-Cx-VIn" id="huR-3E-n5u"/>
                         <outlet property="categoryItemTextField" destination="BXc-Hx-ekG" id="Bip-3E-FqV"/>
                         <outlet property="clearPhotoButtonOutlet" destination="DGU-qv-NUk" id="I9x-Ey-5cR"/>
                         <outlet property="detailsItemTextView" destination="vSH-eU-A4l" id="fTu-cT-bUl"/>
@@ -853,13 +846,13 @@
                         <outlet property="enterImageItemLable" destination="n0i-Ei-amf" id="J4f-WH-v9c"/>
                         <outlet property="enterPriceItemLable" destination="4wG-kC-Zq6" id="DSE-fz-LKC"/>
                         <outlet property="enterTitleItemLable" destination="uJG-d5-tIe" id="GmZ-f4-3ba"/>
-                        <outlet property="incomePriceSaleViewTextFieldOutlet" destination="eki-Rw-17l" id="Bha-ND-1mi"/>
+                        <outlet property="incomePricesaleStackViewTextFieldOutlet" destination="eki-Rw-17l" id="SeJ-DP-x2a"/>
                         <outlet property="newItemLabel" destination="RO2-xO-oDR" id="Upo-xa-1Gl"/>
                         <outlet property="priceItemTextField" destination="Cwh-Md-XVw" id="mPU-Ox-KGC"/>
                         <outlet property="saleButtonOutlet" destination="hF6-Pz-TNz" id="Rz4-op-eee"/>
-                        <outlet property="saleView" destination="Wu7-Ge-L61" id="Ghb-fX-Vb2"/>
-                        <outlet property="saleViewLable" destination="ibL-Ss-ghv" id="jDF-Mz-mVU"/>
-                        <outlet property="saveButtonSaleViewOutlet" destination="K0M-5x-GHw" id="og6-LN-jqu"/>
+                        <outlet property="saleStackView" destination="AQf-ZI-Sy0" id="Cjs-nf-p9c"/>
+                        <outlet property="saleStackViewLable" destination="FYi-WN-ZV6" id="D1V-Os-hKO"/>
+                        <outlet property="saveButtonsaleStackViewOutlet" destination="K0M-5x-GHw" id="Ajv-Db-H6u"/>
                         <outlet property="saveItemButtonOutlet" destination="pKK-LD-brz" id="V8Q-pi-GAI"/>
                         <outlet property="scrollView" destination="p2f-iT-9gX" id="QMg-1w-HjH"/>
                         <outlet property="tapGestureOutlet" destination="eFg-aE-NIe" id="M6B-vr-aTS"/>

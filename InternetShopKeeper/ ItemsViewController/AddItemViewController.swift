@@ -54,12 +54,13 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var scrollView: UIScrollView!
     // add sale View and sale Button and text fields of view
     @IBOutlet weak var saleButtonOutlet: UIButton!
-    @IBOutlet weak var saleView: UIView!
-    @IBOutlet weak var saleViewLable: UILabel!
-    @IBOutlet weak var incomePriceSaleViewTextFieldOutlet: UITextField!
-    @IBOutlet weak var amountSaleViewTextFieldOutlet: UITextField!
-    @IBOutlet weak var cancelButtonSaleViewOutlet: UIButton!
-    @IBOutlet weak var saveButtonSaleViewOutlet: UIButton!
+    //TODO: to change by scrollView
+    @IBOutlet weak var saleStackView: UIStackView!
+    @IBOutlet weak var saleStackViewLable: UILabel!
+    @IBOutlet weak var incomePricesaleStackViewTextFieldOutlet: UITextField!
+    @IBOutlet weak var amountsaleStackViewTextFieldOutlet: UITextField!
+    @IBOutlet weak var cancelButtonsaleStackViewOutlet: UIButton!
+    @IBOutlet weak var saveButtonsaleStackViewOutlet: UIButton!
     // create delegate of AddCategoryViewController
     var delegateItem : AddItemViewControllerDelegate?
     //create instance of CRUDModelCategory
@@ -119,12 +120,9 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         detailsItemTextView.text = "Введіть деталі свого товару".localized
         detailsItemTextView.textColor = UIColor.lightGray
         detailsItemTextView.layer.cornerRadius = 5
-        //configure saleView
-        saleView.isHidden = true
-        saleView.layer.cornerRadius = 10
-        saleView.layer.shadowOpacity = 0.5
-        saleView.layer.shadowColor = UIColor.black.cgColor
-        saleView.layer.shadowOffset = .zero
+        //configure saleStackView
+        saleStackView.isHidden = true
+        saleStackView.alpha = 0.0
         // localize all objact
         newItemLabel.text = "Новий товар".localized
         enterImageItemLable.text = "Вибери фото товару".localized
@@ -139,11 +137,11 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         amountItemTextField.placeholder = "Кількість".localized
         enterDetailsItemLabel.text = "Опис вашого товару".localized
         saleButtonOutlet.setTitle("Продати товар".localized, for: .normal)
-        saleViewLable.text = "Ціна та кількість проданого товару".localized
-        incomePriceSaleViewTextFieldOutlet.placeholder = "Ціна".localized
-        amountSaleViewTextFieldOutlet.placeholder = "Кількість".localized
-        cancelButtonSaleViewOutlet.setTitle("Скасувати".localized, for: .normal)
-        saveButtonSaleViewOutlet.setTitle("Готово".localized, for: .normal)
+        saleStackViewLable.text = "Ціна та кількість проданого товару".localized
+        incomePricesaleStackViewTextFieldOutlet.placeholder = "Ціна".localized
+        amountsaleStackViewTextFieldOutlet.placeholder = "Кількість".localized
+        cancelButtonsaleStackViewOutlet.setTitle("Скасувати".localized, for: .normal)
+        saveButtonsaleStackViewOutlet.setTitle("Готово".localized, for: .normal)
         // get notification center to receive
         NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(_:)), name: .colorNotificationKey, object: nil)
         // create NotificationCenter for keyboardWillShowNotification and keyboardWillHideNotification
@@ -245,11 +243,11 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     // configure sale Button
     @IBAction func saleButtonAction(_ sender: UIButton) {
         print("Press Sale BUTTON")
-        incomePriceSaleViewTextFieldOutlet.text = ""
-        amountSaleViewTextFieldOutlet.text = ""
+        incomePricesaleStackViewTextFieldOutlet.text = ""
+        amountsaleStackViewTextFieldOutlet.text = ""
         UIView.animate(withDuration: 0.5) {
-            self.saleView.alpha = 1
-            self.saleView.isHidden = false
+            self.saleStackView.isHidden = false
+            self.saleStackView.alpha = 1
         }
     }
     // configure clear button photo
@@ -259,10 +257,10 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         tapGestureOutlet.isEnabled = true
     }
-    // configure press button SAVE of saleView
-    @IBAction func saveSaleViewButtonAction(_ sender: UIButton) {
-        let incomePrice = incomePriceSaleViewTextFieldOutlet.text ?? ""
-        let saleAmount = amountSaleViewTextFieldOutlet.text ?? ""
+    // configure press button SAVE of saleStackView
+    @IBAction func savesaleStackViewButtonAction(_ sender: UIButton) {
+        let incomePrice = incomePricesaleStackViewTextFieldOutlet.text ?? ""
+        let saleAmount = amountsaleStackViewTextFieldOutlet.text ?? ""
         item.incomePrice = String((Int(incomePrice) ?? 0) * (Int(saleAmount) ?? 0))
         let amount = amountItemTextField.text ?? ""
         let newAmount = (Int(amount) ?? 0) - (Int(saleAmount) ?? 0)
@@ -289,8 +287,8 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                 // pass sale to SalesTableViewController
                 sale.title = titleItemTextField.text ?? ""
                 sale.category = categoryItemTextField.text ?? ""
-                sale.price = incomePriceSaleViewTextFieldOutlet.text ?? ""
-                sale.amount = amountSaleViewTextFieldOutlet.text ?? ""
+                sale.price = incomePricesaleStackViewTextFieldOutlet.text ?? ""
+                sale.amount = amountsaleStackViewTextFieldOutlet.text ?? ""
                 sale.image = addImage.image ?? addImage.highlightedImage!
                 sale.id = UUID() .uuidString
                 sale.date = dateFormatter.string(from: currentDate)
@@ -298,22 +296,20 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                 guard let salesVC = storyboard.instantiateViewController(identifier: "SalesTableViewController") as? SalesTableViewController else { return }
                 salesVC.appendSale(sale: sale)
                 // configure hide saveView
-                UIView.animate(withDuration: 0.5, animations: {
-                    self.saleView.alpha = 0
-                }) { (finished) in
-                    self.saleView.isHidden = finished
+                UIView.animate(withDuration: 0.5) {
+                    self.saleStackView.alpha = 0
+                    self.saleStackView.isHidden = true
                 }
                 dismiss(animated: true, completion: nil)
             }
         }
     }
-    // configure cancel button of saleView
-    @IBAction func cancelSaleViewButtonAction(_ sender: UIButton) {
+    // configure cancel button of saleStackView
+    @IBAction func cancelsaleStackViewButtonAction(_ sender: UIButton) {
         // configure hide saveView
-        UIView.animate(withDuration: 0.5, animations: {
-            self.saleView.alpha = 0
-        }) { (finished) in
-            self.saleView.isHidden = finished
+        UIView.animate(withDuration: 0.5) {
+            self.saleStackView.alpha = 0
+            self.saleStackView.isHidden = true
         }
     }
     // configure open camera and add photo
