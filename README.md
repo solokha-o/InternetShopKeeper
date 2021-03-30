@@ -7,10 +7,18 @@ When start app first time you can see onboarding information about app ones.
 In "Categories" part you can add categories of your items.
 You can sort and filter categories.
 ![bbbb98da6bfe634aee6509ac12ce5651ce280094](https://user-images.githubusercontent.com/15982074/112946892-be33d580-913e-11eb-87e7-eb7d8a2ef8de.gif)
-In app you can count you coasts on buing item into your shop. It can do in "MyProduct" part. 
+In app you can count you coasts on buing item into your shop. It can do in "My Product" part. 
 You can sort and filter your items.
 And in "Statistic" part you can see all your costs on buing your items in the graffic by separeted on monthes.
 ![630b3174078ea6c990b5e8db32c87b313ff2b585](https://user-images.githubusercontent.com/15982074/112949669-26d08180-9142-11eb-8b81-af9e214c6cbe.gif)
 ![676d755b6dccb6065059e620c78550892223413e](https://user-images.githubusercontent.com/15982074/112949700-2cc66280-9142-11eb-8e0e-acc6db849386.gif)
+You can see your sales in "My sales" part. Add sales can in "My Product" part have choosen item what you need.
+And in "Statistic" part you can see all your sales of your items in the graffic by separeted on monthes.
+You can sort and filter your sales.
+![61bda2f6de44ca0cd936aceddbc85a258d109178](https://user-images.githubusercontent.com/15982074/112957789-75821980-914a-11eb-8587-68baf121e04d.gif)
+![b29d236cf655350ea4d41c95fced1a0f8bc8b8f2](https://user-images.githubusercontent.com/15982074/112957969-a5c9b800-914a-11eb-8a23-9c4bbf3057dd.gif)
+In "Statistic" part you can also see all your net profit that you get from sales your items in the graffic by separeted on monthes.
+![1c6e3c2b5ba07e8bdba8d23cb3599bab41c31ce2](https://user-images.githubusercontent.com/15982074/112958552-41f3bf00-914b-11eb-9f43-e3692be2848e.gif)
+And in "Tools" part you can change a color of theme'a app.
 
 
