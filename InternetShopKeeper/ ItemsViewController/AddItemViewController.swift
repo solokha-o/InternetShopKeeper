@@ -21,15 +21,15 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         var leftButtonTitle: String {
             switch self {
-            case .addItem: return "Скасувати".localized
-            case .editItem: return "Назад".localized
+                case .addItem: return "Скасувати".localized
+                case .editItem: return "Назад".localized
             }
         }
         
         var rightButtonTitle: String {
             switch self {
-            case .addItem: return "Готово".localized
-            case .editItem: return "Змінити".localized
+                case .addItem: return "Готово".localized
+                case .editItem: return "Змінити".localized
             }
         }
     }
@@ -146,7 +146,6 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         NotificationCenter.default.addObserver(self, selector: #selector(self.notificationReceived(_:)), name: .colorNotificationKey, object: nil)
         // create NotificationCenter for keyboardWillShowNotification and keyboardWillHideNotification
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         // formate of date
         dateFormatter.dateFormat = "dd.MM.yy"
     }
@@ -189,10 +188,10 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             textView.textColor = UIColor.lightGray
         }
     }
-//    //Deinit NotificationCenter
-//    deinit {
-//        NotificationCenter.default.removeObserver(self)
-//    }
+    //    //Deinit NotificationCenter
+    //    deinit {
+    //        NotificationCenter.default.removeObserver(self)
+    //    }
     // configure touchesBegan for state isInEdit
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if isInEdit {
@@ -347,46 +346,15 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         print("Press ADD.")
         // configure button to save item or edit item
         switch isInEdit {
-        case false:
-            item.title = titleItemTextField.text ?? ""
-            item.category = categoryItemTextField.text ?? ""
-            item.price = priceItemTextField.text ?? ""
-            item.amount = amountItemTextField.text ?? ""
-            item.details = detailsItemTextView.text ?? ""
-            item.id = UUID() .uuidString
-            item.image = addImage.image ?? addImage.highlightedImage!
-            item.date = dateFormatter.string(from: currentDate)
-            if item.title == "" || item.category == "" || item.price == "" || item.amount == "" || item.details == "" {
-                let alert = UIAlertController(title: "Ви забули!".localized, message: "Всі поля мають бути заповненими!".localized, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            } else {
-                delegateItem?.addItemViewController(self, didAddItem: item)
-                dismiss(animated: true, completion: nil)
-            }
-        case true:
-            currentState = .editItem
-            UIButton.animate(withDuration: 0.5) {
-                self.clearPhotoButtonOutlet.isHidden = false
-            }
-            sender.isMultipleTouchEnabled = true
-            sender.setTitle("Готово".localized, for: .normal)
-            titleItemTextField.isUserInteractionEnabled = true
-            categoryItemTextField.isUserInteractionEnabled = true
-            priceItemTextField.isUserInteractionEnabled = true
-            amountItemTextField.isUserInteractionEnabled = true
-            detailsItemTextView.isUserInteractionEnabled = true
-            tapGestureOutlet.isEnabled = false
-            saleButtonOutlet.isHidden = true
-            newItemLabel.text = "Зміни деталі товару".localized
-            enterImageItemLable.text = "Зміни фото твого товару".localized
-            if sender.titleLabel?.text == "Готово".localized{
+            case false:
                 item.title = titleItemTextField.text ?? ""
                 item.category = categoryItemTextField.text ?? ""
                 item.price = priceItemTextField.text ?? ""
                 item.amount = amountItemTextField.text ?? ""
                 item.details = detailsItemTextView.text ?? ""
+                item.id = UUID() .uuidString
                 item.image = addImage.image ?? addImage.highlightedImage!
+                item.date = dateFormatter.string(from: currentDate)
                 if item.title == "" || item.category == "" || item.price == "" || item.amount == "" || item.details == "" {
                     let alert = UIAlertController(title: "Ви забули!".localized, message: "Всі поля мають бути заповненими!".localized, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
@@ -394,9 +362,40 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                 } else {
                     delegateItem?.addItemViewController(self, didAddItem: item)
                     dismiss(animated: true, completion: nil)
-                    print("Delegate " + item.id)
                 }
-            }
+            case true:
+                currentState = .editItem
+                UIButton.animate(withDuration: 0.5) {
+                    self.clearPhotoButtonOutlet.isHidden = false
+                }
+                sender.isMultipleTouchEnabled = true
+                sender.setTitle("Готово".localized, for: .normal)
+                titleItemTextField.isUserInteractionEnabled = true
+                categoryItemTextField.isUserInteractionEnabled = true
+                priceItemTextField.isUserInteractionEnabled = true
+                amountItemTextField.isUserInteractionEnabled = true
+                detailsItemTextView.isUserInteractionEnabled = true
+                tapGestureOutlet.isEnabled = false
+                saleButtonOutlet.isHidden = true
+                newItemLabel.text = "Зміни деталі товару".localized
+                enterImageItemLable.text = "Зміни фото твого товару".localized
+                if sender.titleLabel?.text == "Готово".localized{
+                    item.title = titleItemTextField.text ?? ""
+                    item.category = categoryItemTextField.text ?? ""
+                    item.price = priceItemTextField.text ?? ""
+                    item.amount = amountItemTextField.text ?? ""
+                    item.details = detailsItemTextView.text ?? ""
+                    item.image = addImage.image ?? addImage.highlightedImage!
+                    if item.title == "" || item.category == "" || item.price == "" || item.amount == "" || item.details == "" {
+                        let alert = UIAlertController(title: "Ви забули!".localized, message: "Всі поля мають бути заповненими!".localized, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    } else {
+                        delegateItem?.addItemViewController(self, didAddItem: item)
+                        dismiss(animated: true, completion: nil)
+                        print("Delegate " + item.id)
+                    }
+                }
         }
     }
     // configure press button CANCEL
@@ -450,32 +449,14 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
 extension AddItemViewController: UITextFieldDelegate, UITextViewDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
-        case titleItemTextField:
-            priceItemTextField.becomeFirstResponder()
-        case priceItemTextField:
-            amountItemTextField.becomeFirstResponder()
-        case amountItemTextField:
-            detailsItemTextView.becomeFirstResponder()
-        default: break
+            case titleItemTextField:
+                priceItemTextField.becomeFirstResponder()
+            case priceItemTextField:
+                amountItemTextField.becomeFirstResponder()
+            case amountItemTextField:
+                detailsItemTextView.becomeFirstResponder()
+            default: break
         }
-        return true
-    }
-    // Move textfield when keyboard appears
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        scrollView.setContentOffset(CGPoint(x: 0, y: textField.superview?.frame.origin.y ?? 0), animated: true)
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
-    }
-    
-    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-        scrollView.setContentOffset(CGPoint(x: 0, y: textView.superview?.frame.origin.y ?? 0), animated: true)
-        return true
-    }
-    
-    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
-        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         return true
     }
 }

@@ -45,7 +45,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="6MI-Y3-MJB">
                                         <rect key="frame" x="0.0" y="0.0" width="139.5" height="56.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Назва товару" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mkk-7r-FEe">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Назва товару" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mkk-7r-FEe">
                                                 <rect key="frame" x="0.0" y="0.0" width="123.5" height="34"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <nil key="textColor"/>
@@ -120,8 +120,14 @@
                     <constraint firstItem="2JT-gP-r39" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ufV-We-wZt"/>
                     <constraint firstItem="2JT-gP-r39" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="vdI-9o-MbA"/>
                 </constraints>
+                <connections>
+                    <outlet property="accessoryView" destination="KGk-i7-Jjw" id="xq7-HC-PnU"/>
+                </connections>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <constraints>
+                <constraint firstItem="2JT-gP-r39" firstAttribute="width" secondItem="njF-e1-oar" secondAttribute="width" multiplier="0.915625" id="a0C-T0-LLc"/>
+            </constraints>
             <connections>
                 <outlet property="amountItemLable" destination="e5d-eG-UZh" id="RQX-dj-JPe"/>
                 <outlet property="categoryItemLable" destination="lde-HS-qmQ" id="hrA-yS-rWP"/>
