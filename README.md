@@ -22,3 +22,5 @@ In "Statistic" part you can also see all your net profit that you get from sales
 And in "Tools" part you can change a color of themes app.</br>
 ![9005b39f49142abace3c43ac69c2f3cab7a519fd](https://user-images.githubusercontent.com/15982074/112959233-e249e380-914b-11eb-807b-2f5e82a44281.gif)</br>
 All parts of app localised by two language - english and ukrainian.</br>
+
+MIT-License
