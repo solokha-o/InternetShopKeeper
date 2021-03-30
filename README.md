@@ -11,7 +11,7 @@ In the app you can count you coasts on buing item into your shop. It can do in "
 You can sort and filter your items.</br>
 And in "Statistic" part you can see all your costs on buing your items on the graphic for separeted by monthes.</br>
 ![630b3174078ea6c990b5e8db32c87b313ff2b585](https://user-images.githubusercontent.com/15982074/112949669-26d08180-9142-11eb-8b81-af9e214c6cbe.gif)
-![676d755b6dccb6065059e620c78550892223413e](https://user-images.githubusercontent.com/15982074/112949700-2cc66280-9142-11eb-8e0e-acc6db849386.gif)
+![676d755b6dccb6065059e620c78550892223413e](https://user-images.githubusercontent.com/15982074/112949700-2cc66280-9142-11eb-8e0e-acc6db849386.gif)</br>
 You can see your sales in "My sales" part. You can add sales in "My Product" part have choosen item what you need to sale.</br>
 And in "Statistic" part you can see all your sales of your items on the graphic for separeted by monthes.</br>
 You can sort and filter your sales.</br>
