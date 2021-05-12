@@ -94,19 +94,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-    // CRUD Core Data
-    func createData () {
-        
-    }
-    func retrieveData () {
-        
-    }
-    func updateData () {
-        
-    }
-    func deleteData() {
-        
-    }
-
 }
 
