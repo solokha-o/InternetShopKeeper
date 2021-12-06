@@ -177,71 +177,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DB2E3B272448C8570043DD7C /*  ItemsViewController */ = {
-			isa = PBXGroup;
-			children = (
-				DB599BA924099F230065CA3D /* AddItemViewController.swift */,
-				DBDC7E982409B345005E35CA /* ItemTableViewController.swift */,
-				DB07E26C24100CE600A86645 /* ItemTableViewCell.swift */,
-				DB07E26D24100CE600A86645 /* ItemTableViewCell.xib */,
-				DB3F300D243B76E60021D09F /* ItemStruct.swift */,
-				DBFD8510261CDA0F00FDA7AD /* ItemCosts.swift */,
-				DB4A132F244B1E0800F7A266 /* CRUDModelItem.swift */,
-				DBFD8516261EC15300FDA7AD /* CRUD.swift */,
-			);
-			path = " ItemsViewController";
-			sourceTree = "<group>";
-		};
-		DB2E3B282448CCEE0043DD7C /* CategoriesViewController */ = {
-			isa = PBXGroup;
-			children = (
-				DB3B46EC2416B33800A79BB0 /* AddCategoryViewController.swift */,
-				DB1BFD5B2416BA3E00197229 /* CategoryTableViewController.swift */,
-				DB3F3008243B759D0021D09F /* CategoryStruct.swift */,
-				DB2E3B2D2448CDE90043DD7C /* CRUDModelCategory.swift */,
-			);
-			path = CategoriesViewController;
-			sourceTree = "<group>";
-		};
-		DB2E3B292448CD3E0043DD7C /* StatisticViewController */ = {
-			isa = PBXGroup;
-			children = (
-				DB934515245743A400867D72 /* StatisticTableViewController.swift */,
-				DBAFB6F7246C54C50009C1B1 /* CostsViewController.swift */,
-				DB2B12342470336C003E213C /* SalesViewController.swift */,
-				DB06C6EA2611B82F0055AC57 /* ProfitViewController.swift */,
-			);
-			path = StatisticViewController;
-			sourceTree = "<group>";
-		};
-		DB2E3B2A2448CD550043DD7C /* ToolsViewController */ = {
-			isa = PBXGroup;
-			children = (
-				DB81E8432438CAEC0097E606 /* ToolsTableViewController.swift */,
-				DBEF553D2476CA350078826D /* ColorAppTableViewCell.swift */,
-				DBEF553E2476CA350078826D /* ColorAppTableViewCell.xib */,
-			);
-			path = ToolsViewController;
-			sourceTree = "<group>";
-		};
-		DB2E3B2B2448CD6F0043DD7C /* OnboardingViewController */ = {
-			isa = PBXGroup;
-			children = (
-				DB7098A9243E316B00AA4159 /* OnboardingViewController.swift */,
-				DB7098A7243E2FA000AA4159 /* FirstLaunchPageViewController.swift */,
-				DB7098A5243E2F5300AA4159 /* FirstLaunchViewController.swift */,
-				DB7098A3243E2E5D00AA4159 /* ModelFirstLaunch.swift */,
-			);
-			path = OnboardingViewController;
-			sourceTree = "<group>";
-		};
-		DB2E3B2C2448CD9A0043DD7C /* Localase */ = {
+		DB2E3B2C2448CD9A0043DD7C /* Localized */ = {
 			isa = PBXGroup;
 			children = (
 				DBF460022444B8020045349E /* String+Localized.swift */,
 				DBF460002444B7870045349E /* Localizable.strings */,
 			);
-			path = Localase;
+			path = Localized;
 			sourceTree = "<group>";
 		};
 		DB599B8824098D3A0065CA3D = {
@@ -266,15 +208,11 @@
 			isa = PBXGroup;
 			children = (
 				DB599B9424098D3B0065CA3D /* AppDelegate.swift */,
-				DBF45FF52444B0520045349E /* TabBarController.swift */,
-				DB2DA6AA247C06E7006D2073 /* CRUDModelAppColor.swift */,
-				DB2E3B272448C8570043DD7C /*  ItemsViewController */,
-				DB2E3B282448CCEE0043DD7C /* CategoriesViewController */,
-				DB8AB45D244C560600D5D9E9 /* SalesViewController */,
-				DB2E3B292448CD3E0043DD7C /* StatisticViewController */,
-				DB2E3B2A2448CD550043DD7C /* ToolsViewController */,
-				DB2E3B2B2448CD6F0043DD7C /* OnboardingViewController */,
-				DB2E3B2C2448CD9A0043DD7C /* Localase */,
+				DBC7690D275E97CC00924A1D /* Models */,
+				DBC76912275E992000924A1D /* Views */,
+				DBC76906275E95E300924A1D /* Controllers */,
+				DBC7690F275E986C00924A1D /* ViewModel */,
+				DB2E3B2C2448CD9A0043DD7C /* Localized */,
 				DB599B9824098D3B0065CA3D /* Main.storyboard */,
 				DB599B9E24098D3B0065CA3D /* Assets.xcassets */,
 				DB599BA024098D3B0065CA3D /* LaunchScreen.storyboard */,
@@ -282,18 +220,6 @@
 				DB599B9B24098D3B0065CA3D /* InternetShopKeeper.xcdatamodeld */,
 			);
 			path = InternetShopKeeper;
-			sourceTree = "<group>";
-		};
-		DB8AB45D244C560600D5D9E9 /* SalesViewController */ = {
-			isa = PBXGroup;
-			children = (
-				DB8AB461244C564100D5D9E9 /* SalesTableViewController.swift */,
-				DBB58BDA244DE0D700662826 /* SalesTableViewCell.swift */,
-				DBB58BDB244DE0D700662826 /* SalesTableViewCell.xib */,
-				DBB58BE1244DEC8D00662826 /* SalesStruct.swift */,
-				DBB58BE3244DECA700662826 /* CRUDModelSales.swift */,
-			);
-			path = SalesViewController;
 			sourceTree = "<group>";
 		};
 		DBAFB6FC246C67C30009C1B1 /* Products */ = {
@@ -304,6 +230,128 @@
 				DBAFB706246C67C30009C1B1 /* AAInfographicsDemoUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		DBC76906275E95E300924A1D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DBF45FF52444B0520045349E /* TabBarController.swift */,
+				DBC76908275E96F100924A1D /* Items */,
+				DBC76909275E973400924A1D /* Categories */,
+				DBC7690A275E976700924A1D /* Sales */,
+				DBC7690E275E982E00924A1D /* Statistics */,
+				DBC7690B275E977C00924A1D /* Tools */,
+				DBC7690C275E978700924A1D /* Onboarding */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DBC76908275E96F100924A1D /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				DB599BA924099F230065CA3D /* AddItemViewController.swift */,
+				DBDC7E982409B345005E35CA /* ItemTableViewController.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		DBC76909275E973400924A1D /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				DB3B46EC2416B33800A79BB0 /* AddCategoryViewController.swift */,
+				DB1BFD5B2416BA3E00197229 /* CategoryTableViewController.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		DBC7690A275E976700924A1D /* Sales */ = {
+			isa = PBXGroup;
+			children = (
+				DB8AB461244C564100D5D9E9 /* SalesTableViewController.swift */,
+			);
+			path = Sales;
+			sourceTree = "<group>";
+		};
+		DBC7690B275E977C00924A1D /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				DB81E8432438CAEC0097E606 /* ToolsTableViewController.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		DBC7690C275E978700924A1D /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				DB7098A7243E2FA000AA4159 /* FirstLaunchPageViewController.swift */,
+				DB7098A9243E316B00AA4159 /* OnboardingViewController.swift */,
+				DB7098A5243E2F5300AA4159 /* FirstLaunchViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		DBC7690D275E97CC00924A1D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DBC76911275E98E200924A1D /* CRUD */,
+				DBC76910275E98BF00924A1D /* Data */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DBC7690E275E982E00924A1D /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				DB934515245743A400867D72 /* StatisticTableViewController.swift */,
+				DBAFB6F7246C54C50009C1B1 /* CostsViewController.swift */,
+				DB2B12342470336C003E213C /* SalesViewController.swift */,
+				DB06C6EA2611B82F0055AC57 /* ProfitViewController.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
+		DBC7690F275E986C00924A1D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DB7098A3243E2E5D00AA4159 /* ModelFirstLaunch.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DBC76910275E98BF00924A1D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DB3F300D243B76E60021D09F /* ItemStruct.swift */,
+				DBFD8510261CDA0F00FDA7AD /* ItemCosts.swift */,
+				DB3F3008243B759D0021D09F /* CategoryStruct.swift */,
+				DBB58BE1244DEC8D00662826 /* SalesStruct.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		DBC76911275E98E200924A1D /* CRUD */ = {
+			isa = PBXGroup;
+			children = (
+				DB2DA6AA247C06E7006D2073 /* CRUDModelAppColor.swift */,
+				DB4A132F244B1E0800F7A266 /* CRUDModelItem.swift */,
+				DB2E3B2D2448CDE90043DD7C /* CRUDModelCategory.swift */,
+				DBB58BE3244DECA700662826 /* CRUDModelSales.swift */,
+				DBFD8516261EC15300FDA7AD /* CRUD.swift */,
+			);
+			path = CRUD;
+			sourceTree = "<group>";
+		};
+		DBC76912275E992000924A1D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DB07E26C24100CE600A86645 /* ItemTableViewCell.swift */,
+				DB07E26D24100CE600A86645 /* ItemTableViewCell.xib */,
+				DBB58BDA244DE0D700662826 /* SalesTableViewCell.swift */,
+				DBB58BDB244DE0D700662826 /* SalesTableViewCell.xib */,
+				DBEF553D2476CA350078826D /* ColorAppTableViewCell.swift */,
+				DBEF553E2476CA350078826D /* ColorAppTableViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		DBFAB63824339C2C00108421 /* Products */ = {
