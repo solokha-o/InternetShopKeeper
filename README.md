@@ -34,6 +34,7 @@
 ## Includes
 - UIKit, CoreData, MessageUI Framework.
 - Custom Modifiers.
+- MVC,
 - [DropDown](https://cocoapods.org/pods/DropDown) pod framework.
 - [AAInfographics] (https://github.com/AAChartModel/AAChartKit-Swift) pod framework.
 
