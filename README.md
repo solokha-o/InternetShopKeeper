@@ -32,7 +32,7 @@
 
   
 ## Includes
-- UIKit, CoreData, MessageUI Framework.
+- UIKit, CoreData Framework.
 - Custom Modifiers.
 - MVC,
 - [DropDown](https://cocoapods.org/pods/DropDown) pod framework.
