@@ -36,7 +36,7 @@
 - Custom Modifiers.
 - MVC,
 - [DropDown](https://cocoapods.org/pods/DropDown) pod framework.
-- [AAInfographics] (https://github.com/AAChartModel/AAChartKit-Swift) pod framework.
+- [AAInfographics](https://github.com/AAChartModel/AAChartKit-Swift) pod framework.
 
 ## Author
 * [Oleksandr Solokha](https://github.com/solokha-o)
